@@ -1,0 +1,20 @@
+# Carpetas de Unity que NO deben subirse
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+MemoryCaptures/
+
+# Archivos de Visual Studio / Rider
+*.csproj
+*.sln
+*.user
+*.vs/
+.idea/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
