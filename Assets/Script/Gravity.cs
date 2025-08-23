@@ -21,7 +21,8 @@ public class Gravity : MonoBehaviour
         }
     }
 
-    //hola
+    //hola esto es una prueba
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!isActive)
