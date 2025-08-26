@@ -1,9 +1,18 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Gravity : MonoBehaviour
 {
     public float strenght = 10f;
     public bool isActive = true;
+    [SerializeField] private InputActionReference GravityAction;
+
+
+    private void Start()
+    {
+        GravityAction.action.performed += HandleVoidInput;
+
+    }
 
     public void ToggleGravity()
     {
@@ -11,17 +20,16 @@ public class Gravity : MonoBehaviour
         Debug.Log($"Gravity is now {(isActive ? "active" : "inactive")}");
     }
 
-
-    public void Update()
+    private void HandleVoidInput(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (context.performed)
         {
             ToggleGravity();
-         
         }
     }
 
-    //hola esto es una prueba
+
+
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -34,7 +42,7 @@ public class Gravity : MonoBehaviour
         {
             rb.WakeUp();
             Vector2 direction = (Vector2)transform.position - rb.position;
-            rb.AddForce((direction.normalized * strenght * Time.deltaTime)/direction.magnitude, ForceMode2D.Force);
+            rb.AddForce((direction.normalized * strenght)/direction.magnitude, ForceMode2D.Force);
             Debug.Log($"Applying gravity to {other.name} with strength {strenght} in direction {direction.normalized}");
 
         }
