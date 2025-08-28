@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.stalengd.quickruletileeditor": {
-      "version": "file:D:/QuickRuleTileEditor-main",
+      "version": "file:C:/Users/Mayra/Downloads/QuickRuleTileEditor-main/QuickRuleTileEditor-main",
       "depth": 0,
       "source": "local",
       "dependencies": {}
@@ -203,6 +203,15 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.postprocessing": {
+      "version": "3.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {

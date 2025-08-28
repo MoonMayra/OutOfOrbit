@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.stalengd.quickruletileeditor": "file:D:/QuickRuleTileEditor-main",
+    "com.stalengd.quickruletileeditor": "file:C:/Users/Mayra/Downloads/QuickRuleTileEditor-main/QuickRuleTileEditor-main",
     "com.unity.2d.animation": "10.1.4",
     "com.unity.2d.pixel-perfect": "5.0.3",
     "com.unity.2d.psdimporter": "9.0.3",
@@ -15,6 +15,7 @@
     "com.unity.ide.vscode": "1.2.3",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.multiplayer.center": "1.0.0",
+    "com.unity.postprocessing": "3.4.0",
     "com.unity.render-pipelines.universal": "17.0.3",
     "com.unity.test-framework": "1.4.5",
     "com.unity.timeline": "1.8.7",
