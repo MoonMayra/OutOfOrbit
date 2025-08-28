@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.508
+    m_Value: 0.14
 --- !u!114 &-6783311936595123556
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -34,7 +34,7 @@ MonoBehaviour:
     m_Value: 7
   intensity:
     m_OverrideState: 1
-    m_Value: 0.298
+    m_Value: 0.558
   response:
     m_OverrideState: 1
     m_Value: 0.916
@@ -53,19 +53,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06437c1ff663d574d9447842ba0a72e4, type: 3}
   m_Name: ScreenSpaceLensFlare
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 16.64
+    m_Value: 15.7
   tintColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.83003664, b: 0.08018869, a: 1}
+    m_Value: {r: 1, g: 0.5170796, b: 0, a: 1}
   bloomMip:
     m_OverrideState: 0
     m_Value: 1
   firstFlareIntensity:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 15.7
   secondaryFlareIntensity:
     m_OverrideState: 0
     m_Value: 1
@@ -127,6 +127,7 @@ MonoBehaviour:
   - {fileID: 5857412463069196703}
   - {fileID: -8165155799488204997}
   - {fileID: -6666718757688226644}
+  - {fileID: 6512244256359608652}
 --- !u!114 &373614474496471315
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -139,16 +140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.05047784, b: 0, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.454
+    m_Value: 0.56
   smoothness:
     m_OverrideState: 0
     m_Value: 0.2
@@ -167,10 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
-    m_OverrideState: 0
-    m_Value: -0.59
+    m_OverrideState: 1
+    m_Value: 0.57
   xMultiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -183,6 +184,31 @@ MonoBehaviour:
   scale:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &6512244256359608652
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  mode:
+    m_OverrideState: 1
+    m_Value: 0
+  quality:
+    m_OverrideState: 0
+    m_Value: 0
+  intensity:
+    m_OverrideState: 0
+    m_Value: 0
+  clamp:
+    m_OverrideState: 0
+    m_Value: 0.05
 --- !u!114 &7160889027522673666
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -201,10 +227,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.91
   intensity:
     m_OverrideState: 1
-    m_Value: 7.15
+    m_Value: 8.38
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -213,7 +239,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.7555547, g: 0, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.5943396, b: 0.91814476, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
