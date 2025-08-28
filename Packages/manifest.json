@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.stalengd.quickruletileeditor": "file:C:/Users/Mayra/Downloads/QuickRuleTileEditor-main/QuickRuleTileEditor-main",
+    "com.stalengd.quickruletileeditor": "file:../QuickRuleTileEditor-main",
     "com.unity.2d.animation": "10.1.4",
     "com.unity.2d.pixel-perfect": "5.0.3",
     "com.unity.2d.psdimporter": "9.0.3",

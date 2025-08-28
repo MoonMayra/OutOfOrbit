@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.stalengd.quickruletileeditor": {
-      "version": "file:C:/Users/Mayra/Downloads/QuickRuleTileEditor-main/QuickRuleTileEditor-main",
+      "version": "file:../QuickRuleTileEditor-main",
       "depth": 0,
       "source": "local",
       "dependencies": {}
