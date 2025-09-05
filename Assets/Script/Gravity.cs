@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Gravity : MonoBehaviour
@@ -6,11 +6,14 @@ public class Gravity : MonoBehaviour
     public float strenght = 10f;
     public bool isActive = true;
     [SerializeField] private InputActionReference GravityAction;
+    [SerializeField] private Animator animator;
 
 
     private void Start()
     {
         GravityAction.action.performed += HandleVoidInput;
+        animator = GetComponent<Animator>();
+
 
     }
 
@@ -22,10 +25,12 @@ public class Gravity : MonoBehaviour
 
     private void HandleVoidInput(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isActive)
         {
+            animator.SetTrigger("isActive");
             ToggleGravity();
         }
+
     }
 
 
