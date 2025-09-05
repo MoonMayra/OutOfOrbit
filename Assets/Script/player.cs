@@ -9,8 +9,10 @@ public class player : MonoBehaviour
     [SerializeField] private InputActionReference AttackAction;
     [SerializeField] private InputActionReference VoidAction;
     [SerializeField] private GameObject GravityField;
+    [SerializeField] private float fallSpeed = 5.0f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float gravity = -9.81f;
     private Vector3 mousePos;
     private Vector3 worldPos;
     private bool isGrounded = true;
@@ -114,6 +116,7 @@ public class player : MonoBehaviour
 
         if (isGrounded)
         {
+
             if (moveX.x != 0)
             {
                 animator.SetInteger("state", 1);
@@ -131,6 +134,8 @@ public class player : MonoBehaviour
             }
             else if (rb.linearVelocity.y < 0)
             {
+                Debug.Log("Estoy cayendo");
+                rb.linearVelocity = new Vector2 (rb.linearVelocity.x, rb.linearVelocity.y*fallSpeed);
                 animator.SetInteger("state", 3);
             }
         }
@@ -141,11 +146,8 @@ public class player : MonoBehaviour
         {
             isGrounded = true;
             Debug.Log("Object is grounded.");
-            if (rb.linearVelocityY < 0)
-            {
-                animator.SetTrigger("land"); 
-                Debug.Log("Toco un piso");
-            }
+            animator.SetTrigger("land"); 
+
         }
 
     }

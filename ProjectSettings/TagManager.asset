@@ -43,5 +43,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 3653379215
+    locked: 0
+  - name: Piso
+    uniqueID: 2232978813
+    locked: 0
   m_RenderingLayers:
   - Default
