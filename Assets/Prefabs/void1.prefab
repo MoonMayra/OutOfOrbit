@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4847648190649666754}
   - component: {fileID: 9163904452083280733}
   m_Layer: 0
-  m_Name: void
+  m_Name: void1
   m_TagString: Voids
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.13
+  m_FalloffIntensity: 0.784
   m_Color: {r: 1, g: 0, b: 0.058080673, a: 1}
   m_Intensity: 2.31
   m_LightVolumeIntensity: 1
