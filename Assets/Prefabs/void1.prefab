@@ -13,9 +13,13 @@ GameObject:
   - component: {fileID: 5324606344621782527}
   - component: {fileID: 8656473413657233491}
   - component: {fileID: 4847648190649666754}
+<<<<<<< HEAD:Assets/Prefabs/void.prefab
   - component: {fileID: -5031692709501498018}
+=======
+  - component: {fileID: 9163904452083280733}
+>>>>>>> f3bd26c0080bf9a9328288a7c433a58c9198ab81:Assets/Prefabs/void1.prefab
   m_Layer: 0
-  m_Name: void
+  m_Name: void1
   m_TagString: Voids
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -80,8 +84,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
+<<<<<<< HEAD:Assets/Prefabs/void.prefab
   m_Sprite: {fileID: 2208703988740019828, guid: 69ac8e3ad52256c4288f895f26606b4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+=======
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.8238993, g: 0.8238993, b: 0.8238993, a: 0.22352941}
+>>>>>>> f3bd26c0080bf9a9328288a7c433a58c9198ab81:Assets/Prefabs/void1.prefab
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -166,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0093fb91cc52137448a11e6b819f6272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Prefabs/void.prefab
   strenght: 600
   isActive: 0
   GravityAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
@@ -173,12 +183,20 @@ MonoBehaviour:
 --- !u!95 &-5031692709501498018
 Animator:
   serializedVersion: 7
+=======
+  strenght: 1000
+  isActive: 0
+  GravityAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!114 &9163904452083280733
+MonoBehaviour:
+>>>>>>> f3bd26c0080bf9a9328288a7c433a58c9198ab81:Assets/Prefabs/void1.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526093498234406342}
   m_Enabled: 1
+<<<<<<< HEAD:Assets/Prefabs/void.prefab
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c489452fbf0aa3b47a548c7aba14f978, type: 2}
   m_CullingMode: 0
@@ -192,3 +210,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.784
+  m_Color: {r: 1, g: 0, b: 0.058080673, a: 1}
+  m_Intensity: 2.31
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 8.02
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+>>>>>>> f3bd26c0080bf9a9328288a7c433a58c9198ab81:Assets/Prefabs/void1.prefab
