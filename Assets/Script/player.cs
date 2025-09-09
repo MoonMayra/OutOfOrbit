@@ -1,25 +1,18 @@
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
+
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference JumpAction;
     [SerializeField] private InputActionReference AttackAction;
     [SerializeField] private InputActionReference VoidAction;
-<<<<<<< HEAD
     [SerializeField] private GameObject GravityField;
     [SerializeField] private float fallSpeed = 5.0f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float gravity = -9.81f;
-=======
-    [SerializeField] private GameObject[] GravityFields = new GameObject[3];
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
-    
->>>>>>> f3bd26c0080bf9a9328288a7c433a58c9198ab81
     private Vector3 mousePos;
     private Vector3 worldPos;
     private bool isGrounded = true;
@@ -27,21 +20,18 @@ public class player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private GameObject[] activeVoids = new GameObject[3];
-    private int nextVoidIndex = 0;
+    private int voidCount = 0;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // Ensure Rigidbody2D component exists
         if (rb == null)
         {
             Debug.LogError("Rigidbody component not found on the GameObject.");
         }
-
         rb.WakeUp();
         moveAction.action.started += HandleMoveInput;
         moveAction.action.performed += HandleMoveInput;
@@ -52,39 +42,28 @@ public class player : MonoBehaviour
         AttackAction.action.performed += HandleAttackInput;
 
         VoidAction.action.performed += HandleVoidInput;
+
     }
 
-    public void CreateField()
+    public void CreateField ()
     {
-        if (activeVoids[nextVoidIndex] != null) // if there's an active void in this slot, destroy it :p
+        if (voidCount == 0)
         {
-            Destroy(activeVoids[nextVoidIndex]); 
+            voidCount++;
+            Instantiate(GravityField, worldPos, Quaternion.identity);
         }
-
-        GameObject newVoid = null;
-        switch (nextVoidIndex)
+        else
         {
-            case 0:
-                newVoid = Instantiate(GravityFields[0], worldPos, Quaternion.identity);
-                break;
-            case 1:
-                newVoid = Instantiate(GravityFields[1], worldPos, Quaternion.identity);
-                break;
-            case 2:
-                newVoid = Instantiate(GravityFields[2], worldPos, Quaternion.identity);
-                break;
+            Object.Destroy(GameObject.FindWithTag("Voids"));
+            Instantiate(GravityField, worldPos, Quaternion.identity);
         }
-
-        activeVoids[nextVoidIndex] = newVoid;
-
-        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D
     }
 
     private void HandleVoidInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            mousePos = Mouse.current.position.ReadValue();
+            mousePos = Mouse.current.position.ReadValue(); 
             worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0;
             CreateField();
@@ -118,7 +97,9 @@ public class player : MonoBehaviour
             Debug.Log("Jump Input Detected");
 
         }
+
     }
+
     private void Update()
     {
 
