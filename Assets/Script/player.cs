@@ -8,19 +8,25 @@ public class player : MonoBehaviour
     [SerializeField] private InputActionReference JumpAction;
     [SerializeField] private InputActionReference AttackAction;
     [SerializeField] private InputActionReference VoidAction;
-    [SerializeField] private GameObject GravityField;
+
+    [SerializeField] private GameObject[] GravityFields = new GameObject[3];
     [SerializeField] private float fallSpeed = 5.0f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float gravity = -9.81f;
     private Vector3 mousePos;
     private Vector3 worldPos;
-    private bool isGrounded = true;
+    [SerializeField] private bool isGrounded = true;
+    private bool isJumping = false;
+    private bool isRunning = false;
+    private bool isFalling = false;
+    private bool isShooting = false;
     private Vector2 moveX;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private int voidCount = 0;
+    private GameObject[] activeVoids = new GameObject[3];
+    private int nextVoidIndex = 0;
 
 
     private void Start()
@@ -39,46 +45,51 @@ public class player : MonoBehaviour
 
         JumpAction.action.performed += HandleJumpInput;
 
-        AttackAction.action.performed += HandleAttackInput;
 
         VoidAction.action.performed += HandleVoidInput;
 
     }
 
-    public void CreateField ()
+    public void CreateField()
     {
-        if (voidCount == 0)
+        if (activeVoids[nextVoidIndex] != null) // if there's an active void in this slot, destroy it :p
         {
-            voidCount++;
-            Instantiate(GravityField, worldPos, Quaternion.identity);
+            Destroy(activeVoids[nextVoidIndex]);
+
         }
-        else
+
+        GameObject newVoid = null;
+        switch (nextVoidIndex)
         {
-            Object.Destroy(GameObject.FindWithTag("Voids"));
-            Instantiate(GravityField, worldPos, Quaternion.identity);
+            case 0:
+                newVoid = Instantiate(GravityFields[0], worldPos, Quaternion.identity);
+                break;
+            case 1:
+                newVoid = Instantiate(GravityFields[1], worldPos, Quaternion.identity);
+                break;
+            case 2:
+                newVoid = Instantiate(GravityFields[2], worldPos, Quaternion.identity);
+                break;
         }
+
+        activeVoids[nextVoidIndex] = newVoid;
+
+        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D
     }
 
     private void HandleVoidInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            mousePos = Mouse.current.position.ReadValue(); 
+            mousePos = Mouse.current.position.ReadValue();
             worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             worldPos.z = 0;
+            isShooting = true;
             CreateField();
         }
     }
 
-    private void HandleAttackInput(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            animator.SetTrigger("shoot");
-            Debug.Log("Attack Input Detected");
 
-        }
-    }
 
     private void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -99,11 +110,30 @@ public class player : MonoBehaviour
         }
 
     }
+    private void HandleAnimations()
+    {
+
+        animator.SetBool("isJumping", isJumping);
+        animator.SetBool("isFalling", isFalling);
+        animator.SetBool("isShooting", isShooting);
+        animator.SetBool("isRunning", isRunning);
+
+
+    }
+
 
     private void Update()
     {
 
         rb.linearVelocity = new Vector2(moveX.x, rb.linearVelocity.y);
+        HandleAnimations();
+
+        if (isShooting)
+        {
+            isShooting = false;
+        }
+
+
 
         if (moveX.x > 0)
         {
@@ -119,24 +149,34 @@ public class player : MonoBehaviour
 
             if (moveX.x != 0)
             {
-                animator.SetInteger("state", 1);
+                isFalling = false;
+                isJumping = false;
+                isRunning = true;
             }
             else if (moveX.x == 0)
             {
-                animator.SetInteger("state", 0);
+                isFalling = false;
+                isJumping = false;
+                isRunning = false;
             }
         }
         else
         {
             if (rb.linearVelocity.y > 0)
             {
-                animator.SetInteger("state", 2);
+                isJumping = true;
+                isFalling = false;
+                isRunning = false;
             }
             else if (rb.linearVelocity.y < 0)
             {
+                isJumping = false;
+                isFalling = true;
+                isRunning = false;
+
                 Debug.Log("Estoy cayendo");
                 rb.linearVelocity = new Vector2 (rb.linearVelocity.x, rb.linearVelocity.y*fallSpeed);
-                animator.SetInteger("state", 3);
+
             }
         }
     }
@@ -146,7 +186,8 @@ public class player : MonoBehaviour
         {
             isGrounded = true;
             Debug.Log("Object is grounded.");
-            animator.SetTrigger("land"); 
+            isJumping = false;
+            isFalling = false;
 
         }
 

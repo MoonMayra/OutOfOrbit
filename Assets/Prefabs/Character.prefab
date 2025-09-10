@@ -214,7 +214,10 @@ MonoBehaviour:
   JumpAction: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   AttackAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   VoidAction: {fileID: 6284116882949636389, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  GravityField: {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
+  GravityFields:
+  - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
+  - {fileID: 526093498234406342, guid: 98a3b9c2bc9eb184ba3e15e318436001, type: 3}
+  - {fileID: 526093498234406342, guid: f159743a02b535443bd59574ae1a590a, type: 3}
   fallSpeed: 1.1
   moveSpeed: 8
   jumpForce: 80
