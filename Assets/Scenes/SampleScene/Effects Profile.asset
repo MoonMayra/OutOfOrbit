@@ -34,7 +34,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.187
+    m_Value: 1
   response:
     m_OverrideState: 1
     m_Value: 1
@@ -53,13 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06437c1ff663d574d9447842ba0a72e4, type: 3}
   m_Name: ScreenSpaceLensFlare
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 108.34
+    m_Value: 0.6
   tintColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.4470588, b: 0.7672123, a: 1}
+    m_Value: {r: 1, g: 0.67104197, b: 0.4470588, a: 1}
   bloomMip:
     m_OverrideState: 0
     m_Value: 1
@@ -227,10 +227,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.91
+    m_Value: 0.63
   intensity:
     m_OverrideState: 1
-    m_Value: 1.02
+    m_Value: 0.82
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -239,7 +239,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.5943396, b: 0.91814476, a: 1}
+    m_Value: {r: 0.764151, g: 0.5646435, b: 0.378471, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0

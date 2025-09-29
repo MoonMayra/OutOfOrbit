@@ -43,11 +43,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2114674437
+    locked: 0
+  - name: Floor
+    uniqueID: 2232978813
+    locked: 0
+  - name: Object_BG
+    uniqueID: 3467673435
+    locked: 0
+  - name: Hazards
+    uniqueID: 1159951913
+    locked: 0
   - name: Player
     uniqueID: 3653379215
     locked: 0
-  - name: Piso
-    uniqueID: 2232978813
+  - name: Enemy
+    uniqueID: 861529127
     locked: 0
   m_RenderingLayers:
   - Default
