@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float accelTimeAir = 1.0f;
     [SerializeField] private float controlInAir = 1.0f;
 
-
     [Header("Jump")]
     [SerializeField] private float jumpHeight = 3.0f;
     [SerializeField] private float fallMultiplier = 1.0f;
@@ -73,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //Checks if you're hitting a waal
+    //Checks if you're hitting a wall
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<TilemapCollider2D>() == null)

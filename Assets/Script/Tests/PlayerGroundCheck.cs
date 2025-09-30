@@ -30,8 +30,6 @@ public class PlayerGroundCheck : MonoBehaviour
         isGrounded = groundFounded;
     }
 
-
-
     private void Update()
     {
         if(wasGrounded && !isGrounded)
