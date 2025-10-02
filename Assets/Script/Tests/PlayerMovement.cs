@@ -5,17 +5,28 @@ using UnityEngine.Tilemaps;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Traverse movement")]
+
+    [Tooltip("Maximum velocity of the player.")]
     [SerializeField] private float maxVelocity = 1.0f;
+    [Tooltip("Tiempo que tarda el personaje en alcanzar la velocidad maxima.")]
     [SerializeField] private float accelTimeGround = 1.0f;
+    [Tooltip("Tiempo que tarda el personaje en frenar desde la velocidad maxima.")]
     [SerializeField] private float decelTimeGround = 1.0f;
+    [Tooltip("Tiempo que tarda el personaje en alcanzar la velocidad maxima cuando esta en el aire.")]
     [SerializeField] private float accelTimeAir = 1.0f;
+    [Tooltip("Multiplica la velocidad a la que se mueve en el aire, para tener la misma velocidad que en el suelo utilizar 1, para menor velocidad utilizar un numero menor a 1, y para tener mayor velocidad un numero mayor.")]
     [SerializeField] private float controlInAir = 1.0f;
 
     [Header("Jump")]
+    [Tooltip("Altura a la que salta el personaje.")]
     [SerializeField] private float jumpHeight = 3.0f;
+    [Tooltip("Multiplicador que determina que tan rapido cae el personaje.")]
     [SerializeField] private float fallMultiplier = 1.0f;
+    [Tooltip("Tiempo que el personaje se mantiene en el aire despues de llegar a la altura maxima.")]
     [SerializeField] private float hangTime = 1.0f;
+    [Tooltip("Cuanto se reduce la gravedad en el punto mas alto.")]
     [SerializeField] private float hangGravityReduced = 1.0f;
+    [Tooltip("Gravedad del perrsonaje en .")]
     [SerializeField] private float gravity = 9.81f;
 
     [Header("Assists")]
@@ -110,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     private bool CanJump()
     {
         float jumpTime=Time.time - lastGroundedTime;
-        Debug.Log(jumpTime);
+
         if (groundCheck.isGrounded)
         {
             return true;
@@ -143,7 +154,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         lastGroundedTime = groundCheck.lastGroundedTime;
-        hangTime = 1.0f;
+
+        if(hangTime<0)
+        {
+            hangTime = 1.0f;
+        }
     }
 
     //Process physisc
