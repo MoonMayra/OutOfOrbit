@@ -8,40 +8,48 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("Maximum velocity of the player.")]
     [SerializeField] private float maxVelocity = 1.0f;
-    [Tooltip("Tiempo que tarda el personaje en alcanzar la velocidad maxima.")]
+    [Tooltip("Time for the player to reach maximum velocity.")]
     [SerializeField] private float accelTimeGround = 1.0f;
-    [Tooltip("Tiempo que tarda el personaje en frenar desde la velocidad maxima.")]
+    [Tooltip("Time for the player to stop from maximum velocity.")]
     [SerializeField] private float decelTimeGround = 1.0f;
-    [Tooltip("Tiempo que tarda el personaje en alcanzar la velocidad maxima cuando esta en el aire.")]
+    [Tooltip("Time for the player to reach maximum velocity on the air.")]
     [SerializeField] private float accelTimeAir = 1.0f;
-    [Tooltip("Multiplica la velocidad a la que se mueve en el aire, para tener la misma velocidad que en el suelo utilizar 1, para menor velocidad utilizar un numero menor a 1, y para tener mayor velocidad un numero mayor.")]
+    [Tooltip("Multiplies velocity on the air. For same velocity as on ground, use 1; for less velocity use 0; and for more use a number bigger than 1. ")]
     [SerializeField] private float controlInAir = 1.0f;
 
     [Header("Jump")]
-    [Tooltip("Altura a la que salta el personaje.")]
+
+    [Tooltip("Maximum height the player can reach when jumping.")]
     [SerializeField] private float jumpHeight = 3.0f;
-    [Tooltip("Velocidad a la que salta el personaje.")]
+    [Tooltip("Initial velocity when jumping.")]
     [SerializeField] private float jumpVel = 1.0f;
-    [Tooltip("Multiplicador que determina que tan rapido cae el personaje.")]
+    [Tooltip("By how much gravity is increased when falling down.")]
     [SerializeField] private float fallMultiplier = 1.0f;
-    [Tooltip("Tiempo que el personaje se mantiene en el aire despues de llegar a la altura maxima.")]
+    [Tooltip("Time at the highest point where gravity is reduced.")]
     [SerializeField] private float hangTime = 1.0f;
-    [Tooltip("Cuanto se reduce la gravedad en el punto mas alto.")]
+    [Tooltip("By how much gravity is reduced when at the highest point.")]
     [SerializeField] private float hangGravityReduced = 1.0f;
-    [Tooltip("Gravedad del perrsonaje en .")]
+    [Tooltip("Gravity force applied to the player.")]
     [SerializeField] private float gravity = 9.81f;
 
     [Header("Assists")]
+
+    [Tooltip("Time after leaving a platform that the player can still jump.")]
     [SerializeField] private float coyoteTime = 1.0f;
+    [Tooltip("Time before landing that a jump input is obtained.")]
     [SerializeField] private float jumpNotOnGroundTime = 1.0f;
 
     [Header("Others")]
+
+    
     [SerializeField] private PlayerGroundCheck groundCheck;
     [SerializeField] private PlayerGravityFields gravityFields;
+    [SerializeField] private PlayerView playerView;
     [SerializeField] private float wallNormalThreshold = 0.6f;
     public bool hitWall = false;
 
     [Header("Inputs")]
+
     [SerializeField] private InputActionReference moveInput;
     [SerializeField] private InputActionReference jumpInput;
     [SerializeField] private InputActionReference fieldsThrowInput;
@@ -53,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingThreshold = 0.0f;
     private float jumpBufferTimer = 0.0f;
     private bool jumpBufferActive = false;
-
 
     private void Awake()
     {
@@ -69,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         //fieldsActivateInput.action.performed += HandleActivateFieldInput;
     }
+
     private void Start()
     {
         playerRigidBody.WakeUp();
@@ -78,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
     {
         var input = context.ReadValue<Vector2>();
         moveInputX = input.x;
-
     }
 
     private void HandleJumpInput(InputAction.CallbackContext context)
@@ -87,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
         if (CanJump())
         {
             PerformJump();
-            
         }
         else
         {
@@ -130,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanJump()
     {
- 
         if (groundCheck.isGrounded)
         {
             return true;
@@ -153,7 +158,6 @@ public class PlayerMovement : MonoBehaviour
 
         jumpingThreshold = 0.0f;
         jumpBufferActive = false;
-
     }
 
     private void JumpBufferHandle()
@@ -172,8 +176,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     //Process inputs
-    void Update()
+    private void Update()
     {
         jumpingThreshold = groundCheck.jumpingThreshold;
 
@@ -181,14 +186,16 @@ public class PlayerMovement : MonoBehaviour
         {
             hangTime = 1.0f;
         }
+        
         JumpBufferHandle();
 
+        playerView.UpdateDirection(moveInputX);
     }
 
     //Process physisc
     private void FixedUpdate()
     {
-        // TRaverse movement
+        // Traverse movement
         targetVelX = maxVelocity * moveInputX;
         Vector2 velocityPlayer = playerRigidBody.linearVelocity;
 
@@ -226,7 +233,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerRigidBody.linearVelocity= velocityPlayer;
-
-
     }
 }

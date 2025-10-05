@@ -13,8 +13,6 @@ public class PlayerGroundCheck : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float normalThreshold = 0.6f;
 
-   
-
     private void OnCollisionStay2D(Collision2D collisionObj)
     {
         if (collisionObj.gameObject.GetComponent<TilemapCollider2D>()==null)
