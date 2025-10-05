@@ -8,7 +8,7 @@ public class PlayerGroundCheck : MonoBehaviour
     public bool justLanded = false;
     public bool justLeftGround = false;
     public bool wasGrounded = false;
-    public float lastGroundedTime = 0.0f;
+    public float jumpingThreshold = 0.0f;
 
     [Header("Parameters")]
     [SerializeField] private float normalThreshold = 0.6f;
@@ -58,7 +58,12 @@ public class PlayerGroundCheck : MonoBehaviour
 
         if (isGrounded)
         {
-            lastGroundedTime = Time.time;
+            jumpingThreshold = 0.0f;
+        }
+
+        if(!isGrounded)
+        {
+            jumpingThreshold += Time.deltaTime;
         }
 
     }

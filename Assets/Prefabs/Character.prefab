@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2454714086729825647}
   - component: {fileID: -3069573563897434945}
   - component: {fileID: -4948877287448343850}
+  - component: {fileID: -669158974781351936}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -318,17 +319,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e608ce65428644fad1241971776e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 1
-  accelTimeGround: 1
-  decelTimeGround: 1
-  accelTimeAir: 1
+  maxVelocity: 7
+  accelTimeGround: 0.05
+  decelTimeGround: 0.03
+  accelTimeAir: 0.05
   controlInAir: 1
-  jumpHeight: 3
-  fallMultiplier: 1
-  hangTime: 1
+  jumpHeight: 8
+  jumpVel: 15
+  fallMultiplier: 5.5
+  hangTime: 0.02
   hangGravityReduced: 1
   gravity: 9.81
-  coyoteTime: 1
+  coyoteTime: 0.1
   jumpNotOnGroundTime: 1
   groundCheck: {fileID: 0}
   gravityFields: {fileID: 0}
@@ -338,6 +340,24 @@ MonoBehaviour:
   jumpInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   fieldsThrowInput: {fileID: 0}
   fieldsActivateInput: {fileID: 0}
+--- !u!114 &-669158974781351936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202999902678165084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98bdfe6ff24d004cbb78de563fe60e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
+  justLanded: 0
+  justLeftGround: 0
+  wasGrounded: 0
+  jumpingThreshold: 0
+  normalThreshold: 0.6
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0

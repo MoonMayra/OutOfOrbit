@@ -50,7 +50,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private float moveInputX = 0.0f;
     private float targetVelX=0.0f;
-    private float lastGroundedTime = 0.0f;
+    private float jumpingThreshold = 0.0f;
+    private float jumpBufferTimer = 0.0f;
+    private bool jumpBufferActive = false;
+
 
     private void Awake()
     {
@@ -80,10 +83,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJumpInput(InputAction.CallbackContext context)
     {
+        jumpBufferTimer = 0.0f;
         if (CanJump())
         {
             PerformJump();
             
+        }
+        else
+        {
+            jumpBufferActive = true;
         }
     }
 
@@ -122,17 +130,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanJump()
     {
-        float jumpTime=Time.time - lastGroundedTime;
-
+ 
         if (groundCheck.isGrounded)
         {
             return true;
         }
-        if(jumpTime<=coyoteTime)
-        {
-            return true;
-        }
-        if(jumpTime<=jumpNotOnGroundTime)
+        if(jumpingThreshold<=coyoteTime)
         {
             return true;
         }
@@ -148,19 +151,38 @@ public class PlayerMovement : MonoBehaviour
         velocityPlayer.y = jumpVelFinal;
         playerRigidBody.linearVelocity = velocityPlayer;
 
-        lastGroundedTime = -1.0f;
+        jumpingThreshold = 0.0f;
+        jumpBufferActive = false;
 
     }
 
+    private void JumpBufferHandle()
+    {
+        if (jumpBufferActive)
+        {
+            jumpBufferTimer += Time.deltaTime;
+            if (groundCheck.isGrounded && jumpBufferTimer <= jumpNotOnGroundTime)
+            {
+                PerformJump();
+                jumpBufferActive = false;
+            }
+            else if (jumpBufferTimer > jumpNotOnGroundTime)
+            {
+                jumpBufferActive = false;
+            }
+        }
+    }
     //Process inputs
     void Update()
     {
-        lastGroundedTime = groundCheck.lastGroundedTime;
+        jumpingThreshold = groundCheck.jumpingThreshold;
 
         if(hangTime<0)
         {
             hangTime = 1.0f;
         }
+        JumpBufferHandle();
+
     }
 
     //Process physisc
