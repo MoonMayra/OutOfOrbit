@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump")]
     [Tooltip("Altura a la que salta el personaje.")]
     [SerializeField] private float jumpHeight = 3.0f;
+    [Tooltip("Velocidad a la que salta el personaje.")]
+    [SerializeField] private float jumpVel = 1.0f;
     [Tooltip("Multiplicador que determina que tan rapido cae el personaje.")]
     [SerializeField] private float fallMultiplier = 1.0f;
     [Tooltip("Tiempo que el personaje se mantiene en el aire despues de llegar a la altura maxima.")]
@@ -140,10 +142,10 @@ public class PlayerMovement : MonoBehaviour
     private void PerformJump()
     {
         groundCheck.isGrounded = false;
-        float jumpVel = Mathf.Sqrt(2f * gravity * jumpHeight);
+        float jumpVelFinal = Mathf.Sqrt(2f * jumpVel * jumpHeight);
 
         Vector2 velocityPlayer = playerRigidBody.linearVelocity;
-        velocityPlayer.y = jumpVel;
+        velocityPlayer.y = jumpVelFinal;
         playerRigidBody.linearVelocity = velocityPlayer;
 
         lastGroundedTime = -1.0f;
