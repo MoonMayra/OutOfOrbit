@@ -14,7 +14,7 @@ public class TreyectoryPreview : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    private void DrawTrayectory(Vector2 startPos, Vector2 lineDirection)
+    public void DrawTrayectory(Vector2 startPos, Vector2 lineDirection)
     {
         List<Vector3> bouncesPoints=new List<Vector3>();
         bouncesPoints.Add(startPos);
@@ -33,8 +33,7 @@ public class TreyectoryPreview : MonoBehaviour
                 {
                     break;
                 }
-
-                currentDir = Vector2.Reflect(currentDir, hit.normal);
+                currentDir = Vector2.Reflect(-currentDir, hit.normal);
             }
             else
             {
@@ -48,7 +47,11 @@ public class TreyectoryPreview : MonoBehaviour
 
     }
 
-    private void ClearLine()
+    private void Bounce(float direction, float normal)
+
+    { }
+
+    public void ClearLine()
     {
         lineRenderer.positionCount = 0;
     }
