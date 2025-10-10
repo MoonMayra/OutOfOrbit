@@ -47,6 +47,9 @@ GameObject:
   - component: {fileID: -3069573563897434945}
   - component: {fileID: -4948877287448343850}
   - component: {fileID: -669158974781351936}
+  - component: {fileID: 7135996357912707201}
+  - component: {fileID: -7969824856625025076}
+  - component: {fileID: 9117736236978871301}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -69,6 +72,7 @@ Transform:
   m_Children:
   - {fileID: 6739306708267120232}
   - {fileID: 8284889511244026314}
+  - {fileID: 4988724544255412888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7979160675946252054
@@ -141,7 +145,7 @@ Rigidbody2D:
   m_Mass: 3
   m_LinearDamping: 4
   m_AngularDamping: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -319,26 +323,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e608ce65428644fad1241971776e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 7
+  maxVelocity: 8
   accelTimeGround: 0.05
   decelTimeGround: 0.03
   accelTimeAir: 0.05
   controlInAir: 1
-  jumpHeight: 8
-  jumpVel: 15
+  jumpHeight: 10
+  jumpVel: 10
   fallMultiplier: 5.5
   hangTime: 0.02
   hangGravityReduced: 1
   gravity: 9.81
   coyoteTime: 0.1
-  jumpNotOnGroundTime: 1
+  jumpNotOnGroundTime: 0.1
   groundCheck: {fileID: 0}
   gravityFields: {fileID: 0}
+  playerView: {fileID: 0}
   wallNormalThreshold: 0.6
   hitWall: 0
   moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  fieldsThrowInput: {fileID: 0}
+  fieldsThrowInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   fieldsActivateInput: {fileID: 0}
 --- !u!114 &-669158974781351936
 MonoBehaviour:
@@ -358,6 +363,62 @@ MonoBehaviour:
   wasGrounded: 0
   jumpingThreshold: 0
   normalThreshold: 0.6
+--- !u!114 &7135996357912707201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202999902678165084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e8a490ae8f14f42936bde763e0d9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  VoidAction: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  groundCheck: {fileID: -669158974781351936}
+  GravityFields:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &-7969824856625025076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202999902678165084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a299e45cc3c9441b32043c9c61ce03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+--- !u!114 &9117736236978871301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202999902678165084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec6a14f7d865744bb4a40f453e293df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootInput: {fileID: 6284116882949636389, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  activateInput: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  gravityField: {fileID: 0}
+  playerMovement: {fileID: 0}
+  trayectory: {fileID: 0}
+  bulletVel: 5
+  accelTime: 5
+  bulletCount: 0
+  maxBullet: 3
+  activeTime: 0
+  bulletSpawn: {fileID: 4988724544255412888}
+  bulletPrefab: {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +445,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.068, y: -0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6522414326844454945}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8518641584090517480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4988724544255412888}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4988724544255412888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8518641584090517480}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.484484, y: -0.788242, z: -0.16662613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
