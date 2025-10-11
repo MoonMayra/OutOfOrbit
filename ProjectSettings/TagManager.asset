@@ -74,5 +74,8 @@ TagManager:
   - name: Waterfall
     uniqueID: 2687799207
     locked: 0
+  - name: UI
+    uniqueID: 1352258757
+    locked: 0
   m_RenderingLayers:
   - Default
