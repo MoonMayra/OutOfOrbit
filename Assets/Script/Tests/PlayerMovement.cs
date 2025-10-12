@@ -2,6 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
+//NOTE 1: To keep jump speed and height spearate and editable, we use the free fall formula
+//V^2=(V0)^2+2*a*deltaY, where a=-gravity, and deltaY=maximum jump height
+//Using this, we solve for gravity to get the following formula: gravity=(V0)^2/(2*h)
+//Using this formula, we can caluculate the gravity needed for the desired jump height and speed
+//Once we have this value, we apply it only when the player is jumping.
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Traverse movement")]
@@ -21,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Tooltip("Maximum height the player can reach when jumping.")]
     [SerializeField] private float jumpHeight = 3.0f;
-    [Tooltip("Initial velocity when jumping.")]
-    [SerializeField] private float jumpVel = 1.0f;
+    [Tooltip("Inicial Velocity the player has when jumping.")]
+    [SerializeField] private float jumpInicialSpeed = 3.0f;
     [Tooltip("By how much gravity is increased when falling down.")]
     [SerializeField] private float fallMultiplier = 1.0f;
     [Tooltip("Time at the highest point where gravity is reduced.")]
@@ -150,10 +155,9 @@ public class PlayerMovement : MonoBehaviour
     private void PerformJump()
     {
         groundCheck.isGrounded = false;
-        float jumpVelFinal = Mathf.Sqrt(2f * jumpVel * jumpHeight);
 
         Vector2 velocityPlayer = playerRigidBody.linearVelocity;
-        velocityPlayer.y = jumpVelFinal;
+        velocityPlayer.y = jumpInicialSpeed;
         playerRigidBody.linearVelocity = velocityPlayer;
 
         jumpingThreshold = 0.0f;
@@ -221,14 +225,18 @@ public class PlayerMovement : MonoBehaviour
         //Gravity
         if(!groundCheck.isGrounded)
         {
-            if(velocityPlayer.y > 0 && hangTime > 0)
+            float actualGravity;
+     
+            if (velocityPlayer.y > 0 && hangTime > 0)
             {
-                velocityPlayer.y-=gravity*hangGravityReduced*Time.fixedDeltaTime;
-                hangTime-=Time.fixedDeltaTime;
+                float jumpGravity = (jumpInicialSpeed * jumpInicialSpeed) / (2f * jumpHeight); //NOTE 1: For reference on how it works, read the comment at the beginning of the code.
+                actualGravity = jumpGravity;
+                velocityPlayer.y -= actualGravity * hangGravityReduced * Time.fixedDeltaTime;
+                hangTime -= Time.fixedDeltaTime;
             }
             else
             {
-                velocityPlayer.y-=gravity*fallMultiplier*Time.fixedDeltaTime;
+                velocityPlayer.y -= gravity * fallMultiplier * Time.fixedDeltaTime;
             }
         }
 

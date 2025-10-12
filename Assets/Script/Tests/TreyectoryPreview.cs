@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class TreyectoryPreview : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class TreyectoryPreview : MonoBehaviour
                 {
                     break;
                 }
-                currentDir = Vector2.Reflect(-currentDir, hit.normal);
+                currentDir = Bounce(currentDir, hit.normal);
+                currentPos = hit.point + currentDir * 0.01f;
             }
             else
             {
@@ -41,15 +43,21 @@ public class TreyectoryPreview : MonoBehaviour
                 break;
             }
         }
+
+
         lineRenderer.positionCount=bouncesPoints.Count;
         lineRenderer.SetPositions(bouncesPoints.ToArray());
 
 
     }
 
-    private void Bounce(float direction, float normal)
+    private Vector2 Bounce(Vector2 direction, Vector2 normal)
+    { 
+        if (Mathf.Abs(normal.y)>0.9f) direction.y=-direction.y;
+        if(Mathf.Abs(normal.x)>0.9f) direction.x=-direction.x;
+        return direction.normalized;
 
-    { }
+    }
 
     public void ClearLine()
     {
