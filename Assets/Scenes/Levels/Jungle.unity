@@ -331,9 +331,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9117736236978871301, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
+      propertyPath: bulletVel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117736236978871301, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
       propertyPath: trayectory
       value: 
-      objectReference: {fileID: 1326706560}
+      objectReference: {fileID: 1326706565}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 73302254198981664, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
@@ -10219,7 +10223,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2019840139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &985326526
+--- !u!43 &969980635
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12746,7 +12750,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1326706560 stripped
+--- !u!114 &1326706565 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9189985747535263990, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
   m_PrefabInstance: {fileID: 97958612}
@@ -12754,7 +12758,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918db7b52fd057248ac1622e6d1cd6e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 92b3e55916b5c904685628e98c42a286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1328665467
@@ -20361,28 +20365,6 @@ Tilemap:
     m_Data: {fileID: 608958239, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
   - m_RefCount: 18
     m_Data: {fileID: -581964593, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 695
     m_Data:

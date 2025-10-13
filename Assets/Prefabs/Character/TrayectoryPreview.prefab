@@ -149,10 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7094865584236076396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918db7b52fd057248ac1622e6d1cd6e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 92b3e55916b5c904685628e98c42a286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxBounces: 3
   bouncesMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8

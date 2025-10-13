@@ -10,11 +10,10 @@ public class PlayerShoot : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private PlayerGravityFields gravityField;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private TreyectoryPreview trayectory;
+    [SerializeField] private TrayectoryPreview trayectory;
 
     [Header("BulletMovement")]
     [SerializeField] private float bulletVel = 5;
-    [SerializeField] private float accelTime = 5;
     [SerializeField] private int bulletCount = 0;
     [SerializeField] public int maxBullet = 3;
     [SerializeField] private float activeTime = 0;
@@ -25,6 +24,9 @@ public class PlayerShoot : MonoBehaviour
     private Vector2 mousePos;
     private bool isAiming = false;
     private Vector2 lineDir;
+    private bool isShooting = false;
+    private GameObject currentBullet;
+    private Rigidbody2D currentBulletRb;
 
     private void Awake()
     {
@@ -43,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
         }
         else if(context.canceled)
         {
-            isAiming = false;
+            ShootBullet();
         }
     }
 
@@ -54,20 +56,9 @@ public class PlayerShoot : MonoBehaviour
 
     }   
     
-    private void BulletMovement()
-    {
-
-
-    }
-
     private void ActivateField()
     {
 
-
-    }
-
-    private void CalculateGravity()
-    {
 
     }
 
@@ -79,6 +70,26 @@ public class PlayerShoot : MonoBehaviour
 
     }
 
+    private void ShootBullet()
+    {
+        trayectory.ClearLine();
+        if (bulletCount < maxBullet)
+        {
+            if (bulletSpawn == null || bulletPrefab == null)
+            {
+                Debug.LogWarning("Bullet Spawn or Bullet Prefab is null");
+                return;
+            }
+
+            currentBullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+            currentBulletRb = currentBullet.GetComponent<Rigidbody2D>();
+            if (currentBulletRb != null)
+            {
+                currentBulletRb.linearVelocity = lineDir.normalized * bulletVel;
+            }
+            bulletCount++;
+        }
+    }
     private void Update()
     {
         mousePos=Input.mousePosition;
@@ -90,10 +101,6 @@ public class PlayerShoot : MonoBehaviour
         if (isAiming)
         {
             RenderLine();
-        }
-        else
-        {
-            trayectory.ClearLine();
         }
     }
 

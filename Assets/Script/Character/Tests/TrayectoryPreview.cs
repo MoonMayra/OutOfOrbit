@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class TreyectoryPreview : MonoBehaviour
+public class TrayectoryPreview : MonoBehaviour
 {
     [SerializeField] private int maxBounces = 3;
     [SerializeField] private LayerMask bouncesMask;
@@ -23,7 +23,7 @@ public class TreyectoryPreview : MonoBehaviour
         Vector2 currentPos = startPos;
         Vector2 currentDir=lineDirection.normalized;
 
-        for (int i = 0; i <= maxBounces; i++)
+        for (int i = 0; i < maxBounces; i++)
         {
             RaycastHit2D hit = Physics2D.Raycast(currentPos, currentDir, Mathf.Infinity, bouncesMask);
             if (hit.collider)
@@ -51,7 +51,7 @@ public class TreyectoryPreview : MonoBehaviour
 
     }
 
-    private Vector2 Bounce(Vector2 direction, Vector2 normal)
+    public Vector2 Bounce(Vector2 direction, Vector2 normal)
     { 
         if (Mathf.Abs(normal.y)>0.9f) direction.y=-direction.y;
         if(Mathf.Abs(normal.x)>0.9f) direction.x=-direction.x;
