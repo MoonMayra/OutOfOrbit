@@ -102,6 +102,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -175,8 +201,8 @@ TextureImporter:
       name: vines-Sheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -197,8 +223,8 @@ TextureImporter:
       name: vines-Sheet_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 80
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -219,7 +245,7 @@ TextureImporter:
       name: vines-Sheet_5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -233,6 +259,116 @@ TextureImporter:
       bones: []
       spriteID: 604ea28b803679b4f8f16c77bd554cb5
       internalID: 1775976278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vines-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dc754607b3246499ad7ded50b4c394
+      internalID: -1437802502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vines-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c9c9182ef67094fa1b4c6f60b1a12f
+      internalID: -1565167586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vines-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab76f202a9788e49aa2390d1c45ff7b
+      internalID: -1252815423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vines-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276d92ce1b764e647860260431ba449b
+      internalID: -1995354933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vines-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2396cec01e2fa514d9ab35fba94b0db5
+      internalID: 1255786320
       vertices: []
       indices: 
       edges: []
@@ -253,10 +389,15 @@ TextureImporter:
     nameFileIdTable:
       vines-Sheet_0: -2083102390543244380
       vines-Sheet_1: -6375687238676062888
+      vines-Sheet_10: 1255786320
       vines-Sheet_2: 7610155166056419132
       vines-Sheet_3: -1163934984
       vines-Sheet_4: 1801087535
       vines-Sheet_5: 1775976278
+      vines-Sheet_6: -1437802502
+      vines-Sheet_7: -1565167586
+      vines-Sheet_8: -1252815423
+      vines-Sheet_9: -1995354933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
