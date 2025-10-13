@@ -14,7 +14,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -53,11 +53,11 @@ TagManager:
   - name: Floor
     uniqueID: 2232978813
     locked: 0
-  - name: Object_BG
-    uniqueID: 3467673435
-    locked: 0
   - name: Hazards
     uniqueID: 1159951913
+    locked: 0
+  - name: Object_BG
+    uniqueID: 3467673435
     locked: 0
   - name: Enemy
     uniqueID: 861529127

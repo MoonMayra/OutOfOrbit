@@ -13,6 +13,9 @@ public class PlayerGroundCheck : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float normalThreshold = 0.6f;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem dustParticles;
+
     private void OnCollisionStay2D(Collision2D collisionObj)
     {
         if (collisionObj.gameObject.GetComponent<TilemapCollider2D>()==null)
@@ -46,11 +49,20 @@ public class PlayerGroundCheck : MonoBehaviour
         {
             justLeftGround = true;
             Debug.Log("sali del piso");
+            if (dustParticles != null)
+            {
+                dustParticles.Stop();
+            }
         }
         if(!wasGrounded && isGrounded)
         {
             justLanded = true;
             Debug.Log("entre al piso");
+            dustParticles.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
+            if (dustParticles != null)
+            {
+                dustParticles.Play();
+            }
         }
         wasGrounded = isGrounded;
 
