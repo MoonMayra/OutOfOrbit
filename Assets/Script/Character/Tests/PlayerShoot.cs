@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerShoot : MonoBehaviour
     private Vector2 lineDir;
     private int nextBulletIndex = 0;
     private GameObject[] activeBullets = new GameObject[3];
+    private bool isAbleToShoot = true;
 
     private void Awake()
     {
@@ -35,17 +37,52 @@ public class PlayerShoot : MonoBehaviour
 
     private void HandleShootInput(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
-            isAiming = true;
+            if (isAbleToShoot)
+            {
+                isAiming = true;
+            }
+            else
+            {
+                StopBullet();
+            }
         }
-        else if(context.canceled)
+        else if (context.canceled)
         {
-            isAiming = false;
-            ShootBullet();
+            if (isAbleToShoot)
+            {
+                isAiming = false;
+                ShootBullet();
+                ToggleShoot();
+            }
+            else
+            {
+                ToggleShoot();
+                Debug.Log(isAbleToShoot);
+            }
         }
+
     }
   
+    private void StopBullet()
+    {
+        Debug.Log("Voy a parar la bala");
+
+        int previousBulletIndex = (nextBulletIndex - 1+activeBullets.Length) % 3; 
+        if (activeBullets[previousBulletIndex] != null) 
+        {
+            Debug.Log("Bala parada");
+            Rigidbody2D actualBulletRB = activeBullets[previousBulletIndex].gameObject.GetComponent<Rigidbody2D>();
+            actualBulletRB.linearVelocity = Vector2.zero;
+            BulletMovement actualBulletMov = activeBullets[previousBulletIndex].gameObject.GetComponent<BulletMovement>();
+            actualBulletMov.direction = Vector2.zero;
+        }
+    }
+    private void ToggleShoot()
+    {
+        isAbleToShoot=!isAbleToShoot;
+    }
     private void RenderLine()
     {
         if (bulletSpawn == null)
