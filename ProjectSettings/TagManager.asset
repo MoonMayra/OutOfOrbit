@@ -62,7 +62,7 @@ TagManager:
   - name: Player
     uniqueID: 3653379215
     locked: 0
-  - name: "Foregorud\xBFnd"
+  - name: Foreground
     uniqueID: 3008678277
     locked: 0
   - name: WaterForeground
