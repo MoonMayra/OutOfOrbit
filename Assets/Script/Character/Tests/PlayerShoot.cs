@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,35 +6,30 @@ public class PlayerShoot : MonoBehaviour
 {
     [Header("Input")]
     [SerializeField] private InputActionReference shootInput;
-    [SerializeField] private InputActionReference activateInput;
 
     [Header("Scripts")]
     [SerializeField] private PlayerGravityFields gravityField;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private TrayectoryPreview trayectory;
+    [SerializeField] private BulletMovement bulletMov;
 
     [Header("BulletMovement")]
-    [SerializeField] private float bulletVel = 5;
     [SerializeField] private int bulletCount = 0;
     [SerializeField] public int maxBullet = 3;
-    [SerializeField] private float activeTime = 0;
     [SerializeField] private Transform bulletSpawn;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject[] bulletPrefab = new GameObject[3];
 
-    private float timer = 0.0f;
     private Vector2 mousePos;
     private bool isAiming = false;
     private Vector2 lineDir;
-    private bool isShooting = false;
-    private GameObject currentBullet;
-    private Rigidbody2D currentBulletRb;
+    private int nextBulletIndex = 0;
+    private GameObject[] activeBullets = new GameObject[3];
 
     private void Awake()
     {
         shootInput.action.started += HandleShootInput;
         shootInput.action.performed += HandleShootInput;
         shootInput.action.canceled += HandleShootInput;
-        activateInput.action.performed += HandleActivateInput;
 
     }
 
@@ -45,23 +41,11 @@ public class PlayerShoot : MonoBehaviour
         }
         else if(context.canceled)
         {
+            isAiming = false;
             ShootBullet();
         }
     }
-
-    private void HandleActivateInput(InputAction.CallbackContext context)
-    {
-
-
-
-    }   
-    
-    private void ActivateField()
-    {
-
-
-    }
-
+  
     private void RenderLine()
     {
         if (bulletSpawn == null)
@@ -73,23 +57,52 @@ public class PlayerShoot : MonoBehaviour
     private void ShootBullet()
     {
         trayectory.ClearLine();
-        if (bulletCount < maxBullet)
-        {
-            if (bulletSpawn == null || bulletPrefab == null)
-            {
-                Debug.LogWarning("Bullet Spawn or Bullet Prefab is null");
-                return;
-            }
+        Debug.Log("Voy a crear una bala");
+        CreateBullet();
 
-            currentBullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
-            currentBulletRb = currentBullet.GetComponent<Rigidbody2D>();
-            if (currentBulletRb != null)
-            {
-                currentBulletRb.linearVelocity = lineDir.normalized * bulletVel;
-            }
-            bulletCount++;
-        }
     }
+
+    public void CreateBullet()
+    {
+        if (activeBullets[nextBulletIndex] != null) // if there's an active void in this slot, destroy it :p
+        {
+            Destroy(activeBullets[nextBulletIndex]);
+
+        }
+
+        GameObject newBullet = null;
+        Rigidbody2D nextBulletRb=null;
+        bulletMov=null;
+        switch (nextBulletIndex)
+        {
+            case 0:
+                newBullet = Instantiate(bulletPrefab[0], bulletSpawn.position, Quaternion.identity);
+                bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
+                nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
+                nextBulletRb.linearVelocity = lineDir.normalized;
+                bulletMov.direction = lineDir.normalized;
+                break;
+            case 1:
+                newBullet = Instantiate(bulletPrefab[1], bulletSpawn.position, Quaternion.identity);
+                bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
+                nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
+                nextBulletRb.linearVelocity = lineDir.normalized;
+                bulletMov.direction = lineDir.normalized;
+                break;
+            case 2:
+                newBullet = Instantiate(bulletPrefab[2], bulletSpawn.position, Quaternion.identity);
+                bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
+                nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
+                nextBulletRb.linearVelocity = lineDir.normalized;
+                bulletMov.direction = lineDir.normalized;
+                break;
+        }
+
+        activeBullets[nextBulletIndex] = newBullet;
+
+        nextBulletIndex = (nextBulletIndex + 1) % 3; // infinite ! :D
+    }
+
     private void Update()
     {
         mousePos=Input.mousePosition;

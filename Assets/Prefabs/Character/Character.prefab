@@ -391,17 +391,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInput: {fileID: 6284116882949636389, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  activateInput: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   gravityField: {fileID: 0}
   playerMovement: {fileID: -4948877287448343850}
   trayectory: {fileID: 9189985747535263990}
-  bulletVel: 5
-  accelTime: 5
+  bulletMov: {fileID: 0}
   bulletCount: 0
   maxBullet: 3
-  activeTime: 0
   bulletSpawn: {fileID: 4988724544255412888}
-  bulletPrefab: {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
+  currentBullet:
+  - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
+  - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
+  - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +638,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918db7b52fd057248ac1622e6d1cd6e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 92b3e55916b5c904685628e98c42a286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
