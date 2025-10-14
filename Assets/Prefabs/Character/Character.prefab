@@ -338,14 +338,14 @@ MonoBehaviour:
   coyoteTime: 0.1
   jumpNotOnGroundTime: 0.1
   groundCheck: {fileID: -669158974781351936}
-  gravityFields: {fileID: 0}
+  gravityVoid: {fileID: 0}
   playerView: {fileID: -7969824856625025076}
+  playerShoot: {fileID: 9117736236978871301}
   wallNormalThreshold: 0.6
   hitWall: 0
   moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   fieldsThrowInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  fieldsActivateInput: {fileID: 0}
 --- !u!114 &-669158974781351936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,17 +391,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInput: {fileID: 6284116882949636389, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  gravityField: {fileID: 0}
+  activateInput: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  gravityVoid: {fileID: 0}
   playerMovement: {fileID: -4948877287448343850}
   trayectory: {fileID: 9189985747535263990}
   bulletMov: {fileID: 0}
-  bulletCount: 0
-  maxBullet: 3
   bulletSpawn: {fileID: 4988724544255412888}
-  currentBullet:
+  bulletPrefab:
   - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
   - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
   - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
+  voidSpawn: {x: 0, y: 0}
+  voidPrefab:
+  - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
+  - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
+  - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
+  activeBullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activeVoids:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0

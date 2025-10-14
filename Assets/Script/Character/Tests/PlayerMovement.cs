@@ -48,17 +48,17 @@ public class PlayerMovement : MonoBehaviour
 
     
     [SerializeField] private PlayerGroundCheck groundCheck;
-    [SerializeField] private PlayerGravityFields gravityFields;
+    [SerializeField] private GravityVoid gravityVoid;
     [SerializeField] private PlayerView playerView;
+    [SerializeField] private PlayerShoot playerShoot;
     [SerializeField] private float wallNormalThreshold = 0.6f;
     public bool hitWall = false;
 
-    [Header("Inputs")]
+    [Header(" Inputs")]
 
     [SerializeField] private InputActionReference moveInput;
     [SerializeField] private InputActionReference jumpInput;
     [SerializeField] private InputActionReference fieldsThrowInput;
-    [SerializeField] private InputActionReference fieldsActivateInput;
 
     private Rigidbody2D playerRigidBody;
     private float moveInputX = 0.0f;
@@ -77,9 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
         jumpInput.action.performed += HandleJumpInput;
 
-        //fieldsThrowInput.action.performed += HandleThrowFieldInput;
-
-        //fieldsActivateInput.action.performed += HandleActivateFieldInput;
     }
 
     private void Start()
@@ -105,16 +102,6 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferActive = true;
         }
     }
-
-    //private void HandleThrowFieldInput(InputAction.CallbackContext context)
-    //{
-
-    //}
-    
-    //private void HandleActivateFieldInput(InputAction.CallbackContext context)
-    //{
-
-    //}
 
     //Checks if you're hitting a wall
     private void OnCollisionStay2D(Collision2D collision)
@@ -239,6 +226,21 @@ public class PlayerMovement : MonoBehaviour
                 velocityPlayer.y -= gravity * fallMultiplier * Time.fixedDeltaTime;
             }
         }
+        //Add gravity fields effect
+        Vector2 gvForces=Vector2.zero;
+        foreach(var voidObj in playerShoot.activeVoids)
+        {
+            if(voidObj!=null)
+            {
+                GravityVoid gv = voidObj.GetComponent<GravityVoid>();
+                if(gv!=null)
+                {
+                    gvForces += gv.CalculateGVForce();
+                }
+            }
+        }
+
+        velocityPlayer += gvForces;
 
         playerRigidBody.linearVelocity= velocityPlayer;
     }

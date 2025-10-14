@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6816684564329319902}
   - component: {fileID: 5324606344621782527}
   - component: {fileID: 8656473413657233491}
-  - component: {fileID: 4847648190649666754}
   - component: {fileID: -5031692709501498018}
   - component: {fileID: 3992440646337268164}
   m_Layer: 0
@@ -156,21 +155,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.26553148
---- !u!114 &4847648190649666754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526093498234406342}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0093fb91cc52137448a11e6b819f6272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strenght: 600
-  isActive: 0
-  GravityAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!95 &-5031692709501498018
 Animator:
   serializedVersion: 7
@@ -205,11 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c49820ed1a94c439cebbb96d3315b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletVel: 3
+  bulletVel: 5
   bounces: 0
   maxBounces: 3
-  glowVel: 3
-  rayLenght: 0.1
+  bouncesMask:
+    serializedVersion: 2
+    m_Bits: 8
   direction: {x: 0, y: 0}
 --- !u!1 &3446741354843835560
 GameObject:

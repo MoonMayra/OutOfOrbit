@@ -512,6 +512,17 @@
                     "action": "ActivateVoid",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2379049-02cc-42a0-ae4b-add3544d8933",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateVoid",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

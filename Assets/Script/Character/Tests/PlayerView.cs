@@ -11,12 +11,12 @@ public class PlayerView : MonoBehaviour
         if (moveX > 0 && !facingRight)
         {
             facingRight = true;
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
         else if (moveX < 0 && facingRight)
         {
             facingRight = false;
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
     }
    
