@@ -47,6 +47,7 @@ public class PlayerShoot : MonoBehaviour
         activateInput.action.performed += HandleActivateInput;
 
         playerRB = GetComponent<Rigidbody2D>();
+        trayectory = GetComponentInChildren<TrayectoryPreview>();
     }
 
     private void HandleActivateInput(InputAction.CallbackContext context)

@@ -118,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -641588081
-  m_SortingLayer: 8
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0d70f5727e2b0244eb63140620e0fd75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,7 +147,7 @@ Rigidbody2D:
   m_LinearDamping: 4
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5ffe3a878a569ef4c8b2bd264671dfc7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   activateInput: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   gravityVoid: {fileID: 0}
   playerMovement: {fileID: -4948877287448343850}
-  trayectory: {fileID: 9189985747535263990}
+  trayectory: {fileID: 0}
   bulletMov: {fileID: 0}
   bulletSpawn: {fileID: 4988724544255412888}
   bulletPrefab:
@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
       propertyPath: m_SortingLayer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
       propertyPath: m_SortingLayerID
@@ -642,14 +642,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8801933405457942567, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
   m_PrefabInstance: {fileID: 2306368277621816184}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9189985747535263990 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6883961909655978894, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
-  m_PrefabInstance: {fileID: 2306368277621816184}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b3e55916b5c904685628e98c42a286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

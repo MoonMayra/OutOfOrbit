@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 6444885684006675430}
   - component: {fileID: -2992034218235707941}
   - component: {fileID: -5213126509830242217}
+  - component: {fileID: -4071229281211269777}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Untagged
@@ -268,3 +269,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e9ba8735e750441af62070145b36e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  destroyAnimation: HasCollision
+--- !u!95 &-4071229281211269777
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299378895655647404}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 054f253ddcb3ff04ab3747e414f18eb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

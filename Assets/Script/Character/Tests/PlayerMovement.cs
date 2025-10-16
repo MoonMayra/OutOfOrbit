@@ -122,8 +122,9 @@ public class PlayerMovement : MonoBehaviour
                 wallFound = true;
                 break;
             }
-            hitWall = wallFound;
+            
         }
+        hitWall = wallFound;
     }
 
     private bool CanJump()

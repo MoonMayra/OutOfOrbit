@@ -24,7 +24,7 @@ public class Secret : MonoBehaviour
     {
         Debug.Log("Fading out");
         Color color = tiles.color;
-        color.a = Mathf.MoveTowards(color.a, 0.0f, 0.1f);
+        color.a = Mathf.MoveTowards(color.a, 0.0f, 0.05f);
         Debug.Log("Current alpha: " + color.a); 
         tiles.color = color;
     }
