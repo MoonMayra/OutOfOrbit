@@ -5,7 +5,7 @@ public class Drown : MonoBehaviour
 {
     [SerializeField] private LayerMask player;
     [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private string playerTag = "Player";
+    [SerializeField] private string playerTag = "GameManager";
 
     private void Start()
     {
