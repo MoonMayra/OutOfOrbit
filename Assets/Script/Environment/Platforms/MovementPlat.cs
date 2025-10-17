@@ -1,50 +1,58 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class MovementPlat : MonoBehaviour
 {
-    [SerializeField] float speed = 2f;
-    [SerializeField] float moveDistance = 5f;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private string bounceTag = "Ground";
 
-    private Vector3 startPos;
-    private Rigidbody2D playerRb;
+    private Vector2 startPosition;
+    private Vector2 direction = Vector2.right;
+    private Rigidbody2D platformRigidBody;
+    private Rigidbody2D playerRigidBody;
 
-    void Start()
+    private void Awake()
     {
-        startPos = transform.position;
+        platformRigidBody = GetComponent<Rigidbody2D>();
+        platformRigidBody.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    void Update()
+    private void Start()
     {
-        // Calcula el nuevo movimiento de la plataforma
-        float newX = transform.position.x + speed * Time.deltaTime;
-        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+        startPosition = transform.position;
+    }
 
-        // Cambia dirección si llega a los límites
-        if (transform.position.x >= startPos.x + moveDistance || transform.position.x <= startPos.x - moveDistance)
-        {
-            speed *= -1;
-        }
+    private void FixedUpdate()
+    {
+        MovePlatform();
+    }
 
-        // Mueve al jugador si está sobre la plataforma
-        if (playerRb != null)
+    private void MovePlatform()
+    {
+        Vector2 newPosition = platformRigidBody.position + direction * speed * Time.fixedDeltaTime;
+        platformRigidBody.MovePosition(newPosition);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag(bounceTag))
         {
-            playerRb.MovePosition(playerRb.position + new Vector2(speed * 1.5f * Time.deltaTime, 0f));
+            direction *= -1;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
-            playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            playerRigidBody = collision.collider.GetComponent<Rigidbody2D>();
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
-            playerRb = null;
+            playerRigidBody = null;
         }
     }
 }

@@ -59,6 +59,9 @@ TagManager:
   - name: collectables
     uniqueID: 3870568051
     locked: 0
+  - name: PlatformEX
+    uniqueID: 3457003455
+    locked: 0
   - name: Player
     uniqueID: 3653379215
     locked: 0
