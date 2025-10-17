@@ -53,14 +53,14 @@ TagManager:
   - name: Floor
     uniqueID: 2232978813
     locked: 0
-  - name: Hazards
-    uniqueID: 1159951913
-    locked: 0
   - name: collectables
     uniqueID: 3870568051
     locked: 0
   - name: PlatformEX
     uniqueID: 3457003455
+    locked: 0
+  - name: Hazards
+    uniqueID: 1159951913
     locked: 0
   - name: Player
     uniqueID: 3653379215
