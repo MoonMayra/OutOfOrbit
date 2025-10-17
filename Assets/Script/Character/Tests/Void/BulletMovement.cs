@@ -8,16 +8,18 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private int bounces = 0;
     [SerializeField] private int maxBounces = 3;
     [SerializeField] private LayerMask bouncesMask;
+    [SerializeField] private PlayerShoot playerShoot;
 
     private Rigidbody2D bulletRigidbody;
     public Vector2 direction;
-  
-    
+    private string playerTag = "Character";
+
+
     private void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody2D>();
+        playerShoot = GameObject.Find(playerTag).GetComponent<PlayerShoot>();
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -50,6 +52,11 @@ public class BulletMovement : MonoBehaviour
     {
         if (bulletRigidbody == null)
             return;
+
+        if(!playerShoot.isAbleToShoot && bulletRigidbody.linearVelocityX == 0 && bulletRigidbody.linearVelocityY == 0)
+        {
+            playerShoot.isAbleToShoot = true;
+        }
 
         bulletRigidbody.linearVelocity = direction * bulletVel;
     }

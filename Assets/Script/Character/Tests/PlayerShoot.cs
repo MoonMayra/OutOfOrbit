@@ -30,7 +30,7 @@ public class PlayerShoot : MonoBehaviour
     //Shooting variables
     private int nextBulletIndex = 0;
     public GameObject[] activeBullets = new GameObject[3];
-    private bool isAbleToShoot = true;
+    public bool isAbleToShoot = true;
     //Voids variables
     private int nextVoidIndex = 0;
     public GameObject[] activeVoids = new GameObject[3];
@@ -216,6 +216,7 @@ public class PlayerShoot : MonoBehaviour
         {
             RenderLine();
         }
+       
     }
 
 }
