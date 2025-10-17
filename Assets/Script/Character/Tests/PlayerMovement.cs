@@ -67,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferTimer = 0.0f;
     private bool jumpBufferActive = false;
 
+    private MovementPlat currentPlatform;
+    private Vector2 previousPlatformPosition;
+
     private void Awake()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
@@ -102,8 +105,17 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferActive = true;
         }
     }
+    ///
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HandlePlatformCollisionEnter(collision);
+    }
 
-    //Checks if you're hitting a wall
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        HandlePlatformCollisionExit(collision);
+    }
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<TilemapCollider2D>() == null)
@@ -125,6 +137,24 @@ public class PlayerMovement : MonoBehaviour
             
         }
         hitWall = wallFound;
+    }
+
+    // Platform moving handles
+    private void HandlePlatformCollisionEnter(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<MovementPlat>(out MovementPlat platform))
+        {
+            currentPlatform = platform;
+            previousPlatformPosition = platform.transform.position; 
+        }
+    }
+
+    private void HandlePlatformCollisionExit(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<MovementPlat>(out MovementPlat platform) && platform == currentPlatform)
+        {
+            currentPlatform = null;
+        }
     }
 
     private bool CanJump()
@@ -211,10 +241,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Gravity
-        if(!groundCheck.isGrounded)
+        if (!groundCheck.isGrounded)
         {
             float actualGravity;
-     
+
             if (velocityPlayer.y > 0 && hangTime > 0)
             {
                 float jumpGravity = (jumpInicialSpeed * jumpInicialSpeed) / (2f * jumpHeight); //NOTE 1: For reference on how it works, read the comment at the beginning of the code.
@@ -227,14 +257,15 @@ public class PlayerMovement : MonoBehaviour
                 velocityPlayer.y -= gravity * fallMultiplier * Time.fixedDeltaTime;
             }
         }
+
         //Add gravity fields effect
-        Vector2 gvForces=Vector2.zero;
-        foreach(var voidObj in playerShoot.activeVoids)
+        Vector2 gvForces = Vector2.zero;
+        foreach (var voidObj in playerShoot.activeVoids)
         {
-            if(voidObj!=null)
+            if (voidObj != null)
             {
                 GravityVoid gv = voidObj.GetComponent<GravityVoid>();
-                if(gv!=null)
+                if (gv != null)
                 {
                     gvForces += gv.CalculateGVForce();
                 }
@@ -243,6 +274,14 @@ public class PlayerMovement : MonoBehaviour
 
         velocityPlayer += gvForces;
 
-        playerRigidBody.linearVelocity= velocityPlayer;
+        if (currentPlatform != null && groundCheck.isGrounded)
+        {
+            Vector2 platformMovement = (Vector2)currentPlatform.transform.position - previousPlatformPosition;
+            playerRigidBody.position += platformMovement;
+            previousPlatformPosition = currentPlatform.transform.position;
+        }   
+
+        playerRigidBody.linearVelocity = velocityPlayer;
     }
+
 }

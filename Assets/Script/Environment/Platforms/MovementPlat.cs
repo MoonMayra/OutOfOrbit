@@ -54,5 +54,5 @@ public class MovementPlat : MonoBehaviour
         {
             playerRigidBody = null;
         }
-    }
+}
 }
