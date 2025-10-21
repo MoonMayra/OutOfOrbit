@@ -48,11 +48,11 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.60617715, g: 0.4712976, b: 0.8396226, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.4723543, g: 0.42052332, b: 0.8490566, a: 1}
+  m_Intensity: 0.59
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000055f0b7e313417817d8d18855b7fb0ce2976234527e459338f24c2d9a78f34a01b7dee8b732eb4e6
+  m_ApplyToSortingLayers: 00000000055f0b7e313417817d8d1885297623458f24c2d9a78f34a01b7dee8b732eb4e685c954b3bfaf0dce
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

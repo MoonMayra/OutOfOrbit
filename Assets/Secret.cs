@@ -4,8 +4,10 @@ using UnityEngine.Tilemaps;
 public class Secret : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private float fadeSpeed = 2f;
     private Tilemap tiles;
-    private bool wasFound = false;
+    private float targetAlpha = 1f;
+    private bool isInside = false;
 
     private void Start()
     {
@@ -14,30 +16,27 @@ public class Secret : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & playerLayer.value) != 0)
+        if (((1 << collision.gameObject.layer) & playerLayer.value) != 0 && !isInside)
         {
-            wasFound = true;
+            targetAlpha = 0.0f;
+            isInside = true;
         }
     }
 
-    private void SetOpacity()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Fading out");
-        Color color = tiles.color;
-        color.a = Mathf.MoveTowards(color.a, 0.0f, 0.05f);
-        Debug.Log("Current alpha: " + color.a); 
-        tiles.color = color;
+        if (((1 << collision.gameObject.layer) & playerLayer.value) != 0 && isInside)
+        {
+            targetAlpha = 1f;
+            isInside = false;
+        }
     }
+
     private void Update()
     {
-        if (wasFound)
-        {
-            SetOpacity();
-        }
-        if(tiles.color.a<=0.0f)
-        {
-            Destroy(gameObject);
-        }
+        Color color = tiles.color;
+        color.a = Mathf.MoveTowards(color.a, targetAlpha, fadeSpeed * Time.deltaTime);
+        tiles.color = color;
     }
 }
 
