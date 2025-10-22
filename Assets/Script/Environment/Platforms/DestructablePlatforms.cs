@@ -1,49 +1,52 @@
 ﻿using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class BreakableTilemapPlatform : MonoBehaviour
+public class BreakablePlatform : MonoBehaviour
 {
-    [Header("Destruction Parameters")]
-    [SerializeField] private float destructionDelay = 1.0f;  
-    [SerializeField] private bool destroyPlatform = false;
+    [SerializeField] private float destructionDelay = 1f;
+    [SerializeField] private float respawnDelay = 5f;
 
-    private Tilemap tilemap;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D platformCollider;
+
     private bool isBreaking = false;
+    private bool isDestroyed = false;
+    private float timer = 0f;
 
-    private float destructionTimer = 0f;
-
-    private void Awake()
+    void Awake()
     {
-        tilemap = GetComponent<Tilemap>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        platformCollider = GetComponent<Collider2D>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (isBreaking)
+        if (!isBreaking) return;
+
+        timer += Time.deltaTime;
+
+        if (!isDestroyed && timer >= destructionDelay)
         {
-            destructionTimer += Time.deltaTime;
-
-            if (destructionTimer >= destructionDelay)
-            {
-                if (destroyPlatform)
-                {
-                    tilemap.ClearAllTiles(); 
-                }
-
-                isBreaking = false;
-                destructionTimer = 0f;
-            }
+            spriteRenderer.enabled = false;
+            platformCollider.enabled = false;
+            isDestroyed = true;
+            timer = 0f;
+        }
+        else if (isDestroyed && timer >= respawnDelay) 
+        {
+            spriteRenderer.enabled = true;
+            platformCollider.enabled = true;
+            isDestroyed = false;
+            isBreaking = false;
+            timer = 0f;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isBreaking) return;
-
-        if (collision.gameObject.CompareTag("Player"))
-        { 
+        if (!isBreaking && collision.gameObject.CompareTag("Player"))
+        {
             isBreaking = true;
-            destructionTimer = 0f;
+            timer = 0f;
         }
     }
 }

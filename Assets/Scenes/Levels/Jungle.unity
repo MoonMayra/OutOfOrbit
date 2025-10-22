@@ -24821,7 +24821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1224210354
 Transform:
   m_ObjectHideFlags: 0
@@ -24875,37 +24875,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1224210357}
-    m_ColliderPaths:
-    - - X: 560000000
-        Y: 260000000
-      - X: 510000000
-        Y: 260000000
-      - X: 510000000
-        Y: 190000000
-      - X: 560000000
-        Y: 190000000
-    - - X: -80000000
-        Y: 210000000
-      - X: -100000000
-        Y: 210000000
-      - X: -100000000
-        Y: 220000000
-      - X: -170000000
-        Y: 220000000
-      - X: -170000000
-        Y: 150000000
-      - X: -80000000
-        Y: 150000000
-    - - X: 1140000000
-        Y: -30000000
-      - X: 1030000000
-        Y: -30000000
-      - X: 1030000000
-        Y: -130000000
-      - X: 1140000000
-        Y: -130000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 55.99997, y: 19}
@@ -43181,7 +43151,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 21
-      m_TileSpriteIndex: 20
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -49890,8 +49860,8 @@ Tilemap:
     m_Data: {fileID: 868526530, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
   - m_RefCount: 26
     m_Data: {fileID: 553915951, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 327186737, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1508781508, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
   - m_RefCount: 4
@@ -49904,10 +49874,6 @@ Tilemap:
     m_Data: {fileID: -498384976, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -491353786, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 327186737, guid: 4bd2db73992e6fd46847cf489f52ec09, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 1583
     m_Data:
@@ -53843,9 +53809,10 @@ GameObject:
   - component: {fileID: 1887610650}
   - component: {fileID: 1887610649}
   - component: {fileID: 1887610648}
-  m_Layer: 0
+  - component: {fileID: 1887610652}
+  m_Layer: 3
   m_Name: leaf1_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53859,7 +53826,7 @@ Transform:
   m_GameObject: {fileID: 1887610646}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.045, y: -0.713, z: -0.08741503}
+  m_LocalPosition: {x: -1.056, y: -0.774, z: -0.08741503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53877,8 +53844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f696a3a55868f247947a5bd07ab7ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionDelay: 2
-  destroyPlatform: 1
+  destructionDelay: 1
+  respawnDelay: 5
 --- !u!66 &1887610649
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -54006,6 +53973,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1887610652
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887610646}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 0.4375}
+    newSize: {x: 3.125, y: 0.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.125, y: 0.4375}
+  m_EdgeRadius: 0
 --- !u!1 &1932434506
 GameObject:
   m_ObjectHideFlags: 0
