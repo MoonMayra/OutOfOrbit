@@ -144,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<MovementPlat>(out MovementPlat platform))
         {
+            previousPlatformPosition = platform.transform.position;
             currentPlatform = platform;
         }
     }
