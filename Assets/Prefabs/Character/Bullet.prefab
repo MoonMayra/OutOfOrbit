@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8656473413657233491}
   - component: {fileID: -5031692709501498018}
   - component: {fileID: 3992440646337268164}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Voids
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -192,10 +192,17 @@ MonoBehaviour:
   bulletVel: 5
   bounces: 0
   maxBounces: 3
-  bouncesMask:
+  groundMask:
     serializedVersion: 2
     m_Bits: 8
+  bulletMask:
+    serializedVersion: 2
+    m_Bits: 128
   playerShoot: {fileID: 0}
+  platforms: PassThrough
+  gravityFields: {fileID: 0}
+  hasStopped: 0
+  hazardTag: Hazards
   direction: {x: 0, y: 0}
 --- !u!1 &3446741354843835560
 GameObject:

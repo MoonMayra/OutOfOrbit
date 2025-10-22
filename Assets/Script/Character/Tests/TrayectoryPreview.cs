@@ -7,6 +7,8 @@ public class TrayectoryPreview : MonoBehaviour
 {
     [SerializeField] private int maxBounces = 3;
     [SerializeField] private LayerMask bouncesMask;
+    [SerializeField] private LayerMask bulletMask;
+    [SerializeField] private string platformsTag = "PassThrough";
 
     private LineRenderer lineRenderer;
 
@@ -25,9 +27,17 @@ public class TrayectoryPreview : MonoBehaviour
 
         for (int i = 0; i < maxBounces; i++)
         {
-            RaycastHit2D hit = Physics2D.Raycast(currentPos, currentDir, Mathf.Infinity, bouncesMask);
+            LayerMask combinedMask = bouncesMask | bulletMask;
+            RaycastHit2D hit = Physics2D.Raycast(currentPos, currentDir, Mathf.Infinity, combinedMask);
             if (hit.collider)
             {
+                if(hit.collider.CompareTag(platformsTag))
+                {
+                    currentPos=hit.point + currentDir * 0.01f;
+                    i--;
+                    continue;
+                }
+
                 bouncesPoints.Add(hit.point);
 
                 if (i == maxBounces)
@@ -52,9 +62,16 @@ public class TrayectoryPreview : MonoBehaviour
     }
 
     public Vector2 Bounce(Vector2 direction, Vector2 normal)
-    { 
-        if (Mathf.Abs(normal.y)>0.9f) direction.y=-direction.y;
-        if(Mathf.Abs(normal.x)>0.9f) direction.x=-direction.x;
+    {
+        if (Mathf.Abs(normal.x) > Mathf.Abs(normal.y))
+        {
+            direction.x = -direction.x;
+        }
+        else
+        {
+            direction.y = -direction.y;
+        }
+
         return direction.normalized;
 
     }

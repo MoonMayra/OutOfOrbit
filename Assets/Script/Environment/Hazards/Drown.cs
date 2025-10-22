@@ -16,6 +16,7 @@ public class Drown : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & player.value) != 0)
         {
+            Debug.Log("Drown");
             playerStats.AddDeath(1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 

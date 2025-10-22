@@ -31,6 +31,7 @@ public class PlayerShoot : MonoBehaviour
     private int nextBulletIndex = 0;
     public GameObject[] activeBullets = new GameObject[3];
     public bool isAbleToShoot = true;
+    public bool shootButtonRealesed = true;
     //Voids variables
     private int nextVoidIndex = 0;
     public GameObject[] activeVoids = new GameObject[3];
@@ -52,7 +53,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void HandleActivateInput(InputAction.CallbackContext context)
     {
-        if( activeBullets[0] == null && activeBullets[1] == null && activeBullets[2] == null)
+        if(IsAnyBulletMoving())
         {
             return;
         }
@@ -65,27 +66,23 @@ public class PlayerShoot : MonoBehaviour
     {
         if (context.started)
         {
-            if (isAbleToShoot)
+            if (isAbleToShoot && shootButtonRealesed)
             {
                 isAiming = true;
             }
-            else
+            else if (!isAbleToShoot)
             {
                 StopBullet();
             }
         }
         else if (context.canceled)
         {
-            if (isAbleToShoot)
+            shootButtonRealesed = true;
+            if (isAbleToShoot && isAiming)
             {
                 isAiming = false;
                 ShootBullet();
-                ToggleShoot();
-            }
-            else
-            {
-                ToggleShoot();
-                Debug.Log(isAbleToShoot);
+                UpdateShootAvailability();
             }
         }
 
@@ -103,12 +100,33 @@ public class PlayerShoot : MonoBehaviour
             BulletMovement actualBulletMov = activeBullets[previousBulletIndex].gameObject.GetComponent<BulletMovement>();
             actualBulletMov.enabled = false;
             actualBulletRB.bodyType = RigidbodyType2D.Static;
+
+            UpdateShootAvailability();
         }
     }
-    private void ToggleShoot()
+
+    private void UpdateShootAvailability()
     {
-        isAbleToShoot=!isAbleToShoot;
+        isAbleToShoot = !IsAnyBulletMoving();
+
     }
+
+    private bool IsAnyBulletMoving()
+    {
+        foreach(var bullet in activeBullets)
+        {
+            if(bullet!=null)
+            {
+                Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
+                if(bulletRB.linearVelocity.sqrMagnitude>0.1f)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private void RenderLine()
     {
         if (bulletSpawn == null)
@@ -119,11 +137,16 @@ public class PlayerShoot : MonoBehaviour
 
     private void ShootBullet()
     {
+        shootButtonRealesed = false;
         trayectory.ClearLine();
         CreateBullet();
 
     }
 
+    public void OnBulletStopped(BulletMovement stoppedBullet)
+    {
+        UpdateShootAvailability();
+    }
     public void CreateBullet()
     {
         if (activeBullets[nextBulletIndex] != null) // if there's an active void in this slot, destroy it :p
@@ -133,48 +156,40 @@ public class PlayerShoot : MonoBehaviour
 
         }
 
-        GameObject newBullet = null;
-        Rigidbody2D nextBulletRb=null;
-        bulletMov=null;
-        switch (nextBulletIndex)
-        {
-            case 0:
-                newBullet = Instantiate(bulletPrefab[0], bulletSpawn.position, Quaternion.identity);
-                bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
-                nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
-                nextBulletRb.linearVelocity = lineDir.normalized;
-                bulletMov.direction = lineDir.normalized;
-                break;
-            case 1:
-                newBullet = Instantiate(bulletPrefab[1], bulletSpawn.position, Quaternion.identity);
-                bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
-                nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
-                nextBulletRb.linearVelocity = lineDir.normalized;
-                bulletMov.direction = lineDir.normalized;
-                break;
-            case 2:
-                newBullet = Instantiate(bulletPrefab[2], bulletSpawn.position, Quaternion.identity);
-                bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
-                nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
-                nextBulletRb.linearVelocity = lineDir.normalized;
-                bulletMov.direction = lineDir.normalized;
-                break;
-        }
+        GameObject newBullet= Instantiate(bulletPrefab[nextBulletIndex], bulletSpawn.position, Quaternion.identity);
+        bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
+        Rigidbody2D nextBulletRb = newBullet.GetComponent<Rigidbody2D>();
+        nextBulletRb.linearVelocity = lineDir.normalized;
+        bulletMov.direction = lineDir.normalized;
+        bulletMov.playerShoot = this;
 
         activeBullets[nextBulletIndex] = newBullet;
-
         nextBulletIndex = (nextBulletIndex + 1) % 3; // infinite ! :D
+        UpdateShootAvailability();
+
     }
 
     private void CreateVoid()
     {
-        Debug.Log("Creating void");
-        int previousVoidIndex = (nextVoidIndex - 1 + activeVoids.Length) % 3; 
-        if (activeVoids[nextVoidIndex] != null) 
+        if(activeBullets[(nextVoidIndex)] == null)
+        {
+            Debug.Log("No bullet to link void to");
+            return;
+        }
+        if (activeVoids[nextVoidIndex] != null)
         {
             Debug.Log("Destroying previous void");
             Destroy(activeVoids[nextVoidIndex]);
         }
+        voidSpawn = activeBullets[nextVoidIndex].transform.position; 
+        GameObject newVoid = Instantiate(voidPrefab[nextVoidIndex], voidSpawn, Quaternion.identity);
+        gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
+        gravityVoid.linkedBullet = activeBullets[nextVoidIndex];
+
+        activeVoids[nextVoidIndex] = newVoid;
+        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D
+
+        /*
         GameObject newVoid = null;
         switch (nextVoidIndex)
         {
@@ -201,7 +216,7 @@ public class PlayerShoot : MonoBehaviour
                 break;
         }
         activeVoids[nextVoidIndex] = newVoid;
-        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D
+        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D*/
     }
 
     private void Update()

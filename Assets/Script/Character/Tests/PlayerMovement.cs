@@ -145,7 +145,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.TryGetComponent<MovementPlat>(out MovementPlat platform))
         {
             currentPlatform = platform;
-            previousPlatformPosition = platform.transform.position; 
         }
     }
 
@@ -267,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
                 GravityVoid gv = voidObj.GetComponent<GravityVoid>();
                 if (gv != null)
                 {
-                    gvForces += gv.CalculateGVForce();
+                    gvForces += gv.CalculateGVForcePlayer();
                 }
             }
         }

@@ -10,10 +10,13 @@ public class GravityVoid : MonoBehaviour
     [Header("References")]
     public GameObject linkedBullet;
     [SerializeField] private LayerMask player;
+    [SerializeField] private LayerMask bullet;
 
     private float timer = 0f;
     private Transform playerTransform;
     private Rigidbody2D playerRigidBody;
+    private Transform bulletTransform;
+    private Rigidbody2D bulletRigidBody;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +25,11 @@ public class GravityVoid : MonoBehaviour
             playerRigidBody = collision.GetComponent<Rigidbody2D>();
             playerTransform = collision.GetComponent<Transform>();
         }
+        if (((1 << collision.gameObject.layer) & bullet.value) != 0)
+            {
+                bulletRigidBody = collision.GetComponent<Rigidbody2D>();
+                bulletTransform = collision.GetComponent<Transform>();
+            }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -31,10 +39,15 @@ public class GravityVoid : MonoBehaviour
             playerRigidBody = null;
             playerTransform = null;
         }
+        if (((1 << collision.gameObject.layer) & bullet.value) != 0)
+        {
+                bulletRigidBody = null;
+                bulletTransform = null;
+        }
     }
         
 
-    public Vector2 CalculateGVForce()
+    public Vector2 CalculateGVForcePlayer()
     {
         Vector2 force = Vector2.zero;
             if (playerTransform != null && playerRigidBody != null)
@@ -47,8 +60,25 @@ public class GravityVoid : MonoBehaviour
                     direction.Normalize();
                     float strength = gravityStrength * (1 - (distance / voidRadius));
                     force = direction * strength * Time.fixedDeltaTime;
+                }
             }
+            
+        return force;
+    }
+    public Vector2 CalculateGVForceBullet()
+    {
+        Vector2 force = Vector2.zero;
+        if (bulletTransform != null && bulletRigidBody != null)
+        {
+            Vector2 direction = (Vector2)transform.position - (Vector2)bulletTransform.position;
+            float distance = direction.magnitude;
+            if (distance < voidRadius)
+            {
+                direction.Normalize();
+                float strength = gravityStrength * (1 - (distance / voidRadius));
+                force += direction * strength * Time.fixedDeltaTime;
             }
+        }
         return force;
     }
 
@@ -70,10 +100,6 @@ public class GravityVoid : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, voidRadius);
-    }
+
 
 }

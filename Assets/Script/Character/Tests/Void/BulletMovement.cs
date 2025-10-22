@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -7,8 +8,13 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private float bulletVel = 10;
     [SerializeField] private int bounces = 0;
     [SerializeField] private int maxBounces = 3;
-    [SerializeField] private LayerMask bouncesMask;
-    [SerializeField] private PlayerShoot playerShoot;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask bulletMask;
+    [SerializeField] public PlayerShoot playerShoot;
+    [SerializeField] private string platforms;
+    [SerializeField] private GravityVoid gravityFields;
+    [SerializeField] private bool hasStopped = false;
+    [SerializeField] private string hazardTag = "Hazard";
 
     private Rigidbody2D bulletRigidbody;
     public Vector2 direction;
@@ -18,13 +24,22 @@ public class BulletMovement : MonoBehaviour
     private void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody2D>();
-        playerShoot = GameObject.Find(playerTag).GetComponent<PlayerShoot>();
+        if (playerShoot == null)
+        {
+            var gameObject = GameObject.Find(playerTag);
+            if (gameObject != null)
+            {
+                playerShoot = gameObject.GetComponent<PlayerShoot>();
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & bouncesMask.value) != 0)
+        if (((1 << collision.gameObject.layer) & groundMask.value) != 0 || ((1 << collision.gameObject.layer) & bulletMask.value) != 0 )
         {
+            if (collision.gameObject.CompareTag(platforms) == true)
+            return;
             foreach (ContactPoint2D contactPoint in collision.contacts)
             {
                 if (bounces < maxBounces)
@@ -37,14 +52,42 @@ public class BulletMovement : MonoBehaviour
                     direction = new Vector2(0, 0);
                 }
             }
+            
         }
-    
+        if (collision.gameObject.CompareTag(hazardTag))
+        {
+            DestroyBulletsOnHazards();
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(hazardTag))
+        {
+            DestroyBulletsOnHazards();
+        }
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    private void DestroyBulletsOnHazards()
+    {
+               Destroy(gameObject);
     }
 
     public Vector2 Bounce(Vector2 direction, Vector2 normal)
     {
-        if (Mathf.Abs(normal.y) > 0.9f) direction.y = -direction.y;
-        if (Mathf.Abs(normal.x) > 0.9f) direction.x = -direction.x;
+        if(Mathf.Abs(normal.x)>Mathf.Abs(normal.y))
+        {
+            direction.x = -direction.x;
+        }
+        else
+        {
+            direction.y = -direction.y;
+        }
+
         return direction.normalized;
 
     }
@@ -53,11 +96,45 @@ public class BulletMovement : MonoBehaviour
         if (bulletRigidbody == null)
             return;
 
-        if(!playerShoot.isAbleToShoot && bulletRigidbody.linearVelocityX == 0 && bulletRigidbody.linearVelocityY == 0)
+        Vector2 gvForces = Vector2.zero;
+        if (playerShoot != null)
         {
-            playerShoot.isAbleToShoot = true;
+            foreach (var voidObj in playerShoot.activeVoids)
+            {
+                if (voidObj != null)
+                {
+                    GravityVoid gv = voidObj.GetComponent<GravityVoid>();
+                    if (gv != null)
+                    {
+                        gvForces += gv.CalculateGVForceBullet();
+                    }
+                }
+            }
         }
 
-        bulletRigidbody.linearVelocity = direction * bulletVel;
+        Vector2 bulletMov=direction * bulletVel + gvForces;
+        if (bulletRigidbody.bodyType != RigidbodyType2D.Static)
+        {
+            bulletRigidbody.linearVelocity = bulletMov;
+        }
+        
+        if(!hasStopped && (bulletRigidbody.linearVelocity.magnitude < 0.1f || direction==Vector2.zero))
+        {
+            hasStopped = true;
+
+            bulletRigidbody.linearVelocity = Vector2.zero;
+            bulletRigidbody.bodyType=RigidbodyType2D.Static;
+            playerShoot.shootButtonRealesed = true;
+
+            if (playerShoot != null)
+            {
+                playerShoot.OnBulletStopped(this);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerShoot reference is missing in BulletMovement.");
+            }
+        }
+      
     }
 }

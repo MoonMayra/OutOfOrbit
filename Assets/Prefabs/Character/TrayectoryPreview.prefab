@@ -156,3 +156,7 @@ MonoBehaviour:
   bouncesMask:
     serializedVersion: 2
     m_Bits: 8
+  bulletMask:
+    serializedVersion: 2
+    m_Bits: 128
+  platformsTag: PassThrough
