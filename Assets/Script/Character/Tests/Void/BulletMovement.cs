@@ -50,6 +50,7 @@ public class BulletMovement : MonoBehaviour
                 else
                 {
                     direction = new Vector2(0, 0);
+                    playerShoot.CreateVoid();
                 }
             }
             
