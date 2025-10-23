@@ -8,6 +8,7 @@ public class Collectable : MonoBehaviour
     private void Start()
     {
         LevelManager.Instance.RegisterCollectable(this);
+        
         if (LevelManager.Instance.IsCollected(id))
         {
             gameObject.SetActive(false);

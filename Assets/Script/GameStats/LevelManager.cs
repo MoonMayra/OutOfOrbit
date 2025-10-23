@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
     {
         player.RespawnAt(spawnpoint.position);
 
-        foreach (var collectable in FindObjectsByType<Collectable>(FindObjectsSortMode.None))
+        foreach (var collectable in FindObjectsByType<Collectable>(FindObjectsSortMode.None)) 
         {
             if(collectable.checkpointIndex > currentCheckpoint.index)
             {
