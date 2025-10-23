@@ -44,7 +44,8 @@ public class MovementPlat : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            playerRigidBody = collision.collider.GetComponent<Rigidbody2D>();
+        //    playerRigidBody = collision.collider.GetComponent<Rigidbody2D>();
+            collision.gameObject.transform.parent = this.transform;
         }
     }
 
@@ -54,5 +55,5 @@ public class MovementPlat : MonoBehaviour
         {
             playerRigidBody = null;
         }
-}
+    }
 }
