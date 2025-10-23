@@ -16,31 +16,33 @@ public class PlayerGroundCheck : MonoBehaviour
     [Header("Particles")]
     [SerializeField] private ParticleSystem dustParticles;
 
+    [Header("Ground layer")]
+    [SerializeField] private LayerMask groundLayer;
+
+
     private void OnCollisionStay2D(Collision2D collisionObj)
     {
-        if (collisionObj.gameObject.GetComponent<TilemapCollider2D>()==null)
-        {
+        if (((1 << collisionObj.gameObject.layer) & groundLayer.value) == 0)
             return;
-        }
+
         bool groundFound = false;
-        foreach(ContactPoint2D contactPoint in collisionObj.contacts)
+        foreach (ContactPoint2D contactPoint in collisionObj.contacts)
         {
-            if(contactPoint.normal.y >= normalThreshold)
+            if (contactPoint.normal.y >= normalThreshold)
             {
-                groundFound = true; 
+                groundFound = true;
                 break;
             }
         }
         isGrounded = groundFound;
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<TilemapCollider2D>() == null)
-        {
+        if (((1 << collision.gameObject.layer) & groundLayer.value) == 0)
             return;
-        }
-        isGrounded= false;
 
+        isGrounded = false;
     }
 
     private void Update()
