@@ -8,6 +8,7 @@ TagManager:
   - Voids
   - Hazards
   - PassThrough
+  - LevelManager
   layers:
   - Default
   - TransparentFX
