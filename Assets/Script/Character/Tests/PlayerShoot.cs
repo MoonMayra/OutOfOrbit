@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,14 +28,18 @@ public class PlayerShoot : MonoBehaviour
     private Vector2 mousePos;
     private bool isAiming = false;
     private Vector2 lineDir;
+
     //Shooting variables
     private int nextBulletIndex = 0;
     public GameObject[] activeBullets = new GameObject[3];
     public bool isAbleToShoot = true;
     public bool shootButtonRealesed = true;
+
     //Voids variables
-    private int nextVoidIndex = 0;
     public GameObject[] activeVoids = new GameObject[3];
+
+    //List for indexing bullets
+    private List<GameObject> bulletCreationOrder = new List<GameObject>();
 
     //Player reference
     private Rigidbody2D playerRB;
@@ -53,14 +58,10 @@ public class PlayerShoot : MonoBehaviour
 
     private void HandleActivateInput(InputAction.CallbackContext context)
     {
-        if(IsAnyBulletMoving())
-        {
+        if(!isAbleToShoot || IsAnyBulletMoving())
             return;
-        }
-        if (isAbleToShoot)
-        {
-            CreateVoid();
-        }
+
+        CreateVoid();
     }
     private void HandleShootInput(InputAction.CallbackContext context)
     {
@@ -105,7 +106,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    private void UpdateShootAvailability()
+    public void UpdateShootAvailability()
     {
         isAbleToShoot = !IsAnyBulletMoving();
 
@@ -149,7 +150,45 @@ public class PlayerShoot : MonoBehaviour
     }
     public void CreateBullet()
     {
-        if (activeBullets[nextBulletIndex] != null) // if there's an active void in this slot, destroy it :p
+        if(activeBullets[nextBulletIndex]!= null)
+        {
+            RemoveBullet(nextBulletIndex);
+        }
+
+        GameObject newBullet = Instantiate(bulletPrefab[nextBulletIndex], bulletSpawn.position, Quaternion.identity);
+        Rigidbody2D bulletRigidBody = newBullet.GetComponent<Rigidbody2D>();
+        bulletRigidBody.linearVelocity = lineDir.normalized;
+        var bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
+        bulletMov.direction = lineDir.normalized;
+        bulletMov.playerShoot = this;
+
+        activeBullets[nextBulletIndex] = newBullet;
+        bulletCreationOrder.Add(newBullet);
+
+        nextBulletIndex = (nextBulletIndex + 1) % activeBullets.Length; // infinite ! :D
+        UpdateShootAvailability();
+
+        /*if (activeBullets[nextBulletIndex]!= null)
+        {
+            RemoveBullet(nextBulletIndex);
+        }
+
+        GameObject newBullet= Instantiate(bulletPrefab[nextBulletIndex], bulletSpawn.position, Quaternion.identity);
+        Rigidbody2D bulletRigidBody = newBullet.GetComponent<Rigidbody2D>();
+        bulletRigidBody.linearVelocity = lineDir.normalized;
+        var bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
+        bulletMov.direction = lineDir.normalized;
+        bulletMov.playerShoot = this;
+
+        activeBullets[nextBulletIndex] = newBullet;
+
+        bulletCreationOrder.Add(nextBulletIndex);
+
+        nextBulletIndex = (nextBulletIndex + 1) % activeBullets.Length; // infinite ! :D
+        UpdateShootAvailability();*/
+
+
+        /*if (activeBullets[nextBulletIndex] != null) // if there's an active void in this slot, destroy it :p
         {
             Destroy(activeBullets[nextBulletIndex]);
             Destroy(activeVoids[nextBulletIndex]);
@@ -165,60 +204,105 @@ public class PlayerShoot : MonoBehaviour
 
         activeBullets[nextBulletIndex] = newBullet;
         nextBulletIndex = (nextBulletIndex + 1) % 3; // infinite ! :D
-        UpdateShootAvailability();
+        UpdateShootAvailability();*/
 
     }
 
-    private void CreateVoid()
+    public void CreateVoid()
     {
-        if(activeBullets[(nextVoidIndex)] == null)
+        GameObject bulletToUse = null;
+
+        foreach (var bullet in bulletCreationOrder)
         {
-            Debug.Log("No bullet to link void to");
+            if (bullet != null)
+            {
+                int slotIndex = System.Array.IndexOf(activeBullets, bullet);
+                if(slotIndex!=-1 &&activeVoids[slotIndex]==null)
+                {
+                    bulletToUse = bullet;
+                    break;
+                }
+            }
+        }          
+        if(bulletToUse==null)
+        {
+            Debug.Log("No bullets to link void to");
             return;
         }
-        if (activeVoids[nextVoidIndex] != null)
+
+        int validIndex = System.Array.IndexOf(activeBullets, bulletToUse);
+        if(activeVoids[validIndex]!=null)
         {
             Debug.Log("Destroying previous void");
-            Destroy(activeVoids[nextVoidIndex]);
+            Destroy(activeVoids[validIndex]);
         }
-        voidSpawn = activeBullets[nextVoidIndex].transform.position; 
-        GameObject newVoid = Instantiate(voidPrefab[nextVoidIndex], voidSpawn, Quaternion.identity);
+        voidSpawn = bulletToUse.transform.position;
+        GameObject newVoid = Instantiate(voidPrefab[validIndex], voidSpawn, Quaternion.identity);
         gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
-        gravityVoid.linkedBullet = activeBullets[nextVoidIndex];
+        gravityVoid.linkedBullet = bulletToUse;
 
-        activeVoids[nextVoidIndex] = newVoid;
-        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D
+        activeVoids[validIndex] = newVoid;
 
-        /*
-        GameObject newVoid = null;
-        switch (nextVoidIndex)
+        /*int validIndex = -1;
+
+        foreach(var slotIndex in bulletCreationOrder)
         {
-            case 0:
-                Debug.Log("Creating void 0");
-                voidSpawn = new Vector2(activeBullets[0].transform.position.x, activeBullets[0].transform.position.y);
-                newVoid = Instantiate(voidPrefab[0], voidSpawn, Quaternion.identity);
-                gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
-                gravityVoid.linkedBullet = activeBullets[0];
+            if(activeBullets[slotIndex]!=null && activeVoids[slotIndex]==null)
+            {
+                validIndex = slotIndex;
                 break;
-            case 1:
-                Debug.Log("Creating void 1");
-                voidSpawn = new Vector2(activeBullets[1].transform.position.x, activeBullets[1].transform.position.y);
-                newVoid = Instantiate(voidPrefab[1], voidSpawn, Quaternion.identity);
-                gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
-                gravityVoid.linkedBullet = activeBullets[1];
-                break;
-            case 2:
-                Debug.Log("Creating void 2");
-                voidSpawn = new Vector2(activeBullets[2].transform.position.x, activeBullets[2].transform.position.y);
-                newVoid = Instantiate(voidPrefab[2], voidSpawn, Quaternion.identity);
-                gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
-                gravityVoid.linkedBullet = activeBullets[2];
-                break;
+            }
         }
-        activeVoids[nextVoidIndex] = newVoid;
-        nextVoidIndex = (nextVoidIndex + 1) % 3; // infinite ! :D*/
+
+        if(validIndex==-1)
+        {
+            Debug.Log("No bullets to link void to");
+            return;
+        }
+
+        if(activeVoids[validIndex]!=null)
+        {
+            Debug.Log("Destroying previous void");
+            Destroy(activeVoids[validIndex]);
+        }
+
+        voidSpawn = activeBullets[validIndex].transform.position; 
+        GameObject newVoid = Instantiate(voidPrefab[validIndex], voidSpawn, Quaternion.identity);
+        gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
+        gravityVoid.linkedBullet = activeBullets[validIndex];
+
+        activeVoids[validIndex] = newVoid;*/
     }
 
+    public void RemoveBullet(int slotIndex)
+    {
+        GameObject bullet = activeBullets[slotIndex];
+        if (bullet != null)
+        {
+            bulletCreationOrder.Remove(bullet);
+            Destroy(bullet);
+            activeBullets[slotIndex] = null;
+        }
+        if(activeVoids[slotIndex]!=null)
+        {
+            Destroy(activeVoids[slotIndex]);
+            activeVoids[slotIndex] = null;
+        }
+        UpdateShootAvailability();
+
+        /*if (activeBullets[slotIndex]!=null)
+        {
+            Destroy(activeBullets[slotIndex]);
+        }
+        if(activeVoids[slotIndex]!=null)
+        {
+            Destroy(activeVoids[slotIndex]);
+            activeVoids[slotIndex] = null;
+        }
+        activeBullets[slotIndex] = null;
+        bulletCreationOrder.Remove(slotIndex);
+        UpdateShootAvailability();*/
+    }
     private void Update()
     {
         mousePos=Input.mousePosition;

@@ -70,11 +70,13 @@ public class BulletMovement : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+        playerShoot.UpdateShootAvailability();
     }
 
     private void DestroyBulletsOnHazards()
     {
                Destroy(gameObject);
+        playerShoot.UpdateShootAvailability();
     }
 
     public Vector2 Bounce(Vector2 direction, Vector2 normal)
