@@ -53906,6 +53906,10 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 778684283}
+    - target: {fileID: 2207002697302443098, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 1291504829}
     - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: id
       value: Col_1_lvl_2
