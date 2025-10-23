@@ -274,13 +274,13 @@ public class PlayerMovement : MonoBehaviour
 
         velocityPlayer += gvForces;
 
-        if (currentPlatform != null && groundCheck.isGrounded)
+        /*if (currentPlatform != null && groundCheck.isGrounded)
         {
             Vector2 platformMovement = (Vector2)currentPlatform.transform.position - previousPlatformPosition;
             playerRigidBody.position += platformMovement;
             previousPlatformPosition = currentPlatform.transform.position;
         }   
-
+        */
         playerRigidBody.linearVelocity = velocityPlayer;
     }
 
