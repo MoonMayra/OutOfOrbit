@@ -10,10 +10,13 @@ public class CollectablesText : MonoBehaviour
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float stayDuration = 2f;
     [SerializeField] private DeathsText deathsText;
+    [SerializeField] private float instantSlideOutMultiplier = 0.25f;
 
     private int lastCollectables = -1;
     private Vector2 hiddenPos;
     private Vector2 visiblePos;
+    private bool isQueued = false;
+    private bool isAnimating = false;
 
     void Start()
     {
@@ -27,21 +30,52 @@ public class CollectablesText : MonoBehaviour
 
     void Update()
     {
+        if(deathsText.isDeathTextActive &&isAnimating)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SlideOutInstant());
+        }
+
         if(playerStats.collectables != lastCollectables)
         {
             lastCollectables = playerStats.collectables;
             collectablesText.text = "x " + playerStats.collectables.ToString();
-           if(!deathsText.isDeathTextActive)
-            {            
-                StopAllCoroutines();
-                StartCoroutine(SlideInAndOut());
-            }
+            TryShowCollectableText();
 
         }
         
     }
+
+    private void TryShowCollectableText()
+    {
+        if(deathsText.isDeathTextActive)
+        {
+            if(!isQueued)
+            {
+                isQueued = true;
+                StartCoroutine(WaitForDeathText());
+            }
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(SlideInAndOut());
+        }
+
+    }
+    private IEnumerator WaitForDeathText()
+    {
+        Debug.Log("entre a la corrutina");
+        yield return new WaitUntil(() => !deathsText.isDeathTextActive);
+        Debug.Log("entre a la corrutina2");
+        isQueued = false;
+        StopAllCoroutines();
+        StartCoroutine(SlideInAndOut());
+    }
+
     private IEnumerator SlideInAndOut()
     {
+        isAnimating = true;
         float timer = 0.0f;
 
         while(timer< slideDuration)
@@ -58,6 +92,20 @@ public class CollectablesText : MonoBehaviour
         while (timer < slideDuration)
         {
             panel.anchoredPosition = Vector2.Lerp(visiblePos, hiddenPos, timer / slideDuration);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        panel.anchoredPosition = hiddenPos;
+        isAnimating = false;
+    }
+    private IEnumerator SlideOutInstant()
+    {
+        Debug.Log("Slide out instant called");
+        isAnimating = false;
+        float timer = 0.0f;
+        while (timer < slideDuration*instantSlideOutMultiplier)
+        {
+            panel.anchoredPosition = Vector2.Lerp(visiblePos, hiddenPos, timer / (slideDuration/2));
             timer += Time.deltaTime;
             yield return null;
         }
