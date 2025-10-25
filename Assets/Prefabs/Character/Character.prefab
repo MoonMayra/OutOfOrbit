@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: -669158974781351936}
   - component: {fileID: -7969824856625025076}
   - component: {fileID: 9117736236978871301}
+  - component: {fileID: 3973393939323834054}
   m_Layer: 6
   m_Name: Character
   m_TagString: Player
@@ -211,7 +212,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202999902678165084}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d7e07c79420bf0247b1e8cdb656fb794, type: 2}
   m_CullingMode: 0
@@ -278,6 +279,9 @@ MonoBehaviour:
   jumpingThreshold: 0
   normalThreshold: 0.6
   dustParticles: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &-7969824856625025076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a299e45cc3c9441b32043c9c61ce03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 7979160675946252054}
+  stateAnimKey: State
+  shootingAnimKey: isAiming
 --- !u!114 &9117736236978871301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,15 +324,33 @@ MonoBehaviour:
   - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
   - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
   - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
+  isAiming: 0
   activeBullets:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   isAbleToShoot: 1
+  shootButtonRealesed: 1
   activeVoids:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &3973393939323834054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202999902678165084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64860b946a293844ebfd2277b026365c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: -4948877287448343850}
+  shoot: {fileID: 9117736236978871301}
+  view: {fileID: -7969824856625025076}
+  groundCheck: {fileID: -669158974781351936}
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,26 +505,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6522414326844454945}
     m_Modifications:
-    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
-      propertyPath: m_SortingLayer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -641588081
-      objectReference: {fileID: 0}
-    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.10877228
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883961909655978894, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
-      propertyPath: bouncesMask.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7094865584236076396, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
       propertyPath: m_Name
       value: TrayectoryPreview

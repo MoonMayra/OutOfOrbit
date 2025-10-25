@@ -40,11 +40,14 @@ public class Death : MonoBehaviour
         if(playerStats != null) 
             playerStats.AddDeath(1);
         if (levelManager != null && levelManager.currentCheckpoint != null)
+        {
             levelManager.RespawnPlayer(levelManager.currentCheckpoint.spawnPoint);
+            Debug.Log("Player Respawned at Checkpoint: " + levelManager.currentCheckpoint.index);
+        }
         else
         {
             Debug.Log("No current Checkpoint assigned");
-            
+
         }
 
         

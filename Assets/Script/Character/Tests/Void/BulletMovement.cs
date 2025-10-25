@@ -70,14 +70,16 @@ public class BulletMovement : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        bulletRigidbody.bodyType = RigidbodyType2D.Static;
         playerShoot.UpdateShootAvailability();
+        Destroy(gameObject);
     }
 
     private void DestroyBulletsOnHazards()
     {
-               Destroy(gameObject);
+        bulletRigidbody.bodyType =RigidbodyType2D.Static;
         playerShoot.UpdateShootAvailability();
+        Destroy(gameObject);
     }
 
     public Vector2 Bounce(Vector2 direction, Vector2 normal)

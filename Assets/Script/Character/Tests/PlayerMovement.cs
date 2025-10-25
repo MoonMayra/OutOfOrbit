@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Others")]
 
-    
     [SerializeField] private PlayerGroundCheck groundCheck;
     [SerializeField] private GravityVoid gravityVoid;
     [SerializeField] private PlayerView playerView;

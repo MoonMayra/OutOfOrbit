@@ -17,8 +17,12 @@ public class LevelManager : MonoBehaviour
             Instance=this;
         else
             Destroy(gameObject);
-    }
 
+    }
+    private void Start()
+    {
+        player = PlayerManager.Instance;
+    }
     public void RegisterCollectable(Collectable item)
     {
         if(!collectedItems.ContainsKey(item.id))

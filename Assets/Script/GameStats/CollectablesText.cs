@@ -8,6 +8,7 @@ public class CollectablesText : MonoBehaviour
 
     void Start()
     {
+        playerStats = PlayerStats.instance;
         collectablesText.text = "x " + playerStats.collectables.ToString();
     }
 

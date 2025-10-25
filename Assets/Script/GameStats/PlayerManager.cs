@@ -2,16 +2,24 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager Instance { get; private set; }
+
     [Header("References")]
     public PlayerMovement movement;
     public PlayerShoot shoot;
     public PlayerView view;
     public PlayerGroundCheck groundCheck;
+    private CameraZone currentCameraZone;
 
     private Rigidbody2D RigidBody;
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         RigidBody = GetComponent<Rigidbody2D>();
     }
     
@@ -29,6 +37,7 @@ public class PlayerManager : MonoBehaviour
         movement.enabled = true;
         shoot.enabled = true;
         view.enabled = true;
+
 
         ResetBullets();
     }

@@ -109,6 +109,7 @@ public class PlayerShoot : MonoBehaviour
     public void UpdateShootAvailability()
     {
         isAbleToShoot = !IsAnyBulletMoving();
+        shootButtonRealesed=!IsAnyBulletMoving();
 
     }
 
