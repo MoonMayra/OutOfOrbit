@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,6 +8,13 @@ public class PlayerStats : MonoBehaviour
 
     public int deaths = 0;
     public int collectables = 0;
+
+    [SerializeField] public string timerText;
+    [SerializeField] private bool countFromStart = true;
+
+    public float time= 0f;
+    private bool active;
+
 
     private void Awake()
     {
@@ -19,8 +27,9 @@ public class PlayerStats : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        active=countFromStart;
+
     }
-    
     public void AddCollectable(int amount)
     {
         collectables += amount;
@@ -39,5 +48,31 @@ public class PlayerStats : MonoBehaviour
     {
         deaths = 0;
         collectables = 0;
+    }
+
+    private void Update()
+    {
+        if (!active) return;
+
+        time += Time.deltaTime;
+
+        int hours = (int)(time / 3600);
+        int minutes = (int)((time % 3600) / 60);
+        int seconds = (int)(time % 60);
+
+        timerText = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
+    }
+    public void StartTimer()
+    {
+        active = true;
+    }
+    public void StopTimer()
+    {
+        active = false;
+    }
+    public void ResetTimer()
+    {
+        time = 0f;
+        timerText= "00:00:00";
     }
 }

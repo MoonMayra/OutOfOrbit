@@ -91,3 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59061e2c828d85498d26c2a7961e69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nextScene: 

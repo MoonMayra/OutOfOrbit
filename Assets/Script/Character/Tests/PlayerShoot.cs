@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
@@ -30,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
     private Vector2 lineDir;
 
     //Shooting variables
-    private int nextBulletIndex = 0;
+    public int nextBulletIndex = 0;
     public GameObject[] activeBullets = new GameObject[3];
     public bool isAbleToShoot = true;
     public bool shootButtonRealesed = true;
@@ -55,7 +56,43 @@ public class PlayerShoot : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         trayectory = GetComponentInChildren<TrayectoryPreview>();
     }
+    private void OnEnable()
+    {
+        shootInput.action.started += HandleShootInput;
+        shootInput.action.performed += HandleShootInput;
+        shootInput.action.canceled += HandleShootInput;
 
+        activateInput.action.performed += HandleActivateInput;
+
+        playerRB = GetComponent<Rigidbody2D>();
+        trayectory = GetComponentInChildren<TrayectoryPreview>();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDisable()
+    {
+        shootInput.action.started -= HandleShootInput;
+        shootInput.action.performed -= HandleShootInput;
+        shootInput.action.canceled -= HandleShootInput;
+
+        activateInput.action.performed -= HandleActivateInput;
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        trayectory = null;
+        playerRB = null;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (playerRB == null)
+        {
+            playerRB = GetComponent<Rigidbody2D>();
+
+        }
+        if (trayectory == null)
+        {
+            trayectory = GetComponentInChildren<TrayectoryPreview>();
+        }
+    }
     private void HandleActivateInput(InputAction.CallbackContext context)
     {
         if(!isAbleToShoot || IsAnyBulletMoving())
@@ -286,6 +323,7 @@ public class PlayerShoot : MonoBehaviour
         }
         if(activeVoids[slotIndex]!=null)
         {
+            Debug.Log("Destroying linked void");
             Destroy(activeVoids[slotIndex]);
             activeVoids[slotIndex] = null;
         }

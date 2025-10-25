@@ -1,50 +1,47 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using System.Collections;
 
-public class CollectablesText : MonoBehaviour
+public class DeathsText : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private TextMeshProUGUI collectablesText;
+    [SerializeField] private TextMeshProUGUI DeathText;
     [SerializeField] private RectTransform panel;
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float stayDuration = 2f;
-    [SerializeField] private DeathsText deathsText;
+    public bool isDeathTextActive = false;
 
-    private int lastCollectables = -1;
+    private int lastDeaths = 0;
     private Vector2 hiddenPos;
     private Vector2 visiblePos;
 
     void Start()
     {
         playerStats = PlayerStats.instance;
-        collectablesText.text = "x " + playerStats.collectables.ToString();
+        DeathText.text = "x " + playerStats.deaths.ToString();
 
-        visiblePos= panel.anchoredPosition;
-        hiddenPos= new Vector2(visiblePos.x-panel.rect.width, visiblePos.y);
+        visiblePos = panel.anchoredPosition;
+        hiddenPos = new Vector2(visiblePos.x - panel.rect.width, visiblePos.y);
         panel.anchoredPosition = hiddenPos;
     }
 
     void Update()
     {
-        if(playerStats.collectables != lastCollectables)
+        if (playerStats.deaths != lastDeaths)
         {
-            lastCollectables = playerStats.collectables;
-            collectablesText.text = "x " + playerStats.collectables.ToString();
-           if(!deathsText.isDeathTextActive)
-            {            
-                StopAllCoroutines();
-                StartCoroutine(SlideInAndOut());
-            }
-
+            lastDeaths = playerStats.deaths;
+            DeathText.text = "x " + playerStats.deaths.ToString();
+            StopAllCoroutines();
+            StartCoroutine(SlideInAndOutD());
         }
-        
+
     }
-    private IEnumerator SlideInAndOut()
+    private IEnumerator SlideInAndOutD()
     {
+        isDeathTextActive = true;
         float timer = 0.0f;
 
-        while(timer< slideDuration)
+        while (timer < slideDuration)
         {
             panel.anchoredPosition = Vector2.Lerp(hiddenPos, visiblePos, timer / slideDuration);
             timer += Time.deltaTime;
@@ -62,6 +59,7 @@ public class CollectablesText : MonoBehaviour
             yield return null;
         }
         panel.anchoredPosition = hiddenPos;
+        isDeathTextActive = false;
     }
 }
 

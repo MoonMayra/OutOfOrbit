@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 //NOTE 1: To keep jump speed and height spearate and editable, we use the free fall formula
@@ -69,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
     private MovementPlat currentPlatform;
     private Vector2 previousPlatformPosition;
 
-    private void Awake()
+ 
+    private void OnEnable()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
 
@@ -79,8 +81,27 @@ public class PlayerMovement : MonoBehaviour
 
         jumpInput.action.performed += HandleJumpInput;
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    private void OnDisable()
+    {
+        moveInput.action.started -= HandleMoveInput;
+        moveInput.action.performed -= HandleMoveInput;
+        moveInput.action.canceled -= HandleMoveInput;
 
+        jumpInput.action.performed -= HandleJumpInput;
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        playerRigidBody = null;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (playerRigidBody == null)
+        {
+            playerRigidBody = GetComponent<Rigidbody2D>();
+        }
+    }
     private void Start()
     {
         playerRigidBody.WakeUp();

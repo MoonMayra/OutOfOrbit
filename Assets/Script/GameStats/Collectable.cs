@@ -23,7 +23,7 @@ public class Collectable : MonoBehaviour
 
     public void ResetCollectable()
     {
-        LevelManager.Instance.RegisterCollectable(this);
+        LevelManager.Instance.ResetCollectablesState(this);
         gameObject.SetActive(true);
     }
 }

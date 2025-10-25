@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deaths: 0
   collectables: 0
+  timerText: 
+  countFromStart: 1
+  time: 0
 --- !u!114 &9072031268343944494
 MonoBehaviour:
   m_ObjectHideFlags: 0
