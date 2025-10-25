@@ -5,9 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Menu/MainMenu.unity
+    guid: ff48ba6b01131504d96e71f49bb54e21
   - enabled: 1
     path: Assets/Scenes/Levels/Jungle.unity
     guid: 7958f834767393042bab78609c32ad9b
+  - enabled: 1
+    path: Assets/Scenes/Bosses/Gorilla.unity
+    guid: 562e8fa86df3b2a468e81ec6d600fea2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Underground.unity
+    guid: 0a2bb8fb40986cc49bb9bc57e24d5b82
+  - enabled: 1
+    path: Assets/Scenes/Bosses/Water.unity
+    guid: fbb922d10aea73946b3d33f03b014c36
+  - enabled: 1
+    path: Assets/Scenes/Levels/Lab.unity
+    guid: 728ef8c10f02a8448a558e85e35f0cdc
+  - enabled: 1
+    path: Assets/Scenes/Bosses/Mia.unity
+    guid: cfd8709430e6e324eb262b887d4e9677
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

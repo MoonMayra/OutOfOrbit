@@ -26,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
 
     //Aiming variables
     private Vector2 mousePos;
-    private bool isAiming = false;
+    public bool isAiming = false;
     private Vector2 lineDir;
 
     //Shooting variables

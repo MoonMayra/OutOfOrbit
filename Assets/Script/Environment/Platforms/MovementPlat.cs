@@ -13,7 +13,7 @@ public class MovementPlat : MonoBehaviour
     private void Awake()
     {
         platformRigidBody = GetComponent<Rigidbody2D>();
-        platformRigidBody.bodyType = RigidbodyType2D.Dynamic;
+        platformRigidBody.bodyType = RigidbodyType2D.Kinematic;
     }
 
     private void Start()
@@ -28,32 +28,17 @@ public class MovementPlat : MonoBehaviour
 
     private void MovePlatform()
     {
-        Vector2 newPosition = platformRigidBody.position + direction * speed * Time.fixedDeltaTime;
-        platformRigidBody.MovePosition(newPosition);
+        platformRigidBody.linearVelocity = direction * speed;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(bounceTag))
         {
+            platformRigidBody.linearVelocity = Vector2.zero;
             direction *= -1;
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-        //    playerRigidBody = collision.collider.GetComponent<Rigidbody2D>();
-            collision.gameObject.transform.SetParent(this.transform, false);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            playerRigidBody = null;
-        }
-    }
 }

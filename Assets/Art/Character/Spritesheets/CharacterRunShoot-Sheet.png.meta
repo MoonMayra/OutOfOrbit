@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: e56ec08b726d06d4aa5f63c14e65517e
+guid: 619b5250ab1487941a555cae368a0d72
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3329984093448264523
-    second: CharacterShoot-Sheet_0
+      213: -1502298363268579818
+    second: CharacterRunShoot-Sheet_0
   - first:
-      213: 5859667623016590176
-    second: CharacterShoot-Sheet_1
+      213: 783730256874318650
+    second: CharacterRunShoot-Sheet_1
   - first:
-      213: -7236348001306148025
-    second: CharacterShoot-Sheet_2
+      213: 8338213268525260451
+    second: CharacterRunShoot-Sheet_2
   - first:
-      213: 7663509860889707948
-    second: CharacterShoot-Sheet_3
+      213: 9159381153432664977
+    second: CharacterRunShoot-Sheet_3
   - first:
-      213: -8042966417624578549
-    second: CharacterShoot-Sheet_4
+      213: 2959890168868884773
+    second: CharacterRunShoot-Sheet_4
+  - first:
+      213: -2821382221960157200
+    second: CharacterRunShoot-Sheet_5
+  - first:
+      213: -4399707684538637064
+    second: CharacterRunShoot-Sheet_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,17 +114,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CharacterShoot-Sheet_0
+      name: CharacterRunShoot-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b4a05a2c1589c1d0800000000000000
-      internalID: -3329984093448264523
+      spriteID: 61eb9be1993c62be0800000000000000
+      internalID: -1502298363268579818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterShoot-Sheet_1
+      name: CharacterRunShoot-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 14
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06be2c348a8b15150800000000000000
-      internalID: 5859667623016590176
+      spriteID: a3b28b8248e50ea00800000000000000
+      internalID: 783730256874318650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterShoot-Sheet_2
+      name: CharacterRunShoot-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 28
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7430a0725d3539b90800000000000000
-      internalID: -7236348001306148025
+      spriteID: 3ae95eb3ac847b370800000000000000
+      internalID: 8338213268525260451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterShoot-Sheet_3
+      name: CharacterRunShoot-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 42
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +225,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca5c80f8d914a5a60800000000000000
-      internalID: 7663509860889707948
+      spriteID: 19bf2cc61a8ac1f70800000000000000
+      internalID: 9159381153432664977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CharacterShoot-Sheet_4
+      name: CharacterRunShoot-Sheet_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 56
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +247,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b06471918a4a16090800000000000000
-      internalID: -8042966417624578549
+      spriteID: 521d9992d64a31920800000000000000
+      internalID: 2959890168868884773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterRunShoot-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f7667441df68d8d0800000000000000
+      internalID: -2821382221960157200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterRunShoot-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4a48beb2911f2c0800000000000000
+      internalID: -4399707684538637064
       vertices: []
       indices: 
       edges: []
@@ -225,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e9d93501f8c763e449653167f6b784a2
+    spriteID: 6de3e9b0fbfd9cf4899640556bf3d877
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CharacterShoot-Sheet_0: -3329984093448264523
-      CharacterShoot-Sheet_1: 5859667623016590176
-      CharacterShoot-Sheet_2: -7236348001306148025
-      CharacterShoot-Sheet_3: 7663509860889707948
-      CharacterShoot-Sheet_4: -8042966417624578549
+      CharacterRunShoot-Sheet_0: -1502298363268579818
+      CharacterRunShoot-Sheet_1: 783730256874318650
+      CharacterRunShoot-Sheet_2: 8338213268525260451
+      CharacterRunShoot-Sheet_3: 9159381153432664977
+      CharacterRunShoot-Sheet_4: 2959890168868884773
+      CharacterRunShoot-Sheet_5: -2821382221960157200
+      CharacterRunShoot-Sheet_6: -4399707684538637064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

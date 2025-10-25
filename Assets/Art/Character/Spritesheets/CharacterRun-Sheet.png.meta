@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,6 +111,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,8 +146,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +166,10 @@ TextureImporter:
       name: CharacterRun-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 14
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +188,10 @@ TextureImporter:
       name: CharacterRun-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 28
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +210,10 @@ TextureImporter:
       name: CharacterRun-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 42
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +232,10 @@ TextureImporter:
       name: CharacterRun-Sheet_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 56
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +254,10 @@ TextureImporter:
       name: CharacterRun-Sheet_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 70
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,6 +268,28 @@ TextureImporter:
       bones: []
       spriteID: 16198eb294ab3ba20800000000000000
       internalID: 3077007793856221537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CharacterRun-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85bcb975243018140becb6e1216cd786
+      internalID: 1098832712
       vertices: []
       indices: 
       edges: []
@@ -266,6 +314,7 @@ TextureImporter:
       CharacterRun-Sheet_3: 1933618630213345258
       CharacterRun-Sheet_4: 2781837673121727463
       CharacterRun-Sheet_5: 3077007793856221537
+      CharacterRun-Sheet_6: 1098832712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

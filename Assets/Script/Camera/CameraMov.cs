@@ -25,7 +25,7 @@ public class CameraMov : MonoBehaviour
     private Vector2 normalDirection;
     private Transform targetPos;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((1 << collision.gameObject.layer & player) == 0)
             return;

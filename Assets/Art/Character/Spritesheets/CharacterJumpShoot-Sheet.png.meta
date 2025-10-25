@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 6310683527b621c4899ca313f70e7aa2
+guid: 38a6f005b2f7fa54d90dea22c4d6f335
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3005619874292980893
-    second: CharacterMidAir-Sheet_0
-  - first:
-      213: 5671278956127301726
-    second: CharacterMidAir-Sheet_1
-  - first:
-      213: 2678384763713731420
-    second: CharacterMidAir-Sheet_2
-  - first:
-      213: 7061827827364077015
-    second: CharacterMidAir-Sheet_3
+      213: 3841799517296018538
+    second: CharacterJumpShoot-Sheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CharacterMidAir-Sheet_0
+      name: CharacterJumpShoot-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 48
+        width: 14
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 363a9e616a4e946d0800000000000000
-      internalID: -3005619874292980893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CharacterMidAir-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e50bd12b92e64be40800000000000000
-      internalID: 5671278956127301726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CharacterMidAir-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c5bb9fc70c88b2520800000000000000
-      internalID: 2678384763713731420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CharacterMidAir-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7dd110b6ef6a00260800000000000000
-      internalID: 7061827827364077015
+      spriteID: a6442b66e40d05530800000000000000
+      internalID: 3841799517296018538
       vertices: []
       indices: 
       edges: []
@@ -200,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 097afc65e29d7454e863696f9ccbabba
+    spriteID: 390ead77b451a814ba89f1fbd0f5a4a6
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CharacterMidAir-Sheet_0: -3005619874292980893
-      CharacterMidAir-Sheet_1: 5671278956127301726
-      CharacterMidAir-Sheet_2: 2678384763713731420
-      CharacterMidAir-Sheet_3: 7061827827364077015
+      CharacterJumpShoot-Sheet_0: 3841799517296018538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
