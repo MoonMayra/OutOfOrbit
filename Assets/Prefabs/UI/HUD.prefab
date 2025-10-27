@@ -950,6 +950,7 @@ MonoBehaviour:
   slideDuration: 0.5
   stayDuration: 2
   deathsText: {fileID: 6343706133516653720}
+  instantSlideOutMultiplier: 0.25
 --- !u!1 &7192427957531793945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1213,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ea13f997da6fd70478ddc27297bfd546, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
