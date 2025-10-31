@@ -21925,6 +21925,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7561844318561484167, guid: 36aef94ecec503c40bb9e4faf777a1b5, type: 3}
+      propertyPath: m_RendererIndex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54482,7 +54486,8 @@ PrefabInstance:
       value: CollectableUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3656931676422663321, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2173570925293339108, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
       insertIndex: -1
