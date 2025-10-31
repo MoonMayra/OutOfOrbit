@@ -76,6 +76,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
+    - _Flicker: 0.8
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScrollSpeed: 0.5
@@ -83,7 +84,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.09843354, g: 0.6603774, b: 0.65535104, a: 0}
-    - _HologramColor: {r: 0, g: 1, b: 0.820179, a: 1}
+    - _HologramColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

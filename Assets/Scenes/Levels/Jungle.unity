@@ -251,93 +251,6 @@ Transform:
   - {fileID: 1224210354}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &93734290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 93734291}
-  - component: {fileID: 93734292}
-  m_Layer: 0
-  m_Name: CollectableUI (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &93734291
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93734290}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.6, y: 1.1, z: -2986.6707}
-  m_LocalScale: {x: 0.57600003, y: 0.57600003, z: 0.57600003}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1525279782}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &93734292
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93734290}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7bbe815cfd423184da2f9103573042ae, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1352258757
-  m_SortingLayer: 12
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -7052346326079163598, guid: 29c0b49cea82d824e98e3582a9335de4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 63.75, y: 88.8125}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1001 &97958612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7324,7 +7237,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.56
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -7393,7 +7306,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.41
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -7824,7 +7737,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.427451, g: 0.894642, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.3
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -7908,7 +7821,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -14352,7 +14265,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.36
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -20563,7 +20476,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.427451, g: 0.894642, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.39
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -20662,7 +20575,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.74
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -20971,7 +20884,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -21992,7 +21905,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.427451, g: 0.894642, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.54
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -22214,7 +22127,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.427451, g: 0.894642, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.48
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -22336,7 +22249,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -22435,7 +22348,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.62
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -25066,6 +24979,10 @@ PrefabInstance:
     - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158379673002907000, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_Intensity
+      value: 0.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28394,7 +28311,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.427451, g: 0.894642, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.56
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -51503,7 +51420,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.427451, g: 0.894642, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.56
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -51826,11 +51743,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d459ff7ab3211ea48a74976074e16d53, type: 3}
---- !u!224 &1525279782 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2173570925293339108, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
-  m_PrefabInstance: {fileID: 1657274939}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1583901620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54461,10 +54373,6 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 102.7108
       objectReference: {fileID: 0}
-    - target: {fileID: 4265880985470685273, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 1525279782}
     - target: {fileID: 4397412460928003646, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -54477,6 +54385,10 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 778684283}
+    - target: {fileID: 6600046248344223198, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
+      propertyPath: m_Color.a
+      value: 0.59607846
+      objectReference: {fileID: 0}
     - target: {fileID: 7192427957531793945, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -54492,10 +54404,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3656931676422663321, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2173570925293339108, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 93734291}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
 --- !u!1001 &1662124919
@@ -54692,7 +54601,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.33
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
@@ -55964,7 +55873,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.376
   m_Color: {r: 0.5952437, g: 0.4292453, b: 1, a: 1}
-  m_Intensity: 1.14
+  m_Intensity: 0.57
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000055f0b7e313417811b7dee8ba78f34a085c954b37d8d18858f24c2d9bfaf0dce3b7186b8
