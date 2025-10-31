@@ -374,6 +374,10 @@ PrefabInstance:
       propertyPath: 'managedReferences[8848133381759959119]'
       value: Unity.RenderPipelines.Universal.2D.Runtime UnityEngine.Rendering.Universal.ShadowShape2DProvider_SpriteRenderer
       objectReference: {fileID: 0}
+    - target: {fileID: 4266938557986077380, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
+      propertyPath: m_Intensity
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 4988724544255412888, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.16
