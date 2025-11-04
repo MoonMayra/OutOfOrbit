@@ -54373,6 +54373,10 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 102.7108
       objectReference: {fileID: 0}
+    - target: {fileID: 3479167446458138263, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bbe815cfd423184da2f9103573042ae, type: 2}
     - target: {fileID: 4397412460928003646, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -54397,6 +54401,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 616033923}
+    - target: {fileID: 8665175259644724490, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bbe815cfd423184da2f9103573042ae, type: 2}
     - target: {fileID: 9173413507731769551, guid: b89679c8321d37849814585c4fcf3c16, type: 3}
       propertyPath: m_Name
       value: CollectableUI
@@ -54854,6 +54862,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4707203729860253719, guid: b46bb33a7404f43439878fa9ecffb1da, type: 3}
+      propertyPath: m_Intensity
+      value: 0.11
+      objectReference: {fileID: 0}
     - target: {fileID: 7081448189091678048, guid: b46bb33a7404f43439878fa9ecffb1da, type: 3}
       propertyPath: m_Name
       value: Global Light 2D

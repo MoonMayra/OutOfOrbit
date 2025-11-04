@@ -55,14 +55,14 @@ Material:
     m_Floats:
     - _Blur_offset: 0.0005
     - _EnableExternalAlpha: 0
-    - _LinesHeight: 154
+    - _LinesHeight: 98
     - _Speed: 0.05
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 3.4415903, g: 3.4253564, b: 3.4390383, a: 1}
+    - _Color: {r: 6.7064605, g: 6.7064605, b: 6.7064605, a: 1}
     - _Color_aberration_1: {r: 0, g: 0.9416928, b: 1, a: 0}
     - _Color_aberration_2: {r: 0.5, g: 0, b: 0.42821312, a: 0}
-    - _LinesColor1: {r: 1, g: 1, b: 1, a: 0}
+    - _LinesColor1: {r: 1, g: 1, b: 1, a: 1}
     - _LinesColor2: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
