@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   destroyAnimation: HasCollision
 --- !u!95 &-4071229281211269777
 Animator:
