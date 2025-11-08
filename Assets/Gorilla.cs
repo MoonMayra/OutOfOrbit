@@ -5,15 +5,17 @@ public class Gorilla : MonoBehaviour
 {
     [Header("References")]
     public Transform player;
-    public GameObject coconutPrefab;        
-    public Animator animator;              
+    public Transform coconutSpawner;
+    public GameObject coconutPrefab;
+    public Animator animator;
 
     [Header("Settings")]
-    public float angryInterval = 3f;        
-    public float raycastDistance = 20f;     
-    public float coconutSpawnHeight = 4f;   
+    public float angryInterval = 3f;
+    public float coconutSpawnHeight = 10f;
+    public float stunDuration = 5f;
 
     private bool isAngry = false;
+    private bool isStunned = false;
 
     void Start()
     {
@@ -25,12 +27,19 @@ public class Gorilla : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(angryInterval);
+
+            if (isStunned)
+                continue;
+
             StartCoroutine(DoAngryAction());
         }
     }
 
     IEnumerator DoAngryAction()
     {
+        if (isStunned)
+            yield break;
+
         isAngry = true;
 
         if (animator != null)
@@ -38,14 +47,11 @@ public class Gorilla : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        Vector2 direction = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, raycastDistance);
-
-        if (hit.collider != null && hit.collider.CompareTag("Player"))
+        if (coconutPrefab != null && coconutSpawner != null)
         {
             Vector3 spawnPos = new Vector3(
-                player.position.x,
-                player.position.y + coconutSpawnHeight,
+                coconutSpawner.position.x,
+                coconutSpawner.position.y + coconutSpawnHeight,
                 0
             );
 
@@ -55,13 +61,21 @@ public class Gorilla : MonoBehaviour
         isAngry = false;
     }
 
-    void OnDrawGizmosSelected()
+    public void Stun()
     {
-        if (player != null)
-        {
-            Gizmos.color = Color.red;
-            Vector3 direction = (player.position - transform.position).normalized * raycastDistance;
-            Gizmos.DrawLine(transform.position, transform.position + direction);
-        }
+        if (!isStunned)
+            StartCoroutine(StunRoutine());
+    }
+
+    IEnumerator StunRoutine()
+    {
+        isStunned = true;
+
+        if (animator != null)
+            animator.SetTrigger("Stunned");
+
+        yield return new WaitForSeconds(stunDuration);
+
+        isStunned = false;
     }
 }
