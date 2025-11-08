@@ -1,0 +1,761 @@
+fileFormatVersion: 2
+guid: 895b441d3ea7f60459925307ccf94a68
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4589246329914201413
+    second: gorilla_0
+  - first:
+      213: -4516704566895593035
+    second: gorilla_1
+  - first:
+      213: -1801896093672156800
+    second: gorilla_2
+  - first:
+      213: -8979885626948290994
+    second: gorilla_3
+  - first:
+      213: -684014564887271638
+    second: gorilla_4
+  - first:
+      213: 2150129872986915294
+    second: gorilla_5
+  - first:
+      213: -8048459466921581418
+    second: gorilla_6
+  - first:
+      213: -5789064385665199420
+    second: gorilla_7
+  - first:
+      213: -7061385108259809464
+    second: gorilla_8
+  - first:
+      213: -3854577373823370663
+    second: gorilla_9
+  - first:
+      213: -1376142991677574909
+    second: gorilla_10
+  - first:
+      213: -1244740433219991329
+    second: gorilla_11
+  - first:
+      213: -4665554111222997095
+    second: gorilla_12
+  - first:
+      213: -6869772080663150191
+    second: gorilla_13
+  - first:
+      213: -7295100742764364931
+    second: gorilla_14
+  - first:
+      213: 7694665559280606605
+    second: gorilla_15
+  - first:
+      213: 6583935124336974063
+    second: gorilla_16
+  - first:
+      213: 1672648906366062162
+    second: gorilla_17
+  - first:
+      213: -6117874411667528159
+    second: gorilla_18
+  - first:
+      213: -6652978377926475660
+    second: gorilla_19
+  - first:
+      213: -8698369006793704396
+    second: gorilla_20
+  - first:
+      213: 9186714571834217470
+    second: gorilla_21
+  - first:
+      213: 2930949562522699434
+    second: gorilla_22
+  - first:
+      213: -3623012498541826601
+    second: gorilla_23
+  - first:
+      213: 8315820218237164388
+    second: gorilla_24
+  - first:
+      213: 6897807419911352131
+    second: gorilla_25
+  - first:
+      213: 6944007714726027204
+    second: gorilla_26
+  - first:
+      213: 8160166455452621823
+    second: gorilla_27
+  - first:
+      213: 5970208906989152024
+    second: gorilla_28
+  - first:
+      213: -167618641128741278
+    second: gorilla_29
+  - first:
+      213: 8316051240391369382
+    second: gorilla_30
+  - first:
+      213: -602845399497368049
+    second: gorilla_31
+  - first:
+      213: -7137442584083064429
+    second: gorilla_32
+  - first:
+      213: 1696419905182518675
+    second: gorilla_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gorilla_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbae2be17c8bf40c0800000000000000
+      internalID: -4589246329914201413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 200
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9bdce70217151c0800000000000000
+      internalID: -4516704566895593035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_2
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 200
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081d186bc016ef6e0800000000000000
+      internalID: -1801896093672156800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_3
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 200
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e467c1a8999016380800000000000000
+      internalID: -8979885626948290994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 200
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2763b69064e186f0800000000000000
+      internalID: -684014564887271638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 200
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed147544abbc6dd10800000000000000
+      internalID: 2150129872986915294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6946205e1c02e4090800000000000000
+      internalID: -8048459466921581418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c29f8eec9c19afa0800000000000000
+      internalID: -5789064385665199420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_8
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847d0f728abe00e90800000000000000
+      internalID: -7061385108259809464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95afff90d4ac18ac0800000000000000
+      internalID: -3854577373823370663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3013aec7d35f6ece0800000000000000
+      internalID: -1376142991677574909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd84b50cb2bc9bee0800000000000000
+      internalID: -1244740433219991329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_12
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f9038414f904fb0800000000000000
+      internalID: -4665554111222997095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_13
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1914d24b0baa9a0a0800000000000000
+      internalID: -6869772080663150191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_14
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b77da868892ca90800000000000000
+      internalID: -7295100742764364931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d5a5ede81f8ca60800000000000000
+      internalID: 7694665559280606605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe89256cc16de5b50800000000000000
+      internalID: 6583935124336974063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_17
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e05e97151763710800000000000000
+      internalID: 1672648906366062162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_18
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126ea10f2a1f81ba0800000000000000
+      internalID: -6117874411667528159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_19
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 470865d0a6fdba3a0800000000000000
+      internalID: -6652978377926475660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_20
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c3bc8697f294780800000000000000
+      internalID: -8698369006793704396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef35513da34cd7f70800000000000000
+      internalID: 9186714571834217470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorilla_22
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa680c82913dca820800000000000000
+      internalID: 2930949562522699434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6286124b5dc1f054ebed024129ce2be8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gorilla_0: -4589246329914201413
+      gorilla_1: -4516704566895593035
+      gorilla_10: -1376142991677574909
+      gorilla_11: -1244740433219991329
+      gorilla_12: -4665554111222997095
+      gorilla_13: -6869772080663150191
+      gorilla_14: -7295100742764364931
+      gorilla_15: 7694665559280606605
+      gorilla_16: 6583935124336974063
+      gorilla_17: 1672648906366062162
+      gorilla_18: -6117874411667528159
+      gorilla_19: -6652978377926475660
+      gorilla_2: -1801896093672156800
+      gorilla_20: -8698369006793704396
+      gorilla_21: 9186714571834217470
+      gorilla_22: 2930949562522699434
+      gorilla_3: -8979885626948290994
+      gorilla_4: -684014564887271638
+      gorilla_5: 2150129872986915294
+      gorilla_6: -8048459466921581418
+      gorilla_7: -5789064385665199420
+      gorilla_8: -7061385108259809464
+      gorilla_9: -3854577373823370663
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
