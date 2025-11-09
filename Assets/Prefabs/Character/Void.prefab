@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityStrength: 122.3
   voidRadius: 20.7
-  lifetime: 3
+  lifetime: 1.5
   linkedBullet: {fileID: 0}
   player:
     serializedVersion: 2
