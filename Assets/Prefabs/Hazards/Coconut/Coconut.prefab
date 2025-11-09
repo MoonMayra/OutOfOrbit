@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615310680638737439}
   - component: {fileID: 8741089330733004047}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: -2992034218235707941}
   - component: {fileID: -5213126509830242217}
   - component: {fileID: -4071229281211269777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coconut
   m_TagString: Hazards
   m_Icon: {fileID: 0}
@@ -273,7 +273,20 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 264
+  otherCollisionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bossMask:
+    serializedVersion: 2
+    m_Bits: 512
+  coconutMask:
+    serializedVersion: 2
+    m_Bits: 256
   destroyAnimation: HasCollision
+  bossMode: 0
 --- !u!95 &-4071229281211269777
 Animator:
   serializedVersion: 7

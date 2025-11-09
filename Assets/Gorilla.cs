@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Gorilla : MonoBehaviour
 {
+    public static Gorilla Instance { get; private set; }
+
     [Header("References")]
     public Transform player;
     public Transform coconutSpawner;
@@ -14,12 +16,35 @@ public class Gorilla : MonoBehaviour
     public float coconutSpawnHeight = 10f;
     public float stunDuration = 5f;
 
+    [Header("Animations")]
+    public string angryAnimKey = "Attack";
+    public string stunnedAnimKey = "Stunned";
+    public string idleAnimKey = "Idle";
+
     private bool isAngry = false;
     private bool isStunned = false;
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
     void Start()
     {
+        animator = GetComponent<Animator>();
         StartCoroutine(AngryRoutine());
+    }
+
+    private void Update()
+    {
+        if (animator != null)
+        {
+            animator.SetBool(stunnedAnimKey, isStunned);
+            animator.SetBool(idleAnimKey, !isStunned && !isAngry);
+            animator.SetBool(angryAnimKey, isAngry);
+        }
     }
 
     IEnumerator AngryRoutine()
@@ -42,22 +67,14 @@ public class Gorilla : MonoBehaviour
 
         isAngry = true;
 
-        if (animator != null)
-            animator.SetTrigger("Angry");
-
         yield return new WaitForSeconds(0.5f);
 
         if (coconutPrefab != null && coconutSpawner != null)
         {
-            Vector3 spawnPos = new Vector3(
-                coconutSpawner.position.x,
-                coconutSpawner.position.y + coconutSpawnHeight,
-                0
-            );
+            Vector3 spawnPos = new Vector3(coconutSpawner.position.x, coconutSpawner.position.y + coconutSpawnHeight, 0);
 
             Instantiate(coconutPrefab, spawnPos, Quaternion.identity);
         }
-
         isAngry = false;
     }
 
@@ -65,17 +82,24 @@ public class Gorilla : MonoBehaviour
     {
         if (!isStunned)
             StartCoroutine(StunRoutine());
+        Debug.Log("Gorilla Stunned");
     }
 
     IEnumerator StunRoutine()
     {
         isStunned = true;
 
-        if (animator != null)
-            animator.SetTrigger("Stunned");
-
         yield return new WaitForSeconds(stunDuration);
 
         isStunned = false;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (coconutSpawner != null)
+        {
+            Gizmos.color = Color.yellow;
+            Vector3 spawnPos = new Vector3(coconutSpawner.position.x, coconutSpawner.position.y + coconutSpawnHeight, 0);
+            Gizmos.DrawLine(coconutSpawner.position, spawnPos);
+        }
     }
 }

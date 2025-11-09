@@ -208,11 +208,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gorilla_0
+      name: gorilla_Attack0
       rect:
         serializedVersion: 2
         x: 0
@@ -220,7 +246,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,7 +260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_1
+      name: gorilla_Attack1
       rect:
         serializedVersion: 2
         x: 60
@@ -242,7 +268,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,7 +282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_2
+      name: gorilla_Attack2
       rect:
         serializedVersion: 2
         x: 120
@@ -264,7 +290,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_3
+      name: gorilla_Attack3
       rect:
         serializedVersion: 2
         x: 180
@@ -286,7 +312,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,7 +326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_4
+      name: gorilla_Attack4
       rect:
         serializedVersion: 2
         x: 240
@@ -308,7 +334,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -322,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_5
+      name: gorilla_Attack5
       rect:
         serializedVersion: 2
         x: 300
@@ -330,7 +356,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -344,7 +370,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_6
+      name: gorilla_StunStart0
       rect:
         serializedVersion: 2
         x: 0
@@ -352,7 +378,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,7 +392,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_7
+      name: gorilla_StunStart1
       rect:
         serializedVersion: 2
         x: 60
@@ -374,7 +400,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -388,7 +414,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_8
+      name: gorilla_StunStart2
       rect:
         serializedVersion: 2
         x: 120
@@ -396,7 +422,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -410,7 +436,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_9
+      name: gorilla_StunStart3
       rect:
         serializedVersion: 2
         x: 180
@@ -418,7 +444,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -432,7 +458,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_10
+      name: gorilla_StunStart4
       rect:
         serializedVersion: 2
         x: 240
@@ -440,7 +466,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -454,7 +480,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_11
+      name: gorilla_StunStart5
       rect:
         serializedVersion: 2
         x: 300
@@ -462,7 +488,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -476,7 +502,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_12
+      name: gorilla_StunStart6
       rect:
         serializedVersion: 2
         x: 360
@@ -484,7 +510,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -498,7 +524,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_13
+      name: gorilla_Stun0
       rect:
         serializedVersion: 2
         x: 420
@@ -506,7 +532,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -520,7 +546,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_14
+      name: gorilla_Stun1
       rect:
         serializedVersion: 2
         x: 480
@@ -528,7 +554,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -542,7 +568,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_15
+      name: gorilla_Stun2
       rect:
         serializedVersion: 2
         x: 540
@@ -550,7 +576,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -564,7 +590,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_16
+      name: gorilla_Idle0
       rect:
         serializedVersion: 2
         x: 0
@@ -572,7 +598,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -586,7 +612,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_17
+      name: gorilla_Idle1
       rect:
         serializedVersion: 2
         x: 60
@@ -594,7 +620,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -608,7 +634,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_18
+      name: gorilla_Idle2
       rect:
         serializedVersion: 2
         x: 120
@@ -616,7 +642,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -630,7 +656,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_19
+      name: gorilla_Idle3
       rect:
         serializedVersion: 2
         x: 180
@@ -638,7 +664,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -652,7 +678,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_20
+      name: gorilla_Idle4
       rect:
         serializedVersion: 2
         x: 240
@@ -660,7 +686,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -674,7 +700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_21
+      name: gorilla_Idle5
       rect:
         serializedVersion: 2
         x: 300
@@ -682,7 +708,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -696,7 +722,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gorilla_22
+      name: gorilla_Idle6
       rect:
         serializedVersion: 2
         x: 360
@@ -704,7 +730,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -731,29 +757,30 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gorilla_0: -4589246329914201413
-      gorilla_1: -4516704566895593035
-      gorilla_10: -1376142991677574909
-      gorilla_11: -1244740433219991329
-      gorilla_12: -4665554111222997095
-      gorilla_13: -6869772080663150191
-      gorilla_14: -7295100742764364931
-      gorilla_15: 7694665559280606605
-      gorilla_16: 6583935124336974063
-      gorilla_17: 1672648906366062162
-      gorilla_18: -6117874411667528159
-      gorilla_19: -6652978377926475660
-      gorilla_2: -1801896093672156800
-      gorilla_20: -8698369006793704396
-      gorilla_21: 9186714571834217470
-      gorilla_22: 2930949562522699434
-      gorilla_3: -8979885626948290994
-      gorilla_4: -684014564887271638
-      gorilla_5: 2150129872986915294
-      gorilla_6: -8048459466921581418
-      gorilla_7: -5789064385665199420
-      gorilla_8: -7061385108259809464
-      gorilla_9: -3854577373823370663
+      Idle: -4516704566895593035
+      gorilla_Attack0: -4589246329914201413
+      gorilla_Attack1: -4516704566895593035
+      gorilla_Attack2: -1801896093672156800
+      gorilla_Attack3: -8979885626948290994
+      gorilla_Attack4: -684014564887271638
+      gorilla_Attack5: 2150129872986915294
+      gorilla_Idle0: 6583935124336974063
+      gorilla_Idle1: 1672648906366062162
+      gorilla_Idle2: -6117874411667528159
+      gorilla_Idle3: -6652978377926475660
+      gorilla_Idle4: -8698369006793704396
+      gorilla_Idle5: 9186714571834217470
+      gorilla_Idle6: 2930949562522699434
+      gorilla_Stun0: -6869772080663150191
+      gorilla_Stun1: -7295100742764364931
+      gorilla_Stun2: 7694665559280606605
+      gorilla_StunStart0: -8048459466921581418
+      gorilla_StunStart1: -5789064385665199420
+      gorilla_StunStart2: -7061385108259809464
+      gorilla_StunStart3: -3854577373823370663
+      gorilla_StunStart4: -1376142991677574909
+      gorilla_StunStart5: -1244740433219991329
+      gorilla_StunStart6: -4665554111222997095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
