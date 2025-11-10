@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
+    public static PlayerShoot Instance { get; private set; }
+
     [Header("Input")]
     [SerializeField] private InputActionReference shootInput;
     [SerializeField] private InputActionReference activateInput;
@@ -47,6 +49,14 @@ public class PlayerShoot : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         shootInput.action.started += HandleShootInput;
         shootInput.action.performed += HandleShootInput;
         shootInput.action.canceled += HandleShootInput;
@@ -199,6 +209,7 @@ public class PlayerShoot : MonoBehaviour
         var bulletMov = newBullet.gameObject.GetComponent<BulletMovement>();
         bulletMov.direction = lineDir.normalized;
         bulletMov.playerShoot = this;
+        bulletMov.index = nextBulletIndex;
 
         activeBullets[nextBulletIndex] = newBullet;
         bulletCreationOrder.Add(newBullet);
@@ -278,6 +289,7 @@ public class PlayerShoot : MonoBehaviour
         GameObject newVoid = Instantiate(voidPrefab[validIndex], voidSpawn, Quaternion.identity);
         gravityVoid = newVoid.gameObject.GetComponent<GravityVoid>();
         gravityVoid.linkedBullet = bulletToUse;
+        gravityVoid.linkedBulletIndex = validIndex;
 
         activeVoids[validIndex] = newVoid;
 

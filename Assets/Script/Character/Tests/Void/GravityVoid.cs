@@ -9,6 +9,7 @@ public class GravityVoid : MonoBehaviour
 
     [Header("References")]
     public GameObject linkedBullet;
+    public int linkedBulletIndex;
     [SerializeField] private LayerMask player;
     [SerializeField] private LayerMask bullet;
 
@@ -93,9 +94,12 @@ public class GravityVoid : MonoBehaviour
 
     private void DestroyVoid()
     {
-        if (linkedBullet != null)
+        PlayerShoot playerShoot= PlayerShoot.Instance;
+
+        if (playerShoot!=null && playerShoot.activeBullets[linkedBulletIndex]==linkedBullet)
         {
             Destroy(linkedBullet);
+            playerShoot.activeBullets[linkedBulletIndex]= null;
         }
         Destroy(gameObject);
     }
