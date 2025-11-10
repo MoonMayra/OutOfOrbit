@@ -19,7 +19,7 @@ public class BulletMovement : MonoBehaviour
     private Rigidbody2D bulletRigidbody;
     public Vector2 direction;
     private string playerTag = "Character";
-    private int index;
+    public int index;
 
 
     private void Start()
@@ -31,7 +31,6 @@ public class BulletMovement : MonoBehaviour
             if (gameObject != null)
             {
                 playerShoot = gameObject.GetComponent<PlayerShoot>();
-                index = playerShoot.nextBulletIndex+1;
             }
         }
     }
@@ -73,7 +72,7 @@ public class BulletMovement : MonoBehaviour
     private void OnBecameInvisible()
     {
         bulletRigidbody.bodyType = RigidbodyType2D.Static;
-        playerShoot.RemoveBullet(index);
+        playerShoot.RemoveBullet(index,false);
         playerShoot.UpdateShootAvailability();
         Destroy(gameObject);
     }
@@ -81,7 +80,7 @@ public class BulletMovement : MonoBehaviour
     private void DestroyBulletsOnHazards()
     {
         bulletRigidbody.bodyType =RigidbodyType2D.Static;
-        playerShoot.RemoveBullet(index);
+        playerShoot.RemoveBullet(index,false);
         Debug.Log("Bullet destroyed on hazard");
         playerShoot.UpdateShootAvailability();
         Destroy(gameObject);

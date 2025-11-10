@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     private void ResetBullets()
     {
         for(int i = shoot.activeBullets.Length - 1; i >= 0; i--)
-            shoot.RemoveBullet(i);
+            shoot.RemoveBullet(i,true);
         shoot.isAbleToShoot = true;
 
     }
