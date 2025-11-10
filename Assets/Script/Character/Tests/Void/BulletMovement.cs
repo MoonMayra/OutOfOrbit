@@ -19,12 +19,21 @@ public class BulletMovement : MonoBehaviour
     private Rigidbody2D bulletRigidbody;
     public Vector2 direction;
     private string playerTag = "Character";
-    public int index;
+    private int index;
 
 
     private void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody2D>();
+        if (playerShoot == null)
+        {
+            var gameObject = GameObject.Find(playerTag);
+            if (gameObject != null)
+            {
+                playerShoot = gameObject.GetComponent<PlayerShoot>();
+                index = playerShoot.nextBulletIndex+1;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
