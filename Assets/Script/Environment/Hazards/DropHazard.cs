@@ -12,33 +12,35 @@ public class DropHazard : MonoBehaviour
 
     private Animator animator;
     private Gorilla gorilla;
+    private Rigidbody2D rigidBodyCoconut;
+    private Collider2D coconutCollider;
     private int groundLayer;
     private int coconutLayer;
     private void Start()
     {
         animator = GetComponent<Animator>();
         gorilla = Gorilla.Instance;
-        if(gorilla != null)
+        rigidBodyCoconut = GetComponent<Rigidbody2D>();
+        coconutCollider = GetComponent<Collider2D>();
+        if (gorilla != null)
         {
             bossMode = true;
         }
         Debug.Log("Boss Mode: " + bossMode);
         groundLayer= LayerMask.NameToLayer("Ground");
         coconutLayer = LayerMask.NameToLayer("Hazards");
+        Physics2D.IgnoreLayerCollision(groundLayer, coconutLayer, bossMode);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (bossMode)
+        if (!bossMode)
         {
-            Physics2D.IgnoreLayerCollision(groundLayer, coconutLayer, true);
-        }
-        else
-        {
-            Physics2D.IgnoreLayerCollision(groundLayer, coconutLayer, false);
-        }
-        if (((1 << collision.gameObject.layer) & groundMask.value) != 0 && !bossMode)
-        {
-            animator.SetBool(destroyAnimation, true);
+            if (((1 << collision.gameObject.layer) & groundMask.value) != 0)
+            {
+                rigidBodyCoconut.bodyType = RigidbodyType2D.Static;
+                coconutCollider.enabled = false;
+                animator.SetBool(destroyAnimation, true);
+            }
         }
         else if (((1 << collision.gameObject.layer) & otherCollisionMask.value) != 0)
         {

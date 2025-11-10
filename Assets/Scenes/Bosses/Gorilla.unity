@@ -6094,7 +6094,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1791
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -6320,11 +6320,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &448169245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2118947881716756875, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
-  m_PrefabInstance: {fileID: 7991173775377784403}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &477897591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20268,25 +20263,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8620154828645733444, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
   m_PrefabInstance: {fileID: 7991173775377784403}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1747204706 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8526184448571932503, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
-  m_PrefabInstance: {fileID: 7991173775377784403}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1747204711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448169245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d1453426ca3aa4ea11b53cb7267990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minY: 3.06
-  maxY: 15.01
 --- !u!1 &1766291430
 GameObject:
   m_ObjectHideFlags: 0
@@ -20335,7 +20311,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1791
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -43282,20 +43258,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9205744143120639252, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1747204706}
-    - target: {fileID: 9205744143120639252, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
       propertyPath: coconutSpawner
       value: 
       objectReference: {fileID: 604904442}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2118947881716756875, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1747204711}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97643dfc91ff4274b9a671e36ac6646b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

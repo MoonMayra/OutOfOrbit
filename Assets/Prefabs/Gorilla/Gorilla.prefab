@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8526184448571932503}
   - component: {fileID: 6719448964889689676}
   - component: {fileID: 1161050974510762150}
+  - component: {fileID: 1101639930899459089}
   m_Layer: 9
   m_Name: Gorilla
   m_TagString: Enemies
@@ -106,7 +107,7 @@ MonoBehaviour:
   player: {fileID: 6522414326844454945, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
   coconutSpawner: {fileID: 0}
   coconutPrefab: {fileID: 8299378895655647404, guid: b9c41155c1e2c7d42bb49159064bd3d8, type: 3}
-  animator: {fileID: 0}
+  animator: {fileID: 8526184448571932503}
   angryInterval: 3
   coconutSpawnHeight: 12.4
   stunDuration: 5
@@ -208,3 +209,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1101639930899459089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118947881716756875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d1453426ca3aa4ea11b53cb7267990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: 3.06
+  maxY: 15.01
