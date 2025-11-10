@@ -18,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
 
     [Header("BulletMovement")]
     [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private float spawnOffset = 0.248f;
     [SerializeField] private GameObject[] bulletPrefab = new GameObject[3];
 
     [Header("Voids")]
@@ -28,6 +29,7 @@ public class PlayerShoot : MonoBehaviour
     private Vector2 mousePos;
     public bool isAiming = false;
     private Vector2 lineDir;
+    
 
     //Shooting variables
     public int freeSlot = -1;
@@ -39,10 +41,12 @@ public class PlayerShoot : MonoBehaviour
     public GameObject[] activeVoids = new GameObject[3];
 
     //List for indexing bullets
-    private List<GameObject> bulletCreationOrder = new List<GameObject>();
+    public List<GameObject> bulletCreationOrder = new List<GameObject>();
 
     //Player reference
     private Rigidbody2D playerRB;
+    public bool isLookingRight = true;
+    private Transform spawn;
 
     private void Awake()
     {
@@ -54,6 +58,7 @@ public class PlayerShoot : MonoBehaviour
 
         playerRB = GetComponent<Rigidbody2D>();
         trayectory = GetComponentInChildren<TrayectoryPreview>();
+        spawn = bulletSpawn;
     }
     private void OnEnable()
     {
@@ -106,6 +111,10 @@ public class PlayerShoot : MonoBehaviour
             if (isAbleToShoot && shootButtonRealesed)
             {
                 isAiming = true;
+                if(isLookingRight)
+                    spawn.position = new Vector2(bulletSpawn.transform.position.x + spawnOffset, bulletSpawn.transform.position.y);
+                else
+                    spawn.position = new Vector2(bulletSpawn.transform.position.x - spawnOffset, bulletSpawn.transform.position.y);
             }
             else if (!isAbleToShoot)
             {
@@ -121,6 +130,7 @@ public class PlayerShoot : MonoBehaviour
                 ShootBullet();
                 UpdateShootAvailability();
             }
+            spawn.position = new Vector2(transform.position.x, transform.position.y);
         }
 
     }
@@ -170,7 +180,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (bulletSpawn == null)
             return;
-        trayectory.DrawTrayectory(new Vector2(bulletSpawn.transform.position.x, bulletSpawn.transform.position.y), lineDir);
+        trayectory.DrawTrayectory(new Vector2(spawn.transform.position.x, spawn.transform.position.y), lineDir);
 
     }
 
@@ -213,7 +223,7 @@ public class PlayerShoot : MonoBehaviour
         if (freeSlot == -1)
             freeSlot = 0;
 
-        GameObject newBullet = Instantiate(bulletPrefab[freeSlot], bulletSpawn.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(bulletPrefab[freeSlot], spawn.position, Quaternion.identity);
         Rigidbody2D bulletRB = newBullet.GetComponent<Rigidbody2D>();
         bulletRB.linearVelocity = lineDir.normalized;
 
@@ -297,7 +307,7 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         mousePos=Input.mousePosition;
-        lineDir = Camera.main.ScreenToWorldPoint(mousePos) - bulletSpawn.position;
+        lineDir = Camera.main.ScreenToWorldPoint(mousePos) - spawn.position;
     }
 
     private void FixedUpdate()

@@ -32,10 +32,12 @@ public class PlayerView : MonoBehaviour
         if (moveX > 0)
         {
             spriteRenderer.flipX = false;
+            playerShoot.isLookingRight = true;
         }
         else if (moveX < 0)
         {
             spriteRenderer.flipX = true;
+            playerShoot.isLookingRight = false;
         }
     }
    

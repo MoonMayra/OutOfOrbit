@@ -10,6 +10,7 @@ using UnityEngine.Tilemaps;
 //Once we have this value, we apply it only when the player is jumping.
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get; private set; }
     [Header("Traverse movement")]
 
     [Tooltip("Maximum velocity of the player.")]
@@ -70,7 +71,17 @@ public class PlayerMovement : MonoBehaviour
     private MovementPlat currentPlatform;
     private Vector2 previousPlatformPosition;
 
- 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnEnable()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
