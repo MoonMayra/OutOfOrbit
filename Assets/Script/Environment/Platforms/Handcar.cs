@@ -9,12 +9,13 @@ public class Handcar : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private Vector2 finalPos = new Vector2(3f, 0f);
+    [SerializeField] private Vector2 finalDistance = new Vector2(3f, 0f);
 
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidBody;
     public bool isActive = false;
     private Vector2 initialPosition;
+    private Vector2 finalPos;
 
     private void Awake()
     {
@@ -26,6 +27,8 @@ public class Handcar : MonoBehaviour
     private void Start()
     {
         initialPosition = transform.position;
+        finalPos = initialPosition + finalDistance;
+
     }
 
     public void UpdateHandcar(Vector2 direction)
@@ -48,7 +51,7 @@ public class Handcar : MonoBehaviour
 
    private IEnumerator MoveHandcar(Vector2 direction)
     {
-        while (initialPosition.x < initialPosition.x + finalPos.x || initialPosition.y < initialPosition.y + finalPos.y)
+        if (initialPosition.x<finalPos.x)
         {
             Debug.Log("Handcar Moving");
             Movement(finalPos);
