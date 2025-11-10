@@ -4634,8 +4634,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeSprite: {fileID: -8157425327737740483, guid: ae1d53127c0ab804d8f8faa99afa7337, type: 3}
   inactiveSprite: {fileID: 1747163105423738762, guid: ae1d53127c0ab804d8f8faa99afa7337, type: 3}
-  moveSpeed: 2
-  finalPos: {x: 16.24, y: 0}
+  moveSpeed: 3.74
+  finalDistance: {x: 6, y: 0}
   isActive: 0
 --- !u!114 &1728008481
 MonoBehaviour:
@@ -4676,7 +4676,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

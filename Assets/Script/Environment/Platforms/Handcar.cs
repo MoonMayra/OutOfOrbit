@@ -16,7 +16,6 @@ public class Handcar : MonoBehaviour
     public bool isActive = false;
     private Vector2 initialPosition;
     private Vector2 finalPos;
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,7 +27,6 @@ public class Handcar : MonoBehaviour
     {
         initialPosition = transform.position;
         finalPos = initialPosition + finalDistance;
-
     }
 
     public void UpdateHandcar(Vector2 direction)
@@ -46,16 +44,37 @@ public class Handcar : MonoBehaviour
 
         Vector2 targetPosition = initialPosition + direction.normalized * moveSpeed;
 
-        rigidBody.MovePosition(targetPosition);
+       rigidBody.transform.position = Vector2.MoveTowards(rigidBody.transform.position, direction, moveSpeed * Time.deltaTime);
     }
 
    private IEnumerator MoveHandcar(Vector2 direction)
     {
         if (initialPosition.x<finalPos.x)
         {
-            Debug.Log("Handcar Moving");
             Movement(finalPos);
         }
-        yield return new WaitForSeconds(0.02f);
+
+        yield return new WaitForSeconds(2f);
+
+        if (initialPosition.x < finalPos.x)
+        {
+            Movement(initialPosition);
+            spriteRenderer.sprite = inactiveSprite;
+        }
+    }
+
+    private void Update()
+    {
+        if (isActive && initialPosition.x < finalPos.x)
+        {
+            rigidBody.transform.position = Vector2.MoveTowards(rigidBody.transform.position, finalPos, moveSpeed * Time.deltaTime);
+            isActive = false;
+        }
+        // return to initial position after reaching final position
+        else if (!isActive && rigidBody.transform.position.x == finalPos.x)
+        {
+            rigidBody.transform.position = Vector2.MoveTowards(rigidBody.transform.position, initialPosition, moveSpeed * Time.deltaTime);
+            spriteRenderer.sprite = inactiveSprite;
+        }
     }
 }
