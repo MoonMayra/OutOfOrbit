@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     // Continue latest saved game
     public void ContinueGame()
     {
-        // Lógica para cargar progreso guardado
+        // Lógica para cargar progreso guardado LoadSceneMode word state recorrerla y aplicarla
         // Ejemplo: cargar nombre de escena desde PlayerPrefs
         string savedScene = PlayerPrefs.GetString("SavedScene", "Level1");
         SceneManager.LoadScene(savedScene);
