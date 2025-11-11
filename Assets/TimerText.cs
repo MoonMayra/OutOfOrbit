@@ -8,7 +8,7 @@ public class TimerText : MonoBehaviour
 
     private void Start()
     {
-        playerStats = PlayerStats.instance;
+        playerStats = PlayerStats.Instance;
         timerText = GetComponent<TMP_Text>();
     }
     void Update()

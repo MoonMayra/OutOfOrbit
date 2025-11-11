@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<string, bool> collectedItems= new Dictionary<string, bool>();
 
-    [SerializeField] private PlayerManager player;
+    [SerializeField] public PlayerManager player;
     private PlayerStats playerStats;
 
 

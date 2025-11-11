@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     private CameraZone currentCameraZone;
 
     private Rigidbody2D RigidBody;
+    private LevelManager levelManager;
 
     private void Awake()
     {
@@ -21,8 +22,12 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
 
         RigidBody = GetComponent<Rigidbody2D>();
+        levelManager = LevelManager.Instance;
     }
-    
+    private void Start()
+    {
+        levelManager.player=this;
+    }
     private void ResetBullets()
     {
         for (int i = shoot.activeBullets.Length - 1; i >= 0; i--)

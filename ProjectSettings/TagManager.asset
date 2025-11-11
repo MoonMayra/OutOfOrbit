@@ -68,6 +68,9 @@ TagManager:
   - name: interactuables
     uniqueID: 3613973531
     locked: 0
+  - name: Tips
+    uniqueID: 349674067
+    locked: 0
   - name: Player
     uniqueID: 3653379215
     locked: 0

@@ -17,7 +17,7 @@ public class DeathsText : MonoBehaviour
 
     void Start()
     {
-        playerStats = PlayerStats.instance;
+        playerStats = PlayerStats.Instance;
         DeathText.text = "x " + playerStats.deaths.ToString();
 
         visiblePos = panel.anchoredPosition;

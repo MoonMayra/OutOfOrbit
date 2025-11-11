@@ -20,7 +20,7 @@ public class CollectablesText : MonoBehaviour
 
     void Start()
     {
-        playerStats = PlayerStats.instance;
+        playerStats = PlayerStats.Instance;
         collectablesText.text = "x " + playerStats.collectables.ToString();
 
         visiblePos= panel.anchoredPosition;

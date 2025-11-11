@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats instance;
+    public static PlayerStats Instance;
 
     public int deaths = 0;
     public int collectables = 0;
@@ -18,16 +18,17 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        if(instance!=null && instance!=this)
+
+        if (Instance == null)
         {
-            Destroy(this.gameObject);
+            Instance = this;
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Destroy(gameObject);
         }
-        active=countFromStart;
+        DontDestroyOnLoad(this.gameObject);
+        active =countFromStart;
 
     }
     public void AddCollectable(int amount)

@@ -12,14 +12,16 @@ public class Death : MonoBehaviour
 
     private void Start()
     {
-        playerStats = PlayerStats.instance;
+        playerStats = PlayerStats.Instance;
         levelManager = LevelManager.Instance;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (IsPlayer(collision.gameObject))
         {
+            Debug.Log("Player collision" + collision);
             HandleDeath();
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
