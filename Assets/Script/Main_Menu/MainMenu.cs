@@ -1,17 +1,22 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    Public string Jungle;
     public void NewGame()
     {
+        Button btn = GetComponent
         SceneManager.LoadScene(1);
     }
 
     // Continue latest saved game
     public void ContinueGame()
     {
-        // Lógica para cargar progreso guardado LoadSceneMode word state recorrerla y aplicarla
+        // Lógica para cargar progreso guardado
+        // LoadSceneMode word state recorrerla y aplicarla
         // Ejemplo: cargar nombre de escena desde PlayerPrefs
         string savedScene = PlayerPrefs.GetString("SavedScene", "Level1");
         SceneManager.LoadScene(savedScene);
