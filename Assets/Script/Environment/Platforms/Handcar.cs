@@ -11,11 +11,12 @@ public class Handcar : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private Vector2 finalDistance = new Vector2(3f, 0f);
 
+    private Coroutine movingCoroutine;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidBody;
-    public bool isActive = false;
     private Vector2 initialPosition;
     private Vector2 finalPos;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,15 +32,14 @@ public class Handcar : MonoBehaviour
 
     public void UpdateHandcar(Vector2 direction)
     {
-        if (!isActive)
+        if (movingCoroutine == null)
         {
-            StartCoroutine(MoveHandcar(direction));
+            movingCoroutine = StartCoroutine(MoveHandcar(direction));
         }
     }
 
     private void Movement(Vector2 direction)
     {
-        isActive = true;
         spriteRenderer.sprite = activeSprite;
 
         Vector2 targetPosition = initialPosition + direction.normalized * moveSpeed;
@@ -59,21 +59,6 @@ public class Handcar : MonoBehaviour
         if (initialPosition.x < finalPos.x)
         {
             Movement(initialPosition);
-            spriteRenderer.sprite = inactiveSprite;
-        }
-    }
-
-    private void Update()
-    {
-        if (isActive && initialPosition.x < finalPos.x)
-        {
-            rigidBody.transform.position = Vector2.MoveTowards(rigidBody.transform.position, finalPos, moveSpeed * Time.deltaTime);
-            isActive = false;
-        }
-        // return to initial position after reaching final position
-        else if (!isActive && rigidBody.transform.position.x == finalPos.x)
-        {
-            rigidBody.transform.position = Vector2.MoveTowards(rigidBody.transform.position, initialPosition, moveSpeed * Time.deltaTime);
             spriteRenderer.sprite = inactiveSprite;
         }
     }
