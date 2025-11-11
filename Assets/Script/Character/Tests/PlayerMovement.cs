@@ -3,11 +3,16 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
-//NOTE 1: To keep jump speed and height spearate and editable, we use the free fall formula
-//V^2=(V0)^2+2*a*deltaY, where a=-gravity, and deltaY=maximum jump height
-//Using this, we solve for gravity to get the following formula: gravity=(V0)^2/(2*h)
-//Using this formula, we can caluculate the gravity needed for the desired jump height and speed
-//Once we have this value, we apply it only when the player is jumping.
+/// <summary>
+/// 
+/// </summary>
+/// <remarks>
+/// To keep jump speed and height spearate and editable, we use the free fall formula
+///V^2=(V0)^2+2*a*deltaY, where a=-gravity, and deltaY=maximum jump height
+///Using this, we solve for gravity to get the following formula: gravity=(V0)^2/(2*h)
+///Using this formula, we can caluculate the gravity needed for the desired jump height and speed
+///Once we have this value, we apply it only when the player is jumping.
+///</remarks>
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance { get; private set; }
