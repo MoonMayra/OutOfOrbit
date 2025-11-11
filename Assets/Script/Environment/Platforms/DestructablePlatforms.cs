@@ -6,7 +6,8 @@ public class BreakablePlatform : MonoBehaviour
 {
     [Header("Tiempos")]
     [SerializeField] private float destructionDelay = 2f; 
-    [SerializeField] private float respawnDelay = 3f;     
+    [SerializeField] private float respawnDelay = 3f;
+    [SerializeField] private ParticleSystem breakEffect;
 
     private SpriteRenderer spriteRenderer;
     private Collider2D platformCollider;
@@ -39,6 +40,7 @@ public class BreakablePlatform : MonoBehaviour
 
         if (!isDestroyed && timer >= destructionDelay)
         { 
+            breakEffect.Play();
             spriteRenderer.enabled = false;
             platformCollider.enabled = false;
             isDestroyed = true;

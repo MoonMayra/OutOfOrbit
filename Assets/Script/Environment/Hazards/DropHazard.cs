@@ -7,6 +7,7 @@ public class DropHazard : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask bossMask;
     [SerializeField] private LayerMask coconutMask;
+    [SerializeField] private LayerMask hazardMask;
     [SerializeField] private string destroyAnimation;
     public bool bossMode= false;
 
@@ -15,7 +16,7 @@ public class DropHazard : MonoBehaviour
     private Rigidbody2D rigidBodyCoconut;
     private Collider2D coconutCollider;
     private int groundLayer;
-    private int coconutLayer;
+    public int coconutLayer;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,6 +31,8 @@ public class DropHazard : MonoBehaviour
         groundLayer= LayerMask.NameToLayer("Ground");
         coconutLayer = LayerMask.NameToLayer("Hazards");
         Physics2D.IgnoreLayerCollision(groundLayer, coconutLayer, bossMode);
+        Physics2D.IgnoreLayerCollision(coconutLayer, coconutLayer, bossMode);
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -50,6 +53,7 @@ public class DropHazard : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

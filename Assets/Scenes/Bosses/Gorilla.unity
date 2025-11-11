@@ -9540,7 +9540,7 @@ GameObject:
   - component: {fileID: 923482488}
   m_Layer: 8
   m_Name: black_ooze
-  m_TagString: Untagged
+  m_TagString: Hazards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
