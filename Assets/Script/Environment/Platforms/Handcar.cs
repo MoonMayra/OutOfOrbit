@@ -9,7 +9,7 @@ public class Handcar : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private Vector2 finalDistance = new Vector2(3f, 0f);
+    [SerializeField] private Vector2 moveDistance = new Vector2(3f, 0f);
 
     private Coroutine movingCoroutine;
     private SpriteRenderer spriteRenderer;
@@ -27,7 +27,6 @@ public class Handcar : MonoBehaviour
     private void Start()
     {
         initialPosition = transform.position;
-        finalPos = initialPosition + finalDistance;
     }
 
     public void UpdateHandcar(Vector2 direction)
@@ -37,29 +36,40 @@ public class Handcar : MonoBehaviour
             movingCoroutine = StartCoroutine(MoveHandcar(direction));
         }
     }
-
-    private void Movement(Vector2 direction)
+    private IEnumerator MoveHandcar(Vector2 direction)
     {
         spriteRenderer.sprite = activeSprite;
 
-        Vector2 targetPosition = initialPosition + direction.normalized * moveSpeed;
-
-       rigidBody.transform.position = Vector2.MoveTowards(rigidBody.transform.position, direction, moveSpeed * Time.deltaTime);
-    }
-
-   private IEnumerator MoveHandcar(Vector2 direction)
-    {
-        if (initialPosition.x<finalPos.x)
+        if (direction.x < 0)
         {
-            Movement(finalPos);
+            spriteRenderer.flipX = true;
+        }
+        else if (direction.x > 0)
+        {
+            spriteRenderer.flipX = false;
         }
 
-        yield return new WaitForSeconds(2f);
+        Vector2 targetPosition = initialPosition + direction.normalized * moveDistance;
 
-        if (initialPosition.x < finalPos.x)
+        float t = 0;
+        while (t < 1f)
         {
-            Movement(initialPosition);
-            spriteRenderer.sprite = inactiveSprite;
+            t += Time.deltaTime * moveSpeed;
+            rigidBody.transform.position = Vector2.Lerp(initialPosition, targetPosition, t);
+            yield return null;
         }
+
+        yield return new WaitForSeconds(1f);
+
+        t = 0;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * moveSpeed;
+            rigidBody.transform.position = Vector2.Lerp(targetPosition, initialPosition, t);
+            yield return null;
+        }
+
+        spriteRenderer.sprite = inactiveSprite;
+        movingCoroutine = null;
     }
 }
