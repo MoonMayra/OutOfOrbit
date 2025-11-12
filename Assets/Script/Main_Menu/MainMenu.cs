@@ -1,56 +1,30 @@
-using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-public class MainMenu : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
-    public string LoadScreen;
-    public Button New_Game_Button;
+    // 🔹 Métodos públicos que se conectan con los botones del menú
 
-    void Start()
+    public void PlayGame()
     {
-        if (New_Game_Button != null)
-            New_Game_Button.onClick.AddListener(LoadSelectedScene);
+        SceneManager.LoadScene("Jungle");
     }
 
-    public void LoadSelectedScene()
+    public void OpenOptions()
     {
-        if (!string.IsNullOrEmpty(LoadScreen))
-            SceneManager.LoadScene(LoadScreen);
+        SceneManager.LoadScene("OptionsMenu");
+    }
+
+    public void OpenCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+    public void OpenAreaSelector()
+    {
+        SceneManager.LoadScene("AreaSelector");
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Saliendo del juego...");
+        Application.Quit();
     }
 }
-//
-
-//* Continue latest saved game
-//public void ContinueGame()
-//{
-// L�gica para cargar progreso guardado
-// LoadSceneMode word state recorrerla y aplicarla
-// Ejemplo: cargar nombre de escena desde PlayerPrefs
-//string savedScene = PlayerPrefs.GetString("SavedScene", "Level1");
-//SceneManager.LoadScene(savedScene);
-//}
-// Go to area selector screen
-//public void OpenLevels()
-//
-//   SceneManager.LoadScene("AreaSelector");
-//
-
-// Open options menu
-//ublic void OpenOptions()
-//
-// SceneManager.LoadScene("Options");
-//
-
-// Show credits screen
-//ublic void ShowCredits()
-//  {
-//   }
-
-// Quit the game application
-//ublic void QuitGame()
-//
-//   Debug.Log("Quit Game");
-//  Application.Quit();
-//   }
