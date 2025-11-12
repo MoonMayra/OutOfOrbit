@@ -40,7 +40,7 @@ public class BreakablePlatform : MonoBehaviour
 
         if (!isDestroyed && timer >= destructionDelay)
         { 
-            breakEffect.Play();
+            //breakEffect.Play();
             spriteRenderer.enabled = false;
             platformCollider.enabled = false;
             isDestroyed = true;
