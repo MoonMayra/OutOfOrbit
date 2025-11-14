@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &73302254198981664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6739306708267120232}
-  m_Layer: 0
-  m_Name: ScarfAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6739306708267120232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73302254198981664}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012, y: -0.175, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6522414326844454945}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202999902678165084
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +38,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6739306708267120232}
   - {fileID: 8284889511244026314}
   - {fileID: 4988724544255412888}
   - {fileID: 6496269249203909471}
@@ -118,7 +86,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -641588081
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0d70f5727e2b0244eb63140620e0fd75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -278,7 +246,7 @@ MonoBehaviour:
   wasGrounded: 0
   jumpingThreshold: 0
   normalThreshold: 0.6
-  dustParticles: {fileID: 0}
+  dustParticles: {fileID: 606480952291650609, guid: 23133b72f3bb4db4a803b158e916c073, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -311,10 +279,10 @@ MonoBehaviour:
   shootInput: {fileID: 6284116882949636389, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   activateInput: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   gravityVoid: {fileID: 0}
-  playerMovement: {fileID: -4948877287448343850}
   trayectory: {fileID: 0}
   bulletMov: {fileID: 0}
   bulletSpawn: {fileID: 4988724544255412888}
+  spawnOffset: 0.248
   bulletPrefab:
   - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
   - {fileID: 526093498234406342, guid: 70c156ea1f998844e83430e5414db5db, type: 3}
@@ -325,6 +293,7 @@ MonoBehaviour:
   - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
   - {fileID: 3989080382905548627, guid: 5722e4b14aa693b408934d42b50ace86, type: 3}
   isAiming: 0
+  freeSlot: -1
   activeBullets:
   - {fileID: 0}
   - {fileID: 0}
@@ -335,6 +304,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  bulletCreationOrder: []
+  isLookingRight: 1
 --- !u!114 &3973393939323834054
 MonoBehaviour:
   m_ObjectHideFlags: 0
