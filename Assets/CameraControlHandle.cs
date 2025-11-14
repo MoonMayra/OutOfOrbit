@@ -76,7 +76,8 @@ public class CameraControlHandle : MonoBehaviour
             playerMovement.enabled = false;
 
         cameraManualMov.SetBounds(thisAreaCenter, thisAreaSize);
-        cameraManualMov.enabled = true;
+        if (cameraManualMov)
+            cameraManualMov.enabled = true;
     }
     private void EnablePlayerMode()
     {

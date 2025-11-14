@@ -179,12 +179,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4200826784763960716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ce579263f5d6a845b169dc13224542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementInput: {fileID: 0}
-  MovementSpeed: 5
+  MovementInput: {fileID: 4482826690344405319, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  MovementSpeed: 10
   areaCenter: {x: 0, y: 0}
   areaSize: {x: 20, y: 30}
