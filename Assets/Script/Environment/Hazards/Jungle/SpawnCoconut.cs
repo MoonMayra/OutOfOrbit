@@ -24,11 +24,15 @@ public class SpawnCoconut : MonoBehaviour
             coconutInstance = Instantiate(coconutPrefab, spawnPoint.position, spawnPoint.rotation);
             rigidBody2D = coconutInstance.GetComponent<Rigidbody2D>();
             coconutAnimator = coconutInstance.GetComponent<Animator>();
-            rigidBody2D.bodyType = RigidbodyType2D.Static;
-            coconutAnimator.SetBool(shakeAnimKey,true);
+            if(rigidBody2D != null)
+                rigidBody2D.bodyType = RigidbodyType2D.Static;
+            if(coconutAnimator != null)
+                coconutAnimator.SetBool(shakeAnimKey,true);
             yield return new WaitForSeconds(dropDelay);
-            coconutAnimator.SetBool(shakeAnimKey,false);
-            rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
+            if(coconutAnimator != null)
+                coconutAnimator.SetBool(shakeAnimKey,false);
+            if(rigidBody2D != null)
+                rigidBody2D.bodyType = RigidbodyType2D.Dynamic;
             yield return new WaitForSeconds(spawnInterval);
         }
     }

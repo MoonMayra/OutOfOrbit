@@ -70,5 +70,13 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+        foreach (var hazard in FindObjectsByType<DropHazard>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            Destroy(hazard.gameObject);
+        }
+        foreach (var platform in FindObjectsByType<MovementPlat>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            platform.ResetPlatform();
+        }
     }
 }

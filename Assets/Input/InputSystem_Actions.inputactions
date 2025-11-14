@@ -115,6 +115,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "PassTip",
+                    "type": "Button",
+                    "id": "8d098d3f-33a3-4ffb-9560-8d1e9cc2bc4e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "CameraMovement",
                     "type": "Value",
                     "id": "a8639798-72ea-4893-97bb-f8a2d1450e73",
@@ -650,6 +659,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraActivation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "daab1f4d-97c4-4ed8-a9c6-b51587916a27",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PassTip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
