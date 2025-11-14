@@ -10,6 +10,8 @@ TagManager:
   - PassThrough
   - LevelManager
   - Enemies
+  - Background UI
+  - Botons
   layers:
   - Default
   - TransparentFX
