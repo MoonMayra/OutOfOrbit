@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject levelSelectorJungle;
     public GameObject levelSelectorUnderground;
     public GameObject levelSelectorLab;
-    public void OpenOptionsPanel()
+    public void OpenOptionsMenu()
     { mainMenu.SetActive(false);
       optionsMenu.SetActive(true);
     }

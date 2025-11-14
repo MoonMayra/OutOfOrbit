@@ -1,18 +1,1 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class LevelSelectorJungleManager : MonoBehaviour
-{
-
-    // Go to levels Jungle
-    public void GoToJungle()
-    {
-        SceneManager.LoadScene("Jungle");
-    }
-
-    // Go  to gorilla boss level
-    public void GoToGorilla()
-    {
-        SceneManager.LoadScene("Gorilla");
-    }
-}
+﻿
