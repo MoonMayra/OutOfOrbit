@@ -9,11 +9,14 @@ public class Death : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private Checkpoint current;
+    private GlitchController glitchController;
+    private Animator animatorGlitch;
 
     private void Start()
     {
         playerStats = PlayerStats.Instance;
         levelManager = LevelManager.Instance;
+        glitchController=GlitchController.Instance;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,7 +41,7 @@ public class Death : MonoBehaviour
     private void HandleDeath()
     {
         
-
+        glitchController.GlitchDeath();
         if(playerStats != null) 
             playerStats.AddDeath(1);
         if (levelManager != null && levelManager.currentCheckpoint != null)
