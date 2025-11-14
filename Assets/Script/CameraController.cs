@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     private Transform target;
     private float speed;
     private bool instant;
-    private void Start()
+    private void Awake()
     {
         if(Instance == null)
             Instance = this;
@@ -27,6 +27,10 @@ public class CameraController : MonoBehaviour
         {
             mainCam.position = target.position;
         }
+    }
+    public void ReleaseControl()
+    {
+        target = null;
     }
     void Update()
     {

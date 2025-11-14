@@ -24,10 +24,7 @@ public class PlayerManager : MonoBehaviour
         RigidBody = GetComponent<Rigidbody2D>();
         levelManager = LevelManager.Instance;
     }
-    private void Start()
-    {
-        levelManager.player=this;
-    }
+
     private void ResetBullets()
     {
         for (int i = shoot.activeBullets.Length - 1; i >= 0; i--)
