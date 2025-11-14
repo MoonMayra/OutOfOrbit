@@ -53,6 +53,7 @@ public class MainMenuManager : MonoBehaviour
         optionsMenu.SetActive(false);
         credits.SetActive(false);
         areaSelector.SetActive(false);
+        mainMenuQuit.SetActive(false);
     }
     public void OpenMainMenuQuit()
     {
