@@ -20,12 +20,15 @@ public class BreakablePlatform : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         platformCollider = GetComponent<Collider2D>();
+        if (breakEffect ==null)
+            breakEffect = gameObject.GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isBreaking && collision.gameObject.CompareTag("Player"))
         {
+            breakEffect.Play();
             isBreaking = true;
             timer = 0f;
         }
@@ -40,7 +43,6 @@ public class BreakablePlatform : MonoBehaviour
 
         if (!isDestroyed && timer >= destructionDelay)
         { 
-            //breakEffect.Play();
             spriteRenderer.enabled = false;
             platformCollider.enabled = false;
             isDestroyed = true;

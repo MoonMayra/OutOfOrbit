@@ -23,20 +23,16 @@ public class Secret : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & playerLayer.value) != 0 && isInside)
-        {
-            targetAlpha = 1f;
-            isInside = false;
-        }
-    }
 
     private void Update()
     {
         Color color = tiles.color;
         color.a = Mathf.MoveTowards(color.a, targetAlpha, fadeSpeed * Time.deltaTime);
         tiles.color = color;
+        if(tiles.color.a<=0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
 
