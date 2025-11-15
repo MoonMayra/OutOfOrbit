@@ -28,4 +28,4 @@ public class LevelSelectorLabManager : MonoBehaviour
         loadingScreen.SetActive(false);
     }
 }
-}
+
