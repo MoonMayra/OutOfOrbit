@@ -8,11 +8,20 @@ public class LevelSelectorJungleManager : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Jungle");
+        loadingScreen.SetActive(false);
     }
     // Go to gorilla boss level
     public void GoToGorilla()
     {
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Gorilla");
+        loadingScreen.SetActive(false);
+    }
+    //Go back to area selector
+    public void BackToAreaSelector()
+    {
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("AreaSelector");
+        loadingScreen.SetActive(false);
     }
 }

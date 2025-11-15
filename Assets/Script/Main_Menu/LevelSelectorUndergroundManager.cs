@@ -10,6 +10,7 @@ public class LevelSelectorUndergroundManager : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Underground");
+        loadingScreen.SetActive(false);
     }
 
     // Go to water boss level
@@ -17,5 +18,13 @@ public class LevelSelectorUndergroundManager : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Water");
+        loadingScreen.SetActive(false);
+    }
+    //Go back to area selector
+    public void BackToAreaSelector()
+    {
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("AreaSelector");
+        loadingScreen.SetActive(false);
     }
 }
