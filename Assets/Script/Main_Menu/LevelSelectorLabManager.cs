@@ -10,6 +10,7 @@ public class LevelSelectorLabManager : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Lab");
+        loadingScreen.SetActive(false);
     }
 
     // Go to water boss level
@@ -17,5 +18,13 @@ public class LevelSelectorLabManager : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Mia");
+        loadingScreen.SetActive(false);
+    }
+    //Go back to area selector
+    public void BackToAreaSelector()
+    {
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("AreaSelector");
+        loadingScreen.SetActive(false);
     }
 }
