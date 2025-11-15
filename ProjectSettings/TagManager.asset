@@ -76,14 +76,14 @@ TagManager:
   - name: Player
     uniqueID: 3653379215
     locked: 0
-  - name: Secret
-    uniqueID: 4217174117
-    locked: 0
   - name: Foreground
     uniqueID: 3008678277
     locked: 0
   - name: PlatformForeground
     uniqueID: 3095818555
+    locked: 0
+  - name: Secret
+    uniqueID: 4217174117
     locked: 0
   - name: WaterForeground
     uniqueID: 2347662619
