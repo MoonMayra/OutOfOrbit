@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: 619a0c1064af79c4a90db21853ace0ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7935013226095011501
+    second: Controls_WOPanel_0
+  - first:
+      213: 4261499546144344260
+    second: Controls_WOPanel_1
+  - first:
+      213: 9135013951142383482
+    second: Controls_WOPanel_2
+  - first:
+      213: -4995482041391825546
+    second: Controls_WOPanel_3
+  - first:
+      213: -1595359593976932493
+    second: Controls_WOPanel_4
+  - first:
+      213: 4649385883491787111
+    second: Controls_WOPanel_5
+  - first:
+      213: 6850897098647356334
+    second: Controls_WOPanel_6
+  - first:
+      213: 8311019013379286759
+    second: Controls_WOPanel_7
+  - first:
+      213: 6113669005991482886
+    second: Controls_WOPanel_8
+  - first:
+      213: 657121754221285378
+    second: Controls_WOPanel_9
+  - first:
+      213: 1826418997477734820
+    second: Controls_WOPanel_10
+  - first:
+      213: -177439966796762346
+    second: Controls_WOPanel_11
+  - first:
+      213: 6462989413480105090
+    second: Controls_WOPanel_12
+  - first:
+      213: -5628493927580682835
+    second: Controls_WOPanel_13
+  - first:
+      213: 6694320642407368178
+    second: Controls_WOPanel_14
+  - first:
+      213: -8415505182158247050
+    second: Controls_WOPanel_15
+  - first:
+      213: 1590606642134716251
+    second: Controls_WOPanel_16
+  - first:
+      213: -2297987419732008541
+    second: Controls_WOPanel_17
+  - first:
+      213: -4604693317924676110
+    second: Controls_WOPanel_18
+  - first:
+      213: -1302534693149540691
+    second: Controls_WOPanel_19
+  - first:
+      213: -7318667690994591794
+    second: Controls_WOPanel_20
+  - first:
+      213: 1782628891883877917
+    second: Controls_WOPanel_21
+  - first:
+      213: 2386590007337422788
+    second: Controls_WOPanel_22
+  - first:
+      213: -4806030451701179983
+    second: Controls_WOPanel_23
+  - first:
+      213: -5794617111621935071
+    second: Controls_WOPanel_24
+  - first:
+      213: -8807413739261426798
+    second: Controls_WOPanel_25
+  - first:
+      213: 2723656784851881928
+    second: Controls_WOPanel_26
+  - first:
+      213: 4325743226165146790
+    second: Controls_WOPanel_27
+  - first:
+      213: 7035892097308786342
+    second: Controls_WOPanel_28
+  - first:
+      213: 9157848466151468538
+    second: Controls_WOPanel_29
+  - first:
+      213: 3364549434429711435
+    second: Controls_WOPanel_30
+  - first:
+      213: -2766419836385736359
+    second: Controls_WOPanel_31
+  - first:
+      213: -6179718275372370257
+    second: Controls_WOPanel_32
+  - first:
+      213: 6103353973397398708
+    second: Controls_WOPanel_33
+  - first:
+      213: -5367467728333121766
+    second: Controls_WOPanel_34
+  - first:
+      213: -7024429072772346997
+    second: Controls_WOPanel_35
+  - first:
+      213: 5606104755965338163
+    second: Controls_WOPanel_36
+  - first:
+      213: 5689586345335858416
+    second: Controls_WOPanel_37
+  - first:
+      213: -154321717344219871
+    second: Controls_WOPanel_38
+  - first:
+      213: 8023331512204382235
+    second: Controls_WOPanel_39
+  - first:
+      213: 5137820027588461710
+    second: Controls_WOPanel_40
+  - first:
+      213: -1759130317769734260
+    second: Controls_WOPanel_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Controls_WOPanel_0
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 973
+        width: 393
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da66b65dc74de1e60800000000000000
+      internalID: 7935013226095011501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 105
+        width: 1005
+        height: 799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c80c624243e32b30800000000000000
+      internalID: 4261499546144344260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_2
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 799
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f44180ac616ce70800000000000000
+      internalID: 9135013951142383482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_3
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 472
+        width: 116
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d3ff0fc8b7caab0800000000000000
+      internalID: -4995482041391825546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_4
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 472
+        width: 115
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3775effd6e42cd9e0800000000000000
+      internalID: -1595359593976932493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_5
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 799
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7616e39d3dfe58040800000000000000
+      internalID: 4649385883491787111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_6
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 770
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea341a51d96431f50800000000000000
+      internalID: 6850897098647356334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_7
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 770
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e66dfd42cba65370800000000000000
+      internalID: 8311019013379286759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_8
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6061070c19d18d450800000000000000
+      internalID: 6113669005991482886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_9
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2009a8ef0c09e1900800000000000000
+      internalID: 657121754221285378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_10
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 770
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a97fa3c66eb85910800000000000000
+      internalID: 1826418997477734820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_11
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 770
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6133f125a4b998df0800000000000000
+      internalID: -177439966796762346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_12
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 770
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 284879111a621b950800000000000000
+      internalID: 6462989413480105090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_13
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 770
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da53c1a089293e1b0800000000000000
+      internalID: -5628493927580682835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_14
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5814ff72107ec50800000000000000
+      internalID: 6694320642407368178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_15
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 764
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67baff3cf9e163b80800000000000000
+      internalID: -8415505182158247050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_16
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 770
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f01d94058f21610800000000000000
+      internalID: 1590606642134716251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_17
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1ae84fd98eb10e0800000000000000
+      internalID: -2297987419732008541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_18
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 770
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd1c75f2d7d810c0800000000000000
+      internalID: -4604693317924676110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_19
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 770
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daef23309977cede0800000000000000
+      internalID: -1302534693149540691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_20
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 790
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec79321d28ede6a90800000000000000
+      internalID: -7318667690994591794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_21
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16361b488b2db810800000000000000
+      internalID: 1782628891883877917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_22
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 770
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf08db87fede1120800000000000000
+      internalID: 2386590007337422788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_23
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 770
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b914a284cc8d4db0800000000000000
+      internalID: -4806030451701179983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_24
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 120ef5c2072659fa0800000000000000
+      internalID: -5794617111621935071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_25
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 770
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2938d692ed7c5c580800000000000000
+      internalID: -8807413739261426798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_26
+      rect:
+        serializedVersion: 2
+        x: 1747
+        y: 770
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cfcd2f4a6f5cc520800000000000000
+      internalID: 2723656784851881928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_27
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 770
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a43021ab80280c30800000000000000
+      internalID: 4325743226165146790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_28
+      rect:
+        serializedVersion: 2
+        x: 1765
+        y: 790
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae7112b59284a160800000000000000
+      internalID: 7035892097308786342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_29
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 770
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd60dbd8a6371f70800000000000000
+      internalID: 9157848466151468538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_30
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 770
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44ac6c62e741be20800000000000000
+      internalID: 3364549434429711435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_31
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 512
+        width: 35
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95942a0e0d3bb99d0800000000000000
+      internalID: -2766419836385736359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_32
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 316
+        width: 226
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6b07858fa3d3aa0800000000000000
+      internalID: -6179718275372370257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_33
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 147
+        width: 214
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b422d21a1873b450800000000000000
+      internalID: 6103353973397398708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_34
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 110
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17d4550a8ce285b0800000000000000
+      internalID: -5367467728333121766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_35
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 110
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b4a7fa9f6348e90800000000000000
+      internalID: -7024429072772346997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_36
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 110
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33221f8b292eccd40800000000000000
+      internalID: 5606104755965338163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_37
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 110
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f428a8e2a875fe40800000000000000
+      internalID: 5689586345335858416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_38
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 110
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12dc198373dbbddf0800000000000000
+      internalID: -154321717344219871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_39
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 110
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10d32c3089985f60800000000000000
+      internalID: 8023331512204382235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_40
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 110
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e844c4008143d4740800000000000000
+      internalID: 5137820027588461710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Controls_WOPanel_41
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 110
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8707b7db405697e0800000000000000
+      internalID: -1759130317769734260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Controls_WOPanel_0: 7935013226095011501
+      Controls_WOPanel_1: 4261499546144344260
+      Controls_WOPanel_10: 1826418997477734820
+      Controls_WOPanel_11: -177439966796762346
+      Controls_WOPanel_12: 6462989413480105090
+      Controls_WOPanel_13: -5628493927580682835
+      Controls_WOPanel_14: 6694320642407368178
+      Controls_WOPanel_15: -8415505182158247050
+      Controls_WOPanel_16: 1590606642134716251
+      Controls_WOPanel_17: -2297987419732008541
+      Controls_WOPanel_18: -4604693317924676110
+      Controls_WOPanel_19: -1302534693149540691
+      Controls_WOPanel_2: 9135013951142383482
+      Controls_WOPanel_20: -7318667690994591794
+      Controls_WOPanel_21: 1782628891883877917
+      Controls_WOPanel_22: 2386590007337422788
+      Controls_WOPanel_23: -4806030451701179983
+      Controls_WOPanel_24: -5794617111621935071
+      Controls_WOPanel_25: -8807413739261426798
+      Controls_WOPanel_26: 2723656784851881928
+      Controls_WOPanel_27: 4325743226165146790
+      Controls_WOPanel_28: 7035892097308786342
+      Controls_WOPanel_29: 9157848466151468538
+      Controls_WOPanel_3: -4995482041391825546
+      Controls_WOPanel_30: 3364549434429711435
+      Controls_WOPanel_31: -2766419836385736359
+      Controls_WOPanel_32: -6179718275372370257
+      Controls_WOPanel_33: 6103353973397398708
+      Controls_WOPanel_34: -5367467728333121766
+      Controls_WOPanel_35: -7024429072772346997
+      Controls_WOPanel_36: 5606104755965338163
+      Controls_WOPanel_37: 5689586345335858416
+      Controls_WOPanel_38: -154321717344219871
+      Controls_WOPanel_39: 8023331512204382235
+      Controls_WOPanel_4: -1595359593976932493
+      Controls_WOPanel_40: 5137820027588461710
+      Controls_WOPanel_41: -1759130317769734260
+      Controls_WOPanel_5: 4649385883491787111
+      Controls_WOPanel_6: 6850897098647356334
+      Controls_WOPanel_7: 8311019013379286759
+      Controls_WOPanel_8: 6113669005991482886
+      Controls_WOPanel_9: 657121754221285378
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

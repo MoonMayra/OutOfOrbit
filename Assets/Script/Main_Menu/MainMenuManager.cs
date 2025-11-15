@@ -5,27 +5,55 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public GameObject credits;
-    public GameObject loadingScreen;
+    public GameObject control;
     public GameObject mainMenuQuit;
-  
+    [SerializeField] private string areaSelectorName = "AreaSelector";
+    [SerializeField] private string animationTriggerName = "Death";
+    private Animator animator;
+
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+    public void ChangeAnimation()
+    {
+        animator.SetTrigger(animationTriggerName);
+    }
     public void OpenOptionsMenu()
     { mainMenu.SetActive(false);
+        ChangeAnimation();
       optionsMenu.SetActive(true);
     }
     public void OpenAreaSelector()
     {
-        SceneManager.LoadScene("AreaSelector");
+        ChangeAnimation();
+        SceneManager.LoadScene(areaSelectorName);
     }
     public void OpenCredits()
     {
         mainMenu.SetActive(false);
+        ChangeAnimation();
         credits.SetActive(true);
+    }
+    public void OpenControls()
+    {
+        optionsMenu.SetActive(false);
+        ChangeAnimation();
+        control.SetActive(true);
+    }
+    public void BackToOptions()
+    {
+        control.SetActive(false);
+        ChangeAnimation();
+        optionsMenu.SetActive(true);
     }
     public void BackToMainMenu()
     {
-        mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
         credits.SetActive(false);
+        ChangeAnimation();
+        mainMenu.SetActive(true);
     }
     public void OpenMainMenuQuit()
     {
@@ -43,7 +71,10 @@ public class MainMenuManager : MonoBehaviour
     }
     public void PlayGame()
     {
-        loadingScreen.SetActive(true);
         SceneManager.LoadScene("Jungle");
+    }
+    public void ToggleFullscreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }
