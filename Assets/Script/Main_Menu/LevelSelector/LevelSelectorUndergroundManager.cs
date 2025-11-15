@@ -18,4 +18,11 @@ public class LevelSelectorUndergroundManager : MonoBehaviour
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Water");
     }
+    //Go back to area selector
+    public void BackToAreaSelector()
+    {
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("AreaSelector");
+        loadingScreen.SetActive(false);
+    }
 }

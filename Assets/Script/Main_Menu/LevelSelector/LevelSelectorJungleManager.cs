@@ -15,4 +15,11 @@ public class LevelSelectorJungleManager : MonoBehaviour
         loadingScreen.SetActive(true);
         SceneManager.LoadScene("Gorilla");
     }
+   // Go back to area selector
+    public void BackToAreaSelector()
+    {
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("AreaSelector");
+        loadingScreen.SetActive(false);
+    }
 }

@@ -7,6 +7,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject credits;
     public GameObject loadingScreen;
     public GameObject mainMenuQuit;
+    public GameObject controls;
     public void OpenOptionsMenu()
     { mainMenu.SetActive(false);
       optionsMenu.SetActive(true);
@@ -20,11 +21,17 @@ public class MainMenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         credits.SetActive(true);
     }
+    public void OpenControls()
+    {
+        mainMenu.SetActive(false);
+        controls.SetActive(true);
+    }
     public void BackToMainMenu()
     {
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
         credits.SetActive(false);
+        controls.SetActive(false);
     }
     public void OpenMainMenuQuit()
     {
