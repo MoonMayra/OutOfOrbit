@@ -46,6 +46,7 @@ public class MovementPlat : MonoBehaviour
             MovementDirection.Down => Vector2.down,
             _ => Vector2.right,
         };
+
     }
 
     private void FixedUpdate()
@@ -85,6 +86,8 @@ public class MovementPlat : MonoBehaviour
     {
         platformRigidBody.linearVelocity = Vector2.zero;
         direction *= -1;
+        transform.position += (Vector3)(direction * 0.01f);
+        Debug.Log("Prueba");
     }
 
     public void ResetPlatform()
