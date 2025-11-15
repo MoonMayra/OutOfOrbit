@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: aac20520466ecc446815e75ba80fb1c1
+guid: 7804705a6b0570342a9c018a645c4cce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8197161215707420340
-    second: Boton@2x_0
-  - first:
-      213: 1335609734429792906
-    second: Boton@2x_1
+      213: -298841183186939927
+    second: BotonSlider_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton@2x_0
+      name: BotonSlider_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b699dcf1ba22c170800000000000000
-      internalID: 8197161215707420340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boton@2x_1
-      rect:
-        serializedVersion: 2
-        x: 533
-        y: 0
-        width: 84
-        height: 167
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8add332af9098210800000000000000
-      internalID: 1335609734429792906
+      spriteID: 9ef82e7f68d4adbf0800000000000000
+      internalID: -298841183186939927
       vertices: []
       indices: 
       edges: []
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boton@2x_0: 8197161215707420340
-      Boton@2x_1: 1335609734429792906
+      BotonSlider_0: -298841183186939927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
