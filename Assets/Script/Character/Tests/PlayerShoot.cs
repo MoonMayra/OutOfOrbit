@@ -138,7 +138,6 @@ public class PlayerShoot : MonoBehaviour
     private void StopBullet()
     {
         int previousBulletIndex = (freeSlot) % 3;
-        Debug.Log("Index:" + previousBulletIndex);
 
         if (activeBullets[previousBulletIndex] != null) 
         {
@@ -265,7 +264,6 @@ public class PlayerShoot : MonoBehaviour
         int validIndex = System.Array.IndexOf(activeBullets, bulletToUse);
         if(activeVoids[validIndex]!=null)
         {
-            Debug.Log("Destroying previous void");
             Destroy(activeVoids[validIndex]);
         }
         voidSpawn = bulletToUse.transform.position;
@@ -292,7 +290,6 @@ public class PlayerShoot : MonoBehaviour
 
         if (activeVoids[slotIndex] != null)
         {
-            Debug.Log("Destroying linked void");
             if (immediate)
                 DestroyImmediate(activeVoids[slotIndex]);
             else
@@ -302,7 +299,6 @@ public class PlayerShoot : MonoBehaviour
         }
 
         UpdateShootAvailability();
-        Debug.Log("Bullet index:" + slotIndex + "Destroyed");
     }
     private void Update()
     {

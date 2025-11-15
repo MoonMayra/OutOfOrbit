@@ -50,7 +50,6 @@ public class PlayerGroundCheck : MonoBehaviour
         if(wasGrounded && !isGrounded)
         {
             justLeftGround = true;
-            Debug.Log("sali del piso");
             if (dustParticles != null)
             {
                 dustParticles.Stop();
@@ -59,7 +58,6 @@ public class PlayerGroundCheck : MonoBehaviour
         if(!wasGrounded && isGrounded)
         {
             justLanded = true;
-            Debug.Log("entre al piso");
             dustParticles.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
             if (dustParticles != null)
             {

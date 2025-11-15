@@ -228,6 +228,7 @@ MonoBehaviour:
   moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   fieldsThrowInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  isFrozen: 0
 --- !u!114 &-669158974781351936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +323,7 @@ MonoBehaviour:
   shoot: {fileID: 9117736236978871301}
   view: {fileID: -7969824856625025076}
   groundCheck: {fileID: -669158974781351936}
+  stopTime: 0.3
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     private Transform mainCam;
     private Transform target;
     private float speed;
-    private bool instant;
+    private PlayerMovement playerMovement;
     private void Awake()
     {
         if(Instance == null)
@@ -17,16 +17,15 @@ public class CameraController : MonoBehaviour
 
         mainCam = Camera.main.transform;
     }
+    private void Start()
+    {
+        playerMovement = PlayerMovement.Instance;
+    }
 
-    public void MoveToTarget(Transform targetPos, float moveSpeed, bool instantMove)
+    public void MoveToTarget(Transform targetPos, float moveSpeed)
     {
         target = targetPos;
         speed = moveSpeed;
-        instant = instantMove;
-        if (instant)
-        {
-            mainCam.position = target.position;
-        }
     }
     public void ReleaseControl()
     {
@@ -34,11 +33,12 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        if (target == null || instant) return;
-        
-        Vector3 current= mainCam.position;
-        Vector3 finalPos = target.position;
+        if (target == null) return;
 
-        mainCam.position = Vector3.Lerp(current, finalPos, speed * Time.deltaTime);
+            Vector3 current = mainCam.position;
+            Vector3 finalPos = target.position;
+
+            mainCam.position = Vector3.Lerp(current, finalPos, speed * Time.deltaTime);
+
     }
 }

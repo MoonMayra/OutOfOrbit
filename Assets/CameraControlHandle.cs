@@ -82,7 +82,7 @@ public class CameraControlHandle : MonoBehaviour
     private void EnablePlayerMode()
     {
         animator.SetBool(animatorBoolName, false);
-        cameraController.MoveToTarget(cameraOriginalTransform, 5f, false);
+        cameraController.MoveToTarget(cameraOriginalTransform, 5f);
         if(playerMovement)
             playerMovement.enabled = true;
         if(cameraManualMov)

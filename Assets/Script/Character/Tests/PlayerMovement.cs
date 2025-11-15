@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
     private MovementPlat currentPlatform;
     private Vector2 previousPlatformPosition;
+    public bool isFrozen = false;
 
     private void Awake()
     {
@@ -253,6 +254,11 @@ public class PlayerMovement : MonoBehaviour
     //Process physisc
     private void FixedUpdate()
     {
+        if(isFrozen)
+        {
+            playerRigidBody.linearVelocity = Vector2.zero;
+            return;
+        }
         // Traverse movement
         targetVelX = maxVelocity * moveInputX;
         Vector2 velocityPlayer = playerRigidBody.linearVelocity;

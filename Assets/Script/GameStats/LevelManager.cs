@@ -78,5 +78,6 @@ public class LevelManager : MonoBehaviour
         {
             platform.ResetPlatform();
         }
+        
     }
 }

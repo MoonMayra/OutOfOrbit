@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -11,8 +12,13 @@ public class PlayerManager : MonoBehaviour
     public PlayerGroundCheck groundCheck;
     private CameraZone currentCameraZone;
 
+    [Header("Other")]
+    [SerializeField] private float stopTime = 0.5f;
+
+    private Vector2 prevVelocity;
     private Rigidbody2D RigidBody;
     private LevelManager levelManager;
+    private Coroutine stopPlayer;
 
     private void Awake()
     {
@@ -30,14 +36,14 @@ public class PlayerManager : MonoBehaviour
         for (int i = shoot.activeBullets.Length - 1; i >= 0; i--)
         {
             shoot.RemoveBullet(i, false);
-            Debug.Log("Reset bullet at index: " + i);
         }
         shoot.isAbleToShoot = true;
 
     }
     public void RespawnAt(Vector2 position)
     {
-        RigidBody.linearVelocity = Vector2.zero;
+        prevVelocity = RigidBody.linearVelocity;
+        stopPlayer = StartCoroutine(StopPlayer());
         transform.position = position;
         movement.enabled = true;
         shoot.enabled = true;
@@ -45,5 +51,24 @@ public class PlayerManager : MonoBehaviour
 
 
         ResetBullets();
+    }
+    public void FreezePlayer()
+    {
+        prevVelocity=RigidBody.linearVelocity;
+        if(stopPlayer!=null)
+            StopCoroutine(stopPlayer);
+
+        stopPlayer = StartCoroutine(StopPlayer());
+    }
+    public IEnumerator StopPlayer()
+    {
+        prevVelocity = RigidBody.linearVelocity;
+        movement.isFrozen = true;
+        RigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(stopTime);
+        movement.isFrozen = false;
+        RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        RigidBody.linearVelocity = prevVelocity;
+        yield break;
     }
 }

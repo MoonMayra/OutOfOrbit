@@ -27,7 +27,6 @@ public class DropHazard : MonoBehaviour
         {
             bossMode = true;
         }
-        Debug.Log("Boss Mode: " + bossMode);
         groundLayer= LayerMask.NameToLayer("Ground");
         coconutLayer = LayerMask.NameToLayer("Hazards");
         Physics2D.IgnoreLayerCollision(groundLayer, coconutLayer, bossMode);

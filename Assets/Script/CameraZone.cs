@@ -10,13 +10,20 @@ public class CameraZone : MonoBehaviour
     [Header("Other Settings")]
     [SerializeField] private LayerMask playerLayer;
 
+    private PlayerManager playerManager;
+    
 
+    private void Start()
+    {
+        playerManager = PlayerManager.Instance;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
-            CameraController.Instance.MoveToTarget(cameraTarget, transitionSpeed, instantTransition);
+            playerManager.FreezePlayer();
+            
+            CameraController.Instance.MoveToTarget(cameraTarget, transitionSpeed);
         }
     }
-
 }

@@ -10,7 +10,6 @@ public class Death : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private Checkpoint current;
     private GlitchController glitchController;
-    private Animator animatorGlitch;
 
     private void Start()
     {
@@ -22,7 +21,6 @@ public class Death : MonoBehaviour
     {
         if (IsPlayer(collision.gameObject))
         {
-            Debug.Log("Player collision" + collision);
             HandleDeath();
 
         }
@@ -40,21 +38,16 @@ public class Death : MonoBehaviour
     }
     private void HandleDeath()
     {
-        
         glitchController.GlitchDeath();
         if(playerStats != null) 
             playerStats.AddDeath(1);
         if (levelManager != null && levelManager.currentCheckpoint != null)
         {
             levelManager.RespawnPlayer(levelManager.currentCheckpoint.spawnPoint);
-            Debug.Log("Player Respawned at Checkpoint: " + levelManager.currentCheckpoint.index);
         }
         else
         {
             Debug.Log("No current Checkpoint assigned");
-
         }
-
-        
     }
 }
