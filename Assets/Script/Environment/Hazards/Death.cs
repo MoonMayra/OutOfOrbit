@@ -9,6 +9,11 @@ public class Death : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private Checkpoint current;
+
+    [Header("Death Sound")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
+
     private GlitchController glitchController;
 
     private void Start()
@@ -38,8 +43,11 @@ public class Death : MonoBehaviour
     }
     private void HandleDeath()
     {
+        // Sound of Death
+        AudioManager.instance.DeathSound();
+
         glitchController.GlitchDeath();
-        if(playerStats != null) 
+        if (playerStats != null)
             playerStats.AddDeath(1);
         if (levelManager != null && levelManager.currentCheckpoint != null)
         {
@@ -50,4 +58,5 @@ public class Death : MonoBehaviour
             Debug.Log("No current Checkpoint assigned");
         }
     }
+
 }
