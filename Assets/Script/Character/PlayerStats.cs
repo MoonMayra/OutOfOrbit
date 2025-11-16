@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
     public int collectables = 0;
 
     [SerializeField] public string timerText;
-    [SerializeField] private bool countFromStart = true;
+    [SerializeField] private bool countFromStart = false;
 
     public float time= 0f;
     private bool active;
@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        active =countFromStart;
+        active = countFromStart;
 
     }
     public void AddCollectable(int amount)

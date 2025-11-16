@@ -17,6 +17,7 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        PlayerStats.Instance.StopTimer();
     }
 
     private void Start()
@@ -37,6 +38,7 @@ public class MainMenuManager : MonoBehaviour
     public void ContinueGame(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        PlayerStats.Instance.StartTimer();
     }
 
     public void ChangeAnimation()
@@ -95,6 +97,8 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Jungle");
+        PlayerStats.Instance.StartTimer();
+
     }
     public void ToggleFullscreen()
     {
