@@ -3,28 +3,83 @@ using UnityEngine.SceneManagement;
 
 public class AreaSelectorManager : MonoBehaviour
 {
-    public GameObject loadingScreen;
+    public GameObject areaSelector;
+    public GameObject jungleArea;
+    public GameObject caveArea;
+    public GameObject labArea;
+    [SerializeField] private string triggerName="Death";
+    [SerializeField] private string menuSceneName = "MainMenu";
+    [SerializeField] private string jungleSceneName = "Jungle";
+    [SerializeField] private string caveSceneName = "Underground";
+    [SerializeField] private string labSceneName = "Lab";
+    [SerializeField] private string jungleBossSceneName = "Gorilla";
+    [SerializeField] private string caveBossSceneName = "Water";
+    [SerializeField] private string labBossSceneName = "Mia";
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+    private void ChangeAnimation()
+    {
+        animator.SetTrigger(triggerName);
+    }
     public void GoToLevelSelectorJungle()
     {
-        loadingScreen.SetActive(true);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelectorJungle");
+        areaSelector.SetActive(false);
+        ChangeAnimation();
+        jungleArea.SetActive(true);
+    }
+    public void GoToLevelSelectorCave()
+    {
+        areaSelector.SetActive(false);
+        ChangeAnimation();
+        caveArea.SetActive(true);
+    }
+    public void GoToLevelSelectorLab()
+    {
+        areaSelector.SetActive(false);
+        ChangeAnimation();
+        labArea.SetActive(true);
+    }
+    public void GoBackToAreaSelector()
+    {
+        jungleArea.SetActive(false);
+        caveArea.SetActive(false);
+        labArea.SetActive(false);
+        ChangeAnimation();
+        areaSelector.SetActive(true);
     }
 
-    public void GoToLevelSelectorUnderground()
-    {
-        loadingScreen.SetActive(true);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelectorUnderground");
-    }
-
-    public void BackToAreaSelector()
-    {
-        loadingScreen.SetActive(true);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("AreaSelector");
-    }
     public void BackToMainMenuScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(menuSceneName);
+    }
+    public void GoToJungleScene()
+    {
+        SceneManager.LoadScene(jungleSceneName);
+    }
+    public void GoToCaveScene()
+    {
+        SceneManager.LoadScene(caveSceneName);
+    }
+    public void GoToLabScene()
+    {
+        SceneManager.LoadScene(labSceneName);
+    }
+    public void GoToJungleBossScene()
+    {
+        SceneManager.LoadScene(jungleBossSceneName);
+    }
+    public void GoToCaveBossScene()
+    {
+        SceneManager.LoadScene(caveBossSceneName);
+    }
+    public void GoToLabBossScene()
+    {
+        SceneManager.LoadScene(labBossSceneName);
     }
 
 }
