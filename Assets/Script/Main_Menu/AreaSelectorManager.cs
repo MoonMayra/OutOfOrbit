@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class AreaSelectorManager : MonoBehaviour
 {
+    public static AreaSelectorManager Instance { get; private set; } 
     public GameObject areaSelector;
     public GameObject jungleArea;
     public GameObject caveArea;
@@ -20,6 +21,11 @@ public class AreaSelectorManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         animator = GetComponent<Animator>();
         PlayerStats.Instance.StopTimer();
     }
@@ -85,6 +91,15 @@ public class AreaSelectorManager : MonoBehaviour
     public void GoToLabBossScene()
     {
         SceneManager.LoadScene(labBossSceneName);
+    }
+    public void HideAllScreens()
+    {
+        jungleArea.SetActive(false);
+        caveArea.SetActive(false);
+        labArea.SetActive(false);
+        areaSelector.SetActive(false);
+        ChangeAnimation();
+
     }
 
 }

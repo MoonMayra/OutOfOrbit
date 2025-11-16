@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
+    public static MainMenuManager Instance { get; private set; }
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public GameObject credits;
@@ -16,6 +17,10 @@ public class MainMenuManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
         animator = GetComponent<Animator>();
         PlayerStats.Instance.StopTimer();
     }
@@ -34,7 +39,15 @@ public class MainMenuManager : MonoBehaviour
             continueButton.onClick.AddListener(() => ContinueGame(lastScene));
         }
     }
-
+    public void HideAllScreens()
+    {
+        optionsMenu.SetActive(false);
+        credits.SetActive(false);
+        mainMenu.SetActive(false);
+        control.SetActive(false);
+        mainMenuQuit.SetActive(false);
+        ChangeAnimation();
+    }
     public void ContinueGame(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
