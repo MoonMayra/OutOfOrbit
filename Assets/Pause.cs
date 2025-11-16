@@ -13,17 +13,34 @@ public class Pause : MonoBehaviour
     [SerializeField] private string glitchTrigger = "Death";
     private Animator animator;
     [SerializeField] private LevelManager lvlManager;
+    private PlayerManager playerManager;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         PauseInput.action.performed += HandlePause;
         lvlManager=LevelManager.Instance;
+        playerManager = PlayerManager.Instance;
     }
     private void HandlePause(InputAction.CallbackContext context)
     {
-        Paused();
+        if(!pauseScreen||!quitScreen||!optionsScreen||!lvlSelectScreen) return;
+        if (!pauseScreen.activeSelf && !quitScreen.activeSelf && !optionsScreen.activeSelf && !lvlSelectScreen.activeSelf)
+        {
+            Paused();
+        }
+        else
+        {
+            Resume();
+        }
     }
+    private void ToggleInputs()
+    {
+        Debug.Log("Toggle");
+        playerManager.movement.enabled = !playerManager.movement.enabled;
+        playerManager.shoot.enabled = !playerManager.shoot.enabled;
+        playerManager.view.enabled = !playerManager.view.enabled;
+    }    
     private void ChangeScreenAnimation()
     {
         if (animator != null)
@@ -35,11 +52,13 @@ public class Pause : MonoBehaviour
     {
         pauseScreen.SetActive(true);
         Time.timeScale = 0.0f;
+        ToggleInputs();
     }
     public void Resume()
     {
-        pauseScreen.SetActive(false);
         Time.timeScale = 1.0f;
+        pauseScreen.SetActive(false);
+        ToggleInputs();
     }
     public void Retry()
     {
@@ -81,6 +100,7 @@ public class Pause : MonoBehaviour
     }
     public void ReturnToLevelSelectorInPanel()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(lvlSelectName);
     }
     public void OpenlvlSelectPanel()
