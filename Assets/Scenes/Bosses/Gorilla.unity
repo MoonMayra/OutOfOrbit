@@ -14871,7 +14871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2128301829433139891, guid: 2dc8683969019cb438cae8625093525f, type: 3}
       propertyPath: nextScene
-      value: MainMenu
+      value: AreaSelector
       objectReference: {fileID: 0}
     - target: {fileID: 2128301829433139891, guid: 2dc8683969019cb438cae8625093525f, type: 3}
       propertyPath: playerLayer.m_Bits

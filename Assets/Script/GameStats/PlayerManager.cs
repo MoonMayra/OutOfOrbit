@@ -29,7 +29,14 @@ public class PlayerManager : MonoBehaviour
 
         RigidBody = GetComponent<Rigidbody2D>();
         levelManager = LevelManager.Instance;
+        levelManager.player = this;
     }
+
+    private void OnEnable()
+    {
+        levelManager.player = this;
+    }
+
 
     private void ResetBullets()
     {
