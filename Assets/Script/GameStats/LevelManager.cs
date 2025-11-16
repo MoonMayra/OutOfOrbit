@@ -24,8 +24,6 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -48,7 +46,8 @@ public class LevelManager : MonoBehaviour
        
         if (scene.name == "Boot" ||
             scene.name == "MainMenu" ||
-            scene.name == "AreaSelector")
+            scene.name == "AreaSelector" ||
+            scene.name == "DebriefScreen")
             return;
 
         lastScenePlayed = scene.name;

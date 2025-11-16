@@ -21,6 +21,7 @@ public class AreaSelectorManager : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        PlayerStats.Instance.StopTimer();
     }
     private void ChangeAnimation()
     {
@@ -60,6 +61,9 @@ public class AreaSelectorManager : MonoBehaviour
     public void GoToJungleScene()
     {
         SceneManager.LoadScene(jungleSceneName);
+        PlayerStats.Instance.ResetValues();
+        PlayerStats.Instance.ResetTimer();
+        PlayerStats.Instance.StartTimer();
     }
     public void GoToCaveScene()
     {
@@ -72,6 +76,7 @@ public class AreaSelectorManager : MonoBehaviour
     public void GoToJungleBossScene()
     {
         SceneManager.LoadScene(jungleBossSceneName);
+        PlayerStats.Instance.StartTimer();
     }
     public void GoToCaveBossScene()
     {

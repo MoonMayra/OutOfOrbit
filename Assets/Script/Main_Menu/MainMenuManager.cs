@@ -97,8 +97,9 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Jungle");
+        PlayerStats.Instance.ResetValues();
+        PlayerStats.Instance.ResetTimer();
         PlayerStats.Instance.StartTimer();
-
     }
     public void ToggleFullscreen()
     {

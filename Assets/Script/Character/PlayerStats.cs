@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
+
         active = countFromStart;
 
     }
