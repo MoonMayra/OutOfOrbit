@@ -9,6 +9,13 @@ public class AreaSelectorManager : MonoBehaviour
     public GameObject labArea;
     [SerializeField] private string triggerName="Death";
     [SerializeField] private string menuSceneName = "MainMenu";
+    [SerializeField] private string jungleSceneName = "Jungle";
+    [SerializeField] private string caveSceneName = "Underground";
+    [SerializeField] private string labSceneName = "Lab";
+    [SerializeField] private string jungleBossSceneName = "Gorilla";
+    [SerializeField] private string caveBossSceneName = "Water";
+    [SerializeField] private string labBossSceneName = "Mia";
+
     private Animator animator;
 
     private void Awake()
@@ -48,7 +55,31 @@ public class AreaSelectorManager : MonoBehaviour
 
     public void BackToMainMenuScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
+        SceneManager.LoadScene(menuSceneName);
+    }
+    public void GoToJungleScene()
+    {
+        SceneManager.LoadScene(jungleSceneName);
+    }
+    public void GoToCaveScene()
+    {
+        SceneManager.LoadScene(caveSceneName);
+    }
+    public void GoToLabScene()
+    {
+        SceneManager.LoadScene(labSceneName);
+    }
+    public void GoToJungleBossScene()
+    {
+        SceneManager.LoadScene(jungleBossSceneName);
+    }
+    public void GoToCaveBossScene()
+    {
+        SceneManager.LoadScene(caveBossSceneName);
+    }
+    public void GoToLabBossScene()
+    {
+        SceneManager.LoadScene(labBossSceneName);
     }
 
 }

@@ -540,7 +540,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 201602688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToCaveBossScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &201602688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1099,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 427741897}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToCaveScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &427741897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,7 +1312,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 483307087}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToJungleBossScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &483307087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,7 +2205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.849999, y: 0}
+  m_AnchoredPosition: {x: -11.850006, y: 0}
   m_SizeDelta: {x: 26.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658758363
@@ -3270,7 +3306,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1131855643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToJungleScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1131855643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3618,7 +3666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 39.449978, y: 0}
+  m_AnchoredPosition: {x: 39.44998, y: 0}
   m_SizeDelta: {x: 129.50005, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268115595
@@ -4162,7 +4210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87.89999, y: 0}
+  m_AnchoredPosition: {x: -87.89998, y: 0}
   m_SizeDelta: {x: 179.00002, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1413093950
@@ -5516,7 +5564,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1587224848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToLabBossScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1587224848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5804,6 +5864,12 @@ MonoBehaviour:
   labArea: {fileID: 2084587314}
   triggerName: Death
   menuSceneName: MainMenu
+  jungleSceneName: Jungle
+  caveSceneName: Underground
+  labSceneName: Lab
+  jungleBossSceneName: Gorilla
+  caveBossSceneName: Water
+  labBossSceneName: Mia
 --- !u!4 &1646725150
 Transform:
   m_ObjectHideFlags: 0
@@ -6709,7 +6775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2088550811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToLabScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &2088550811
 MonoBehaviour:
   m_ObjectHideFlags: 0
