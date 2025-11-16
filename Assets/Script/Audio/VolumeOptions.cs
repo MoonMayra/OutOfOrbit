@@ -1,16 +1,29 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class VolumeOptions : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider soundsSlider;
+
+    const string MIXER_MUSIC = "MusicVolume";
+    const string MIXER_SOUNDS = "SoundsVolume";
+
+    private void Awake()
     {
-        
+        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        soundsSlider.onValueChanged.AddListener(SetSoundsVolume);
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetMusicVolume(float value)
     {
-        
+        audioMixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
+    }
+
+    void SetSoundsVolume(float value)
+    {
+        audioMixer.SetFloat(MIXER_SOUNDS, Mathf.Log10(value) * 20);
     }
 }
