@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class DebriefManager : MonoBehaviour
 {
-    [SerializeField] private string AreaSelectorSceneName = "AreaSelector";
+    [SerializeField] private string AreaSelectorSceneName = "Credits"; // left to credits scene for the time being
     [SerializeField] public string levelSceneName = "Jungle";
 
     private void Awake()
