@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
@@ -9,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainMenuQuit;
     [SerializeField] private string areaSelectorName = "AreaSelector";
     [SerializeField] private string animationTriggerName = "Death";
+    [SerializeField] private Button continueButton;
     private Animator animator;
 
 
@@ -16,6 +18,27 @@ public class MainMenuManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
+    private void Start()
+    {
+        string lastScene = PlayerPrefs.GetString("LastScenePlayed", "");
+
+        if (string.IsNullOrEmpty(lastScene))
+        {
+            continueButton.interactable = false;
+        }
+        else
+        {
+            continueButton.interactable = true;
+            continueButton.onClick.AddListener(() => ContinueGame(lastScene));
+        }
+    }
+
+    public void ContinueGame(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void ChangeAnimation()
     {
         animator.SetTrigger(animationTriggerName);

@@ -15,7 +15,6 @@ public class PlayerStats : MonoBehaviour
     public float time= 0f;
     private bool active;
 
-
     private void Awake()
     {
 
