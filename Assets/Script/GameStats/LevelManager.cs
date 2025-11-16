@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     private Dictionary<string, bool> collectedItems = new Dictionary<string, bool>();
 
     [SerializeField] public PlayerManager player;
-    private PlayerStats playerStats;
+    [SerializeField] private PlayerStats playerStats;
 
     public string lastScenePlayed;
 
@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
             player = PlayerManager.Instance;
 
         if (player != null && playerStats == null)
-            playerStats = player.GetComponent<PlayerStats>();
+            playerStats = GetComponent<PlayerStats>();
     }
 
     public void SetLastScene(string sceneName)
@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
                 if (wasCollected)
                 {
                     collectable.ResetCollectable();
-                    playerStats.AddCollectable(-1);
+                    playerStats.RemoveCollectable(1);
                     collectedItems[collectable.id] = false;
                 }
             }
