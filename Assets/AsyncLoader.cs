@@ -10,8 +10,6 @@ public class AsyncLoader : MonoBehaviour
     [SerializeField] private AreaSelectorManager areaSelectorManager;
     [SerializeField] private Slider loadBar;
 
-    
-
     private void Start()
     {
         mainMenuManager = MainMenuManager.Instance;
@@ -39,11 +37,11 @@ public class AsyncLoader : MonoBehaviour
 
     IEnumerator LoadLvlASync(string lvlToLoad)
     {
-        //Nico esta es tu parte, corregi lo que necesites
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(lvlToLoad);
 
         while(!loadOperation.isDone)
         {
+            Debug.Log ("Cargando...");
             float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
 
             loadBar.value = progressValue;
