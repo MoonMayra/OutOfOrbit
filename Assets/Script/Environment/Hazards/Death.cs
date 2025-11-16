@@ -9,6 +9,11 @@ public class Death : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private Checkpoint current;
+
+    [Header("Death Sound")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip deathSound;
+
     private GlitchController glitchController;
 
     private void Start()
