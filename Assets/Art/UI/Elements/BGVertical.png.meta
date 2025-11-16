@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5365b898aa5d86f41b555400d9cd3d64
+guid: cb7b2bce7378ec64e8175dad92fe5a09
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1537726505769716561
-    second: Recurso 7BulletRed_0
+      213: -4242600391928197796
+    second: BGVertical_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Recurso 7BulletRed_0
+      name: BGVertical_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1182
-        height: 1183
+        width: 1921
+        height: 3240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15b4b1a1c1a175510800000000000000
-      internalID: 1537726505769716561
+      spriteID: c5dcf2bfb614f15c0800000000000000
+      internalID: -4242600391928197796
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Recurso 7BulletRed_0: 1537726505769716561
+      BGVertical_0: -4242600391928197796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
