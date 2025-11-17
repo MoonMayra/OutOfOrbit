@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,45 +6,41 @@ using UnityEngine.UI;
 public class AsyncLoader : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen;
-    [SerializeField] private MainMenuManager mainMenuManager;
-    [SerializeField] private AreaSelectorManager areaSelectorManager;
     [SerializeField] private Slider loadBar;
-
-    private void Start()
-    {
-        mainMenuManager = MainMenuManager.Instance;
-        areaSelectorManager = AreaSelectorManager.Instance;
-    }
 
     public void LoadLevel(string lvlToLoad)
     {
-        if (mainMenuManager != null)
-        {
-            mainMenuManager.HideAllScreens();
-        }
-        else if(areaSelectorManager !=null)
-        {
-            areaSelectorManager.HideAllScreens();
-        }
-        else
-        {
-            return;
-        }
-            loadingScreen.SetActive(true);
-
-        StartCoroutine(LoadLvlASync(lvlToLoad));
+        loadingScreen.SetActive(true);
+        loadBar.value = 0f;
+        StartCoroutine(LoadLvlAsync(lvlToLoad));
     }
 
-    IEnumerator LoadLvlASync(string lvlToLoad)
+    IEnumerator LoadLvlAsync(string lvlToLoad)
     {
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(lvlToLoad);
+        loadOperation.allowSceneActivation = false;
 
-        while(!loadOperation.isDone)
+        float smoothValue = 0f;
+
+        while (!loadOperation.isDone)
         {
-            Debug.Log ("Cargando...");
-            float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            float targetValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
 
-            loadBar.value = progressValue;
+            smoothValue = Mathf.MoveTowards
+                (
+                smoothValue,
+                targetValue,
+                Time.deltaTime * 0.8f
+            );
+
+            loadBar.value = smoothValue;
+
+            if (smoothValue >= 1f)
+            {
+                yield return new WaitForSeconds(0.3f);
+                loadOperation.allowSceneActivation = true;
+            }
+
             yield return null;
         }
     }

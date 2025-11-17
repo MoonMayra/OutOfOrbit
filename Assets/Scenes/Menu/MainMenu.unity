@@ -9839,18 +9839,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 724276911}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: PlayGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
       - m_Target: {fileID: 930820497}
         m_TargetAssemblyTypeName: AsyncLoader, Assembly-CSharp
         m_MethodName: LoadLevel
@@ -15572,6 +15560,14 @@ PrefabInstance:
     - target: {fileID: 1145950691174784868, guid: 30d9dd5d99520784299dac9366b18c7e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401547418822504905, guid: 30d9dd5d99520784299dac9366b18c7e, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401547418822504905, guid: 30d9dd5d99520784299dac9366b18c7e, type: 3}
+      propertyPath: m_HandleRect
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4401547418822504905, guid: 30d9dd5d99520784299dac9366b18c7e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
