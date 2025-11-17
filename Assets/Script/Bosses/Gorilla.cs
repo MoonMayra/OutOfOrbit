@@ -82,7 +82,6 @@ public class Gorilla : MonoBehaviour
     {
         if (!isStunned)
             StartCoroutine(StunRoutine());
-        Debug.Log("Gorilla Stunned");
     }
 
     IEnumerator StunRoutine()

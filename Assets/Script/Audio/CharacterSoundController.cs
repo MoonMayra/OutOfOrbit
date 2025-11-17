@@ -5,7 +5,7 @@ public class CharacterSoundController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource loopSource;     
-    [SerializeField] private AudioSource oneShotSource;  // jump/fall/shoot (one-shots)
+    [SerializeField] private AudioSource oneShotSource; 
 
     [Header("Clips")]
     [SerializeField] private AudioClip footstepsClip;

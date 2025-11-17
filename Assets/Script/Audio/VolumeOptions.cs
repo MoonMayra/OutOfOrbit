@@ -20,7 +20,7 @@ public class VolumeOptions : MonoBehaviour
     private float appliedSounds;
 
     // Default values
-    [Header("Default Values (0–1)")]
+    [Header("Default Values (0?)")]
     [SerializeField] float defaultMusicValue = 0.8f;
     [SerializeField] float defaultSoundsValue = 0.8f;
 

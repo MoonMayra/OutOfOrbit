@@ -4,7 +4,7 @@
 [RequireComponent(typeof(Collider2D))]
 public class BreakablePlatform : MonoBehaviour
 {
-    [Header("Tiempos")]
+    [Header("Times")]
     [SerializeField] private float destructionDelay = 2f; 
     [SerializeField] private float respawnDelay = 3f;
     [SerializeField] private ParticleSystem breakEffect;

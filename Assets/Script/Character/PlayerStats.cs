@@ -79,7 +79,6 @@ public class PlayerStats : MonoBehaviour
     {
         foreach (var collectable in FindObjectsByType<Collectable>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
-            Debug.Log(collectable);
           collectable.ResetCollectable();            
         }
     }

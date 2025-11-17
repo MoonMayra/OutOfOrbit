@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferActive = true;
         }
     }
-    ///
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         HandlePlatformCollisionEnter(collision);

@@ -251,7 +251,6 @@ public class PlayerShoot : MonoBehaviour
         }          
         if(bulletToUse==null)
         {
-            Debug.Log("No bullets to link void to");
             return;
         }
 
