@@ -34,14 +34,10 @@ public class CollectableFunction : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & player.value) != 0)
         {
-            Debug.Log("Collectable obtained");
-
-            // Pitch variation for collect sound
             if (audioSource != null && collectSound != null)
             {
                 audioSource.pitch = Random.Range(minPitch, maxPitch);
                 audioSource.PlayOneShot(collectSound);
-                Debug.Log("Sound");
             }
             animator.SetTrigger(triggerName);
         }

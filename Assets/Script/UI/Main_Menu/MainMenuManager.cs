@@ -104,7 +104,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Saliendo del juego...");
         Application.Quit();
     }
     public void CloseMainMenuQuit()

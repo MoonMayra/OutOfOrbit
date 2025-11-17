@@ -65,9 +65,7 @@ public class CollectablesText : MonoBehaviour
     }
     private IEnumerator WaitForDeathText()
     {
-        Debug.Log("entre a la corrutina");
         yield return new WaitUntil(() => !deathsText.isDeathTextActive);
-        Debug.Log("entre a la corrutina2");
         isQueued = false;
         StopAllCoroutines();
         StartCoroutine(SlideInAndOut());
@@ -100,7 +98,6 @@ public class CollectablesText : MonoBehaviour
     }
     private IEnumerator SlideOutInstant()
     {
-        Debug.Log("Slide out instant called");
         isAnimating = false;
         float timer = 0.0f;
         while (timer < slideDuration*instantSlideOutMultiplier)

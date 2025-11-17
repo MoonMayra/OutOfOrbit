@@ -23,9 +23,9 @@ public class CharacterSoundController : MonoBehaviour
 
     private void Start()
     {
-        if (animator == null) Debug.LogWarning("[CharacterSoundController] animator no asignado.");
-        if (loopSource == null) Debug.LogWarning("[CharacterSoundController] loopSource no asignado.");
-        if (oneShotSource == null) Debug.LogWarning("[CharacterSoundController] oneShotSource no asignado.");
+        if (animator == null) Debug.LogWarning("[CharacterSoundController] animator not assigned.");
+        if (loopSource == null) Debug.LogWarning("[CharacterSoundController] loopSource not assigned.");
+        if (oneShotSource == null) Debug.LogWarning("[CharacterSoundController] oneShotSource not assigned.");
     }
 
     private void Update()
@@ -91,7 +91,7 @@ public class CharacterSoundController : MonoBehaviour
     {
         if (loopSource == null)
         {
-            Debug.LogWarning("[CharacterSoundController] loopSource faltante: no puedo reproducir pasos.");
+            Debug.LogWarning("[CharacterSoundController] Missing loopSource");
             return;
         }
         if (footstepsClip == null) return;
@@ -106,7 +106,7 @@ public class CharacterSoundController : MonoBehaviour
     {
         if (oneShotSource == null)
         {
-            Debug.LogWarning("[CharacterSoundController] oneShotSource faltante: no puedo reproducir one-shot.");
+            Debug.LogWarning("[CharacterSoundController] Missing oneShotSource ");
             return;
         }
         if (clip == null) return;
