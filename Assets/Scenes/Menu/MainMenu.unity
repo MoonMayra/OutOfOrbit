@@ -5941,9 +5941,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 309888160}
+  loadBar: {fileID: 6557908169917104075}
   mainMenuManager: {fileID: 724276911}
   areaSelectorManager: {fileID: 0}
-  loadBar: {fileID: 6557908169917104075}
 --- !u!4 &930820498
 Transform:
   m_ObjectHideFlags: 0
@@ -9850,7 +9850,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Jungle
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1479052511
 MonoBehaviour:
   m_ObjectHideFlags: 0

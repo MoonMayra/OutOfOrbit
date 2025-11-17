@@ -7,9 +7,30 @@ public class AsyncLoader : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Slider loadBar;
+    [SerializeField] private MainMenuManager mainMenuManager;
+    [SerializeField] private AreaSelectorManager areaSelectorManager;
 
+    private PlayerStats playerStats;
+    private void Start()
+    {
+        mainMenuManager = MainMenuManager.Instance;
+        areaSelectorManager = AreaSelectorManager.Instance;
+        playerStats = PlayerStats.Instance;
+    }
     public void LoadLevel(string lvlToLoad)
     {
+        if(mainMenuManager != null)
+        {
+            mainMenuManager.HideAllScreens();
+        }
+        else if (areaSelectorManager != null)
+        {
+            areaSelectorManager.HideAllScreens();
+        }
+        else
+        {
+            return;
+        }
         loadingScreen.SetActive(true);
         loadBar.value = 0f;
         StartCoroutine(LoadLvlAsync(lvlToLoad));
@@ -39,8 +60,10 @@ public class AsyncLoader : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.3f);
                 loadOperation.allowSceneActivation = true;
-            }
 
+
+            }
+            playerStats.StartTimer();
             yield return null;
         }
     }
