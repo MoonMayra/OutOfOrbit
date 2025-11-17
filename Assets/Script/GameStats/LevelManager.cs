@@ -136,6 +136,7 @@ public class LevelManager : MonoBehaviour
             platform.ResetPlatform();
         }
     }
+
     public void ResetLevelAndValues()
     {
         PlayerStats.Instance.ResetValues();

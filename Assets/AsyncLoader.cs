@@ -19,7 +19,7 @@ public class AsyncLoader : MonoBehaviour
     }
     public void LoadLevel(string lvlToLoad)
     {
-        if(mainMenuManager != null)
+        if (mainMenuManager != null)
         {
             mainMenuManager.HideAllScreens();
         }
@@ -31,6 +31,13 @@ public class AsyncLoader : MonoBehaviour
         {
             return;
         }
+        if (lvlToLoad == null)
+        {
+            lvlToLoad = LevelManager.Instance.lastScenePlayed;
+        }
+        Debug.Log("Loading Level: " + lvlToLoad);
+
+
         loadingScreen.SetActive(true);
         loadBar.value = 0f;
         StartCoroutine(LoadLvlAsync(lvlToLoad));
