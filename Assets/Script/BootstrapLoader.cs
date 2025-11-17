@@ -7,7 +7,7 @@ public class BootstrapLoader : MonoBehaviour
 
     private void Start()
     {
-        if (LevelManager.Instance != null)
+        if (LevelManager.Instance != null &&LevelManager.Instance.lastScenePlayed==null)
         {
             LevelManager.Instance.SetLastScene(SceneManager.GetActiveScene().name);
         }

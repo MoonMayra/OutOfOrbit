@@ -49,6 +49,7 @@ public class LevelManager : MonoBehaviour
             scene.name == "AreaSelector" ||
             scene.name == "DebriefScreen")
             return;
+            
 
         lastScenePlayed = scene.name;
 

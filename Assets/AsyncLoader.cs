@@ -9,6 +9,7 @@ public class AsyncLoader : MonoBehaviour
     [SerializeField] private Slider loadBar;
     [SerializeField] private MainMenuManager mainMenuManager;
     [SerializeField] private AreaSelectorManager areaSelectorManager;
+    [SerializeField] private string continueButtonName="continue";
 
     private PlayerStats playerStats;
     private void Start()
@@ -31,9 +32,10 @@ public class AsyncLoader : MonoBehaviour
         {
             return;
         }
-        if (lvlToLoad == null)
+        if (lvlToLoad == continueButtonName)
         {
-            lvlToLoad = LevelManager.Instance.lastScenePlayed;
+            lvlToLoad = PlayerPrefs.GetString("LastScenePlayed","Jungle");
+            Debug.Log(LevelManager.Instance.lastScenePlayed);
         }
         Debug.Log("Loading Level: " + lvlToLoad);
 
