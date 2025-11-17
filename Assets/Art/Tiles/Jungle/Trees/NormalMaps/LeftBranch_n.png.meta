@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1c2d9a12c45898a40a0dbdfda792f9b0
+guid: 687beb3d32d602d4cb7c1597e9553638
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4870516398956388283
-    second: LeftBranch_0
+      213: -9132609872431661026
+    second: LeftBranch_n_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,9 +51,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -126,95 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeftBranch_0
+      name: LeftBranch_n_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 47
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 8, y: 8}
-        - {x: -3, y: 8}
-        - {x: -3, y: 7}
-        - {x: -7, y: 7}
-        - {x: -7, y: 5}
-        - {x: -8, y: 5}
-        - {x: -8, y: 4}
-        - {x: -7, y: 4}
-        - {x: -7, y: 3}
-        - {x: 8, y: 3}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 5406d77e323786cb0800000000000000
-      internalID: -4870516398956388283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeftBranch_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 8, y: 8}
-        - {x: -8, y: 8}
-        - {x: -8, y: 3}
-        - {x: 8, y: 3}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c3b868b330a7d2459556c533223d17a
-      internalID: 1004916540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeftBranch_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 3, y: 2}
-        - {x: 3, y: 3}
-        - {x: 5, y: 3}
-        - {x: 5, y: 4}
-        - {x: 6, y: 4}
-        - {x: 6, y: 6}
-        - {x: 5, y: 6}
-        - {x: 5, y: 7}
-        - {x: 1, y: 7}
-        - {x: 1, y: 8}
-        - {x: -8, y: 8}
-        - {x: -8, y: 2}
-        - {x: -4, y: 2}
-        - {x: 2, y: 2}
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc2bb1078351a28499051366c203b0c5
-      internalID: -1920285563
+      spriteID: e104c7925b3724180800000000000000
+      internalID: -9132609872431661026
       vertices: []
       indices: 
       edges: []
@@ -223,21 +151,17 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 61debc2fd1d1d3e42817ef4ad6051779
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 687beb3d32d602d4cb7c1597e9553638, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LeftBranch_0: -4870516398956388283
-      LeftBranch_1: 1004916540
-      LeftBranch_2: -1920285563
+      LeftBranch_n_0: -9132609872431661026
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
