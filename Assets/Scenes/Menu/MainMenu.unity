@@ -5946,6 +5946,7 @@ MonoBehaviour:
   loadBar: {fileID: 6557908169917104075}
   mainMenuManager: {fileID: 724276911}
   areaSelectorManager: {fileID: 0}
+  continueButtonName: continue
 --- !u!4 &930820498
 Transform:
   m_ObjectHideFlags: 0
@@ -7374,7 +7375,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

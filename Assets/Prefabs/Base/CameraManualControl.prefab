@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 77.14, y: 18.14, z: -0.30339202}
-  m_LocalScale: {x: 11.37, y: 11.37, z: 11.37}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   cameraController: {fileID: 0}
   thisAreaCenter: {x: 89.1, y: 9.65}
   thisAreaSize: {x: 31.1, y: 37.6}
+  animatorBoolName: MovementActive
 --- !u!212 &4835980228091504554
 SpriteRenderer:
   m_ObjectHideFlags: 0

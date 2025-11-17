@@ -49,11 +49,11 @@ public class LevelManager : MonoBehaviour
             scene.name == "AreaSelector" ||
             scene.name == "DebriefScreen")
             return;
-            
 
-        lastScenePlayed = scene.name;
 
         ResetLevelAndValues();
+        lastScenePlayed = scene.name;
+
 
         PlayerPrefs.SetString("LastScenePlayed", lastScenePlayed);
         PlayerPrefs.Save();
@@ -145,9 +145,9 @@ public class LevelManager : MonoBehaviour
         {
             PlayerStats.Instance.ResetValues();
             PlayerStats.Instance.ResetTimer();
-            PlayerStats.Instance.StartTimer();
         }
-            PlayerStats.Instance.ResetCollectibles();
+        PlayerStats.Instance.StartTimer();
+        PlayerStats.Instance.ResetCollectibles();
     }
 
     public void LoadNextScene(string sceneName)

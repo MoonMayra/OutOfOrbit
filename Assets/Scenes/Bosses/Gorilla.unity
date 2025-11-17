@@ -5427,6 +5427,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4707203729860253719, guid: b46bb33a7404f43439878fa9ecffb1da, type: 3}
+      propertyPath: m_Intensity
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707203729860253719, guid: b46bb33a7404f43439878fa9ecffb1da, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 14
       objectReference: {fileID: 0}
@@ -6857,7 +6861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: checkpointIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
@@ -15809,7 +15813,7 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
+  m_NormalMapQuality: 1
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
   m_ShadowIntensity: 0.75
@@ -15864,22 +15868,6 @@ PrefabInstance:
     - target: {fileID: 202999902678165084, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
       propertyPath: m_Name
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266938557986077380, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
-      propertyPath: m_Color.b
-      value: 0.3509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266938557986077380, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
-      propertyPath: m_Color.g
-      value: 0.07614805
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266938557986077380, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
-      propertyPath: m_Color.r
-      value: 0.2978018
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266938557986077380, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
-      propertyPath: m_Intensity
-      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 5414167416581856724, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
       propertyPath: runClip
@@ -18098,7 +18086,7 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
+  m_NormalMapQuality: 1
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
   m_ShadowIntensity: 0.75
@@ -26194,7 +26182,7 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
+  m_NormalMapQuality: 1
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
   m_ShadowIntensity: 0.75
