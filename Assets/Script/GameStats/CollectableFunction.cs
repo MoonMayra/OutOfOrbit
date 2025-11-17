@@ -4,6 +4,7 @@ public class CollectableFunction : MonoBehaviour
 {
     [SerializeField] private LayerMask player;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private string triggerName="Collected";
     private Collectable collectable;
 
     [Header("Audio")]
@@ -14,9 +15,14 @@ public class CollectableFunction : MonoBehaviour
     [SerializeField] private float minPitch = 0.9f;
     [SerializeField] private float maxPitch = 1.1f;
 
+    private Animator animator;
+    private ParticleSystem effect;
+
     private void Awake()
     {
         collectable = GetComponent<Collectable>();
+        animator = GetComponent<Animator>();
+        effect=GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
@@ -35,10 +41,18 @@ public class CollectableFunction : MonoBehaviour
             {
                 audioSource.pitch = Random.Range(minPitch, maxPitch);
                 audioSource.PlayOneShot(collectSound);
+                Debug.Log("Sound");
             }
-
-            levelManager.GetComponent<PlayerStats>().AddCollectable(1);
-            collectable.OnCollected();
+            animator.SetTrigger(triggerName);
         }
+    }
+    public void ParticleEffect()
+    {
+        effect.Play();
+    }
+    public void Collect()
+    {
+        levelManager.GetComponent<PlayerStats>().AddCollectable(1);
+        collectable.OnCollected();
     }
 }
