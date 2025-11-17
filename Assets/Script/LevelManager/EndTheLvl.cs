@@ -10,7 +10,10 @@ public class EndTheLvl : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
-            SceneManager.LoadScene(nextScene,LoadSceneMode.Single);
+            if (LevelManager.Instance != null)
+            {
+                LevelManager.Instance.LoadNextScene(nextScene);
+            }
         }
     }
 }

@@ -135,4 +135,8 @@ public class LevelManager : MonoBehaviour
             platform.ResetPlatform();
         }
     }
+    public void LoadNextScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
 }
