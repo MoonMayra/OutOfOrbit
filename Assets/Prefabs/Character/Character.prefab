@@ -338,15 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66dc98d4bce8f6f40baa745fb81c3e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: -3069573563897434945}
-  loopSource: {fileID: 0}
-  oneShotSource: {fileID: 0}
-  footstepsClip: {fileID: 8300000, guid: bba65b80fcddb9f44b01cec2f26aa387, type: 3}
+  runClip: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: af6dc4efe8a8f3d43b763cda4e760d89, type: 3}
   fallClip: {fileID: 8300000, guid: 3abd5ce93b68d6844bebae413969050f, type: 3}
   shootClip: {fileID: 8300000, guid: 43e586de314ecac4a82c1e0ea141cd48, type: 3}
-  minPitch: 0.8
-  maxPitch: 1.05
 --- !u!1 &553279973372576047
 GameObject:
   m_ObjectHideFlags: 0
