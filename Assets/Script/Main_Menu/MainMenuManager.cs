@@ -22,7 +22,11 @@ public class MainMenuManager : MonoBehaviour
         else
             Destroy(gameObject);
         animator = GetComponent<Animator>();
-        PlayerStats.Instance.StopTimer();
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.StopTimer();
+        }
+
     }
 
     private void Start()

@@ -3053,6 +3053,8 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: dca1c7003335ae249ae9780707628fe4, type: 2}
   musicSlider: {fileID: 1785754142}
   soundsSlider: {fileID: 2054305524}
+  defaultMusicValue: 0.8
+  defaultSoundsValue: 0.8
 --- !u!1 &461522706
 GameObject:
   m_ObjectHideFlags: 0
@@ -11877,7 +11879,7 @@ GameObject:
   - component: {fileID: 1708395435}
   - component: {fileID: 1708395438}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ApplyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11946,7 +11948,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1708395436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 440227127}
+        m_TargetAssemblyTypeName: VolumeOptions, Assembly-CSharp
+        m_MethodName: ApplySettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1708395436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12802,7 +12816,7 @@ GameObject:
   - component: {fileID: 1817872713}
   - component: {fileID: 1817872716}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12871,7 +12885,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1817872714}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 440227127}
+        m_TargetAssemblyTypeName: VolumeOptions, Assembly-CSharp
+        m_MethodName: ResetSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1817872714
 MonoBehaviour:
   m_ObjectHideFlags: 0
