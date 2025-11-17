@@ -4,8 +4,8 @@ public class CharacterSoundController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource loopSource;     // para pasos (loop)
-    [SerializeField] private AudioSource oneShotSource;  // para jump/fall/shoot (one-shots)
+    [SerializeField] private AudioSource loopSource;     
+    [SerializeField] private AudioSource oneShotSource;  // jump/fall/shoot (one-shots)
 
     [Header("Clips")]
     [SerializeField] private AudioClip footstepsClip;
@@ -17,14 +17,12 @@ public class CharacterSoundController : MonoBehaviour
     [SerializeField] private float minPitch = 0.95f;
     [SerializeField] private float maxPitch = 1.05f;
 
-    // estados internos
     private enum SimpleState { Idle, Running, Jumping, Falling, Other }
     private SimpleState currentState = SimpleState.Other;
     private bool wasShooting = false;
 
     private void Start()
     {
-        // Validaciones iniciales para evitar errores en runtime
         if (animator == null) Debug.LogWarning("[CharacterSoundController] animator no asignado.");
         if (loopSource == null) Debug.LogWarning("[CharacterSoundController] loopSource no asignado.");
         if (oneShotSource == null) Debug.LogWarning("[CharacterSoundController] oneShotSource no asignado.");
@@ -36,7 +34,7 @@ public class CharacterSoundController : MonoBehaviour
 
         AnimatorStateInfo st = animator.GetCurrentAnimatorStateInfo(0);
 
-        // Determinar booleans exactos (incluyen versiones *Shoot)
+     
         bool isRunning = st.IsName("Running") || st.IsName("RunningShoot");
         bool isJumping = st.IsName("Jumping") || st.IsName("JumpingShoot");
         bool isFalling = st.IsName("Falling") || st.IsName("FallingShoot");
@@ -49,14 +47,12 @@ public class CharacterSoundController : MonoBehaviour
         else if (isFalling) newState = SimpleState.Falling;
         else if (isIdle) newState = SimpleState.Idle;
 
-        // cambio de estado => manejar sonidos
         if (newState != currentState)
         {
             currentState = newState;
             HandleStateEnter(currentState);
         }
 
-        // manejar disparo (play once al entrar en estado shoot)
         if (isShooting && !wasShooting)
         {
             PlayOneShot(shootClip);
@@ -66,7 +62,6 @@ public class CharacterSoundController : MonoBehaviour
 
     private void HandleStateEnter(SimpleState state)
     {
-        // Parar loop siempre que cambiamos de estado (evita superposiciones)
         if (loopSource != null && loopSource.isPlaying)
             loopSource.Stop();
 
@@ -87,8 +82,8 @@ public class CharacterSoundController : MonoBehaviour
             case SimpleState.Idle:
             case SimpleState.Other:
             default:
-                // nada para reproducir
-                break;
+               
+            break;
         }
     }
 
