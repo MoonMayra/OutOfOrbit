@@ -26,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject[] voidPrefab = new GameObject[3];
 
     //Aiming variables
-    private Vector2 mousePos;
+    private Vector3 mousePos;
     public bool isAiming = false;
     private Vector2 lineDir;
     
@@ -111,10 +111,6 @@ public class PlayerShoot : MonoBehaviour
             if (isAbleToShoot && shootButtonRealesed)
             {
                 isAiming = true;
-                if(isLookingRight)
-                    spawn.position = new Vector2(bulletSpawn.transform.position.x + spawnOffset, bulletSpawn.transform.position.y);
-                else
-                    spawn.position = new Vector2(bulletSpawn.transform.position.x - spawnOffset, bulletSpawn.transform.position.y);
             }
             else if (!isAbleToShoot)
             {
@@ -130,7 +126,6 @@ public class PlayerShoot : MonoBehaviour
                 ShootBullet();
                 UpdateShootAvailability();
             }
-            spawn.position = new Vector2(transform.position.x, transform.position.y);
         }
 
     }
