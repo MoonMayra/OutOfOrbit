@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
 
         PlayerPrefs.SetString("LastScenePlayed", lastScenePlayed);
         PlayerPrefs.Save();
+        ResetLevelAndValues();
     }
 
 
@@ -134,5 +135,12 @@ public class LevelManager : MonoBehaviour
         {
             platform.ResetPlatform();
         }
+    }
+    public void ResetLevelAndValues()
+    {
+        PlayerStats.Instance.ResetValues();
+        PlayerStats.Instance.ResetTimer();
+        PlayerStats.Instance.StartTimer();
+        PlayerStats.Instance.ResetCollectibles();
     }
 }

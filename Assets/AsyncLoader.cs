@@ -60,10 +60,8 @@ public class AsyncLoader : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.3f);
                 loadOperation.allowSceneActivation = true;
-
-
             }
-            playerStats.StartTimer();
+
             yield return null;
         }
     }

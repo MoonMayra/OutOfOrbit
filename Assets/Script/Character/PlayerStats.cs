@@ -75,4 +75,12 @@ public class PlayerStats : MonoBehaviour
         time = 0f;
         timerText= "00:00:00";
     }
+    public void ResetCollectibles()
+    {
+        foreach (var collectable in FindObjectsByType<Collectable>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            Debug.Log(collectable);
+          collectable.ResetCollectable();            
+        }
+    }
 }
