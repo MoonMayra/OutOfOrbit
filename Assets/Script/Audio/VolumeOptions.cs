@@ -14,6 +14,7 @@ public class VolumeOptions : MonoBehaviour
     const string MIXER_MUSIC = "MusicVolume";
     const string MIXER_SOUNDS = "SoundsVolume";
 
+
     // Applied values
     private float appliedMusic;
     private float appliedSounds;
@@ -23,15 +24,38 @@ public class VolumeOptions : MonoBehaviour
     [SerializeField] float defaultMusicValue = 0.8f;
     [SerializeField] float defaultSoundsValue = 0.8f;
 
+    private void Awake()
+    {
+        if (audioMixer == null)
+        {
+            Debug.LogError("AudioMixer not assigned");
+            return;
+        }
+        if (musicSlider == null)
+        {
+            Debug.LogError("MusicSlider not assigned");
+            return;
+        }
+        if (soundsSlider == null)
+        {
+            Debug.LogError("SoundSlider not assigned");
+            return;
+        }
+
+
+    }
     private void Start()
     {
         // charge saved values or defaunt
-        appliedMusic = PlayerPrefs.GetFloat("MusicVolume", defaultMusicValue);
-        appliedSounds = PlayerPrefs.GetFloat("SoundsVolume", defaultSoundsValue);
+        appliedMusic = PlayerPrefs.GetFloat(MIXER_MUSIC, defaultMusicValue);
+        appliedSounds = PlayerPrefs.GetFloat(MIXER_SOUNDS, defaultSoundsValue);
 
         // show values in sliders
         musicSlider.value = appliedMusic;
         soundsSlider.value = appliedSounds;
+
+        if (musicSlider != null) musicSlider.onValueChanged.AddListener(ApplyMusic);
+        if (soundsSlider != null) soundsSlider.onValueChanged.AddListener(ApplySounds);
 
         // apply to the mixer
         ApplyMusic(appliedMusic);
@@ -39,11 +63,13 @@ public class VolumeOptions : MonoBehaviour
     }
     void ApplyMusic(float value)
     {
+        if (audioMixer == null) return;
         audioMixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
     }
 
     void ApplySounds(float value)
     {
+        if (audioMixer == null) return;
         audioMixer.SetFloat(MIXER_SOUNDS, Mathf.Log10(value) * 20);
     }
 
@@ -57,8 +83,8 @@ public class VolumeOptions : MonoBehaviour
         ApplyMusic(appliedMusic);
         ApplySounds(appliedSounds);
 
-        PlayerPrefs.SetFloat("MusicVolume", appliedMusic);
-        PlayerPrefs.SetFloat("SoundsVolume", appliedSounds);
+        PlayerPrefs.SetFloat(MIXER_MUSIC, appliedMusic);
+        PlayerPrefs.SetFloat(MIXER_SOUNDS, appliedSounds);
     }
     public void ResetSettings()
     {
@@ -75,8 +101,8 @@ public class VolumeOptions : MonoBehaviour
         appliedSounds = defaultSoundsValue;
 
         // Save defaults
-        PlayerPrefs.SetFloat("MusicVolume", appliedMusic);
-        PlayerPrefs.SetFloat("SoundsVolume", appliedSounds);
+        PlayerPrefs.SetFloat(MIXER_MUSIC, appliedMusic);
+        PlayerPrefs.SetFloat(MIXER_SOUNDS, appliedSounds);
     }
 
 }

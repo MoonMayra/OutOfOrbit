@@ -15882,6 +15882,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1650148940}
+    - target: {fileID: 5414167416581856724, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
+      propertyPath: oneShotSource
+      value: 
+      objectReference: {fileID: 329391985}
     - target: {fileID: 6522414326844454945, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.79
