@@ -53,9 +53,10 @@ public class LevelManager : MonoBehaviour
 
         lastScenePlayed = scene.name;
 
+        ResetLevelAndValues();
+
         PlayerPrefs.SetString("LastScenePlayed", lastScenePlayed);
         PlayerPrefs.Save();
-        ResetLevelAndValues();
     }
 
 
@@ -140,10 +141,13 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevelAndValues()
     {
-        PlayerStats.Instance.ResetValues();
-        PlayerStats.Instance.ResetTimer();
-        PlayerStats.Instance.StartTimer();
-        PlayerStats.Instance.ResetCollectibles();
+        if (lastScenePlayed != "Jungle")
+        {
+            PlayerStats.Instance.ResetValues();
+            PlayerStats.Instance.ResetTimer();
+            PlayerStats.Instance.StartTimer();
+        }
+            PlayerStats.Instance.ResetCollectibles();
     }
 
     public void LoadNextScene(string sceneName)

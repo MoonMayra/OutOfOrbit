@@ -35,10 +35,7 @@ public class AsyncLoader : MonoBehaviour
         if (lvlToLoad == continueButtonName)
         {
             lvlToLoad = PlayerPrefs.GetString("LastScenePlayed","Jungle");
-            Debug.Log(LevelManager.Instance.lastScenePlayed);
         }
-        Debug.Log("Loading Level: " + lvlToLoad);
-
 
         loadingScreen.SetActive(true);
         loadBar.value = 0f;
