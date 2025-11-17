@@ -4,26 +4,79 @@ using UnityEngine.UI;
 
 public class VolumeOptions : MonoBehaviour
 {
+    [Header("Mixer")]
     [SerializeField] AudioMixer audioMixer;
+
+    [Header("Sliders")]
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider soundsSlider;
 
     const string MIXER_MUSIC = "MusicVolume";
     const string MIXER_SOUNDS = "SoundsVolume";
 
-    private void Awake()
-    {
-        musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        soundsSlider.onValueChanged.AddListener(SetSoundsVolume);
-    }
+    // Applied values
+    private float appliedMusic;
+    private float appliedSounds;
 
-    void SetMusicVolume(float value)
+    // Default values
+    [Header("Default Values (0–1)")]
+    [SerializeField] float defaultMusicValue = 0.8f;
+    [SerializeField] float defaultSoundsValue = 0.8f;
+
+    private void Start()
+    {
+        // charge saved values or defaunt
+        appliedMusic = PlayerPrefs.GetFloat("MusicVolume", defaultMusicValue);
+        appliedSounds = PlayerPrefs.GetFloat("SoundsVolume", defaultSoundsValue);
+
+        // show values in sliders
+        musicSlider.value = appliedMusic;
+        soundsSlider.value = appliedSounds;
+
+        // apply to the mixer
+        ApplyMusic(appliedMusic);
+        ApplySounds(appliedSounds);
+    }
+    void ApplyMusic(float value)
     {
         audioMixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
     }
 
-    void SetSoundsVolume(float value)
+    void ApplySounds(float value)
     {
         audioMixer.SetFloat(MIXER_SOUNDS, Mathf.Log10(value) * 20);
     }
+
+    // buttons
+
+    public void ApplySettings()
+    {
+        appliedMusic = musicSlider.value;
+        appliedSounds = soundsSlider.value;
+
+        ApplyMusic(appliedMusic);
+        ApplySounds(appliedSounds);
+
+        PlayerPrefs.SetFloat("MusicVolume", appliedMusic);
+        PlayerPrefs.SetFloat("SoundsVolume", appliedSounds);
+    }
+    public void ResetSettings()
+    {
+        // Set sliders to default values
+        musicSlider.value = defaultMusicValue;
+        soundsSlider.value = defaultSoundsValue;
+
+        // Apply immediately to mixer
+        ApplyMusic(defaultMusicValue);
+        ApplySounds(defaultSoundsValue);
+
+        // Update applied values
+        appliedMusic = defaultMusicValue;
+        appliedSounds = defaultSoundsValue;
+
+        // Save defaults
+        PlayerPrefs.SetFloat("MusicVolume", appliedMusic);
+        PlayerPrefs.SetFloat("SoundsVolume", appliedSounds);
+    }
+
 }
