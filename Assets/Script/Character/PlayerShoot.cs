@@ -18,7 +18,6 @@ public class PlayerShoot : MonoBehaviour
 
     [Header("BulletMovement")]
     [SerializeField] private Transform bulletSpawn;
-    [SerializeField] private float spawnOffset = 0.248f;
     [SerializeField] private GameObject[] bulletPrefab = new GameObject[3];
 
     [Header("Voids")]

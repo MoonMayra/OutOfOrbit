@@ -41,11 +41,6 @@ public class VolumeOptions : MonoBehaviour
             Debug.LogError("SoundSlider not assigned");
             return;
         }
-
-
-    }
-    private void Start()
-    {
         // charge saved values or defaunt
         appliedMusic = PlayerPrefs.GetFloat(MIXER_MUSIC, defaultMusicValue);
         appliedSounds = PlayerPrefs.GetFloat(MIXER_SOUNDS, defaultSoundsValue);
@@ -53,6 +48,11 @@ public class VolumeOptions : MonoBehaviour
         // show values in sliders
         musicSlider.value = appliedMusic;
         soundsSlider.value = appliedSounds;
+
+    }
+    private void Start()
+    {
+
 
         if (musicSlider != null) musicSlider.onValueChanged.AddListener(ApplyMusic);
         if (soundsSlider != null) soundsSlider.onValueChanged.AddListener(ApplySounds);
