@@ -85,6 +85,7 @@ public class VolumeOptions : MonoBehaviour
 
         PlayerPrefs.SetFloat(MIXER_MUSIC, appliedMusic);
         PlayerPrefs.SetFloat(MIXER_SOUNDS, appliedSounds);
+        PlayerPrefs.Save();
     }
     public void ResetSettings()
     {
@@ -103,6 +104,7 @@ public class VolumeOptions : MonoBehaviour
         // Save defaults
         PlayerPrefs.SetFloat(MIXER_MUSIC, appliedMusic);
         PlayerPrefs.SetFloat(MIXER_SOUNDS, appliedSounds);
+        PlayerPrefs.Save();
     }
 
 }
