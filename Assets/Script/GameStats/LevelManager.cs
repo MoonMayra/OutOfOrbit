@@ -142,6 +142,8 @@ public class LevelManager : MonoBehaviour
         PlayerStats.Instance.ResetTimer();
         PlayerStats.Instance.StartTimer();
         PlayerStats.Instance.ResetCollectibles();
+    }
+
     public void LoadNextScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
