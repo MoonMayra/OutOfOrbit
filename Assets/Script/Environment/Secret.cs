@@ -20,9 +20,20 @@ public class Secret : MonoBehaviour
         {
             targetAlpha = 0.0f;
             isInside = true;
+            
+            ActivateExtraTiles();
         }
     }
 
+    private void ActivateExtraTiles()
+    {
+        foreach (Transform child in transform)
+        {
+            ExtraSecretTile extra = child.GetComponent<ExtraSecretTile>();
+            if (extra != null)
+                extra.StartDisappearing();
+        }
+    }
 
     private void Update()
     {
