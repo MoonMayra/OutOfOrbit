@@ -987,6 +987,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6522414326844454945}
     m_Modifications:
+    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bbe815cfd423184da2f9103573042ae, type: 2}
+    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.679924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169801280053744479, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7094865584236076396, guid: 792e722b15dc7d0468fa30fac75e75f5, type: 3}
       propertyPath: m_Name
       value: TrayectoryPreview

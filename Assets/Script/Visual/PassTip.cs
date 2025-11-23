@@ -5,8 +5,9 @@ public class PassTip : MonoBehaviour
 {
     [SerializeField] private InputActionReference PassInput;
     [SerializeField] private string PassAnimationTrigger;
+    [SerializeField] private LayerMask playerLayerMask;
     private Animator animator;
-    private bool isInArea = false;
+    public bool isInArea = false;
 
     private void Awake()
     {
@@ -22,11 +23,22 @@ public class PassTip : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isInArea = true;
+        if (CheckIsPlayer(collision))
+        {
+            isInArea = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isInArea = false;
+        if(CheckIsPlayer(collision))
+        {
+            isInArea = false;
+        }
+
+    }
+    private bool CheckIsPlayer(Collider2D collision)
+    {
+        return ((1 << collision.gameObject.layer) & playerLayerMask.value) != 0 ;
     }
 }
 
