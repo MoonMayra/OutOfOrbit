@@ -9,6 +9,7 @@ public class DropHazard : MonoBehaviour
     [SerializeField] private LayerMask coconutMask;
     [SerializeField] private LayerMask hazardMask;
     [SerializeField] private string destroyAnimation;
+    public bool hasWarning = true;
     public bool bossMode= false;
 
     private Animator animator;
@@ -32,6 +33,10 @@ public class DropHazard : MonoBehaviour
         Physics2D.IgnoreLayerCollision(groundLayer, coconutLayer, bossMode);
         Physics2D.IgnoreLayerCollision(coconutLayer, coconutLayer, bossMode);
 
+        if(SignalManager.Instance!=null && hasWarning)
+        {
+            SignalManager.Instance.CreateSignal(transform);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
