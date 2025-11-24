@@ -31,6 +31,8 @@ public class MovementPlat : MonoBehaviour
     private Rigidbody2D platformRigidBody;
     private Vector2 startPosition;
 
+    public float tolerance = 0.001f;
+
     private void Awake()
     {
         platformRigidBody = GetComponent<Rigidbody2D>();
@@ -68,14 +70,14 @@ public class MovementPlat : MonoBehaviour
     {
         if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
         {
-            if (transform.position.x <= minLimit || transform.position.x >= maxLimit)
+            if (transform.position.x <= minLimit + tolerance || transform.position.x >= maxLimit - tolerance)
             {
                 ChangeDirection();
             }
         }
         else
         {
-            if (transform.position.y <= minLimit || transform.position.y >= maxLimit)
+            if (transform.position.y <= minLimit + tolerance || transform.position.y >= maxLimit - tolerance)
             {
                 ChangeDirection();
             }
@@ -84,10 +86,25 @@ public class MovementPlat : MonoBehaviour
 
     private void ChangeDirection()
     {
-        platformRigidBody.linearVelocity = Vector2.zero;
+        if (type == PlatformType.Bounce)
+        {
+            direction *= -1;
+            return;
+        }
+
+        if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
+        {
+            float x = Mathf.Clamp(transform.position.x, minLimit, maxLimit);
+            transform.position = new Vector3(x, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            float y = Mathf.Clamp(transform.position.y, minLimit, maxLimit);
+            transform.position = new Vector3(transform.position.x, y, transform.position.z);
+        }
+
         direction *= -1;
-        transform.position += (Vector3)(direction * 0.01f);
-    }
+}
 
     public void ResetPlatform()
     {
