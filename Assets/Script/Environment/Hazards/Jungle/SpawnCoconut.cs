@@ -7,6 +7,10 @@ public class SpawnCoconut : MonoBehaviour
     [SerializeField] private float spawnInterval = 3f;
     [SerializeField] private float dropDelay = 1f;
     [SerializeField] private string shakeAnimKey = "isShaking";
+
+    [SerializeField] private bool showSignal = true;
+    public bool ShowSignal => showSignal;
+
     private Transform spawnPoint;
     private GameObject coconutInstance;
     private Rigidbody2D rigidBody2D;
@@ -22,6 +26,12 @@ public class SpawnCoconut : MonoBehaviour
         while (true)
         {
             coconutInstance = Instantiate(coconutPrefab, spawnPoint.position, spawnPoint.rotation);
+            DropHazard hazard= coconutInstance.GetComponent<DropHazard>();
+            if(hazard != null)
+            {
+                hazard.hasWarning = showSignal;
+            }
+
             rigidBody2D = coconutInstance.GetComponent<Rigidbody2D>();
             coconutAnimator = coconutInstance.GetComponent<Animator>();
             if(rigidBody2D != null)

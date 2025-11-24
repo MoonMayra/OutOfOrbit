@@ -71,9 +71,11 @@ public class Gorilla : MonoBehaviour
 
         if (coconutPrefab != null && coconutSpawner != null)
         {
-            Vector3 spawnPos = new Vector3(coconutSpawner.position.x, coconutSpawner.position.y + coconutSpawnHeight, 0);
+            Vector3 spawnPos = new Vector3(coconutSpawner.position.x,coconutSpawnHeight, 0);
 
-            Instantiate(coconutPrefab, spawnPos, Quaternion.identity);
+            GameObject coconutInstance = Instantiate(coconutPrefab, spawnPos, Quaternion.identity);
+            DropHazard script =coconutInstance.GetComponent<DropHazard>();
+            script.hasWarning = true;
         }
         isAngry = false;
     }
@@ -97,7 +99,7 @@ public class Gorilla : MonoBehaviour
         if (coconutSpawner != null)
         {
             Gizmos.color = Color.yellow;
-            Vector3 spawnPos = new Vector3(coconutSpawner.position.x, coconutSpawner.position.y + coconutSpawnHeight, 0);
+            Vector3 spawnPos = new Vector3(coconutSpawner.position.x, coconutSpawnHeight, 0);
             Gizmos.DrawLine(coconutSpawner.position, spawnPos);
         }
     }
