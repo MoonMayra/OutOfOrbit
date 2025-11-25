@@ -29,20 +29,6 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        string lastScene = PlayerPrefs.GetString("LastScenePlayed", "");
-
-        if (string.IsNullOrEmpty(lastScene))
-        {
-            continueButton.interactable = false;
-        }
-        else
-        {
-            continueButton.interactable = true;
-            continueButton.onClick.AddListener(() => ContinueGame(lastScene));
-        }
-    }
     public void HideAllScreens()
     {
         optionsMenu.SetActive(false);
@@ -51,11 +37,6 @@ public class MainMenuManager : MonoBehaviour
         control.SetActive(false);
         mainMenuQuit.SetActive(false);
         ChangeAnimation();
-    }
-    public void ContinueGame(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-        PlayerStats.Instance.StartTimer();
     }
 
     public void ChangeAnimation()
@@ -113,9 +94,13 @@ public class MainMenuManager : MonoBehaviour
     }
     public void PlayGame()
     {
+        Debug.Log("Play Game");
         SceneManager.LoadScene("Jungle");
+     Debug.Log("Resetting Player Stats");
         PlayerStats.Instance.ResetValues();
+        Debug.Log("Resetting Timer");
         PlayerStats.Instance.ResetTimer();
+        Debug.Log("Starting Timer");    
         PlayerStats.Instance.StartTimer();
     }
     public void ToggleFullscreen()
