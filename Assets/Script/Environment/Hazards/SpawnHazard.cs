@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnCoconut : MonoBehaviour
+public class SpawnHazard : MonoBehaviour
 {
     [SerializeField] private GameObject coconutPrefab;
     [SerializeField] private float spawnInterval = 3f;

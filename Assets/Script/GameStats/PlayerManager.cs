@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour
     public PlayerShoot shoot;
     public PlayerView view;
     public PlayerGroundCheck groundCheck;
-    private CameraZone currentCameraZone;
 
     [Header("Other")]
     [SerializeField] private float stopTime = 0.5f;

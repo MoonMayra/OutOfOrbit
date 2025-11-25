@@ -63,9 +63,10 @@ public class MainMenuManager : MonoBehaviour
         animator.SetTrigger(animationTriggerName);
     }
     public void OpenOptionsMenu()
-    { mainMenu.SetActive(false);
+    { 
+        mainMenu.SetActive(false);
         ChangeAnimation();
-      optionsMenu.SetActive(true);
+        optionsMenu.SetActive(true);
     }
     public void OpenAreaSelector()
     {
