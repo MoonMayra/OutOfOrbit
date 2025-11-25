@@ -30,6 +30,8 @@ public class MovementPlat : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D platformRigidBody;
     private Vector2 startPosition;
+    [SerializeField] private Transform bottomPos;
+    private LineRenderer lineRenderer;
 
     public float tolerance = 0.001f;
 
@@ -48,6 +50,11 @@ public class MovementPlat : MonoBehaviour
             MovementDirection.Down => Vector2.down,
             _ => Vector2.right,
         };
+        lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer != null)
+        {
+            lineRenderer.positionCount = 2;
+        }
 
     }
 
@@ -129,6 +136,14 @@ public class MovementPlat : MonoBehaviour
         if (collision.collider.CompareTag(bounceTag))
         {
             ChangeDirection();
+        }
+    }
+    private void Update()
+    {
+        if (lineRenderer != null)
+        {
+            lineRenderer.SetPosition(0,transform.position);
+            lineRenderer.SetPosition(1,bottomPos.position);
         }
     }
 

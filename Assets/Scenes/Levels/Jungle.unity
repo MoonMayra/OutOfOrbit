@@ -142576,6 +142576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: leaf1_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7022276498184455148, guid: 90ace9f673dd03f4da214819b6d60797, type: 3}
+      propertyPath: m_TagString
+      value: PassThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -4848,8 +4848,8 @@ GameObject:
   - component: {fileID: 6344791488140758359}
   - component: {fileID: 607172678450328766}
   m_Layer: 3
-  m_Name: leaf1_0
-  m_TagString: Ground
+  m_Name: BreakableJungle
+  m_TagString: PassThrough
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

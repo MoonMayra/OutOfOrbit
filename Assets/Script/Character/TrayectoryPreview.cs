@@ -9,17 +9,11 @@ public class TrayectoryPreview : MonoBehaviour
     [SerializeField] private LayerMask bouncesMask;
     [SerializeField] private LayerMask bulletMask;
     [SerializeField] private string platformsTag = "PassThrough";
-    private PlayerMovement playerMovement;
     private LineRenderer lineRenderer;
 
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
-    }
-
-    private void Start()
-    {
-        playerMovement = PlayerMovement.Instance;
     }
 
     public void DrawTrayectory(Vector2 startPos, Vector2 lineDirection)

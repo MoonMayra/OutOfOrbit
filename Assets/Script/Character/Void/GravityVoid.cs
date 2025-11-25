@@ -11,6 +11,7 @@ public class GravityVoid : MonoBehaviour
     public GameObject linkedBullet;
     [SerializeField] private LayerMask player;
     [SerializeField] private LayerMask bullet;
+    [SerializeField] private LayerMask objects;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -21,6 +22,8 @@ public class GravityVoid : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private Transform bulletTransform;
     private Rigidbody2D bulletRigidBody;
+    private Transform objectsTransform;
+    private Rigidbody2D objectsRigidBody;
 
     private void Start()
     {
@@ -41,6 +44,11 @@ public class GravityVoid : MonoBehaviour
             bulletRigidBody = collision.GetComponent<Rigidbody2D>();
             bulletTransform = collision.GetComponent<Transform>();
         }
+        if (((1 << collision.gameObject.layer) & objects.value) !=0)
+        { 
+            objectsRigidBody= collision.GetComponent<Rigidbody2D>();
+            objectsTransform = collision.GetComponent<Transform>();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -58,49 +66,70 @@ public class GravityVoid : MonoBehaviour
         }
     }
 
+    private Vector2 CalculateGVForce(Transform target)
+    {
+        if(target == null)
+        {
+            return Vector2.zero;
+        }
+        Vector2 direction = (Vector2) transform.position-(Vector2)target.position;
+        float distance= direction.magnitude;
+        if (distance >= voidRadius)
+        {
+            return Vector2.zero ;
+        }
+        direction.Normalize();
+        float strenght=gravityStrength*(1-(distance/voidRadius));
+        return direction*strenght*Time.fixedDeltaTime;
+
+    }
+
+
+
     public Vector2 CalculateGVForcePlayer()
     {
         Vector2 force = Vector2.zero;
 
-        if (playerTransform != null && playerRigidBody != null)
+        if (playerTransform == null || playerRigidBody == null)
         {
-            Vector2 direction = (Vector2)transform.position - (Vector2)playerTransform.position;
-            float distance = direction.magnitude;
-
-            if (distance < voidRadius)
-            {
-                direction.Normalize();
-                float strength = gravityStrength * (1 - (distance / voidRadius));
-                force = direction * strength * Time.fixedDeltaTime;
-            }
+            return Vector2.zero;
         }
 
-        return force;
+        return CalculateGVForce(playerTransform);
     }
 
     public Vector2 CalculateGVForceBullet()
     {
         Vector2 force = Vector2.zero;
 
-        if (bulletTransform != null && bulletRigidBody != null)
+        if (bulletTransform == null || bulletRigidBody == null)
         {
-            Vector2 direction = (Vector2)transform.position - (Vector2)bulletTransform.position;
-            float distance = direction.magnitude;
-
-            if (distance < voidRadius)
-            {
-                direction.Normalize();
-                float strength = gravityStrength * (1 - (distance / voidRadius));
-                force = direction * strength * Time.fixedDeltaTime;
-            }
+            return Vector2.zero;
         }
 
-        return force;
+        return CalculateGVForce(bulletTransform);
     }
+    public Vector2 CalculateGVForceObjects()
+    {
+        Vector2 force = Vector2.zero;
+
+        if (objectsTransform == null || objectsRigidBody == null)
+        {
+            return Vector2.zero;
+        }
+
+        return CalculateGVForce(objectsTransform);
+    }
+
 
     private void FixedUpdate()
     {
         timer += Time.fixedDeltaTime;
+
+        if (objectsRigidBody!=null)
+        {
+            objectsRigidBody.linearVelocity += CalculateGVForceObjects();
+        }
 
         if (timer >= lifetime)
         {
