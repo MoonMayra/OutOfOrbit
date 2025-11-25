@@ -93,24 +93,22 @@ public class MovementPlat : MonoBehaviour
 
     private void ChangeDirection()
     {
-        if (type == PlatformType.Bounce)
+        if (type == PlatformType.Limits)
         {
+            if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
+            {
+                float x = Mathf.Clamp(transform.position.x, minLimit, maxLimit);
+                transform.position = new Vector2(x, transform.position.y);
+            }
+            else
+            {
+                float y = Mathf.Clamp(transform.position.y, minLimit, maxLimit);
+                transform.position = new Vector2(transform.position.x, y);
+            }
+
+        }
+
             direction *= -1;
-            return;
-        }
-
-        if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
-        {
-            float x = Mathf.Clamp(transform.position.x, minLimit, maxLimit);
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
-        }
-        else
-        {
-            float y = Mathf.Clamp(transform.position.y, minLimit, maxLimit);
-            transform.position = new Vector3(transform.position.x, y, transform.position.z);
-        }
-
-        direction *= -1;
 }
 
     public void ResetPlatform()

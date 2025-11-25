@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
-public class BreakablePlatform : MonoBehaviour
+public class BreakablePlat : MonoBehaviour
 {
     [Header("Times")]
     [SerializeField] private float destructionDelay = 2f; 
