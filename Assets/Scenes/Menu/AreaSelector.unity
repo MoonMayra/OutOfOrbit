@@ -1438,18 +1438,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 858624487}
-        m_TargetAssemblyTypeName: AsyncLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1646725149}
+        m_TargetAssemblyTypeName: AreaSelectorManager, Assembly-CSharp
+        m_MethodName: GoToJungleBossScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Gorilla
+          m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &483307087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6101,6 +6101,7 @@ MonoBehaviour:
   jungleBossSceneName: Gorilla
   caveBossSceneName: Water
   labBossSceneName: Mia
+  jungleBossButton: {fileID: 483307086}
 --- !u!4 &1646725150
 Transform:
   m_ObjectHideFlags: 0

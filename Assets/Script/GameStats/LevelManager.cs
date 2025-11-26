@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
 
     public string lastScenePlayed;
 
+    public bool isNewGame = false;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,21 +46,20 @@ public class LevelManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-       
         if (scene.name == "Boot" ||
             scene.name == "MainMenu" ||
             scene.name == "AreaSelector" ||
             scene.name == "DebriefScreen")
             return;
 
-
         ResetLevelAndValues();
-        lastScenePlayed = scene.name;
 
+        lastScenePlayed = scene.name;
 
         PlayerPrefs.SetString("LastScenePlayed", lastScenePlayed);
         PlayerPrefs.Save();
     }
+
 
 
     private void TryAssignPlayer()
@@ -141,14 +143,18 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevelAndValues()
     {
-        if (lastScenePlayed != "Jungle")
+        if (isNewGame)
         {
             PlayerStats.Instance.ResetValues();
             PlayerStats.Instance.ResetTimer();
+            PlayerStats.Instance.ResetCollectibles();
+            isNewGame = false;
         }
+
         PlayerStats.Instance.StartTimer();
-        PlayerStats.Instance.ResetCollectibles();
     }
+
+
 
     public void LoadNextScene(string sceneName)
     {

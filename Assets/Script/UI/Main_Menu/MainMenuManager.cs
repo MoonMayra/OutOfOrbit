@@ -21,16 +21,19 @@ public class MainMenuManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
         else
+        {
             Destroy(gameObject);
+            return;
+        }
 
         animator = GetComponent<Animator>();
 
         if (PlayerStats.Instance != null)
-        {
             PlayerStats.Instance.StopTimer();
-        }
 
-        levelsButton.interactable = false;
+            string lastScene = PlayerPrefs.GetString("LastScenePlayed", "");
+
+        levelsButton.interactable = (lastScene == "Jungle");
     }
 
     public void HideAllScreens()
@@ -55,17 +58,12 @@ public class MainMenuManager : MonoBehaviour
     }
     public void OpenAreaSelector()
     {
-        if (LevelManager.Instance.lastScenePlayed == "Jungle")
-        {
-            levelsButton.interactable = true;
-        }
-        
-        if (levelsButton.interactable == true)
-        {
-            mainMenu.SetActive(false);
-            ChangeAnimation();
-            SceneManager.LoadScene(areaSelectorName);
-        }   
+        if (!levelsButton.interactable)
+            return;
+
+        mainMenu.SetActive(false);
+        ChangeAnimation();
+        SceneManager.LoadScene(areaSelectorName);
     }
     public void OpenCredits()
     {
@@ -107,11 +105,14 @@ public class MainMenuManager : MonoBehaviour
     }
     public void PlayGame()
     {
+        LevelManager.Instance.isNewGame = true;
+
         SceneManager.LoadScene("Jungle");
         PlayerStats.Instance.ResetValues();
         PlayerStats.Instance.ResetTimer();
         PlayerStats.Instance.StartTimer();
     }
+
     public void ToggleFullscreen()
     {
         Screen.fullScreen = !Screen.fullScreen;

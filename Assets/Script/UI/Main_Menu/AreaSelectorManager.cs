@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AreaSelectorManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class AreaSelectorManager : MonoBehaviour
     [SerializeField] private string caveBossSceneName = "Water";
     [SerializeField] private string labBossSceneName = "Mia";
 
+    [SerializeField] private Button jungleBossButton;
+
     private Animator animator;
 
     private void Awake()
@@ -28,29 +31,45 @@ public class AreaSelectorManager : MonoBehaviour
 
         animator = GetComponent<Animator>();
         PlayerStats.Instance.StopTimer();
+
+        string lastScene = PlayerPrefs.GetString("LastScenePlayed", "");
+
+        bool jungleBossUnlocked = PlayerPrefs.GetInt("JungleBossUnlocked", 0) == 1;
+
+        if (lastScene == "Gorilla")
+        {
+            PlayerPrefs.SetInt("JungleBossUnlocked", 1);
+            jungleBossUnlocked = true;
+        }
+
+         jungleBossButton.interactable = jungleBossUnlocked;
     }
     private void ChangeAnimation()
     {
         animator.SetTrigger(triggerName);
     }
+
     public void GoToLevelSelectorJungle()
     {
         areaSelector.SetActive(false);
         ChangeAnimation();
         jungleArea.SetActive(true);
     }
+
     public void GoToLevelSelectorCave()
     {
         areaSelector.SetActive(false);
         ChangeAnimation();
         caveArea.SetActive(true);
     }
+
     public void GoToLevelSelectorLab()
     {
         areaSelector.SetActive(false);
         ChangeAnimation();
         labArea.SetActive(true);
     }
+
     public void GoBackToAreaSelector()
     {
         jungleArea.SetActive(false);
@@ -64,28 +83,34 @@ public class AreaSelectorManager : MonoBehaviour
     {
         SceneManager.LoadScene(menuSceneName);
     }
+
     public void GoToJungleScene()
     {
         SceneManager.LoadScene(jungleSceneName);
         PlayerStats.Instance.StartTimer();
     }
+
     public void GoToCaveScene()
     {
         SceneManager.LoadScene(caveSceneName);
     }
+
     public void GoToLabScene()
     {
         SceneManager.LoadScene(labSceneName);
     }
+
     public void GoToJungleBossScene()
     {
         SceneManager.LoadScene(jungleBossSceneName);
         PlayerStats.Instance.StartTimer();
     }
+
     public void GoToCaveBossScene()
     {
         SceneManager.LoadScene(caveBossSceneName);
     }
+
     public void GoToLabBossScene()
     {
         SceneManager.LoadScene(labBossSceneName);
@@ -97,7 +122,5 @@ public class AreaSelectorManager : MonoBehaviour
         labArea.SetActive(false);
         areaSelector.SetActive(false);
         ChangeAnimation();
-
     }
-
 }
