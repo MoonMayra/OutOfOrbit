@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
@@ -12,8 +13,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string areaSelectorName = "AreaSelector";
     [SerializeField] private string animationTriggerName = "Death";
     [SerializeField] private Button continueButton;
+    [SerializeField] private Button levelsButton;
     private Animator animator;
-
 
     private void Awake()
     {
@@ -21,12 +22,15 @@ public class MainMenuManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
         animator = GetComponent<Animator>();
+
         if (PlayerStats.Instance != null)
         {
             PlayerStats.Instance.StopTimer();
         }
 
+        levelsButton.interactable = false;
     }
 
     public void HideAllScreens()
@@ -51,8 +55,17 @@ public class MainMenuManager : MonoBehaviour
     }
     public void OpenAreaSelector()
     {
-        ChangeAnimation();
-        SceneManager.LoadScene(areaSelectorName);
+        if (LevelManager.Instance.lastScenePlayed == "Jungle")
+        {
+            levelsButton.interactable = true;
+        }
+        
+        if (levelsButton.interactable == true)
+        {
+            mainMenu.SetActive(false);
+            ChangeAnimation();
+            SceneManager.LoadScene(areaSelectorName);
+        }   
     }
     public void OpenCredits()
     {
@@ -94,13 +107,9 @@ public class MainMenuManager : MonoBehaviour
     }
     public void PlayGame()
     {
-        Debug.Log("Play Game");
         SceneManager.LoadScene("Jungle");
-     Debug.Log("Resetting Player Stats");
         PlayerStats.Instance.ResetValues();
-        Debug.Log("Resetting Timer");
         PlayerStats.Instance.ResetTimer();
-        Debug.Log("Starting Timer");    
         PlayerStats.Instance.StartTimer();
     }
     public void ToggleFullscreen()

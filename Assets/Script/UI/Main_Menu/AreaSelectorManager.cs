@@ -67,8 +67,6 @@ public class AreaSelectorManager : MonoBehaviour
     public void GoToJungleScene()
     {
         SceneManager.LoadScene(jungleSceneName);
-        PlayerStats.Instance.ResetValues();
-        PlayerStats.Instance.ResetTimer();
         PlayerStats.Instance.StartTimer();
     }
     public void GoToCaveScene()

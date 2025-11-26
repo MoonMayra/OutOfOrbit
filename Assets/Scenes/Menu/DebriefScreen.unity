@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79a68037da8e8e4e81192dfa8e2239b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaSelectorSceneName: Credits
+  AreaSelectorSceneName: AreaSelector
   levelSceneName: Jungle
 --- !u!1001 &715096895
 PrefabInstance:
