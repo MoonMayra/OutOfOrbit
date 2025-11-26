@@ -34,6 +34,7 @@ public class MovementPlat : MonoBehaviour
     private LineRenderer lineRenderer;
 
     public float tolerance = 0.001f;
+    private Vector2 prevVel;
 
     private void Awake()
     {
@@ -77,14 +78,14 @@ public class MovementPlat : MonoBehaviour
     {
         if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
         {
-            if (transform.position.x <= minLimit + tolerance || transform.position.x >= maxLimit - tolerance)
+            if (transform.position.x <= minLimit|| transform.position.x >= maxLimit)
             {
                 ChangeDirection();
             }
         }
         else
         {
-            if (transform.position.y <= minLimit + tolerance || transform.position.y >= maxLimit - tolerance)
+            if (transform.position.y <= minLimit || transform.position.y >= maxLimit)
             {
                 ChangeDirection();
             }
@@ -93,22 +94,29 @@ public class MovementPlat : MonoBehaviour
 
     private void ChangeDirection()
     {
-        if (type == PlatformType.Limits)
+        if (type == PlatformType.Bounce)
         {
-            if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
-            {
-                float x = Mathf.Clamp(transform.position.x, minLimit, maxLimit);
-                transform.position = new Vector2(x, transform.position.y);
-            }
-            else
-            {
-                float y = Mathf.Clamp(transform.position.y, minLimit, maxLimit);
-                transform.position = new Vector2(transform.position.x, y);
-            }
+            direction *= -1;
+            return;
 
         }
+        prevVel = platformRigidBody.linearVelocity;
+        platformRigidBody.linearVelocity = Vector2.zero;
+        platformRigidBody.linearVelocity = prevVel*-1;
 
-            direction *= -1;
+        /*
+        if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
+        {
+            /*float x = Mathf.Clamp(transform.position.x, minLimit, maxLimit);
+            transform.position = new Vector2(x, transform.position.y);
+        }
+        else
+        {
+            float y = Mathf.Clamp(transform.position.y, minLimit, maxLimit);
+            transform.position = new Vector2(transform.position.x, y);
+        }*/
+
+        direction *= -1;
 }
 
     public void ResetPlatform()
