@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager instance { get; private set; }
 
     [SerializeField] AudioSource DeathSource;
-    [SerializeField] List<AudioClip> deathClips = new List<AudioClip>();
+    public List<AudioClip> deathClips = new List<AudioClip>();
 
     private void Awake()
     {

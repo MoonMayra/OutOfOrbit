@@ -58,6 +58,9 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         pauseScreen.SetActive(false);
+        lvlSelectScreen.SetActive(false);
+        quitScreen.SetActive(false);
+        optionsScreen.SetActive(false);
         ToggleInputs();
     }
     public void Retry()
@@ -81,14 +84,6 @@ public class Pause : MonoBehaviour
     {
         ChangeScreenAnimation();
         quitScreen.SetActive(true);
-    }
-    public void ApplyOptions()
-    {
-        //Mica vos tenes que hacer esto (aplicar las opciones)
-    }
-    public void ResetOptions()
-    {
-        //Mica vos tenes que hacer esto (reset de opciones)
     }
     public void ReturnToPause()
     {

@@ -43,7 +43,8 @@ public class Death : MonoBehaviour
     }
     private void HandleDeath()
     {
-        AudioManager.instance.DeathSound();
+        if(AudioManager.instance!=null)
+            AudioManager.instance.DeathSound();
 
         glitchController.GlitchDeath();
         if (playerStats != null)
