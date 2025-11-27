@@ -32,6 +32,9 @@ public class MovementPlat : MonoBehaviour
     private Vector2 startPosition;
     [SerializeField] private Transform bottomPos;
     private LineRenderer lineRenderer;
+    [SerializeField] private float waitTime = 0.5f;
+    private float timer = 0f;
+    private bool isWaiting = false;
 
     public float tolerance = 0.001f;
     private Vector2 prevVel;
@@ -61,7 +64,24 @@ public class MovementPlat : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isWaiting)
+        {
+            timer += Time.fixedDeltaTime;
+            platformRigidBody.linearVelocity = Vector2.zero;
+
+            if (timer >= waitTime)
+            {
+                timer = 0f;
+                isWaiting = false;
+
+                direction *= -1;
+                platformRigidBody.linearVelocity = direction * speed;
+            }
+            return;
+        }
+
         MovePlatform();
+
 
         if (type == PlatformType.Limits)
         {
@@ -78,15 +98,27 @@ public class MovementPlat : MonoBehaviour
     {
         if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
         {
-            if (transform.position.x <= minLimit|| transform.position.x >= maxLimit)
+            if (transform.position.x <= minLimit + tolerance && direction.x < 0f)
             {
+                transform.position = new Vector2(minLimit, transform.position.y);
+                ChangeDirection();
+            }
+            else if (transform.position.x >= maxLimit - tolerance && direction.x > 0f)
+            {
+                transform.position = new Vector2(maxLimit, transform.position.y);
                 ChangeDirection();
             }
         }
         else
         {
-            if (transform.position.y <= minLimit || transform.position.y >= maxLimit)
+            if (transform.position.y <= minLimit + tolerance && direction.y < 0f)
             {
+                transform.position = new Vector2(transform.position.x, minLimit);
+                ChangeDirection();
+            }
+            else if (transform.position.y >= maxLimit - tolerance && direction.y > 0f)
+            {
+                transform.position = new Vector2(transform.position.x, maxLimit);
                 ChangeDirection();
             }
         }
@@ -97,27 +129,14 @@ public class MovementPlat : MonoBehaviour
         if (type == PlatformType.Bounce)
         {
             direction *= -1;
+            platformRigidBody.linearVelocity = direction * speed;
             return;
 
         }
-        prevVel = platformRigidBody.linearVelocity;
-        platformRigidBody.linearVelocity = Vector2.zero;
-        platformRigidBody.linearVelocity = prevVel*-1;
-
-        /*
-        if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
-        {
-            /*float x = Mathf.Clamp(transform.position.x, minLimit, maxLimit);
-            transform.position = new Vector2(x, transform.position.y);
-        }
-        else
-        {
-            float y = Mathf.Clamp(transform.position.y, minLimit, maxLimit);
-            transform.position = new Vector2(transform.position.x, y);
-        }*/
-
-        direction *= -1;
-}
+        isWaiting = true;
+        timer = 0f;
+        platformRigidBody.linearVelocity=Vector2.zero;
+    }
 
     public void ResetPlatform()
     {
