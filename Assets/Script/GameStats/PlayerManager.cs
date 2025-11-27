@@ -28,12 +28,14 @@ public class PlayerManager : MonoBehaviour
 
         RigidBody = GetComponent<Rigidbody2D>();
         levelManager = LevelManager.Instance;
-        levelManager.player = this;
+        if(levelManager!=null && levelManager.player==null)
+            levelManager.player = this;
     }
 
     private void OnEnable()
     {
-        levelManager.player = this;
+        if (levelManager != null && levelManager.player == null)
+            levelManager.player = this;
     }
 
 

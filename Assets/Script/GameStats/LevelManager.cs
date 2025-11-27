@@ -139,6 +139,10 @@ public class LevelManager : MonoBehaviour
         {
             platform.ResetPlatform();
         }
+        if(WaterBoss.Instance != null)
+        {
+            WaterBoss.Instance.hasDied = true;
+        }
     }
 
     public void ResetLevelAndValues()
