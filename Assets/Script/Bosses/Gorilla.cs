@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 public class Gorilla : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class Gorilla : MonoBehaviour
     public Transform coconutSpawner;
     public GameObject coconutPrefab;
     public Animator animator;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip[] angrySounds;
+    public AudioClip[] stunnedSounds;
 
     [Header("Settings")]
     public float angryInterval = 3f;
@@ -23,6 +29,9 @@ public class Gorilla : MonoBehaviour
 
     private bool isAngry = false;
     private bool isStunned = false;
+    public bool onSafeZone = true;
+    private bool hasStarted = false;
+    private Coroutine angryCoroutine;
 
     private void Awake()
     {
@@ -31,10 +40,15 @@ public class Gorilla : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    void Start()
+
+    private void Start()
     {
-        animator = GetComponent<Animator>();
-        StartCoroutine(AngryRoutine());
+        if (animator == null)
+            animator = GetComponent<Animator>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -44,6 +58,26 @@ public class Gorilla : MonoBehaviour
             animator.SetBool(stunnedAnimKey, isStunned);
             animator.SetBool(idleAnimKey, !isStunned && !isAngry);
             animator.SetBool(angryAnimKey, isAngry);
+        }
+        if (!onSafeZone && player != null && !hasStarted)
+        {
+            hasStarted = true;
+            angryCoroutine = StartCoroutine(AngryRoutine());
+        }
+        if (onSafeZone && hasStarted)
+        {
+            hasStarted = false;
+            if (angryCoroutine != null)
+                StopCoroutine(angryCoroutine);
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (!onSafeZone&&!hasStarted)
+        {
+            hasStarted = true;
+            angryCoroutine = StartCoroutine(AngryRoutine());
         }
     }
 
@@ -67,16 +101,21 @@ public class Gorilla : MonoBehaviour
 
         isAngry = true;
 
+        PlayRandomSound(angrySounds);
+
         yield return new WaitForSeconds(0.5f);
 
         if (coconutPrefab != null && coconutSpawner != null)
         {
-            Vector3 spawnPos = new Vector3(coconutSpawner.position.x,coconutSpawnHeight, 0);
+            Vector3 spawnPos = new Vector3(coconutSpawner.position.x, coconutSpawnHeight, 0);
 
             GameObject coconutInstance = Instantiate(coconutPrefab, spawnPos, Quaternion.identity);
-            DropHazard script =coconutInstance.GetComponent<DropHazard>();
-            script.hasWarning = true;
+
+            DropHazard script = coconutInstance.GetComponent<DropHazard>();
+            if (script != null)
+                script.hasWarning = true;
         }
+
         isAngry = false;
     }
 
@@ -90,10 +129,22 @@ public class Gorilla : MonoBehaviour
     {
         isStunned = true;
 
+        PlayRandomSound(stunnedSounds);
+
         yield return new WaitForSeconds(stunDuration);
 
         isStunned = false;
     }
+
+    private void PlayRandomSound(AudioClip[] clips)
+    {
+        if (clips == null || clips.Length == 0 || audioSource == null)
+            return;
+
+        int index = Random.Range(0, clips.Length);
+        audioSource.PlayOneShot(clips[index]);
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (coconutSpawner != null)
