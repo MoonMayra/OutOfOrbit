@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 public class Gorilla : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class Gorilla : MonoBehaviour
 
     private bool isAngry = false;
     private bool isStunned = false;
+    public bool onSafeZone = true;
+    private bool hasStarted = false;
+    private Coroutine angryCoroutine;
 
     private void Awake()
     {
@@ -44,6 +48,7 @@ public class Gorilla : MonoBehaviour
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -54,11 +59,26 @@ public class Gorilla : MonoBehaviour
             animator.SetBool(idleAnimKey, !isStunned && !isAngry);
             animator.SetBool(angryAnimKey, isAngry);
         }
+        if (!onSafeZone && player != null && !hasStarted)
+        {
+            hasStarted = true;
+            angryCoroutine = StartCoroutine(AngryRoutine());
+        }
+        if (onSafeZone && hasStarted)
+        {
+            hasStarted = false;
+            if (angryCoroutine != null)
+                StopCoroutine(angryCoroutine);
+        }
     }
 
     private void OnEnable()
     {
-        StartCoroutine(AngryRoutine());
+        if (!onSafeZone&&!hasStarted)
+        {
+            hasStarted = true;
+            angryCoroutine = StartCoroutine(AngryRoutine());
+        }
     }
 
     IEnumerator AngryRoutine()
