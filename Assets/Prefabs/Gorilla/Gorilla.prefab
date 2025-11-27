@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6719448964889689676}
   - component: {fileID: 1161050974510762150}
   - component: {fileID: 1101639930899459089}
+  - component: {fileID: 2113014977114381377}
   m_Layer: 9
   m_Name: Gorilla
   m_TagString: Enemies
@@ -108,6 +109,20 @@ MonoBehaviour:
   coconutSpawner: {fileID: 0}
   coconutPrefab: {fileID: 8299378895655647404, guid: b9c41155c1e2c7d42bb49159064bd3d8, type: 3}
   animator: {fileID: 8526184448571932503}
+  audioSource: {fileID: 2113014977114381377}
+  angrySounds:
+  - {fileID: 8300000, guid: 29a4b4730bc1e31429b18714cd69c822, type: 3}
+  - {fileID: 8300000, guid: 19e7ff7a249ec0a498d4c8bff3244678, type: 3}
+  - {fileID: 8300000, guid: 1a77f0e3dd7c6b147bd927ad660db276, type: 3}
+  stunnedSounds:
+  - {fileID: 8300000, guid: 3653914d2e8fe50419ec00aa36dd6e29, type: 3}
+  - {fileID: 8300000, guid: 1d1699f7f179e8d43b900ad8b4e48b7e, type: 3}
+  - {fileID: 8300000, guid: db3034a0bb790244ab77422d379d8e4a, type: 3}
+  - {fileID: 8300000, guid: 826fab508831030469cfb1e499bd19ae, type: 3}
+  - {fileID: 8300000, guid: d48be5d66553d294ebf97690e944bbbc, type: 3}
+  - {fileID: 8300000, guid: d583caabe5eaf354780386d867d90c77, type: 3}
+  - {fileID: 8300000, guid: 1197fa0beda05104f8493b78be3d4127, type: 3}
+  - {fileID: 8300000, guid: c253013f25da1584abe1a3c2d0afed4e, type: 3}
   angryInterval: 3
   coconutSpawnHeight: 15.3
   stunDuration: 5
@@ -223,3 +238,100 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minY: 3.06
   maxY: 15.01
+--- !u!82 &2113014977114381377
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118947881716756875}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 190662380911201324, guid: dca1c7003335ae249ae9780707628fe4, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
