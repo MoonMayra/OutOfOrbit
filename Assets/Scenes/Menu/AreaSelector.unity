@@ -661,7 +661,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 201602688}
   m_OnClick:
     m_PersistentCalls:
@@ -6102,6 +6102,8 @@ MonoBehaviour:
   caveBossSceneName: Water
   labBossSceneName: Mia
   jungleBossButton: {fileID: 483307086}
+  caveBossButton: {fileID: 201602687}
+  caveAreaButton: {fileID: 1578124776}
 --- !u!4 &1646725150
 Transform:
   m_ObjectHideFlags: 0

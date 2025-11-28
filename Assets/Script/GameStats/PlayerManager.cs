@@ -62,8 +62,8 @@ public class PlayerManager : MonoBehaviour
     }
     public void FreezePlayer()
     {
-        prevVelocity=RigidBody.linearVelocity;
-        if(stopPlayer!=null)
+        prevVelocity=RigidBody.linearVelocity;  
+        if(stopPlayer!=null) 
             StopCoroutine(stopPlayer);
 
         stopPlayer = StartCoroutine(StopPlayer());

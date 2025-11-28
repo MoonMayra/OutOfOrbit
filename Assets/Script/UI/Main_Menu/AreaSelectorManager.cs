@@ -19,6 +19,9 @@ public class AreaSelectorManager : MonoBehaviour
     [SerializeField] private string labBossSceneName = "Mia";
 
     [SerializeField] private Button jungleBossButton;
+    [SerializeField] private Button caveBossButton;
+
+    [SerializeField] private Button caveAreaButton;
 
     private Animator animator;
 
@@ -35,14 +38,28 @@ public class AreaSelectorManager : MonoBehaviour
         string lastScene = PlayerPrefs.GetString("LastScenePlayed", "");
 
         bool jungleBossUnlocked = PlayerPrefs.GetInt("JungleBossUnlocked", 0) == 1;
+        bool caveUnlocked = PlayerPrefs.GetInt("CaveUnlocked", 0) == 1;
+        bool caveBossUnlocked = PlayerPrefs.GetInt("CaveBossUnlocked", 0) == 1;
 
         if (lastScene == "Gorilla")
         {
             PlayerPrefs.SetInt("JungleBossUnlocked", 1);
+            PlayerPrefs.SetInt("CaveUnlocked", 1);
+
             jungleBossUnlocked = true;
+            caveUnlocked = true;
         }
 
-         jungleBossButton.interactable = jungleBossUnlocked;
+        if (lastScene == "Water")
+        {
+            PlayerPrefs.SetInt("CaveBossUnlocked", 1);
+            caveBossUnlocked = true;
+        }
+
+        PlayerPrefs.Save();
+        jungleBossButton.interactable = jungleBossUnlocked;
+        caveAreaButton.interactable = caveUnlocked;
+        caveBossButton.interactable = caveBossUnlocked;
     }
     private void ChangeAnimation()
     {

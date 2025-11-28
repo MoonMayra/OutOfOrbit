@@ -149,6 +149,7 @@ public class MovementPlat : MonoBehaviour
             MovementDirection.Down => Vector2.down,
             _ => Vector2.right,
         };
+        if (platformRigidBody != null)
         platformRigidBody.linearVelocity = Vector2.zero;
     }
     private void OnCollisionEnter2D(Collision2D collision)

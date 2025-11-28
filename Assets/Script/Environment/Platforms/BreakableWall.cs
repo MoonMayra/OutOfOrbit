@@ -26,10 +26,8 @@ public class BreakableWall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
         if (!isBreaking && collision.gameObject.CompareTag("Interactive"))
         {
-            Debug.Log("BreakableWall triggered by Interactive object.");
             breakEffect.Play();
             isBreaking = true;
             timer = 0f;
@@ -45,7 +43,6 @@ public class BreakableWall : MonoBehaviour
 
         if (!isDestroyed && timer >= destructionDelay)
         {
-            Debug.Log("BreakableWall is breaking.");
             spriteRenderer.enabled = false;
             platformCollider.enabled = false;
             isDestroyed = true;
@@ -59,5 +56,15 @@ public class BreakableWall : MonoBehaviour
             isBreaking = false;
             timer = 0f;
         }
+    }
+
+    public void ResetWall()
+    {
+        isBreaking = false;
+        isDestroyed = false;
+        timer = 0f;
+
+        spriteRenderer.enabled = true;
+        platformCollider.enabled = true;
     }
 }
