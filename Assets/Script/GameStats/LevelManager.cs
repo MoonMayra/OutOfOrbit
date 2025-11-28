@@ -151,6 +151,10 @@ public class LevelManager : MonoBehaviour
         {
             breakPlatform.ResetPlatform();
         }
+        foreach (var wall in FindObjectsByType<BreakableWall>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            wall.ResetWall();
+        }
     }
 
     public void ResetLevelAndValues()

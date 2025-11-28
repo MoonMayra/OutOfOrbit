@@ -1,12 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(Collider2D))]
 public class BreakableWall : MonoBehaviour
 {
     [Header("Times")]
     [SerializeField] private float destructionDelay = 2f;
-    [SerializeField] private float respawnDelay = 3f;
     [SerializeField] private ParticleSystem breakEffect;
 
     private SpriteRenderer spriteRenderer;
@@ -20,13 +17,14 @@ public class BreakableWall : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         platformCollider = GetComponent<Collider2D>();
+
         if (breakEffect == null)
             breakEffect = gameObject.GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isBreaking && collision.gameObject.CompareTag("Interactive"))
+        if (!isBreaking && !isDestroyed && collision.gameObject.CompareTag("Interactive"))
         {
             breakEffect.Play();
             isBreaking = true;
@@ -36,28 +34,20 @@ public class BreakableWall : MonoBehaviour
 
     void Update()
     {
-        if (!isBreaking)
+        if (!isBreaking || isDestroyed)
             return;
 
         timer += Time.deltaTime;
 
-        if (!isDestroyed && timer >= destructionDelay)
+        if (timer >= destructionDelay)
         {
             spriteRenderer.enabled = false;
             platformCollider.enabled = false;
+
             isDestroyed = true;
-            timer = 0f;
-        }
-        else if (isDestroyed && timer >= respawnDelay)
-        {
-            spriteRenderer.enabled = true;
-            platformCollider.enabled = true;
-            isDestroyed = false;
             isBreaking = false;
-            timer = 0f;
         }
     }
-
     public void ResetWall()
     {
         isBreaking = false;
