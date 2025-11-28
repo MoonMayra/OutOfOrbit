@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3727685720220086684}
   - component: {fileID: 5831463445936504814}
-  - component: {fileID: 7731462389286849862}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,17 +46,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signalPrefab: {fileID: 4868694720622621419, guid: 404cf8d6405ee604b80c93ed09b66e55, type: 3}
   canvas: {fileID: 0}
---- !u!114 &7731462389286849862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3723027168165394598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c982a3024ad43444a40e81ad587956f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeathSource: {fileID: 0}
-  deathClips: []

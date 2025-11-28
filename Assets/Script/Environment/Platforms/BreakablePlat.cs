@@ -33,7 +33,14 @@ public class BreakablePlat : MonoBehaviour
             timer = 0f;
         }
     }
-
+    public void ResetPlatform()
+    {
+        isBreaking = false;
+        isDestroyed = false;
+        timer = 0f;
+        spriteRenderer.enabled = true;
+        platformCollider.enabled = true;
+    }
     void Update()
     {
         if (!isBreaking)

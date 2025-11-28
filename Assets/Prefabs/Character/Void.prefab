@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityStrength: 122.3
+  gravityStrengthObject: 8
   voidRadius: 20.7
   lifetime: 1.5
   linkedBullet: {fileID: 0}

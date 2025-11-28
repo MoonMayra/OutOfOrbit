@@ -57,6 +57,7 @@ public class Death : MonoBehaviour
         {
             Debug.Log("No current Checkpoint assigned");
         }
+
     }
 
 }

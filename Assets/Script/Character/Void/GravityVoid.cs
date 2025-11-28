@@ -4,6 +4,7 @@ public class GravityVoid : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float gravityStrength = 10f;
+    [SerializeField] private float gravityStrengthObject = 2f;
     [SerializeField] private float voidRadius = 5f;
     [SerializeField] private float lifetime = 3.0f;
 
@@ -83,6 +84,23 @@ public class GravityVoid : MonoBehaviour
         return direction*strenght*Time.fixedDeltaTime;
 
     }
+    private Vector2 CalculateGVForceObject(Transform target)
+    {
+        if (target == null)
+        {
+            return Vector2.zero;
+        }
+        Vector2 direction = (Vector2)transform.position - (Vector2)target.position;
+        float distance = direction.magnitude;
+        if (distance >= voidRadius)
+        {
+            return Vector2.zero;
+        }
+        direction.Normalize();
+        float strenght = gravityStrengthObject * (1 - (distance / voidRadius));
+        return direction * strenght * Time.fixedDeltaTime;
+
+    }
 
 
 
@@ -118,7 +136,7 @@ public class GravityVoid : MonoBehaviour
             return Vector2.zero;
         }
 
-        return CalculateGVForce(objectsTransform);
+        return CalculateGVForceObject(objectsTransform);
     }
 
 

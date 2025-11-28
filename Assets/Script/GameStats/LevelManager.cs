@@ -143,6 +143,14 @@ public class LevelManager : MonoBehaviour
         {
             WaterBoss.Instance.hasDied = true;
         }
+        foreach (var rock in FindObjectsByType<RockRestart>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            rock.RespawnRock();
+        }
+        foreach (var breakPlatform in FindObjectsByType<BreakablePlat>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            breakPlatform.ResetPlatform();
+        }
     }
 
     public void ResetLevelAndValues()
