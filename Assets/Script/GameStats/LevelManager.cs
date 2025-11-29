@@ -174,6 +174,11 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextScene(string sceneName)
     {
+        lastScenePlayed = SceneManager.GetActiveScene().name;
+
+        PlayerPrefs.SetString("LastScenePlayed", lastScenePlayed);
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

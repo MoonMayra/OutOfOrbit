@@ -1,25 +1,39 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class DebriefManager : MonoBehaviour
 {
-    [SerializeField] private string AreaSelectorSceneName = "Credits"; // left to credits scene for the time being
-    [SerializeField] public string levelSceneName = "Jungle";
+    private Dictionary<string, string> returnScenes = new Dictionary<string, string>()
+    {
+        { "Gorilla", "Jungle" },
+        { "Water", "Underground" },
+        { "Mia", "Lab" }
+    };
 
     private void Awake()
     {
         PlayerStats.Instance.StopTimer();
     }
+
     public void BackToAreaSelectorScene()
     {
-        SceneManager.LoadScene(AreaSelectorSceneName);
+        SceneManager.LoadScene("AreaSelector");
     }
+
     public void GoToLevelScene()
     {
-        SceneManager.LoadScene(levelSceneName);
+        string lastScene = LevelManager.Instance.lastScenePlayed;
+
+        if (returnScenes.ContainsKey(lastScene))
+        {
+            string sceneToLoad = returnScenes[lastScene];
+
+            SceneManager.LoadScene(sceneToLoad);
+        }
+
         PlayerStats.Instance.ResetValues();
         PlayerStats.Instance.ResetTimer();
         PlayerStats.Instance.StartTimer();
     }
-
 }
