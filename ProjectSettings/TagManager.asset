@@ -27,7 +27,7 @@ TagManager:
   - CoconutCol
   - Interactive
   - Button
-  - 
+  - SafeZone
   - 
   - 
   - 
@@ -62,11 +62,11 @@ TagManager:
   - name: collectables
     uniqueID: 3870568051
     locked: 0
-  - name: PlatformEX
-    uniqueID: 3457003455
-    locked: 0
   - name: Hazards
     uniqueID: 1159951913
+    locked: 0
+  - name: PlatformEX
+    uniqueID: 3457003455
     locked: 0
   - name: interactuables
     uniqueID: 3613973531

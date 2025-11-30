@@ -77,7 +77,7 @@ public class BulletMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void DestroyBulletsOnHazards()
+    public void DestroyBulletsOnHazards()
     {
         bulletRigidbody.bodyType =RigidbodyType2D.Static;
         playerShoot.RemoveBullet(index,false);
