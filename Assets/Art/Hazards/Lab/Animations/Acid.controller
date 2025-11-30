@@ -59,7 +59,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stalactites
+  m_Name: Acid
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: HasCollision
@@ -108,7 +108,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d0cadbb1c708d534fbf5dbe71a2af86c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8060067b6c5ff0a459cd2fe1eafaf5bb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -160,7 +160,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e6851379102cb97438754c9bfd290474, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0eed6737d5a3e4049bae79495249d171, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -195,7 +195,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Acid
+  m_Name: Stalactites
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -209,7 +209,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8a553ea111ce2c34e89e8d1e2442d004, type: 2}
+  m_Motion: {fileID: 7400000, guid: f54f30dfb65d6354984085500e28a005, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -236,7 +236,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cf102d260773a3d4ab571a86775c475a, type: 2}
+  m_Motion: {fileID: 7400000, guid: a51f82c63a009994c854ad22b46a4f34, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
