@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c85e8d9b41544458b93d446c89721e, type: 3}
+  m_Name: 1.1
+  m_EditorClassIdentifier: 
+  conversationLines:
+  - speakerName: TV Reporter
+    dialogueLine: 'This just in from the Ministry of Intersetllar Affairs:'
+  - speakerName: TV Reporter
+    dialogueLine: '"We urge all citizens to remain calm as we face a critical situation
+      for our species.'
+  - speakerName: TV Reporter
+    dialogueLine: Due to unforeseen circumstances, planet Earth has deviated from
+      its regular orbit.
+  - speakerName: TV Reporter
+    dialogueLine: 'Current studies estimate approximately twenty-one days before
+      Earth collides with the celestial body designated DD-426. '
+  - speakerName: TV Reporter
+    dialogueLine: 'The Ministry assures that every possible measure is being taken
+      to find a solution. '
+  - speakerName: TV Reporter
+    dialogueLine: "Further updates will be provided as the situation develops.\u201D"
+  - speakerName: TV Reporter
+    dialogueLine: "What lies ahead for humanity in the coming days? Stay tuned, we\u2019ll
+      continue to bring you the latest reports."
