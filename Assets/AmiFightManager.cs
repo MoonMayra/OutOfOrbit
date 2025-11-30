@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
+using Unity.VisualScripting;
 
 public class AmiFightManager : MonoBehaviour
 {
@@ -10,8 +11,6 @@ public class AmiFightManager : MonoBehaviour
     [SerializeField] private WallMovement[] wallMovements;
 
     [Header("General settings")]
-    [SerializeField] private float timeBetweenPhases = 4f;
-    [SerializeField] private float amiChangeAnimationTime = 2f;
     [SerializeField] private AmiController ami;
     [SerializeField] private Transform amiStartPosition;
 
@@ -69,24 +68,34 @@ public class AmiFightManager : MonoBehaviour
     private void Start()
     {
         ami.transform.position = amiStartPosition.position;
-        StartBossFight(); //Solo para pruebas, despues lo llamamos desde otro lado
+        //StartCoroutine(StartBossFight()); //Solo para pruebas, despues lo llamamos desde otro lado
     }
-    public void StartBossFight()
+    public IEnumerator StartBossFight()
     {
         fightActive = true;
-        currentPhase = 1;
-        currentLoop = StartCoroutine(Phase1Loop());
+        if (currentPhase==1)
+        {
+            currentLoop = StartCoroutine(Phase1Loop());
+            yield break;
+        }
+        else
+        {
+            currentLoop = StartCoroutine(Phase2Loop());
+            yield break;
+        }
+
+
     }
     private void StopBossFight()
     {
         //Esta no se si la voy a usar a
         StopCoroutine(currentLoop);
     }
-    private void ChangePhases()
+    public IEnumerator ChangePhases()
     {
         fightActive = false;
         currentPhase = 2;
-        if(currentLoop!=null)
+        if (currentLoop != null)
         {
             StopCoroutine(currentLoop);
         }
@@ -103,33 +112,30 @@ public class AmiFightManager : MonoBehaviour
             wall.ReturnToInitialPosition(1f);
         }
         ami.transform.position = amiStartPosition.position;
-        fightActive = true;
-        StartCoroutine(ChangePhaseCoroutine());
-    }
-    private IEnumerator ChangePhaseCoroutine()
-    {
         ami.PhaseChange();
-        yield return new WaitForSeconds(amiChangeAnimationTime);
-
-        yield return new WaitForSeconds(timeBetweenPhases);
-
-        currentLoop = StartCoroutine(Phase2Loop());
+        fightActive = true;
+        StartCoroutine(ami.IntroCinematic());
+        yield break;
     }
-    private void ResetFight()
+    public void ResetFight()
     {
         StopCoroutine(currentLoop);
         currentSafeZoneID = 0;
         pathIndex = 0;
         if(currentPhase==1)
         {
+            amiLivesP1 = 9;
+            Debug.Log("Reseting Fight to Phase 1. Lives: " + amiLivesP1);
             currentLoop = StartCoroutine(Phase1Loop());
         }
         else if(currentPhase==2)
         {
+            amiLivesP2 = 5;
+            Debug.Log("Reseting Fight to Phase 2. Lives: " + amiLivesP2);
             currentLoop = StartCoroutine(Phase2Loop());
         }
     }
-    private void EndBossFight()
+    private IEnumerator EndBossFight()
     {
         fightActive = false;
         if (currentLoop!=null)
@@ -147,8 +153,9 @@ public class AmiFightManager : MonoBehaviour
             wall.ReturnToInitialPosition(1f);
         }
         ami.transform.position=amiStartPosition.position;
+        StartCoroutine(ami.ExitCinematic());
         Debug.Log("Boss Fight Ended");
-        //DEspues vemos si agregamos cinematica tipo paso de escena o que hacemos aca
+        yield break;
     }
     public void AmiHit()
     {
@@ -159,7 +166,7 @@ public class AmiFightManager : MonoBehaviour
             if (amiLivesP1 <= 0)
             {
                 Debug.Log("Changing to Phase 2");
-                ChangePhases();
+                StartCoroutine(ChangePhases());
             }
         }
         else if (currentPhase == 2)
@@ -169,14 +176,16 @@ public class AmiFightManager : MonoBehaviour
             if (amiLivesP2 <= 0)
             {
                 Debug.Log("Ami Defeated");
-                EndBossFight();
+                StartCoroutine(EndBossFight());
             }
         }
     }
     private IEnumerator Phase1Loop()
     {
+        Debug.Log("Current Phase: " + currentPhase);
         while (currentPhase==1)
         {
+            Debug.Log("Phase 1 Loop Iteration");
             yield return StartCoroutine(SpikesMovementCoroutine(currentSafeZoneID,closeDurationP1,stillTimeP1,openDurationP1));
             currentSafeZoneID = (currentSafeZoneID + 1) % safeZones.Length;
             yield return new WaitForSeconds(timeBetweenSequencesP1);
