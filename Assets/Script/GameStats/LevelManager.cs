@@ -154,6 +154,7 @@ public class LevelManager : MonoBehaviour
         foreach (var wall in FindObjectsByType<BreakableWall>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             wall.ResetWall();
+        }
         if(AmiFightManager.Instance != null)
         {
             AmiFightManager.Instance.ResetFight();
