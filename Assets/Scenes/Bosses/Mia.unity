@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 71154485}
   - component: {fileID: 71154491}
   - component: {fileID: 71154490}
+  - component: {fileID: 71154493}
   m_Layer: 9
   m_Name: Ami
   m_TagString: Untagged
@@ -554,6 +555,7 @@ MonoBehaviour:
   amiStayTimeP2: 2
   amiExitTimeP2: 1.5
   startedFight: 0
+  isStunned: 0
   arrowPrefab: {fileID: 1022193098540036715, guid: e985410e47e587b4d99f592214d021d7, type: 3}
   spawnTop: {fileID: 1920921008}
   spawnBottom: {fileID: 1753055920}
@@ -732,6 +734,26 @@ MonoBehaviour:
   deathAnimationKey: Death
   hitAnimationKey: Hit
   attackAnimationKey: Attack
+--- !u!114 &71154493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71154484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9863baff923fd940b7f346a63c6b554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    serializedVersion: 2
+    m_Bits: 64
+  playerStats: {fileID: 0}
+  levelManager: {fileID: 0}
+  current: {fileID: 0}
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 5d7295fc1dddcef45b4b8d735d273203, type: 3}
 --- !u!1 &146215086
 GameObject:
   m_ObjectHideFlags: 0
@@ -10121,7 +10143,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.71, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10131,7 +10153,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 32.84, y: 18.8}
+  m_Size: {x: 31.72, y: 18.8}
   m_EdgeRadius: 0
 --- !u!114 &2024361902
 MonoBehaviour:

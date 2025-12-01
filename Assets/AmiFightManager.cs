@@ -287,20 +287,24 @@ public class AmiFightManager : MonoBehaviour
 
         ami.ShowSign(path);
         yield return new WaitForSeconds(signTime);
+        yield return new WaitUntil(() => !ami.isStunned);
         if (!fightActive) yield break;
         ami.HideSign();
 
         ami.StartPath(path,amiEntryDuration);
         yield return new WaitForSeconds(amiEntryDuration);
+        yield return new WaitUntil(() => !ami.isStunned);
         if (!fightActive) yield break;
 
         ami.ShowReturnSign(path);
         yield return new WaitForSeconds(signTime);
+        yield return new WaitUntil(() => !ami.isStunned);
         if (!fightActive) yield break;
         ami.HideSign();
 
         ami.ReturnToStart(path, amiEntryDuration);
         yield return new WaitForSeconds(amiEntryDuration);
+        yield return new WaitUntil(() => !ami.isStunned);
         if (!fightActive) yield break;
 
         pathIndex = (pathIndex + 1) % pathOrder.Length;

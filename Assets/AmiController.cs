@@ -51,6 +51,7 @@ public class AmiController : MonoBehaviour
     private Coroutine movingCoroutine;
     public bool startedFight = false;
     private Collider2D amiCollider;
+    public bool isStunned = false;  
 
     //ARROWS
 
@@ -251,9 +252,11 @@ public class AmiController : MonoBehaviour
     }
     public IEnumerator HitSequence()
     {
+        isStunned = true;
         Vector2 actualVelocity= rigidBody.linearVelocity;
         amiView.SetAmiHit();
         Debug.Log("Ami Hit");
+        amiCollider.enabled= false;
         rigidBody.linearVelocity= Vector2.zero;
         if(AmiFightManager.Instance.currentPhase==1)
         {
@@ -265,6 +268,8 @@ public class AmiController : MonoBehaviour
         }
         rigidBody.linearVelocity= actualVelocity;
         amiView.SetAmiMoving();
+        amiCollider.enabled = true;
+        isStunned= false;
         yield break;
     }
     public IEnumerator IntroCinematic()
