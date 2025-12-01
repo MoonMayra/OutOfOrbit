@@ -111,7 +111,6 @@ public class AmiFightManager : MonoBehaviour
         {
             wall.ReturnToInitialPosition(1f);
         }
-        ami.transform.position = amiStartPosition.position;
         ami.PhaseChange();
         fightActive = true;
         StartCoroutine(ami.IntroCinematic());
@@ -119,21 +118,37 @@ public class AmiFightManager : MonoBehaviour
     }
     public void ResetFight()
     {
-        StopCoroutine(currentLoop);
+        fightActive = false;
+        if (currentLoop != null)
+        {
+            StopCoroutine(currentLoop);
+        }
+        StopAllCoroutines();
         currentSafeZoneID = 0;
         pathIndex = 0;
-        if(currentPhase==1)
+        ami.HideSign();
+        foreach (var zone in safeZones)
+        {
+            zone.DeactivateZone();
+        }
+        foreach (var wall in wallMovements)
+        {
+            wall.ReturnToInitialPosition(0.1f);
+        }
+
+        ami.transform.position= amiStartPosition.position;
+        fightActive = true;
+        if (currentPhase==1)
         {
             amiLivesP1 = 9;
             Debug.Log("Reseting Fight to Phase 1. Lives: " + amiLivesP1);
-            currentLoop = StartCoroutine(Phase1Loop());
         }
         else if(currentPhase==2)
         {
             amiLivesP2 = 5;
             Debug.Log("Reseting Fight to Phase 2. Lives: " + amiLivesP2);
-            currentLoop = StartCoroutine(Phase2Loop());
         }
+        StartCoroutine(ami.IntroCinematic());
     }
     private IEnumerator EndBossFight()
     {
@@ -152,13 +167,13 @@ public class AmiFightManager : MonoBehaviour
         {
             wall.ReturnToInitialPosition(1f);
         }
-        ami.transform.position=amiStartPosition.position;
         StartCoroutine(ami.ExitCinematic());
         Debug.Log("Boss Fight Ended");
         yield break;
     }
     public void AmiHit()
     {
+        CameraShake.Instance.Shake();
         if(currentPhase == 1)
         {
             amiLivesP1--;

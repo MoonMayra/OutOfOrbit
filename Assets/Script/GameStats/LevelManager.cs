@@ -151,6 +151,10 @@ public class LevelManager : MonoBehaviour
         {
             breakPlatform.ResetPlatform();
         }
+        if(AmiFightManager.Instance != null)
+        {
+            AmiFightManager.Instance.ResetFight();
+        }
     }
 
     public void ResetLevelAndValues()
