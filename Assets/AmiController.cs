@@ -72,6 +72,7 @@ public class AmiController : MonoBehaviour
     private GameObject currentArrow;
 
 
+
     private void Awake()
     {
         if(Instance==null)
@@ -216,7 +217,6 @@ public class AmiController : MonoBehaviour
     }
     public IEnumerator MoveAmi(Vector3 startPos, Vector3 endPos, float duration)
     {
-        amiView.SetAmiMoving();
         rigidBody.linearVelocity=Vector2.zero;
         rigidBody.position=startPos;
 
@@ -253,6 +253,7 @@ public class AmiController : MonoBehaviour
     {
         Vector2 actualVelocity= rigidBody.linearVelocity;
         amiView.SetAmiHit();
+        Debug.Log("Ami Hit");
         rigidBody.linearVelocity= Vector2.zero;
         if(AmiFightManager.Instance.currentPhase==1)
         {
@@ -268,6 +269,7 @@ public class AmiController : MonoBehaviour
     }
     public IEnumerator IntroCinematic()
     {
+        amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Intro Cinematic");
         movingCoroutine = StartCoroutine(MoveAmi(originalPoint.position, cutscenePoint.position, amiEnterTimeP1));
@@ -277,6 +279,28 @@ public class AmiController : MonoBehaviour
         Debug.Log("Ami Attacking");
         yield return new WaitForSeconds(amiStayTimeP1);
         Debug.Log("Starting Boss Fight");
+        amiView.SetAmiMoving();
+        movingCoroutine = StartCoroutine(MoveAmi(cutscenePoint.position, originalPoint.position, amiExitTimeP1));
+        yield return new WaitForSeconds(amiExitTimeP1);
+        amiCollider.enabled = true;
+        StartCoroutine(AmiFightManager.Instance.StartBossFight());
+        yield break;
+    }
+    public IEnumerator ChangeCinematic()
+    {
+        amiView.SetAmiMoving();
+        amiCollider.enabled = false;
+        Debug.Log("Starting Phase change Cinematic");
+        movingCoroutine = StartCoroutine(MoveAmi(originalPoint.position, cutscenePoint.position, amiEnterTimeP1));
+        yield return new WaitForSeconds(amiEnterTimeP1);
+        Debug.Log("Ami Entered");
+        amiView.SetAmiDeath();
+        Debug.Log("Ami changing");
+        yield return new WaitForSeconds(0.6f);
+        amiView.UpdateAmiPhase();
+        amiView.SetAmiAttacking();
+        yield return new WaitForSeconds(1.3f);
+        amiView.SetAmiMoving();
         movingCoroutine = StartCoroutine(MoveAmi(cutscenePoint.position, originalPoint.position, amiExitTimeP1));
         yield return new WaitForSeconds(amiExitTimeP1);
         amiCollider.enabled = true;
@@ -285,6 +309,7 @@ public class AmiController : MonoBehaviour
     }
     public IEnumerator ExitCinematic()
     {
+        amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Exit Cinematic");
         movingCoroutine = StartCoroutine(MoveAmi(originalPoint.position, cutscenePoint.position, amiEnterTimeP2));
@@ -292,8 +317,8 @@ public class AmiController : MonoBehaviour
         Debug.Log("Ami Entered");
         amiView.SetAmiDeath();
         Debug.Log("Ami dying");
-        yield return new WaitForSeconds(amiStayTimeP2);
-        Debug.Log("Ami going out of scene");
+        yield return new WaitForSeconds(amiStayTimeP2/2);
+        Debug.Log("Ami falling");
         movingCoroutine = StartCoroutine(MoveAmi(cutscenePoint.position, endPoint.position, amiExitTimeP2));
         yield return new WaitForSeconds(amiExitTimeP2);
         amiCollider.enabled = true;

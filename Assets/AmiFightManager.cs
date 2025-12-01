@@ -111,9 +111,8 @@ public class AmiFightManager : MonoBehaviour
         {
             wall.ReturnToInitialPosition(1f);
         }
-        ami.PhaseChange();
         fightActive = true;
-        StartCoroutine(ami.IntroCinematic());
+        StartCoroutine(ami.ChangeCinematic());
         yield break;
     }
     public void ResetFight()

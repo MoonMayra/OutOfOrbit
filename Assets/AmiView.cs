@@ -24,13 +24,28 @@ public class AmiView : MonoBehaviour
     private AmiPhase currentPhase;
     private Animator animator;
     private AmiController amiController;
+    private Rigidbody2D rigidBody;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         amiController = GetComponent<AmiController>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
+    private void Update()
+    {
+        if(rigidBody.linearVelocity.x>0.1f)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if(rigidBody.linearVelocity.x < -0.1f)
+        {
+            spriteRenderer.flipX = true;
+        }
+        
+    }
     public void SetAmiIdle()
     {
         currentState = AmiState.Idle;
@@ -51,6 +66,7 @@ public class AmiView : MonoBehaviour
     {
         animator.SetTrigger(hitAnimationKey);
         currentState = AmiState.Other;
+        Debug.Log("Hola");
         UpdateAmiState();
     }
     public void SetAmiDeath()

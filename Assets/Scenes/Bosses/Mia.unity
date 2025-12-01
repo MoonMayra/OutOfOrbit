@@ -545,11 +545,11 @@ MonoBehaviour:
   cutscenePoint: {fileID: 2097892273}
   originalPoint: {fileID: 764230730}
   endPoint: {fileID: 1666267556}
-  amiHitStunDurationP1: 0.05
+  amiHitStunDurationP1: 0.4
   amiEnterTimeP1: 3
   amiStayTimeP1: 2
   amiExitTimeP1: 3
-  amiHitStunDurationP2: 0.05
+  amiHitStunDurationP2: 0.4
   amiEnterTimeP2: 3
   amiStayTimeP2: 2
   amiExitTimeP2: 1.5
@@ -618,8 +618,8 @@ SpriteRenderer:
   m_SortingLayerID: -1267593201
   m_SortingLayer: 15
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.99030876, a: 1}
+  m_Sprite: {fileID: 8279935319277494127, guid: 90a145c562f0b2846b9b30ffa99f32ed, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
