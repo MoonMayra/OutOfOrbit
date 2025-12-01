@@ -32,6 +32,7 @@ public class AmiController : MonoBehaviour
     [SerializeField] private Transform cutscenePoint;
     [SerializeField] private Transform originalPoint;
     [SerializeField] private Transform endPoint;
+    [SerializeField] private ParticleSystem dust;
 
     [Header("Ami Parameters Phase 1")]
     [SerializeField] private float amiHitStunDurationP1 = 0.05f;
@@ -90,7 +91,7 @@ public class AmiController : MonoBehaviour
         currentArrow.SetActive(false);
         amiView= GetComponent<AmiView>();
         amiCollider= GetComponent<Collider2D>();
-
+        
     }
     private void Start()
     {
@@ -282,6 +283,8 @@ public class AmiController : MonoBehaviour
         Debug.Log("Ami Entered");
         amiView.SetAmiAttacking();
         Debug.Log("Ami Attacking");
+        CameraShake.Instance.Shake(amiStayTimeP1/2, 0.3f);
+        dust.Play();
         yield return new WaitForSeconds(amiStayTimeP1);
         Debug.Log("Starting Boss Fight");
         amiView.SetAmiMoving();
@@ -303,6 +306,8 @@ public class AmiController : MonoBehaviour
         Debug.Log("Ami changing");
         yield return new WaitForSeconds(0.6f);
         amiView.UpdateAmiPhase();
+        CameraShake.Instance.Shake(amiStayTimeP1 / 2, 0.3f);
+        dust.Play();
         amiView.SetAmiAttacking();
         yield return new WaitForSeconds(1.3f);
         amiView.SetAmiMoving();
@@ -321,6 +326,8 @@ public class AmiController : MonoBehaviour
         yield return new WaitForSeconds(amiEnterTimeP2);
         Debug.Log("Ami Entered");
         amiView.SetAmiDeath();
+        CameraShake.Instance.Shake(amiStayTimeP1 / 2, 0.3f);
+        dust.Play();
         Debug.Log("Ami dying");
         yield return new WaitForSeconds(amiStayTimeP2/2);
         Debug.Log("Ami falling");
