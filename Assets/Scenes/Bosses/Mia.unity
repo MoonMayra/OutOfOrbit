@@ -4655,6 +4655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5386520194367809918, guid: a268e4fd202faab48ae006b5753bafab, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1335337318}
     - target: {fileID: 7581407578619404578, guid: a268e4fd202faab48ae006b5753bafab, type: 3}
       propertyPath: m_Name
       value: Checkpoint
@@ -9002,6 +9006,11 @@ MonoBehaviour:
   DeathSource: {fileID: 1044934474}
   deathClips:
   - {fileID: 8300000, guid: 5d7295fc1dddcef45b4b8d735d273203, type: 3}
+--- !u!4 &1335337318 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4640250001041749821, guid: a268e4fd202faab48ae006b5753bafab, type: 3}
+  m_PrefabInstance: {fileID: 827056368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1336602961
 GameObject:
   m_ObjectHideFlags: 0
