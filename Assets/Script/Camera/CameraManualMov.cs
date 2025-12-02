@@ -55,9 +55,26 @@ public class CameraManualMov : MonoBehaviour
         Vector2 minBounds = areaCenter - areaSize * 0.5f;
         Vector2 maxBounds = areaCenter + areaSize * 0.5f;
 
+        bool lockX = (halfWidth * 2f) >= areaSize.x;
+        bool lockY = (halfHeight * 2) >= areaSize.y;
 
-        targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x+halfWidth, maxBounds.x-halfWidth);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y+halfHeight, maxBounds.y-halfHeight);
+        if(lockX)
+        {
+            targetPosition.x = areaCenter.x;
+        }
+        else
+        {
+            targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x + halfWidth, maxBounds.x - halfWidth);
+        }
+
+        if (lockY)
+        {
+            targetPosition.y = areaCenter.y;
+        }
+        else
+        {
+            targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
+        }
 
         cameraComp.transform.position = targetPosition;
 

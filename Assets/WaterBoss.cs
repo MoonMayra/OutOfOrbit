@@ -5,7 +5,6 @@ public class WaterBoss : MonoBehaviour
     public static WaterBoss Instance { get; private set; }
 
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float accel = 0;
     [SerializeField] private Transform firstCheckpoint;
     [SerializeField] private Transform secondCheckpoint;
 
