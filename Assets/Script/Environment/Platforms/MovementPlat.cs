@@ -96,31 +96,39 @@ public class MovementPlat : MonoBehaviour
 
     private void CheckLimits()
     {
+        bool shouldChange = false;
+        Vector2 pos = transform.position;
+
         if (initialDirection == MovementDirection.Left || initialDirection == MovementDirection.Right)
         {
             if (transform.position.x <= minLimit + tolerance && direction.x < 0f)
             {
-                transform.position = new Vector2(minLimit, transform.position.y);
-                ChangeDirection();
+                pos.x = minLimit;
+                shouldChange = true;
             }
             else if (transform.position.x >= maxLimit - tolerance && direction.x > 0f)
             {
-                transform.position = new Vector2(maxLimit, transform.position.y);
-                ChangeDirection();
+                pos.x = maxLimit;
+                shouldChange = true;
             }
         }
         else
         {
             if (transform.position.y <= minLimit + tolerance && direction.y < 0f)
             {
-                transform.position = new Vector2(transform.position.x, minLimit);
-                ChangeDirection();
+                pos.y = minLimit;
+                shouldChange = true;
             }
             else if (transform.position.y >= maxLimit - tolerance && direction.y > 0f)
             {
-                transform.position = new Vector2(transform.position.x, maxLimit);
-                ChangeDirection();
+                pos.y = maxLimit;
+                shouldChange = true;
             }
+        }
+        if (shouldChange)
+        {
+            transform.position = pos;
+            ChangeDirection();
         }
     }
 

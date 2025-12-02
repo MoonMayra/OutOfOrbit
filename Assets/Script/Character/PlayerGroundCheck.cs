@@ -11,10 +11,6 @@ public class PlayerGroundCheck : MonoBehaviour
     public float jumpingThreshold = 0.0f;
 
 
-    [Header("Parameters")]
-    [SerializeField] private float normalThreshold = 0.6f;
-    public float wallNormalThreshold = 0.6f;
-
     [Header("Particles")]
     [SerializeField] private ParticleSystem dustParticles;
 
