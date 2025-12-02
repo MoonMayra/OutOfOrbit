@@ -10,8 +10,10 @@ public class PlayerGroundCheck : MonoBehaviour
     public bool wasGrounded = false;
     public float jumpingThreshold = 0.0f;
 
+
     [Header("Parameters")]
     [SerializeField] private float normalThreshold = 0.6f;
+    public float wallNormalThreshold = 0.6f;
 
     [Header("Particles")]
     [SerializeField] private ParticleSystem dustParticles;
@@ -28,13 +30,21 @@ public class PlayerGroundCheck : MonoBehaviour
         bool groundFound = false;
         foreach (ContactPoint2D contactPoint in collisionObj.contacts)
         {
-            if (contactPoint.normal.y >= normalThreshold)
+            Vector2 normal = contactPoint.normal;
+            if(Mathf.Abs(normal.x)>Mathf.Abs(normal.y))
+            {
+                continue;
+            }
+            if(normal.y > 0f && Mathf.Abs(normal.y) > Mathf.Abs(normal.x))
             {
                 groundFound = true;
                 break;
             }
         }
-        isGrounded = groundFound;
+        if (groundFound)
+        {
+            isGrounded = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

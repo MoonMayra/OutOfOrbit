@@ -4306,6 +4306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -669158974781351936, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
+      propertyPath: dustParticles
+      value: 
+      objectReference: {fileID: 644636019}
     - target: {fileID: 202999902678165084, guid: e2353150c052c8c49bb2be841db7750e, type: 3}
       propertyPath: m_Name
       value: Character
@@ -5281,6 +5285,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2066770503952845840, guid: 6ac4cfda63a87fa41a2f5b15ace3a4ab, type: 3}
   m_PrefabInstance: {fileID: 164602982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &644636019 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 606480952291650609, guid: 23133b72f3bb4db4a803b158e916c073, type: 3}
+  m_PrefabInstance: {fileID: 1836836643}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &647556199 stripped
 Transform:
@@ -7996,10 +8005,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538511085128901157, guid: 2aabbc796feb2244bb03e85d1e771b9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 46.859985
+      objectReference: {fileID: 0}
     - target: {fileID: 1552154476015070608, guid: 2aabbc796feb2244bb03e85d1e771b9c, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1660495361}
+    - target: {fileID: 6356900176291285660, guid: 2aabbc796feb2244bb03e85d1e771b9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 46.859985
+      objectReference: {fileID: 0}
     - target: {fileID: 6887823225915501933, guid: 2aabbc796feb2244bb03e85d1e771b9c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
