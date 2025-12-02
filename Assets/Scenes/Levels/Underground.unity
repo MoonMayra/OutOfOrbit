@@ -6014,6 +6014,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: id
+      value: Col1_Lvl2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: checkpointIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
       value: Collectable (1)
@@ -6220,6 +6228,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: id
+      value: Col1_Lvl6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: checkpointIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
       value: Collectable (2)
@@ -8415,6 +8431,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: id
+      value: Col1_Lvl5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: checkpointIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
       value: Collectable (5)
@@ -9152,6 +9176,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: id
+      value: Col1_Lvl4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: checkpointIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
       value: Collectable (3)
@@ -90610,6 +90642,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: id
+      value: Col1_Lvl7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: checkpointIndex
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
       value: Collectable (4)
@@ -90813,11 +90853,11 @@ PrefabInstance:
       objectReference: {fileID: 1730231089}
     - target: {fileID: 7545402770910508409, guid: e8f77d822491e094fb18b0a81163413b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.822586
+      value: 81.83
       objectReference: {fileID: 0}
     - target: {fileID: 7545402770910508409, guid: e8f77d822491e094fb18b0a81163413b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.738636
+      value: -29.16
       objectReference: {fileID: 0}
     - target: {fileID: 7545402770910508409, guid: e8f77d822491e094fb18b0a81163413b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95032,6 +95072,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: id
+      value: Col1_Lvl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366378840499444136, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
+      propertyPath: checkpointIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2756033638674011004, guid: 0c2534ddee660c5458ce60c4d630f4e0, type: 3}
       propertyPath: m_Name
       value: Collectable
@@ -95659,6 +95707,9 @@ SceneRoots:
   - {fileID: 2056327219}
   - {fileID: 217558053}
   - {fileID: 254567836}
+  - {fileID: 634033781}
+  - {fileID: 1519265978}
+  - {fileID: 539205449}
   - {fileID: 1924345784}
   - {fileID: 744385454}
   - {fileID: 721161325}
@@ -95672,9 +95723,6 @@ SceneRoots:
   - {fileID: 1662407265}
   - {fileID: 4209841500339893546}
   - {fileID: 881180668}
-  - {fileID: 634033781}
-  - {fileID: 1519265978}
-  - {fileID: 539205449}
   - {fileID: 729609207}
   - {fileID: 2079423081}
   - {fileID: 4998943478441848026}

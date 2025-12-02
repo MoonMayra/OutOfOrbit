@@ -99,32 +99,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -188,8 +162,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d951de0dee1fb28429cc48b913a1d7d9
-      internalID: 1249596372
+      spriteID: b101b0ab7f7cd1948a469a6811694581
+      internalID: -815043023
       vertices: []
       indices: 
       edges: []
@@ -210,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2d9f08db549bb145b9013e0581a3b73
-      internalID: 291712873
+      spriteID: c375fd30b7be4514685663225c390d83
+      internalID: -1967524372
       vertices: []
       indices: 
       edges: []
@@ -232,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72f1735c1e0962c40aa96cadc20e28e4
-      internalID: 668741606
+      spriteID: 9f4c725568d05de4e97938d591f9d23b
+      internalID: -1605215972
       vertices: []
       indices: 
       edges: []
@@ -254,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79131ddc54cf13540ae7e1b1d75571e5
-      internalID: -1441002557
+      spriteID: 1f12ab2ecbe9d464e8b60809ddf20280
+      internalID: -698737286
       vertices: []
       indices: 
       edges: []
@@ -264,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2d9e9dc1f20e8cc4daa9cb2de72b4465
+    spriteID: dc472faaad3445c45ba3eb26b3d2bcc2
     internalID: 0
     vertices: []
     indices: 
@@ -276,10 +250,10 @@ TextureImporter:
     nameFileIdTable:
       PlatformsPassThrough_0: 6106419240263383759
       PlatformsPassThrough_1: 6561118510789939218
-      PlatformsPassThrough_2: 1249596372
-      PlatformsPassThrough_3: 291712873
-      PlatformsPassThrough_4: 668741606
-      PlatformsPassThrough_5: -1441002557
+      PlatformsPassThrough_2: -815043023
+      PlatformsPassThrough_3: -1967524372
+      PlatformsPassThrough_4: -1605215972
+      PlatformsPassThrough_5: -698737286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

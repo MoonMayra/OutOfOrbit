@@ -3,21 +3,42 @@ using UnityEngine;
 public class ActivationPlat : MonoBehaviour
 {
     [SerializeField] private string animationBoolName = "isActive";
-    private Collider2D colliderPlat;
-    public bool isActive = false;
+
     private Animator animator;
+    private Collider2D platformCollider;
+    public bool isActive = false;
 
     private void Awake()
     {
-        colliderPlat = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+
+        platformCollider = GetComponent<Collider2D>();
+
+        if (!isActive && platformCollider != null)
+        {
+            Destroy(platformCollider);
+            platformCollider = null;
+        }
     }
 
     public void TogglePlatform(bool state)
     {
         isActive = state;
-        colliderPlat.enabled = isActive;
+
+        if (isActive)
+        {
+            if (platformCollider == null)
+                platformCollider = gameObject.AddComponent<BoxCollider2D>();
+        }
+        else
+        {
+            if (platformCollider != null)
+            {
+                Destroy(platformCollider);
+                platformCollider = null;
+            }
+        }
+
         animator.SetBool(animationBoolName, isActive);
     }
-
 }

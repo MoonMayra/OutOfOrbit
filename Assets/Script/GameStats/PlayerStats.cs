@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] public string timerText;
     [SerializeField] private bool countFromStart = false;
 
-    public float time= 0f;
+    public float time = 0f;
     private bool active;
 
     private void Awake()
