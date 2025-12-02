@@ -59,9 +59,6 @@ TagManager:
   - name: Floor
     uniqueID: 2232978813
     locked: 0
-  - name: collectables
-    uniqueID: 3870568051
-    locked: 0
   - name: Hazards
     uniqueID: 1159951913
     locked: 0
@@ -70,6 +67,9 @@ TagManager:
     locked: 0
   - name: interactuables
     uniqueID: 3613973531
+    locked: 0
+  - name: collectables
+    uniqueID: 3870568051
     locked: 0
   - name: Tips
     uniqueID: 349674067
