@@ -66,9 +66,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputActionReference jumpInput;
     [SerializeField] private InputActionReference fieldsThrowInput;
 
-    private Rigidbody2D playerRigidBody;
-    private float moveInputX = 0.0f;
-    private float targetVelX=0.0f;
+    public Rigidbody2D playerRigidBody;
+    public float moveInputX = 0.0f;
+    public float targetVelX=0.0f;
     private float jumpingThreshold = 0.0f;
     private float jumpBufferTimer = 0.0f;
     private bool jumpBufferActive = false;
@@ -302,14 +302,17 @@ public class PlayerMovement : MonoBehaviour
 
         //Add gravity fields effect
         Vector2 gvForces = Vector2.zero;
-        foreach (var voidObj in playerShoot.activeVoids)
+        if (playerShoot != null)
         {
-            if (voidObj != null)
+            foreach (var voidObj in playerShoot.activeVoids)
             {
-                GravityVoid gv = voidObj.GetComponent<GravityVoid>();
-                if (gv != null)
+                if (voidObj != null)
                 {
-                    gvForces += gv.CalculateGVForcePlayer();
+                    GravityVoid gv = voidObj.GetComponent<GravityVoid>();
+                    if (gv != null)
+                    {
+                        gvForces += gv.CalculateGVForcePlayer();
+                    }
                 }
             }
         }

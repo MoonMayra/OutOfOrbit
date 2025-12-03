@@ -21,7 +21,10 @@ public class CameraZone : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
-            playerManager.FreezePlayer();
+            if (playerManager != null)
+            {
+                playerManager.FreezePlayer();
+            }
             
             CameraController.Instance.MoveToTarget(cameraTarget, transitionSpeed);
         }

@@ -14,6 +14,17 @@ public class DialogueTrigger : MonoBehaviour
             alreadyTriggered = true;
 
             manager.GetConversation(conversation);
+            if (PlayerMovement.Instance != null)
+            {
+                PlayerMovement.Instance.targetVelX = 0;
+                PlayerMovement.Instance.moveInputX = 0;
+                PlayerMovement.Instance.playerRigidBody.linearVelocity = Vector2.zero;
+                PlayerMovement.Instance.enabled = false;
+            }
+            if (PlayerShoot.Instance != null)
+            {
+                PlayerShoot.Instance.enabled = false;
+            }
             GetComponent<Collider2D>().enabled = false;
         }
     }

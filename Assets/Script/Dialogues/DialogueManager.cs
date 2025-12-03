@@ -12,9 +12,9 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private Image panelImage;
 
-    [SerializeField] private Color miaPruple = new Color(0.7f, 0.3f, 1f);
-    [SerializeField] private Color miaCyan = new Color(0f, 1f, 1f);
-    [SerializeField] private Color defaultColor = Color.blue;
+    [SerializeField] private Color miaPruple = new Color(0.7f, 0.3f, 1f,0.4f);
+    [SerializeField] private Color miaCyan = new Color(0f, 1f, 1f,0.4f);
+    [SerializeField] private Color defaultColor = new Color(0f,0f,1f,0.4f);
 
     bool dialogueIsActive;
     Queue<Line> lines = new Queue<Line>();
@@ -45,6 +45,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueIsActive = false;
             dialoguePanel.SetActive(false);
+            PlayerMovement.Instance.enabled = true;
             return;
         }
         Line currentLine = lines.Dequeue();
