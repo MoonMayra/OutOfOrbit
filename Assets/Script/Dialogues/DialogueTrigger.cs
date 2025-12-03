@@ -1,11 +1,25 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    public enum DialogueEndMode
+    {
+        None,
+        LoadScene,
+        EnableTrigger
+    }
+
+    [Header("Dialogue Settings")]
     [SerializeField] Dialogue conversation;
     [SerializeField] DialogueManager manager;
-
     private bool alreadyTriggered = false;
+
+    [Header("End of Dialogue Settings")]
+    [SerializeField] private DialogueEndMode endMode = DialogueEndMode.None;
+
+    [SerializeField] private string sceneToLoad;
+    [SerializeField] private GameObject triggerToEnable;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +27,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             alreadyTriggered = true;
 
-            manager.GetConversation(conversation);
             if (PlayerMovement.Instance != null)
             {
                 PlayerMovement.Instance.targetVelX = 0;
@@ -25,7 +38,33 @@ public class DialogueTrigger : MonoBehaviour
             {
                 PlayerShoot.Instance.enabled = false;
             }
+
+            manager.GetConversation(conversation, OnDialogueFinished);
+
             GetComponent<Collider2D>().enabled = false;
+        }
+    }
+
+    private void OnDialogueFinished()
+    {
+        switch (endMode)
+        {
+            case DialogueEndMode.LoadScene:
+                if (!string.IsNullOrEmpty(sceneToLoad))
+                {
+                    SceneManager.LoadScene(sceneToLoad);
+                }
+                break;
+
+            case DialogueEndMode.EnableTrigger:
+                if (triggerToEnable != null)
+                {
+                    triggerToEnable.SetActive(true);
+                }
+                break;
+
+            case DialogueEndMode.None:
+                break;
         }
     }
 }

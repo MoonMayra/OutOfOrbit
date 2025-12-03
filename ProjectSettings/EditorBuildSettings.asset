@@ -38,6 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/Credits.unity
     guid: 11d8d6b58cf87ef4a9cc3bacdc2a81f1
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene1.unity
+    guid: bd32cd54b19a21548964ae9b598adf5d
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene2.unity
+    guid: 50f3d6b5f3f0737499281128f1703454
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
