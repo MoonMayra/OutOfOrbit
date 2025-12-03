@@ -31,18 +31,18 @@ public class AmiFightManager : MonoBehaviour
     [Header("Ami Phase 1")]
     [SerializeField] private float amiEntryDurationP1 = 6f;
     [SerializeField] private float signTimeP1 = 2f;
-    [SerializeField] private int amiLivesP1 = 9;
+    [SerializeField] public int amiLivesP1 = 9;
 
     [Header("Ami Phase 2")]
     [SerializeField] private float amiEntryDurationP2 = 6f;
     [SerializeField] private float signTimeP2 = 2f;
-    [SerializeField] private int amiLivesP2 = 5;
+    [SerializeField] public int amiLivesP2 = 5;
 
 
     private int currentSafeZoneID = 0;
     private Coroutine currentLoop;
     public int currentPhase = 1;
-    private bool fightActive = false;
+    public bool fightActive = false;
 
     private AmiController.AmiPath[] pathOrder=
     {
@@ -123,6 +123,8 @@ public class AmiFightManager : MonoBehaviour
             StopCoroutine(currentLoop);
         }
         StopAllCoroutines();
+        ami.StopAllAmiCoroutines();
+        ami.startedFight = false;
         currentSafeZoneID = 0;
         pathIndex = 0;
         ami.HideSign();
@@ -136,7 +138,6 @@ public class AmiFightManager : MonoBehaviour
         }
 
         ami.transform.position= amiStartPosition.position;
-        fightActive = true;
         if (currentPhase==1)
         {
             amiLivesP1 = 9;
@@ -145,9 +146,10 @@ public class AmiFightManager : MonoBehaviour
         else if(currentPhase==2)
         {
             amiLivesP2 = 5;
+            AmiView.Instance.UpdateAmiPhase();
             Debug.Log("Reseting Fight to Phase 2. Lives: " + amiLivesP2);
         }
-        StartCoroutine(ami.IntroCinematic());
+        StartFight.Instance.zoneCollider.enabled = true;
     }
     private IEnumerator EndBossFight()
     {
@@ -179,6 +181,7 @@ public class AmiFightManager : MonoBehaviour
             Debug.Log("Ami Lives P1: " + amiLivesP1);
             if (amiLivesP1 <= 0)
             {
+                ami.amiCollider.enabled = false;
                 Debug.Log("Changing to Phase 2");
                 StartCoroutine(ChangePhases());
             }
@@ -189,6 +192,8 @@ public class AmiFightManager : MonoBehaviour
             Debug.Log("Ami Lives P2: " + amiLivesP2);
             if (amiLivesP2 <= 0)
             {
+                ami.amiCollider.enabled = false;
+                currentPhase = 3;
                 Debug.Log("Ami Defeated");
                 StartCoroutine(EndBossFight());
             }

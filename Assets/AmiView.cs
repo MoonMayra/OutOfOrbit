@@ -13,6 +13,7 @@ public class AmiView : MonoBehaviour
         Phase1,
         Phase2
     }
+    public static AmiView   Instance { get; private set; }
     [Header("Animations Keys")]
     [SerializeField] private string stateAnimationKey = "State";
     [SerializeField] private string phaseAnimationKey = "Phase";
@@ -29,7 +30,14 @@ public class AmiView : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        if(Instance==null)
+        { Instance = this; }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+            animator = GetComponent<Animator>();
         amiController = GetComponent<AmiController>();
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -66,7 +74,6 @@ public class AmiView : MonoBehaviour
     {
         animator.SetTrigger(hitAnimationKey);
         currentState = AmiState.Other;
-        Debug.Log("Hola");
         UpdateAmiState();
     }
     public void SetAmiDeath()
@@ -81,7 +88,14 @@ public class AmiView : MonoBehaviour
     }
     public void UpdateAmiPhase()
     {
-        currentPhase = AmiFightManager.Instance.currentPhase == 1 ? AmiPhase.Phase1 : AmiPhase.Phase2;
+        if(AmiFightManager.Instance.currentPhase==1)
+        {
+            currentPhase = AmiPhase.Phase1;
+        }
+        else
+        {
+            currentPhase = AmiPhase.Phase2;
+        }
         animator.SetInteger(phaseAnimationKey, (int)currentPhase);
     }
 }

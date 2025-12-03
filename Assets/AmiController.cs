@@ -51,8 +51,11 @@ public class AmiController : MonoBehaviour
     private Coroutine currentMovementCoroutine;
     private Coroutine movingCoroutine;
     public bool startedFight = false;
-    private Collider2D amiCollider;
+    public Collider2D amiCollider;
     public bool isStunned = false;  
+    public bool onIntro = false;
+    public bool onExit = false;
+    public bool onChange = false;
 
     //ARROWS
 
@@ -239,12 +242,23 @@ public class AmiController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((1<<collision.gameObject.layer & bulletMask)!=0)
+        if ((1 << collision.gameObject.layer & bulletMask) != 0)
         {
             AmiFightManager.Instance.AmiHit();
-            BulletMovement bulletMovement= collision.gameObject.GetComponent<BulletMovement>();
-            currentMovementCoroutine=StartCoroutine(HitSequence());
+            BulletMovement bulletMovement = collision.gameObject.GetComponent<BulletMovement>();
             bulletMovement.DestroyBulletsOnHazards();
+            if (AmiFightManager.Instance.amiLivesP1==0 && AmiFightManager.Instance.currentPhase==2)
+            {
+                if(onIntro || onExit || onChange)
+                    return;
+            }
+            if(AmiFightManager.Instance.amiLivesP2 == 0 && AmiFightManager.Instance.currentPhase==3)
+            {
+                if (onIntro || onExit || onChange)
+                    return;
+            }
+            currentMovementCoroutine=StartCoroutine(HitSequence());
+
         }
     }
     public void PhaseChange()
@@ -275,6 +289,7 @@ public class AmiController : MonoBehaviour
     }
     public IEnumerator IntroCinematic()
     {
+        onIntro=true;
         amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Intro Cinematic");
@@ -292,10 +307,12 @@ public class AmiController : MonoBehaviour
         yield return new WaitForSeconds(amiExitTimeP1);
         amiCollider.enabled = true;
         StartCoroutine(AmiFightManager.Instance.StartBossFight());
+        onIntro = false;
         yield break;
     }
     public IEnumerator ChangeCinematic()
     {
+        onChange = true;
         amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Phase change Cinematic");
@@ -315,10 +332,12 @@ public class AmiController : MonoBehaviour
         yield return new WaitForSeconds(amiExitTimeP1);
         amiCollider.enabled = true;
         StartCoroutine(AmiFightManager.Instance.StartBossFight());
+        onChange = false;
         yield break;
     }
     public IEnumerator ExitCinematic()
     {
+        onExit=true;
         amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Exit Cinematic");
@@ -334,14 +353,28 @@ public class AmiController : MonoBehaviour
         movingCoroutine = StartCoroutine(MoveAmi(cutscenePoint.position, endPoint.position, amiExitTimeP2));
         yield return new WaitForSeconds(amiExitTimeP2);
         amiCollider.enabled = true;
+        onExit = false;
         yield break;
+
+    }
+    public void StopAllAmiCoroutines()
+    {
+        if (movingCoroutine != null)
+            StopCoroutine(movingCoroutine);
+        if (currentMovementCoroutine != null)
+            StopCoroutine(currentMovementCoroutine);
+
+        StopAllCoroutines();
+        rigidBody.linearVelocity = Vector2.zero;
+        isStunned = false;
 
     }
     private void Update()
     {
-        if(startedFight)
+        if(startedFight && AmiFightManager.Instance!=null && !AmiFightManager.Instance.fightActive)
         {
             StartCoroutine(IntroCinematic());
+            Debug.Log("arrancando");
             startedFight = false;
         }
     }
