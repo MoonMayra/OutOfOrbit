@@ -65,6 +65,9 @@ TagManager:
   - name: PlatformEX
     uniqueID: 3457003455
     locked: 0
+  - name: spikes
+    uniqueID: 147626271
+    locked: 0
   - name: interactuables
     uniqueID: 3613973531
     locked: 0
