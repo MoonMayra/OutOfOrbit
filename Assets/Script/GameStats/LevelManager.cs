@@ -49,7 +49,8 @@ public class LevelManager : MonoBehaviour
         if (scene.name == "Boot" ||
             scene.name == "MainMenu" ||
             scene.name == "AreaSelector" ||
-            scene.name == "DebriefScreen")
+            scene.name == "DebriefScreen" ||
+            scene.name.StartsWith("Cutscene"))
             return;
 
         ResetLevelAndValues();

@@ -110,7 +110,6 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("Cutscene1");
         PlayerStats.Instance.ResetValues();
         PlayerStats.Instance.ResetTimer();
-        PlayerStats.Instance.StartTimer();
     }
 
     public void ToggleFullscreen()

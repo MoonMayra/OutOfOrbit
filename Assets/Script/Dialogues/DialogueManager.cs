@@ -50,7 +50,7 @@ public class DialogueManager : MonoBehaviour
             dialogueIsActive = false;
             dialoguePanel.SetActive(false);
 
-            OnDialogueFinished?.Invoke();
+            OnDialogueFinished?.Invoke(); 
             OnDialogueFinished = null;
 
             PlayerMovement.Instance.enabled = true;
