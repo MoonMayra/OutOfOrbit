@@ -25,6 +25,7 @@ public class CameraShake : MonoBehaviour
     }
     public void Shake(float duration = -1, float magnitude = -1)
     {
+        originalPos = transform.position;
         if (duration <= 0)
         {
             duration = defaultDuration;
