@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
         None,
         LoadScene,
         EnableTrigger,
+        DisableTrigger,
         CustomAction,
     }
 
@@ -23,6 +24,8 @@ public class DialogueTrigger : MonoBehaviour
 
     [SerializeField] private string sceneToLoad;
     [SerializeField] private GameObject triggerToEnable;
+    [SerializeField] private GameObject triggerToDisable;
+    
     public UnityEvent customAction;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,6 +67,13 @@ public class DialogueTrigger : MonoBehaviour
                 if (triggerToEnable != null)
                 {
                     triggerToEnable.SetActive(true);
+                }
+                break;
+
+            case DialogueEndMode.DisableTrigger:
+                if (triggerToDisable != null)
+                {
+                    triggerToDisable.SetActive(false);
                 }
                 break;
 

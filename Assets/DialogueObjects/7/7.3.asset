@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c85e8d9b41544458b93d446c89721e, type: 3}
+  m_Name: 7.3
+  m_EditorClassIdentifier: 
+  conversationLines:
+  - speakerName: Narrator
+    dialogueLine: "It\u2019s you."
+  - speakerName: 'Mia '
+    dialogueLine: What are you doing here? How did you even get in?
+  - speakerName: Mia
+    dialogueLine: Listen to me. That gem is dangerous. You have to give it to me.
+  - speakerName: 'Mia '
+    dialogueLine: "Dangerous? It\u2019s the greatest discovery we\u2019ve ever made.
+      Do you understand what this could mean for humanity?"
+  - speakerName: Mia
+    dialogueLine: "I do. More than you could think. Because I\u2019ve seen what it
+      does. It\u2019s capable of destroying the whole Earth."
+  - speakerName: 'Mia '
+    dialogueLine: "T-that\u2019s impossible. I ran every test. The readings are stable."
+  - speakerName: Mia
+    dialogueLine: "That\u2019s what I thought too. Until it wasn\u2019t. You can\u2019t
+      control it. You have to stop this experiment before it starts."
+  - speakerName: 'Mia '
+    dialogueLine: Who even are you to tell me what to do with my own creation?
+  - speakerName: Mia
+    dialogueLine: "I\u2019m you. From the future. I came back to make sure you never
+      activate that thing. "
+  - speakerName: 'Mia '
+    dialogueLine: You expect me to believe that? That I- you, would ever cause something
+      like that?
+  - speakerName: Mia
+    dialogueLine: "You already did. And I\u2019ve spent every day trying to fix it."
+  - speakerName: Narrator
+    dialogueLine: "You see her tighten her grip on the gem. It\u2019s light pulsing."
+  - speakerName: Narrator
+    dialogueLine: "No. I won\u2019t let you take this from me. You\u2019re just afraid.
+      Afraid of what we can become. "
+  - speakerName: Mia
+    dialogueLine: "I\u2019m afraid of what we already became. "
+  - speakerName: Narrator
+    dialogueLine: The silence between you vibrates with the energy of the stone.
+      The air hums, lights flickering as both of you lock eyes.
