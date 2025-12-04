@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -7,7 +9,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         None,
         LoadScene,
-        EnableTrigger
+        EnableTrigger,
+        CustomAction,
     }
 
     [Header("Dialogue Settings")]
@@ -20,6 +23,7 @@ public class DialogueTrigger : MonoBehaviour
 
     [SerializeField] private string sceneToLoad;
     [SerializeField] private GameObject triggerToEnable;
+    public UnityEvent customAction;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -63,8 +67,13 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 break;
 
+            case DialogueEndMode.CustomAction:
+                customAction.Invoke();
+                break;
+
             case DialogueEndMode.None:
                 break;
         }
     }
+
 }
