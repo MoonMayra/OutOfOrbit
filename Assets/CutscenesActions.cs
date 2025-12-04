@@ -32,7 +32,15 @@ public class CutscenesActions : MonoBehaviour
         yield return new WaitForSeconds(particleTime);
         SceneManager.LoadScene(sceneToLoad);
     }
-
+    public void PlayTriggerAnimationGorilla()
+    {
+        animator.SetTrigger(animKey);
+        CameraShake.Instance.Shake(0.5f);
+    }
+    public void PlayBoolAnimation()
+    {
+        animator.SetBool(animKey,true);
+    }
 
 
 
