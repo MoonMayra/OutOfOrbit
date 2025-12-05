@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class AutoDialogue : MonoBehaviour
@@ -7,6 +8,7 @@ public class AutoDialogue : MonoBehaviour
     {
         None,
         LoadScene,
+        CustomAction
     }
 
     [Header("Dialogue Settings")]
@@ -16,6 +18,7 @@ public class AutoDialogue : MonoBehaviour
     [Header("End Behaviour")]
     [SerializeField] private DialogueEndMode endMode = DialogueEndMode.None;
     [SerializeField] private string sceneToLoad;
+    [SerializeField] private UnityEvent customAction;
 
     private void Start()
     {
@@ -34,6 +37,10 @@ public class AutoDialogue : MonoBehaviour
             case DialogueEndMode.LoadScene:
                 if (!string.IsNullOrEmpty(sceneToLoad))
                     SceneManager.LoadScene(sceneToLoad);
+                break;
+
+            case DialogueEndMode.CustomAction:
+                    customAction.Invoke();
                 break;
 
             case DialogueEndMode.None:

@@ -8,7 +8,9 @@ public class CutscenesActions : MonoBehaviour
     [SerializeField] private ParticleSystem particleSys;
     [SerializeField] private float particleTime = 1.0f;
     [SerializeField] private GameObject objects;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator1;
+    [SerializeField] private Animator animator2;
+    [SerializeField] private Animator animator3;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private Transform startPosition;
@@ -47,16 +49,16 @@ public class CutscenesActions : MonoBehaviour
     }
     public void PlayTriggerAnimationGorilla()
     {
-        animator.SetTrigger(animKey);
+        animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
     }
     public void PlayBoolAnimation()
     {
-        animator.SetBool(animKey,true);
+        animator1.SetBool(animKey,true);
     }
     public void PlayTriggerAnimationLeak()
     {
-        animator.SetTrigger(animKey);
+        animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
     }
 
@@ -128,5 +130,15 @@ public class CutscenesActions : MonoBehaviour
             nxtColl.enabled = true;
         }
 
+    }
+    public void FlipSprite()
+    {
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+    }
+    public void AnimateLights()
+    {
+        animator1.SetTrigger(animKey);
+        animator2.SetTrigger(animKey);
+        animator3.SetTrigger(animKey);
     }
 }

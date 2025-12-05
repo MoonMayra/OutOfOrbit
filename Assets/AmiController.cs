@@ -33,6 +33,7 @@ public class AmiController : MonoBehaviour
     [SerializeField] private Transform originalPoint;
     [SerializeField] private Transform endPoint;
     [SerializeField] private ParticleSystem dust;
+    [SerializeField] private string sceneToLoad;
 
     [Header("Ami Parameters Phase 1")]
     [SerializeField] private float amiHitStunDurationP1 = 0.05f;
@@ -354,6 +355,7 @@ public class AmiController : MonoBehaviour
         yield return new WaitForSeconds(amiExitTimeP2);
         amiCollider.enabled = true;
         onExit = false;
+        FadeScript.Instance.FadeOut(sceneToLoad);
         yield break;
 
     }
@@ -378,4 +380,5 @@ public class AmiController : MonoBehaviour
             startedFight = false;
         }
     }
+
 }

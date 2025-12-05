@@ -72,7 +72,7 @@ public class FadeScript : MonoBehaviour
 
         if(isChangingScene && !isFadingIn)
         {
-            SceneManager.LoadScene(sceneToLoad);
+            LevelManager.Instance.LoadNextScene(sceneToLoad);
         }
         currentCoroutine = null;
     }
