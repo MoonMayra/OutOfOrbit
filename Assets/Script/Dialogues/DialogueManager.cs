@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private Image panelImage;
 
-    [SerializeField] private Color miaPruple = new Color(0.7f, 0.3f, 1f);
-    [SerializeField] private Color miaCyan = new Color(0f, 1f, 1f);
-    [SerializeField] private Color defaultColor = Color.blue;
+    [SerializeField] private Color miaPruple = new Color(0.7f, 0.3f, 1f,0.4f);
+    [SerializeField] private Color miaCyan = new Color(0f, 1f, 1f,0.4f);
+    [SerializeField] private Color defaultColor = new Color(0f,0f,1f,0.4f);
 
     bool dialogueIsActive;
+    public Action OnDialogueFinished;
     Queue<Line> lines = new Queue<Line>();
 
     public void Update()
@@ -26,8 +28,10 @@ public class DialogueManager : MonoBehaviour
             ProduceNextLine();
         }
     }
-    public void GetConversation(Dialogue conversation)
+    public void GetConversation(Dialogue conversation, Action onFinish = null)
     {
+        OnDialogueFinished = onFinish;
+
         lines.Clear();
         foreach (var line in conversation.conversationLines)
         {
@@ -45,6 +49,11 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueIsActive = false;
             dialoguePanel.SetActive(false);
+
+            OnDialogueFinished?.Invoke(); 
+            OnDialogueFinished = null;
+
+            PlayerMovement.Instance.enabled = true;
             return;
         }
         Line currentLine = lines.Dequeue();

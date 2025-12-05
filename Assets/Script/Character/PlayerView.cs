@@ -29,15 +29,19 @@ public class PlayerView : MonoBehaviour
     }
     public void UpdateDirection(float moveX)
     {
-        if (moveX > 0)
+        if (PlayerMovement.Instance != null && PlayerMovement.Instance.enabled)
         {
-            spriteRenderer.flipX = false;
-            playerShoot.isLookingRight = true;
-        }
-        else if (moveX < 0)
-        {
-            spriteRenderer.flipX = true;
-            playerShoot.isLookingRight = false;
+
+            if (moveX > 0)
+            {
+                spriteRenderer.flipX = false;
+                playerShoot.isLookingRight = true;
+            }
+            else if (moveX < 0)
+            {
+                spriteRenderer.flipX = true;
+                playerShoot.isLookingRight = false;
+            }
         }
     }
    
@@ -58,9 +62,12 @@ public class PlayerView : MonoBehaviour
         {
             state= PlayerState.Idle;
         }
-
-        animator.SetInteger(stateAnimKey, (int)state);
-        animator.SetBool(shootingAnimKey, playerShoot.isAiming);
+        if (animator != null)
+        {
+            animator.SetInteger(stateAnimKey, (int)state);
+            if(playerShoot != null)
+            animator.SetBool(shootingAnimKey, playerShoot.isAiming);
+        }
     }
     private void Update()
     {

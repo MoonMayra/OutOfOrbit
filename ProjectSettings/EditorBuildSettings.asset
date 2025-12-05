@@ -18,23 +18,50 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/DebriefScreen.unity
     guid: 367335061a47c0245b2c50d92efad7c4
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene1.unity
+    guid: bd32cd54b19a21548964ae9b598adf5d
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene2.unity
+    guid: 50f3d6b5f3f0737499281128f1703454
+  - enabled: 1
     path: Assets/Scenes/Levels/Jungle.unity
     guid: 7958f834767393042bab78609c32ad9b
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene3.unity
+    guid: 8519075187e955141bcaa06907691363
   - enabled: 1
     path: Assets/Scenes/Bosses/Gorilla.unity
     guid: 562e8fa86df3b2a468e81ec6d600fea2
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene4.unity
+    guid: e5561c7a5e99cd64294fed037cab372d
+  - enabled: 1
     path: Assets/Scenes/Levels/Underground.unity
     guid: 0a2bb8fb40986cc49bb9bc57e24d5b82
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene5.unity
+    guid: 05bd07223a114b94083d5a4ae5a6f4ff
   - enabled: 1
     path: Assets/Scenes/Bosses/Water.unity
     guid: fbb922d10aea73946b3d33f03b014c36
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene6.unity
+    guid: 04bfbac2cad79204e9edda22712a3b22
+  - enabled: 1
     path: Assets/Scenes/Levels/Lab.unity
     guid: 728ef8c10f02a8448a558e85e35f0cdc
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene7.unity
+    guid: 658eff69e2f08724592bc7b2fa241640
+  - enabled: 1
     path: Assets/Scenes/Bosses/Mia.unity
     guid: cfd8709430e6e324eb262b887d4e9677
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene8.unity
+    guid: 0f428160913155f4fa4bfdce7f75db81
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Cutscene9.unity
+    guid: 6848c5166dd0ec84aa64c01488e1b350
   - enabled: 1
     path: Assets/Scenes/Menu/Credits.unity
     guid: 11d8d6b58cf87ef4a9cc3bacdc2a81f1

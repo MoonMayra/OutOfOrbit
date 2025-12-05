@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c85e8d9b41544458b93d446c89721e, type: 3}
+  m_Name: 9.1
+  m_EditorClassIdentifier: 
+  conversationLines:
+  - speakerName: TV Reporter
+    dialogueLine: 'Good morning to all citizens. This is an official statement from
+      the Ministry of Interstellar Affairs:'
+  - speakerName: TV Reporter
+    dialogueLine: "\u201CWe are pleased to announce that the recent orbital irregularities
+      have been completely resolved. The planet\u2019s trajectory has returned to
+      normal, and all systems are stable. Humanity is safe once again.\u201D\r\n"
+  - speakerName: TV Reporter
+    dialogueLine: Thanks to the tireless efforts of our scientific division, the
+      Earth remains in perfect balance. We remind everyone that this event will mark
+      a new beginning for our species, a reminder of both our fragility and our resilience.

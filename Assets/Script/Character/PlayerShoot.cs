@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
+    public static PlayerShoot Instance { get; private set; }
+
     [Header("Input")]
     [SerializeField] private InputActionReference shootInput;
     [SerializeField] private InputActionReference activateInput;
@@ -58,6 +60,13 @@ public class PlayerShoot : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         trayectory = GetComponentInChildren<TrayectoryPreview>();
         spawn = bulletSpawn;
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
     private void OnEnable()
     {
