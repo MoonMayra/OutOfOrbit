@@ -42,7 +42,7 @@ MonoBehaviour:
     dialogueLine: "You already did. And I\u2019ve spent every day trying to fix it."
   - speakerName: Narrator
     dialogueLine: "You see her tighten her grip on the gem. It\u2019s light pulsing."
-  - speakerName: Narrator
+  - speakerName: 'Mia '
     dialogueLine: "No. I won\u2019t let you take this from me. You\u2019re just afraid.
       Afraid of what we can become. "
   - speakerName: Mia

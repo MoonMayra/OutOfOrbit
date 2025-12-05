@@ -16,6 +16,17 @@ public class CutscenesActions : MonoBehaviour
     [SerializeField] private float time;
     [SerializeField] private string animKey = string.Empty;
 
+    [Header("Ami Cutscene")]
+    [SerializeField] private Rigidbody2D amiRB;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private Transform endPoint;
+    [SerializeField] private float amiVel;
+    [SerializeField] private Collider2D nxtColl;
+    [SerializeField] private bool sceneEnd = false;
+    [SerializeField] private Collider2D blockColl;
+
+
+
 
     private Coroutine currenteCoroutine;
 
@@ -78,5 +89,44 @@ public class CutscenesActions : MonoBehaviour
         CameraShake.Instance.Shake(0.5f);
     }
 
+    public void MoveAmiCut()
+    {
+        if (currenteCoroutine != null)
+        {
+            StopCoroutine(currenteCoroutine);
+        }
+        currenteCoroutine = StartCoroutine(MoveAmiCoroutine());
+    }
+    private IEnumerator MoveAmiCoroutine()
+    {
+        if (amiRB!=null)
+        {
+            amiRB.linearVelocity = Vector2.zero;
+        }
+        AmiView.Instance.SetAmiMoving();
 
+        Vector2 target = endPoint.position;
+        float direction = Mathf.Sign(target.x - amiRB.position.x);
+
+        if (sceneEnd)
+        {
+            blockColl.enabled = false;
+        }
+
+
+        while (Mathf.Abs(target.x - amiRB.position.x) > 0.5f)
+        {
+            amiRB.linearVelocity = new Vector2(direction * amiVel, amiRB.linearVelocity.y);
+            yield return null;
+        }
+        amiRB.linearVelocity = Vector2.zero;
+        amiRB.position = new Vector2(target.x, amiRB.position.y);
+
+        AmiView.Instance.SetAmiIdle();
+        if(nxtColl!=null)
+        {
+            nxtColl.enabled = true;
+        }
+
+    }
 }
