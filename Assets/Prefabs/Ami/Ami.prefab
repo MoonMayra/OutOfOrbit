@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 8929489854173639418}
   - component: {fileID: 1579909222111853654}
   - component: {fileID: 4415166531149728097}
+  - component: {fileID: 1355147699210014170}
+  - component: {fileID: 39890788985933847}
   m_Layer: 9
   m_Name: Ami
   m_TagString: Untagged
@@ -269,6 +271,7 @@ MonoBehaviour:
   originalPoint: {fileID: 0}
   endPoint: {fileID: 0}
   dust: {fileID: 0}
+  sceneToLoad: 
   amiHitStunDurationP1: 0.4
   amiEnterTimeP1: 3
   amiStayTimeP1: 2
@@ -345,5 +348,125 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   levelManager: {fileID: 0}
   current: {fileID: 0}
-  audioSource: {fileID: 0}
-  deathSound: {fileID: 8300000, guid: 5d7295fc1dddcef45b4b8d735d273203, type: 3}
+  audioSource: {fileID: 1355147699210014170}
+  deathSound: {fileID: 0}
+--- !u!82 &1355147699210014170
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432282928249349236}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 190662380911201324, guid: dca1c7003335ae249ae9780707628fe4, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &39890788985933847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432282928249349236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bbb980fb3ec8f344875f3575aaf094b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1355147699210014170}
+  idleP1Sound: {fileID: 0}
+  moveP1Sound: {fileID: 0}
+  attackP1Sound: {fileID: 8300000, guid: f1a8f6fa35566434e93d3ef1284cf29b, type: 3}
+  hitP1Sound: {fileID: 8300000, guid: dbe7be86495fa51428f52d8ec9bd2e0d, type: 3}
+  deathP1Sound: {fileID: 8300000, guid: 5eeb6811d12026c4bab6cd39abb07db7, type: 3}
+  idleP2Sound: {fileID: 0}
+  moveP2Sound: {fileID: 0}
+  attackP2Sound: {fileID: 8300000, guid: f1a8f6fa35566434e93d3ef1284cf29b, type: 3}
+  hitP2Sound: {fileID: 8300000, guid: dbe7be86495fa51428f52d8ec9bd2e0d, type: 3}
+  deathP2Sound: {fileID: 8300000, guid: 6f74962697401924485449254c261733, type: 3}

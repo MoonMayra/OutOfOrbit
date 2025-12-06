@@ -263,6 +263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2609326874388061924, guid: 68a74d6d5c57aaf44b54d639402cfbfb, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: bb5aa4700cfeb494e9b0982899e68a7b, type: 3}
     - target: {fileID: 4770373947336067722, guid: 68a74d6d5c57aaf44b54d639402cfbfb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -458,7 +462,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1286289019
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: -5966621866309598838, guid: 76f49c6148fd60541a4e9542499a2261, type: 3}
   m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
@@ -725,7 +729,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1267593201
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 1
   m_Sprite: {fileID: -6869772080663150191, guid: 895b441d3ea7f60459925307ccf94a68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7472,7 +7476,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1267593201
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7901,7 +7905,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1267593201
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 10
   m_Sprite: {fileID: -5966621866309598838, guid: 76f49c6148fd60541a4e9542499a2261, type: 3}
   m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
@@ -9035,7 +9039,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1267593201
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 10
   m_Sprite: {fileID: -5966621866309598838, guid: 76f49c6148fd60541a4e9542499a2261, type: 3}
   m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}

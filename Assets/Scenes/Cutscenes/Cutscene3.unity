@@ -5304,13 +5304,23 @@ MonoBehaviour:
   sceneToLoad: 
   particleSys: {fileID: 0}
   particleTime: 1
-  npc: {fileID: 0}
-  animator: {fileID: 948413087}
+  objects: {fileID: 0}
+  animator1: {fileID: 0}
+  animator2: {fileID: 0}
+  animator3: {fileID: 0}
   spriteRenderer: {fileID: 0}
   rigidBody: {fileID: 0}
   startPosition: {fileID: 0}
   endPosition: {fileID: 0}
+  time: 0
   animKey: Appear
+  amiRB: {fileID: 0}
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
+  amiVel: 0
+  nxtColl: {fileID: 0}
+  sceneEnd: 0
+  blockColl: {fileID: 0}
 --- !u!4 &780811675
 Transform:
   m_ObjectHideFlags: 0
@@ -5605,7 +5615,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1267593201
-  m_SortingLayer: 15
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 6925141970351438747, guid: ae7fa4f018330ba459233bd6695ca20e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7189,6 +7199,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2609326874388061924, guid: 68a74d6d5c57aaf44b54d639402cfbfb, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: ec892d22282adf54292abee3b2c036f8, type: 3}
     - target: {fileID: 4770373947336067722, guid: 68a74d6d5c57aaf44b54d639402cfbfb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7399,7 +7413,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1286289019
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: -5966621866309598838, guid: 76f49c6148fd60541a4e9542499a2261, type: 3}
   m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
