@@ -27,19 +27,22 @@ public class CutscenesActions : MonoBehaviour
     [SerializeField] private bool sceneEnd = false;
     [SerializeField] private Collider2D blockColl;
 
-
-
+    [Header("Leak Sound")]
+    [SerializeField] private AudioSource leakAudioSource; 
+    [SerializeField] private AudioClip leakClip;          
 
     private Coroutine currenteCoroutine;
 
     public void ParticleAndLoad()
     {
-        currenteCoroutine= StartCoroutine(ParticleAndLoadCoroutine());
+        currenteCoroutine = StartCoroutine(ParticleAndLoadCoroutine());
     }
+
     public void PlayParticle()
     {
         particleSys.Play();
     }
+
     public IEnumerator ParticleAndLoadCoroutine()
     {
         particleSys.Play();
@@ -47,21 +50,32 @@ public class CutscenesActions : MonoBehaviour
         yield return new WaitForSeconds(particleTime);
         FadeScript.Instance.FadeOut(sceneToLoad);
     }
+
     public void PlayTriggerAnimationGorilla()
     {
         animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
     }
+
     public void PlayBoolAnimation()
     {
-        animator1.SetBool(animKey,true);
+        animator1.SetBool(animKey, true);
     }
     public void PlayTriggerAnimationLeak()
     {
         animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
+        PlayLeakSound(); 
     }
+    private void PlayLeakSound()
+    {
+        if (leakAudioSource == null || leakClip == null)
+            return;
 
+        leakAudioSource.clip = leakClip;
+        leakAudioSource.loop = true;
+        leakAudioSource.Play();
+    }
     public void WaterUp()
     {
         if (currenteCoroutine != null)
@@ -76,7 +90,7 @@ public class CutscenesActions : MonoBehaviour
         Vector3 end = endPosition.position;
         float timer = 0f;
 
-        while(timer<time)
+        while (timer < time)
         {
             timer += Time.deltaTime;
             float interpolation = Mathf.Clamp01(timer / time);
@@ -84,9 +98,9 @@ public class CutscenesActions : MonoBehaviour
             yield return null;
         }
         objects.transform.position = end;
-
     }
-   public void Shake()
+
+    public void Shake()
     {
         CameraShake.Instance.Shake(0.5f);
     }
@@ -99,9 +113,10 @@ public class CutscenesActions : MonoBehaviour
         }
         currenteCoroutine = StartCoroutine(MoveAmiCoroutine());
     }
+
     private IEnumerator MoveAmiCoroutine()
     {
-        if (amiRB!=null)
+        if (amiRB != null)
         {
             amiRB.linearVelocity = Vector2.zero;
         }
@@ -115,7 +130,6 @@ public class CutscenesActions : MonoBehaviour
             blockColl.enabled = false;
         }
 
-
         while (Mathf.Abs(target.x - amiRB.position.x) > 0.5f)
         {
             amiRB.linearVelocity = new Vector2(direction * amiVel, amiRB.linearVelocity.y);
@@ -125,16 +139,17 @@ public class CutscenesActions : MonoBehaviour
         amiRB.position = new Vector2(target.x, amiRB.position.y);
 
         AmiView.Instance.SetAmiIdle();
-        if(nxtColl!=null)
+        if (nxtColl != null)
         {
             nxtColl.enabled = true;
         }
-
     }
+
     public void FlipSprite()
     {
         spriteRenderer.flipX = !spriteRenderer.flipX;
     }
+
     public void AnimateLights()
     {
         animator1.SetTrigger(animKey);
