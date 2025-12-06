@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AcidMiddle
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 1851919116, guid: 851949378ef57e8468ab9a49e544a867, type: 3}
-  - {fileID: -570096559, guid: 851949378ef57e8468ab9a49e544a867, type: 3}
-  - {fileID: 346671148, guid: 851949378ef57e8468ab9a49e544a867, type: 3}
+  - {fileID: 1851919116, guid: ea8b32294ff8b1d449ba12b9242b71ec, type: 3}
+  - {fileID: -570096559, guid: ea8b32294ff8b1d449ba12b9242b71ec, type: 3}
+  - {fileID: 346671148, guid: ea8b32294ff8b1d449ba12b9242b71ec, type: 3}
   m_MinSpeed: 8
   m_MaxSpeed: 8
   m_AnimationStartTime: 0
