@@ -167,6 +167,11 @@ public class AmiController : MonoBehaviour
 
         currentArrow.transform.position = spawn.position;
         currentArrow.SetActive(true);
+
+        SignView view = currentArrow.GetComponentInChildren<SignView>();
+        view.UpdatePhase(AmiFightManager.Instance.currentPhase);
+        view.ApplyFlip(dir, spawn);
+
         arrowAnimator.Play(dir.ToString());
     }
     public void ShowReturnSign(AmiPath path)
@@ -176,6 +181,11 @@ public class AmiController : MonoBehaviour
 
         currentArrow.transform.position = spawn.position;
         currentArrow.SetActive(true);
+
+        SignView view = currentArrow.GetComponentInChildren<SignView>();
+        view.UpdatePhase(AmiFightManager.Instance.currentPhase);
+        view.ApplyFlip(dir, spawn);
+
         arrowAnimator.Play(dir.ToString());
     }
 
