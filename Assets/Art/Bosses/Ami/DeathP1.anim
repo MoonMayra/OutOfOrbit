@@ -89,9 +89,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: Play(deathP1Sound)
+    functionName: PlayOneShot
     data: 
-    objectReferenceParameter: {fileID: 8432282928249349236, guid: 37677d4ead846bc4bb1a0255e2ef67fc, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: 5eeb6811d12026c4bab6cd39abb07db7, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
