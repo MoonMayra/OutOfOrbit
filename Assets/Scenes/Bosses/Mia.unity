@@ -2711,7 +2711,7 @@ MonoBehaviour:
   timeBetweenSequencesP2: 2
   amiEntryDurationP1: 6
   signTimeP1: 2
-  amiLivesP1: 1
+  amiLivesP1: 9
   amiEntryDurationP2: 6
   signTimeP2: 2
   amiLivesP2: 5
