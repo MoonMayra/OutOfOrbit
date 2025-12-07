@@ -91,7 +91,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -641588081
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0d70f5727e2b0244eb63140620e0fd75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -233,6 +233,9 @@ MonoBehaviour:
   moveInput: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   fieldsThrowInput: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  playerRigidBody: {fileID: 0}
+  moveInputX: 0
+  targetVelX: 0
   isFrozen: 0
 --- !u!114 &-669158974781351936
 MonoBehaviour:
@@ -251,7 +254,6 @@ MonoBehaviour:
   justLeftGround: 0
   wasGrounded: 0
   jumpingThreshold: 0
-  normalThreshold: 0.6
   dustParticles: {fileID: 606480952291650609, guid: 23133b72f3bb4db4a803b158e916c073, type: 3}
   groundLayer:
     serializedVersion: 2
@@ -344,7 +346,7 @@ MonoBehaviour:
   loopSource: {fileID: 6326393547307426037}
   oneShotSource: {fileID: 841942340084909278}
   footstepsClip: {fileID: 8300000, guid: bba65b80fcddb9f44b01cec2f26aa387, type: 3}
-  jumpClip: {fileID: 8300000, guid: af6dc4efe8a8f3d43b763cda4e760d89, type: 3}
+  jumpClip: {fileID: 8300000, guid: fe817f6e3e35c744d9873ef2840ff03e, type: 3}
   fallClip: {fileID: 8300000, guid: 3abd5ce93b68d6844bebae413969050f, type: 3}
   shootClip: {fileID: 8300000, guid: 43e586de314ecac4a82c1e0ea141cd48, type: 3}
   minPitch: 0.95

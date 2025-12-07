@@ -27,41 +27,98 @@ public class CutscenesActions : MonoBehaviour
     [SerializeField] private bool sceneEnd = false;
     [SerializeField] private Collider2D blockColl;
 
+    [Header("Leak Sound")]
+    [SerializeField] private AudioSource leakAudioSource;
+    [SerializeField] private AudioClip leakClip;
 
-
+    [Header("Colliders")]
+    [SerializeField] private GameObject triggerToDisable;
+    [SerializeField] private GameObject triggerToEnable;
 
     private Coroutine currenteCoroutine;
 
-    public void ParticleAndLoad()
+    //Cutscene 1
+    /*Sonidos:
+    1-Tv
+    2-Maquina del tiempo
+     */
+    public void TVAction()
     {
-        currenteCoroutine= StartCoroutine(ParticleAndLoadCoroutine());
+        Debug.Log("Playing TV sound");
+        //Mica aca agregas el sonido de la tv de la primer cutscene (Sonido 1)
     }
+    public void StopTVSound()
+    {
+        Debug.Log("Stoping TV sound");
+        //Si se puede aca para el sonido, si no se puede avisame por favor
+    }
+    public void TimeMachineAction()
+    {
+        currenteCoroutine = StartCoroutine(ParticleAndLoadCoroutine());
+    }
+
     public void PlayParticle()
     {
-        particleSys.Play();
+        particleSys.Play(); //Este ignoralo
     }
+
     public IEnumerator ParticleAndLoadCoroutine()
     {
         particleSys.Play();
+        Debug.Log("Playing Time machine sound");
+        //Mica aca agregas el sonido de la maquina del tiempo (Sonido 2)
         spriteRenderer.enabled = false;
         yield return new WaitForSeconds(particleTime);
         FadeScript.Instance.FadeOut(sceneToLoad);
     }
+    //Cutscene 3
+    /*Sonidos:
+    1-Sonido de ruffle en las hojas
+    2-Sonido de golpe sobre hojas
+    3-Sonido de gorila
+     */
+    public void PlayFoliageSound()
+    {
+        Debug.Log("Foliage sound");
+        //Aca agregas el sonido del ruffle de las hojas (Sonido 1)
+    }    
     public void PlayTriggerAnimationGorilla()
     {
         animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
+        Debug.Log("Playing gorila sound");
+        //Aca agregas el sonido del golpe y del gorila (Sonidos 2 y 3)
+    }
+    //Cutscene 5
+    /*Sonidos:
+    1-Leak (ya esta hecho bien)
+    2-Sonido de retumbe tipo rumble.
+     */
+    public void RumbleAction()
+    {
+        CameraShake.Instance.Shake(0.5f);
+        Debug.Log("Playing rumble sound");
+        //Aca agregas el sonido del rumble
     }
     public void PlayBoolAnimation()
     {
-        animator1.SetBool(animKey,true);
+        animator1.SetBool(animKey, true); //Este ignoralo
     }
     public void PlayTriggerAnimationLeak()
     {
         animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
+        PlayLeakSound();  //Este esta perfecto
     }
+    private void PlayLeakSound()
+    {
+        if (leakAudioSource == null || leakClip == null)
+            return;
 
+        leakAudioSource.clip = leakClip;
+        leakAudioSource.loop = true;
+        leakAudioSource.Play();
+    }
     public void WaterUp()
     {
         if (currenteCoroutine != null)
@@ -76,7 +133,7 @@ public class CutscenesActions : MonoBehaviour
         Vector3 end = endPosition.position;
         float timer = 0f;
 
-        while(timer<time)
+        while (timer < time)
         {
             timer += Time.deltaTime;
             float interpolation = Mathf.Clamp01(timer / time);
@@ -84,12 +141,16 @@ public class CutscenesActions : MonoBehaviour
             yield return null;
         }
         objects.transform.position = end;
-
     }
-   public void Shake()
+    public void Shake()
     {
         CameraShake.Instance.Shake(0.5f);
     }
+
+    //Cutscene 7
+    /*sonidos:
+    1-Pasos Ami 1
+     */
 
     public void MoveAmiCut()
     {
@@ -98,10 +159,13 @@ public class CutscenesActions : MonoBehaviour
             StopCoroutine(currenteCoroutine);
         }
         currenteCoroutine = StartCoroutine(MoveAmiCoroutine());
+        Debug.Log("Playing Ami footsteps");
+        //Aca podes poner los pasos o en la corrutina de abajo, es lo mismo, son los mismos sonidos en los distintos tramos
     }
+
     private IEnumerator MoveAmiCoroutine()
     {
-        if (amiRB!=null)
+        if (amiRB != null)
         {
             amiRB.linearVelocity = Vector2.zero;
         }
@@ -115,7 +179,6 @@ public class CutscenesActions : MonoBehaviour
             blockColl.enabled = false;
         }
 
-
         while (Mathf.Abs(target.x - amiRB.position.x) > 0.5f)
         {
             amiRB.linearVelocity = new Vector2(direction * amiVel, amiRB.linearVelocity.y);
@@ -125,20 +188,26 @@ public class CutscenesActions : MonoBehaviour
         amiRB.position = new Vector2(target.x, amiRB.position.y);
 
         AmiView.Instance.SetAmiIdle();
-        if(nxtColl!=null)
+        if (nxtColl != null)
         {
             nxtColl.enabled = true;
         }
-
     }
+    //Cutscene 8
+    /*Sonidos:
+    1-Alarmas sonando
+     */
     public void FlipSprite()
     {
         spriteRenderer.flipX = !spriteRenderer.flipX;
     }
+
     public void AnimateLights()
     {
         animator1.SetTrigger(animKey);
         animator2.SetTrigger(animKey);
         animator3.SetTrigger(animKey);
+        Debug.Log("Playing alarm sounds");
+        //Aca podes poner el sonido de las alarmas (Sonido 1)
     }
 }
