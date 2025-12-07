@@ -8714,7 +8714,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1352258757
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!224 &1432842114
 RectTransform:
@@ -8799,6 +8799,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e18fd69e6025e4a8379511c91659a9, type: 3}
+--- !u!1001 &1500661707
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 48202366144544204, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_Name
+      value: UILight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8084772
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1606433
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001426328717180836, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b1c8a8897916ddb4593e5a1258d8cd60, type: 3}
 --- !u!1 &1529937190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8970,7 +9027,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1146362061}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -11109,3 +11166,4 @@ SceneRoots:
   - {fileID: 522127141}
   - {fileID: 1432842114}
   - {fileID: 1196361211}
+  - {fileID: 1500661707}
