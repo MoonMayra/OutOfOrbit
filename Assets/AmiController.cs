@@ -34,6 +34,7 @@ public class AmiController : MonoBehaviour
     [SerializeField] private Transform endPoint;
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private string sceneToLoad;
+    [SerializeField] private ParticleSystem hitParticles;
 
     [Header("Ami Parameters Phase 1")]
     [SerializeField] private float amiHitStunDurationP1 = 0.05f;
@@ -261,11 +262,13 @@ public class AmiController : MonoBehaviour
             if (AmiFightManager.Instance.amiLivesP1==0 && AmiFightManager.Instance.currentPhase==2)
             {
                 if(onIntro || onExit || onChange)
+                    amiView.SetAmiHit();
                     return;
             }
             if(AmiFightManager.Instance.amiLivesP2 == 0 && AmiFightManager.Instance.currentPhase==3)
             {
                 if (onIntro || onExit || onChange)
+                    amiView.SetAmiHit();
                     return;
             }
             currentMovementCoroutine=StartCoroutine(HitSequence());
@@ -280,6 +283,8 @@ public class AmiController : MonoBehaviour
     {
         isStunned = true;
         Vector2 actualVelocity= rigidBody.linearVelocity;
+        hitParticles.transform.position = transform.position;
+        hitParticles.Play();
         amiView.SetAmiHit();
         Debug.Log("Ami Hit");
         amiCollider.enabled= false;
