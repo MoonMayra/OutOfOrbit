@@ -2706,16 +2706,16 @@ MonoBehaviour:
   stillTimeP1: 2
   openDurationP1: 2
   timeBetweenSequencesP1: 3
-  closeDurationP2: 6
-  stillTimeP2: 2
-  openDurationP2: 2
-  timeBetweenSequencesP2: 2
+  closeDurationP2: 4.2
+  stillTimeP2: 1.4
+  openDurationP2: 1.4
+  timeBetweenSequencesP2: 1.4
   amiEntryDurationP1: 6
   signTimeP1: 2
   amiLivesP1: 9
-  amiEntryDurationP2: 6
-  signTimeP2: 2
-  amiLivesP2: 5
+  amiEntryDurationP2: 4.2
+  signTimeP2: 1.4
+  amiLivesP2: 13
   currentPhase: 1
   fightActive: 0
 --- !u!1001 &660141576
