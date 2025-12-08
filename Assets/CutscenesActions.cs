@@ -31,27 +31,40 @@ public class CutscenesActions : MonoBehaviour
     [SerializeField] private AudioSource leakAudioSource;
     [SerializeField] private AudioClip leakClip;
 
+    [Header("Cutscene Sounds")]
+    [SerializeField] private AudioSource sfxSource;
+
+    [SerializeField] private AudioClip tvSound;
+    [SerializeField] private AudioClip timeMachineSound;
+    [SerializeField] private AudioClip foliageSound;
+    [SerializeField] private AudioClip hitLeavesSound;
+    [SerializeField] private AudioClip gorillaSound;
+    [SerializeField] private AudioClip rumbleSound;
+    [SerializeField] private AudioClip amiStepsSound;
+    [SerializeField] private AudioClip alarmSound;
+
     [Header("Colliders")]
     [SerializeField] private GameObject triggerToDisable;
     [SerializeField] private GameObject triggerToEnable;
 
     private Coroutine currenteCoroutine;
 
-    //Cutscene 1
-    /*Sonidos:
-    1-Tv
-    2-Maquina del tiempo
-     */
+    // ------------------------------
+    // CUTSCENE 1
+    // ------------------------------
+
     public void TVAction()
     {
-        Debug.Log("Playing TV sound");
-        //Mica aca agregas el sonido de la tv de la primer cutscene (Sonido 1)
+        if (sfxSource && tvSound)
+            sfxSource.PlayOneShot(tvSound);
     }
+
     public void StopTVSound()
     {
-        Debug.Log("Stoping TV sound");
-        //Si se puede aca para el sonido, si no se puede avisame por favor
+        if (sfxSource)
+            sfxSource.Stop();
     }
+
     public void TimeMachineAction()
     {
         currenteCoroutine = StartCoroutine(ParticleAndLoadCoroutine());
@@ -59,57 +72,70 @@ public class CutscenesActions : MonoBehaviour
 
     public void PlayParticle()
     {
-        particleSys.Play(); //Este ignoralo
+        particleSys.Play();
     }
 
     public IEnumerator ParticleAndLoadCoroutine()
     {
         particleSys.Play();
-        Debug.Log("Playing Time machine sound");
-        //Mica aca agregas el sonido de la maquina del tiempo (Sonido 2)
+
+        if (sfxSource && timeMachineSound)
+            sfxSource.PlayOneShot(timeMachineSound);
+
         spriteRenderer.enabled = false;
+
         yield return new WaitForSeconds(particleTime);
+
         FadeScript.Instance.FadeOut(sceneToLoad);
     }
-    //Cutscene 3
-    /*Sonidos:
-    1-Sonido de ruffle en las hojas
-    2-Sonido de golpe sobre hojas
-    3-Sonido de gorila
-     */
+
+    // ------------------------------
+    // CUTSCENE 3
+    // ------------------------------
+
     public void PlayFoliageSound()
     {
-        Debug.Log("Foliage sound");
-        //Aca agregas el sonido del ruffle de las hojas (Sonido 1)
-    }    
+        if (sfxSource && foliageSound)
+            sfxSource.PlayOneShot(foliageSound);
+    }
+
     public void PlayTriggerAnimationGorilla()
     {
         animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
-        Debug.Log("Playing gorila sound");
-        //Aca agregas el sonido del golpe y del gorila (Sonidos 2 y 3)
+
+        if (sfxSource && hitLeavesSound)
+            sfxSource.PlayOneShot(hitLeavesSound);
+
+        if (sfxSource && gorillaSound)
+            sfxSource.PlayOneShot(gorillaSound);
     }
-    //Cutscene 5
-    /*Sonidos:
-    1-Leak (ya esta hecho bien)
-    2-Sonido de retumbe tipo rumble.
-     */
+
+    // ------------------------------
+    // CUTSCENE 5
+    // ------------------------------
+
     public void RumbleAction()
     {
         CameraShake.Instance.Shake(0.5f);
-        Debug.Log("Playing rumble sound");
-        //Aca agregas el sonido del rumble
+
+        if (sfxSource && rumbleSound)
+            sfxSource.PlayOneShot(rumbleSound);
     }
+
     public void PlayBoolAnimation()
     {
-        animator1.SetBool(animKey, true); //Este ignoralo
+        animator1.SetBool(animKey, true);
     }
+
     public void PlayTriggerAnimationLeak()
     {
         animator1.SetTrigger(animKey);
         CameraShake.Instance.Shake(0.5f);
-        PlayLeakSound();  //Este esta perfecto
+
+        PlayLeakSound();
     }
+
     private void PlayLeakSound()
     {
         if (leakAudioSource == null || leakClip == null)
@@ -119,14 +145,19 @@ public class CutscenesActions : MonoBehaviour
         leakAudioSource.loop = true;
         leakAudioSource.Play();
     }
+
+    // ------------------------------
+    // WATER UP
+    // ------------------------------
+
     public void WaterUp()
     {
         if (currenteCoroutine != null)
-        {
             StopCoroutine(currenteCoroutine);
-        }
+
         currenteCoroutine = StartCoroutine(WaterUpCoroutine());
     }
+
     private IEnumerator WaterUpCoroutine()
     {
         Vector3 start = startPosition.position;
@@ -136,67 +167,60 @@ public class CutscenesActions : MonoBehaviour
         while (timer < time)
         {
             timer += Time.deltaTime;
-            float interpolation = Mathf.Clamp01(timer / time);
-            objects.transform.position = Vector3.Lerp(start, end, interpolation);
+            objects.transform.position = Vector3.Lerp(start, end, timer / time);
             yield return null;
         }
+
         objects.transform.position = end;
     }
-    public void Shake()
-    {
-        CameraShake.Instance.Shake(0.5f);
-    }
 
-    //Cutscene 7
-    /*sonidos:
-    1-Pasos Ami 1
-     */
+    // ------------------------------
+    // CUTSCENE 7 — Ami Moving
+    // ------------------------------
 
     public void MoveAmiCut()
     {
         if (currenteCoroutine != null)
-        {
             StopCoroutine(currenteCoroutine);
-        }
+
+        if (sfxSource && amiStepsSound)
+            sfxSource.PlayOneShot(amiStepsSound);
+
         currenteCoroutine = StartCoroutine(MoveAmiCoroutine());
-        Debug.Log("Playing Ami footsteps");
-        //Aca podes poner los pasos o en la corrutina de abajo, es lo mismo, son los mismos sonidos en los distintos tramos
     }
 
     private IEnumerator MoveAmiCoroutine()
     {
         if (amiRB != null)
-        {
             amiRB.linearVelocity = Vector2.zero;
-        }
+
         AmiView.Instance.SetAmiMoving();
 
         Vector2 target = endPoint.position;
         float direction = Mathf.Sign(target.x - amiRB.position.x);
 
         if (sceneEnd)
-        {
             blockColl.enabled = false;
-        }
 
         while (Mathf.Abs(target.x - amiRB.position.x) > 0.5f)
         {
             amiRB.linearVelocity = new Vector2(direction * amiVel, amiRB.linearVelocity.y);
             yield return null;
         }
+
         amiRB.linearVelocity = Vector2.zero;
         amiRB.position = new Vector2(target.x, amiRB.position.y);
 
         AmiView.Instance.SetAmiIdle();
+
         if (nxtColl != null)
-        {
             nxtColl.enabled = true;
-        }
     }
-    //Cutscene 8
-    /*Sonidos:
-    1-Alarmas sonando
-     */
+
+    // ------------------------------
+    // CUTSCENE 8 — Alarms
+    // ------------------------------
+
     public void FlipSprite()
     {
         spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -207,7 +231,9 @@ public class CutscenesActions : MonoBehaviour
         animator1.SetTrigger(animKey);
         animator2.SetTrigger(animKey);
         animator3.SetTrigger(animKey);
-        Debug.Log("Playing alarm sounds");
-        //Aca podes poner el sonido de las alarmas (Sonido 1)
+
+        if (sfxSource && alarmSound)
+            sfxSource.PlayOneShot(alarmSound);
     }
 }
+
