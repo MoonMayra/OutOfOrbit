@@ -106,6 +106,8 @@ public class CutscenesActions : MonoBehaviour
 
         if (sfxSource && hitLeavesSound)
             sfxSource.PlayOneShot(hitLeavesSound);
+        if (sfxSource && rumbleSound)
+            sfxSource.PlayOneShot(rumbleSound);
 
         if (sfxSource && gorillaSound)
             sfxSource.PlayOneShot(gorillaSound);

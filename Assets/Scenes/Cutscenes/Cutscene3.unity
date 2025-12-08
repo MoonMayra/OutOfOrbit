@@ -5285,7 +5285,7 @@ MonoBehaviour:
   tvSound: {fileID: 0}
   timeMachineSound: {fileID: 0}
   foliageSound: {fileID: 0}
-  hitLeavesSound: {fileID: 0}
+  hitLeavesSound: {fileID: 8300000, guid: 81d767ec61dd5e845975d1e2be906717, type: 3}
   gorillaSound: {fileID: 8300000, guid: 1d1699f7f179e8d43b900ad8b4e48b7e, type: 3}
   rumbleSound: {fileID: 8300000, guid: 0d845e81424f83c41bf96e36da37cffc, type: 3}
   amiStepsSound: {fileID: 0}
@@ -7482,7 +7482,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 190662380911201324, guid: dca1c7003335ae249ae9780707628fe4, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0d845e81424f83c41bf96e36da37cffc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7579,14 +7579,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 190662380911201324, guid: dca1c7003335ae249ae9780707628fe4, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4589d342d78733649b100c4980ee8993, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 199
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
