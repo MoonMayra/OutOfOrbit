@@ -15,6 +15,7 @@ public class WallMovement : MonoBehaviour
     [SerializeField] private WallSide wallSide;
     private Rigidbody2D rigidBody;
     private Vector3 initialPosition;
+    private Coroutine moveCoroutine;
 
     private void Awake()
     {
@@ -31,13 +32,19 @@ public class WallMovement : MonoBehaviour
     }
     public void MoveTo(Vector3 targetPos, float duration)
     {
-        StopAllCoroutines();
-        StartCoroutine(MoveOverTime(targetPos, duration));
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+        moveCoroutine = StartCoroutine(MoveOverTime(targetPos, duration));
     }
     public void ReturnToInitialPosition(float duration)
     {
-        StopAllCoroutines();
-        StartCoroutine(MoveOverTime(initialPosition, duration));
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+        moveCoroutine = StartCoroutine(MoveOverTime(initialPosition, duration));
     }
     public IEnumerator MoveOverTime(Vector3 targetPos, float duration)
     {
@@ -57,6 +64,7 @@ public class WallMovement : MonoBehaviour
         rigidBody.linearVelocity = Vector2.zero;
         transform.position = targetPos;
 
+        moveCoroutine = null;
     }
 
 }

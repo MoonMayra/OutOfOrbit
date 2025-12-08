@@ -27,6 +27,8 @@ public class AmiController : MonoBehaviour
 
     [Header("Other References")]
     [SerializeField] private LayerMask bulletMask;
+    [SerializeField] private float hitCooldown = 0.15f;
+    [SerializeField] private bool canHit = true;
 
     [Header("Cutscenes component")]
     [SerializeField] private Transform cutscenePoint;
@@ -48,6 +50,7 @@ public class AmiController : MonoBehaviour
     [SerializeField] private float amiStayTimeP2 = 2f;
     [SerializeField] private float amiExitTimeP2 = 1f;
 
+    private float lastHitTime = 0f;
     private AmiView amiView;
     private Rigidbody2D rigidBody;
     private Coroutine currentMovementCoroutine;
@@ -169,10 +172,6 @@ public class AmiController : MonoBehaviour
         currentArrow.transform.position = spawn.position;
         currentArrow.SetActive(true);
 
-        SignView view = currentArrow.GetComponentInChildren<SignView>();
-        view.UpdatePhase(AmiFightManager.Instance.currentPhase);
-        view.ApplyFlip(dir, spawn);
-
         arrowAnimator.Play(dir.ToString());
     }
     public void ShowReturnSign(AmiPath path)
@@ -182,10 +181,6 @@ public class AmiController : MonoBehaviour
 
         currentArrow.transform.position = spawn.position;
         currentArrow.SetActive(true);
-
-        SignView view = currentArrow.GetComponentInChildren<SignView>();
-        view.UpdatePhase(AmiFightManager.Instance.currentPhase);
-        view.ApplyFlip(dir, spawn);
 
         arrowAnimator.Play(dir.ToString());
     }
@@ -254,26 +249,38 @@ public class AmiController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((1 << collision.gameObject.layer & bulletMask) != 0)
-        {
-            AmiFightManager.Instance.AmiHit();
-            BulletMovement bulletMovement = collision.gameObject.GetComponent<BulletMovement>();
-            bulletMovement.DestroyBulletsOnHazards();
-            if (AmiFightManager.Instance.amiLivesP1==0 && AmiFightManager.Instance.currentPhase==2)
-            {
-                if(onIntro || onExit || onChange)
-                    amiView.SetAmiHit();
-                    return;
-            }
-            if(AmiFightManager.Instance.amiLivesP2 == 0 && AmiFightManager.Instance.currentPhase==3)
-            {
-                if (onIntro || onExit || onChange)
-                    amiView.SetAmiHit();
-                    return;
-            }
-            currentMovementCoroutine=StartCoroutine(HitSequence());
+        if ((1 << collision.gameObject.layer & bulletMask) == 0)
+            return;
 
+        if (onChange || onExit || onIntro)
+        {
+            amiView.SetAmiHit();
+            BulletMovement bMovement = collision.gameObject.GetComponent<BulletMovement>();
+            bMovement.DestroyBulletsOnHazards();
+            return;
         }
+
+        if (Time.time - lastHitTime < hitCooldown)
+        {
+            BulletMovement bMovement = collision.gameObject.GetComponent<BulletMovement>();
+            bMovement.DestroyBulletsOnHazards();
+            return;
+        }
+
+        lastHitTime = Time.time;
+
+        AmiFightManager.Instance.AmiHit();
+        BulletMovement bulletMovement = collision.gameObject.GetComponent<BulletMovement>();
+        bulletMovement.DestroyBulletsOnHazards();
+
+        if ((AmiFightManager.Instance.amiLivesP1 == 0 && AmiFightManager.Instance.currentPhase == 1) || (AmiFightManager.Instance.amiLivesP2 == 0 && AmiFightManager.Instance.currentPhase == 2))
+        {
+            amiView.SetAmiHit();
+            return;            
+        }
+
+        currentMovementCoroutine = StartCoroutine(HitSequence());
+                
     }
     public void PhaseChange()
     {
@@ -281,6 +288,12 @@ public class AmiController : MonoBehaviour
     }
     public IEnumerator HitSequence()
     {
+        if (isStunned)
+            yield break;
+        if(onChange || onExit || onIntro)
+            yield break;
+        if (!canHit)
+            yield break;
         isStunned = true;
         Vector2 actualVelocity= rigidBody.linearVelocity;
         hitParticles.transform.position = transform.position;
@@ -306,6 +319,7 @@ public class AmiController : MonoBehaviour
     public IEnumerator IntroCinematic()
     {
         onIntro=true;
+        canHit = false;
         amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Intro Cinematic");
@@ -324,11 +338,13 @@ public class AmiController : MonoBehaviour
         amiCollider.enabled = true;
         StartCoroutine(AmiFightManager.Instance.StartBossFight());
         onIntro = false;
+        canHit = true;
         yield break;
     }
     public IEnumerator ChangeCinematic()
     {
         onChange = true;
+        canHit = false;
         amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Phase change Cinematic");
@@ -349,11 +365,13 @@ public class AmiController : MonoBehaviour
         amiCollider.enabled = true;
         StartCoroutine(AmiFightManager.Instance.StartBossFight());
         onChange = false;
+        canHit = true;
         yield break;
     }
     public IEnumerator ExitCinematic()
     {
         onExit=true;
+        canHit = false;
         amiView.SetAmiMoving();
         amiCollider.enabled = false;
         Debug.Log("Starting Exit Cinematic");

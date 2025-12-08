@@ -145,7 +145,7 @@ public class AmiFightManager : MonoBehaviour
         }
         else if(currentPhase==2)
         {
-            amiLivesP2 = 5;
+            amiLivesP2 = 13;
             AmiView.Instance.UpdateAmiPhase();
             Debug.Log("Reseting Fight to Phase 2. Lives: " + amiLivesP2);
         }
@@ -174,10 +174,12 @@ public class AmiFightManager : MonoBehaviour
     }
     public void AmiHit()
     {
+        if (!fightActive)
+            return;
         CameraShake.Instance.Shake();
         if(currentPhase == 1)
         {
-            amiLivesP1--;
+            amiLivesP1 = Mathf.Max(amiLivesP1 - 1, 0);
             Debug.Log("Ami Lives P1: " + amiLivesP1);
             if (amiLivesP1 <= 0)
             {
@@ -188,7 +190,7 @@ public class AmiFightManager : MonoBehaviour
         }
         else if (currentPhase == 2)
         {
-            amiLivesP2--;
+            amiLivesP2 = Mathf.Max(amiLivesP2 - 1, 0);
             Debug.Log("Ami Lives P2: " + amiLivesP2);
             if (amiLivesP2 <= 0)
             {
