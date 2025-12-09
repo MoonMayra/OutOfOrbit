@@ -91038,6 +91038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENDLVL (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6059891690122815441, guid: 2dc8683969019cb438cae8625093525f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6637885394436557135, guid: 2dc8683969019cb438cae8625093525f, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.525
