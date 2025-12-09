@@ -792,7 +792,7 @@ MonoBehaviour:
   originalPoint: {fileID: 764230730}
   endPoint: {fileID: 1666267556}
   dust: {fileID: 783121578}
-  sceneToLoad: Cutscene8
+  sceneToLoad: DebriefScreen
   hitParticles: {fileID: 944856706}
   amiHitStunDurationP1: 0.4
   amiEnterTimeP1: 3

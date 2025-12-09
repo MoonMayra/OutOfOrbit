@@ -18,8 +18,18 @@ public class DebriefManager : MonoBehaviour
 
     public void BackToAreaSelectorScene()
     {
-        SceneManager.LoadScene("AreaSelector");
+        string lastScene = LevelManager.Instance.lastScenePlayed;
+
+        if (lastScene == "Mia")
+        {
+            SceneManager.LoadScene("Cutscene8");
+        }
+        else
+        {
+            SceneManager.LoadScene("AreaSelector");
+        }
     }
+
 
     public void GoToLevelScene()
     {

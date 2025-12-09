@@ -6095,9 +6095,9 @@ MonoBehaviour:
   labArea: {fileID: 2084587314}
   triggerName: Death
   menuSceneName: MainMenu
-  jungleSceneName: Jungle
-  caveSceneName: Underground
-  labSceneName: Lab
+  jungleSceneName: Cutscene1
+  caveSceneName: Cutscene4
+  labSceneName: Cutscene6
   jungleBossSceneName: Gorilla
   caveBossSceneName: Water
   labBossSceneName: Mia
