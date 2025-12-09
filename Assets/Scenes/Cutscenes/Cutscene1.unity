@@ -484,11 +484,7 @@ MonoBehaviour:
     rid: 5642161579191173121
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-<<<<<<< Updated upstream
     m_Mesh: {fileID: 1422178065}
-=======
-    m_Mesh: {fileID: 2012554205}
->>>>>>> Stashed changes
     m_LocalBounds:
       m_Center: {x: -0.15625, y: -0.03125, z: 0}
       m_Extent: {x: 0.7437439, y: 1.1187439, z: 0}
@@ -2062,11 +2058,7 @@ MonoBehaviour:
     rid: 5642161603039461470
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-<<<<<<< Updated upstream
     m_Mesh: {fileID: 276043458}
-=======
-    m_Mesh: {fileID: 83906086}
->>>>>>> Stashed changes
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.49499512, y: 0.5262451, z: 0}
@@ -2662,7 +2654,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-<<<<<<< Updated upstream
 --- !u!43 &638244690
 Mesh:
   m_ObjectHideFlags: 0
@@ -2828,8 +2819,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
-=======
->>>>>>> Stashed changes
 --- !u!1 &752639700
 GameObject:
   m_ObjectHideFlags: 0
@@ -12478,11 +12467,7 @@ MonoBehaviour:
     rid: 5642161603039461469
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-<<<<<<< Updated upstream
     m_Mesh: {fileID: 638244690}
-=======
-    m_Mesh: {fileID: 1018356913}
->>>>>>> Stashed changes
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.23750305, y: 0.42500305, z: 0}
