@@ -152,9 +152,13 @@ public class LevelManager : MonoBehaviour
         {
             breakPlatform.ResetPlatform();
         }
-        foreach (var wall in FindObjectsByType<BreakableWall>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        foreach (var actPlat in FindObjectsByType<ActivationPlat>(FindObjectsInactive.Include,FindObjectsSortMode.None))
         {
-            wall.ResetWall();
+            actPlat.ResetActivation();
+        }
+        foreach (var button in FindObjectsByType<BoxButton>(FindObjectsInactive.Include,FindObjectsSortMode.None))
+        {
+            button.ResetButton();
         }
         if(AmiFightManager.Instance != null)
         {

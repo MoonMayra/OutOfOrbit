@@ -72,4 +72,18 @@ public class Handcar : MonoBehaviour
         spriteRenderer.sprite = inactiveSprite;
         movingCoroutine = null;
     }
+
+    private void OnDrawGizmos()
+    {
+        Vector2 basePos = Application.isPlaying ? initialPosition : (Vector2)transform.position;
+
+        Vector2 targetA = basePos + moveDistance;
+        Vector2 targetB = basePos - moveDistance;
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(basePos, targetA);
+        Gizmos.DrawLine(basePos, targetB);
+
+
+    }
 }

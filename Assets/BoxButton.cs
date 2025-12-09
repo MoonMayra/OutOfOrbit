@@ -85,4 +85,14 @@ public class BoxButton : MonoBehaviour
                 currentActiveGroup = -1;
         }
     }
+    public void ResetButton()
+    {
+        isPressed = false;
+        animator.SetBool(animationBoolName, false);
+        timer = 0f;
+        timerActive = false;
+
+        if (currentActiveGroup == buttonGroupID)
+            currentActiveGroup = -1;
+    }
 }

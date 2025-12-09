@@ -41,4 +41,8 @@ public class ActivationPlat : MonoBehaviour
 
         animator.SetBool(animationBoolName, isActive);
     }
+    public void ResetActivation()
+    {
+        TogglePlatform(false);
+    }
 }
