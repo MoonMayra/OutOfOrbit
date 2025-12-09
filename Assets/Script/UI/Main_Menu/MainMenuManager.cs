@@ -31,9 +31,8 @@ public class MainMenuManager : MonoBehaviour
         if (PlayerStats.Instance != null)
             PlayerStats.Instance.StopTimer();
 
-            string lastScene = PlayerPrefs.GetString("LastScenePlayed", "");
-
-        levelsButton.interactable = (lastScene == "Jungle");
+       bool levelsUnlocked = PlayerPrefs.GetInt("LevelsUnlocked", 0) == 1;
+        levelsButton.interactable = levelsUnlocked; 
     }
 
     public void HideAllScreens()

@@ -20,14 +20,34 @@ public class DebriefManager : MonoBehaviour
     {
         string lastScene = LevelManager.Instance.lastScenePlayed;
 
+        PlayerPrefs.SetString("LastScenePlayed", lastScene);
+
+        if (lastScene == "Gorilla")
+        {
+            PlayerPrefs.SetInt("LevelsUnlocked", 1);
+            PlayerPrefs.SetInt("JungleBossUnlocked", 1);
+            PlayerPrefs.SetInt("CaveUnlocked", 1);
+        }
+
+        if (lastScene == "Water")
+        {
+            PlayerPrefs.SetInt("LevelsUnlocked", 1);
+            PlayerPrefs.SetInt("CaveBossUnlocked", 1);
+            PlayerPrefs.SetInt("LabUnlocked", 1);
+        }
+
         if (lastScene == "Mia")
         {
+            PlayerPrefs.SetInt("LabBossUnlocked", 1);
+            PlayerPrefs.SetInt("LevelsUnlocked", 1);
+            PlayerPrefs.Save();
+
             SceneManager.LoadScene("Cutscene8");
+            return;
         }
-        else
-        {
-            SceneManager.LoadScene("AreaSelector");
-        }
+
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("AreaSelector");
     }
 
 
@@ -38,7 +58,6 @@ public class DebriefManager : MonoBehaviour
         if (returnScenes.ContainsKey(lastScene))
         {
             string sceneToLoad = returnScenes[lastScene];
-
             SceneManager.LoadScene(sceneToLoad);
         }
 

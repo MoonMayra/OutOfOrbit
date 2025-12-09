@@ -15,27 +15,20 @@ MonoBehaviour:
   conversationLines:
   - speakerName: TV Reporter
     dialogueLine: 'This just in from the Ministry of Intersetllar Affairs:'
-    dialogueImage: {fileID: -4657137745714291183, guid: f3f8ae5d6c999e443999b7a4810d6fda, type: 3}
   - speakerName: TV Reporter
     dialogueLine: '"We urge all citizens to remain calm as we face a critical situation
       for our species.'
-    dialogueImage: {fileID: 3628692128513145080, guid: 90bdd3c8cb7a5db4bb4ec729436ce598, type: 3}
   - speakerName: TV Reporter
     dialogueLine: Due to unforeseen circumstances, planet Earth has deviated from
       its regular orbit.
-    dialogueImage: {fileID: 0}
   - speakerName: TV Reporter
     dialogueLine: 'Current studies estimate approximately twenty-one days before
       Earth collides with the celestial body designated DD-426. '
-    dialogueImage: {fileID: 0}
   - speakerName: TV Reporter
     dialogueLine: 'The Ministry assures that every possible measure is being taken
       to find a solution. '
-    dialogueImage: {fileID: 0}
   - speakerName: TV Reporter
     dialogueLine: "Further updates will be provided as the situation develops.\u201D"
-    dialogueImage: {fileID: 0}
   - speakerName: TV Reporter
     dialogueLine: "What lies ahead for humanity in the coming days? Stay tuned, we\u2019ll
       continue to bring you the latest reports."
-    dialogueImage: {fileID: 0}

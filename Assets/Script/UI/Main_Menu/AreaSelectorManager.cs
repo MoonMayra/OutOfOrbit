@@ -47,6 +47,7 @@ public class AreaSelectorManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("JungleBossUnlocked", 1);
             PlayerPrefs.SetInt("CaveUnlocked", 1);
+            PlayerPrefs.SetInt("LevelsUnlocked", 1);
 
             jungleBossUnlocked = true;
             caveUnlocked = true;
@@ -56,6 +57,8 @@ public class AreaSelectorManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("CaveBossUnlocked", 1);
             PlayerPrefs.SetInt("LabUnlocked", 1);
+            PlayerPrefs.SetInt("LevelsUnlocked", 1);
+
             caveBossUnlocked = true;
             labUnlocked = true;
         }
@@ -108,33 +111,51 @@ public class AreaSelectorManager : MonoBehaviour
 
     public void GoToJungleScene()
     {
+        PlayerPrefs.SetString("LastScenePlayed", "Jungle");
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(jungleSceneName);
         PlayerStats.Instance.StartTimer();
     }
 
     public void GoToCaveScene()
     {
+        PlayerPrefs.SetString("LastScenePlayed", "Underground"); 
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(caveSceneName);
     }
 
     public void GoToLabScene()
     {
+        PlayerPrefs.SetString("LastScenePlayed", "Lab");
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(labSceneName);
     }
 
     public void GoToJungleBossScene()
     {
+        PlayerPrefs.SetString("LastScenePlayed", "Gorilla");
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(jungleBossSceneName);
         PlayerStats.Instance.StartTimer();
     }
 
     public void GoToCaveBossScene()
     {
+        PlayerPrefs.SetString("LastScenePlayed", "Water");
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(caveBossSceneName);
     }
 
     public void GoToLabBossScene()
     {
+        PlayerPrefs.SetString("LastScenePlayed", "Mia");
+        PlayerPrefs.Save();
+
         SceneManager.LoadScene(labBossSceneName);
     }
     public void HideAllScreens()
