@@ -275,7 +275,28 @@ public class PlayerShoot : MonoBehaviour
 
         activeVoids[validIndex] = newVoid;
     }
+    public void CreateVoidOnMaxBounce(GameObject bullet)
+    {
+        if (bullet == null)
+            { return; }
+        int index=System.Array.IndexOf(activeBullets, bullet);
+        if (index == -1)
+        {
+            return;
+        }
 
+        if (activeVoids[index]!=null)
+        {
+            return;
+        }
+
+        Vector2 spawnPos= bullet.transform.position;
+        GameObject newVoid=Instantiate(voidPrefab[index], spawnPos, Quaternion.identity);
+
+        GravityVoid actualVoid = newVoid.gameObject.GetComponent<GravityVoid>();
+        actualVoid.linkedBullet = bullet;
+        activeVoids[index] = newVoid;
+    }
     public void RemoveBullet(int slotIndex, bool immediate)
     {
         GameObject bullet = activeBullets[slotIndex];
