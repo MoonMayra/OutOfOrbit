@@ -169,6 +169,7 @@ public class AmiFightManager : MonoBehaviour
             wall.ReturnToInitialPosition(1f);
         }
         StartCoroutine(ami.ExitCinematic());
+        LevelManager.Instance.MiaPlayed = true;
         Debug.Log("Boss Fight Ended");
         yield break;
     }

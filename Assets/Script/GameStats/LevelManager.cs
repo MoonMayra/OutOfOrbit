@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     public bool isNewGame = false;
 
-
+    public bool MiaPlayed = false;
     private void Awake()
     {
         if (Instance == null)
@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour
             scene.name == "MainMenu" ||
             scene.name == "AreaSelector" ||
             scene.name == "DebriefScreen" ||
+            scene.name == "Credits" ||
             scene.name.StartsWith("Cutscene"))
             return;
 

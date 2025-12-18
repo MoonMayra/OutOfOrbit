@@ -6103,6 +6103,7 @@ MonoBehaviour:
   labBossSceneName: Mia
   jungleBossButton: {fileID: 483307086}
   caveBossButton: {fileID: 201602687}
+  labBossButton: {fileID: 1587224847}
   caveAreaButton: {fileID: 1578124776}
   labAreaButton: {fileID: 200432302}
 --- !u!4 &1646725150
