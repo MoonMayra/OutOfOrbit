@@ -603,8 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79a68037da8e8e4e81192dfa8e2239b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaSelectorSceneName: AreaSelector
-  levelSceneName: Jungle
 --- !u!1001 &715096895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2084,6 +2082,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.511
       objectReference: {fileID: 0}
+    - target: {fileID: 2609326874388061924, guid: 68a74d6d5c57aaf44b54d639402cfbfb, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: d3e64f86a6a7455418e633a592eb042d, type: 3}
     - target: {fileID: 4770373947336067722, guid: 68a74d6d5c57aaf44b54d639402cfbfb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
