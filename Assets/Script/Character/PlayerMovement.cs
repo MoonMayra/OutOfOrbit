@@ -282,8 +282,28 @@ public class PlayerMovement : MonoBehaviour
             velocityPlayer.x = Mathf.MoveTowards(velocityPlayer.x, targetVelX * controlInAir, accel * Time.fixedDeltaTime);
         }
 
+        Vector2 gvForces = Vector2.zero;
+        bool playerInsideGravityVoid = false;
+        if (playerShoot != null)
+        {
+            foreach (var voidObj in playerShoot.activeVoids)
+            {
+                if (voidObj != null)
+                {
+                    GravityVoid gv = voidObj.GetComponent<GravityVoid>();
+                    if (gv != null)
+                    {
+                        if (gv.IsPlayerInVoid())
+                        {
+                            playerInsideGravityVoid = true;
+                        }
+                        gvForces += gv.CalculateGVForcePlayer();
+                    }
+                }
+            }
+        }
         //Gravity
-        if (!groundCheck.isGrounded)
+        if (!groundCheck.isGrounded && !playerInsideGravityVoid)
         {
             float actualGravity;
 
@@ -301,21 +321,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Add gravity fields effect
-        Vector2 gvForces = Vector2.zero;
-        if (playerShoot != null)
-        {
-            foreach (var voidObj in playerShoot.activeVoids)
-            {
-                if (voidObj != null)
-                {
-                    GravityVoid gv = voidObj.GetComponent<GravityVoid>();
-                    if (gv != null)
-                    {
-                        gvForces += gv.CalculateGVForcePlayer();
-                    }
-                }
-            }
-        }
+        
 
         velocityPlayer += gvForces;
 

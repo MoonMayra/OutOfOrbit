@@ -45,9 +45,9 @@ public class GravityVoid : MonoBehaviour
             bulletRigidBody = collision.GetComponent<Rigidbody2D>();
             bulletTransform = collision.GetComponent<Transform>();
         }
-        if (((1 << collision.gameObject.layer) & objects.value) !=0)
-        { 
-            objectsRigidBody= collision.GetComponent<Rigidbody2D>();
+        if (((1 << collision.gameObject.layer) & objects.value) != 0)
+        {
+            objectsRigidBody = collision.GetComponent<Rigidbody2D>();
             objectsTransform = collision.GetComponent<Transform>();
         }
     }
@@ -69,19 +69,19 @@ public class GravityVoid : MonoBehaviour
 
     private Vector2 CalculateGVForce(Transform target)
     {
-        if(target == null)
+        if (target == null)
         {
             return Vector2.zero;
         }
-        Vector2 direction = (Vector2) transform.position-(Vector2)target.position;
-        float distance= direction.magnitude;
+        Vector2 direction = (Vector2)transform.position - (Vector2)target.position;
+        float distance = direction.magnitude;
         if (distance >= voidRadius)
         {
-            return Vector2.zero ;
+            return Vector2.zero;
         }
         direction.Normalize();
-        float strenght=gravityStrength*(1-(distance/voidRadius));
-        return direction*strenght*Time.fixedDeltaTime;
+        float strenght = gravityStrength * (1 - (distance / voidRadius));
+        return direction * strenght * Time.fixedDeltaTime;
 
     }
     private Vector2 CalculateGVForceObject(Transform target)
@@ -144,7 +144,7 @@ public class GravityVoid : MonoBehaviour
     {
         timer += Time.fixedDeltaTime;
 
-        if (objectsRigidBody!=null)
+        if (objectsRigidBody != null)
         {
             objectsRigidBody.linearVelocity += CalculateGVForceObjects();
         }
@@ -161,6 +161,10 @@ public class GravityVoid : MonoBehaviour
             Destroy(linkedBullet);
 
         Destroy(gameObject);
+    }
+    public bool IsPlayerInVoid()
+    {
+        return playerTransform != null && playerRigidBody != null;
     }
 }
 

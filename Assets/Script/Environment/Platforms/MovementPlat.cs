@@ -24,7 +24,7 @@ public class MovementPlat : MonoBehaviour
     [SerializeField] private string bounceTag = "Ground";
     [SerializeField] private float minLimit;
     [SerializeField] private float maxLimit;
-
+    [SerializeField] private Color debugColor;
     [SerializeField] public MovementDirection initialDirection = MovementDirection.Right;
 
     private Vector2 direction;
@@ -38,6 +38,8 @@ public class MovementPlat : MonoBehaviour
 
     public float tolerance = 0.001f;
     private Vector2 prevVel;
+
+    private string hexColor;
 
     private void Awake()
     {
@@ -59,6 +61,7 @@ public class MovementPlat : MonoBehaviour
         {
             lineRenderer.positionCount = 2;
         }
+        hexColor = ColorUtility.ToHtmlStringRGB(debugColor);
 
     }
 
@@ -92,6 +95,7 @@ public class MovementPlat : MonoBehaviour
     private void MovePlatform()
     {
         platformRigidBody.linearVelocity = direction * speed;
+        
     }
 
     private void CheckLimits()
@@ -128,6 +132,7 @@ public class MovementPlat : MonoBehaviour
         if (shouldChange)
         {
             transform.position = pos;
+            Debug.Log($"<color=#{hexColor}>{name} | FixedTime {Time.fixedTime:F3} | </color>" + $"<color=#{hexColor}>Pos {transform.position} | </color>" + $"<color=#{hexColor}>Limit {maxLimit}</color>");
             ChangeDirection();
         }
     }
@@ -144,6 +149,7 @@ public class MovementPlat : MonoBehaviour
         isWaiting = true;
         timer = 0f;
         platformRigidBody.linearVelocity=Vector2.zero;
+        //Debug.Log($"<color=#{hexColor}> Cambio de direccion: {Time.frameCount} </color>");
     }
 
     public void ResetPlatform()

@@ -6482,6 +6482,7 @@ MonoBehaviour:
   bounceTag: Ground
   minLimit: 0
   maxLimit: 0
+  debugColor: {r: 0, g: 0, b: 0, a: 0}
   initialDirection: 1
   bottomPos: {fileID: 0}
   waitTime: 0.5
@@ -8132,6 +8133,7 @@ MonoBehaviour:
   bounceTag: Ground
   minLimit: 0
   maxLimit: 0
+  debugColor: {r: 0, g: 0, b: 0, a: 0}
   initialDirection: 1
   bottomPos: {fileID: 0}
   waitTime: 0.5
