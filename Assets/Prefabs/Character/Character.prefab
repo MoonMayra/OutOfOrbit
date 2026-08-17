@@ -286,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInput: {fileID: 6284116882949636389, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   activateInput: {fileID: -7050787572503813752, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  deleteInput: {fileID: -2831328245611277452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   gravityVoid: {fileID: 0}
   trayectory: {fileID: 0}
   bulletMov: {fileID: 0}

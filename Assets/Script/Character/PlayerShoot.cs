@@ -12,6 +12,7 @@ public class PlayerShoot : MonoBehaviour
     [Header("Input")]
     [SerializeField] private InputActionReference shootInput;
     [SerializeField] private InputActionReference activateInput;
+    [SerializeField] private InputActionReference deleteInput;
 
     [Header("Scripts")]
     [SerializeField] private GravityVoid gravityVoid;
@@ -57,6 +58,8 @@ public class PlayerShoot : MonoBehaviour
 
         activateInput.action.performed += HandleActivateInput;
 
+        deleteInput.action.performed += HandleDeleteBulletInput;
+
         playerRB = GetComponent<Rigidbody2D>();
         trayectory = GetComponentInChildren<TrayectoryPreview>();
         spawn = bulletSpawn;
@@ -76,6 +79,8 @@ public class PlayerShoot : MonoBehaviour
 
         activateInput.action.performed += HandleActivateInput;
 
+        deleteInput.action.performed += HandleDeleteBulletInput;
+
         playerRB = GetComponent<Rigidbody2D>();
         trayectory = GetComponentInChildren<TrayectoryPreview>();
 
@@ -88,6 +93,8 @@ public class PlayerShoot : MonoBehaviour
         shootInput.action.canceled -= HandleShootInput;
 
         activateInput.action.performed -= HandleActivateInput;
+
+        deleteInput.action.performed -= HandleDeleteBulletInput;
 
         SceneManager.sceneLoaded -= OnSceneLoaded;
         trayectory = null;
@@ -105,8 +112,41 @@ public class PlayerShoot : MonoBehaviour
             trayectory = GetComponentInChildren<TrayectoryPreview>();
         }
     }
+    private void HandleDeleteBulletInput(InputAction.CallbackContext context)
+    {
+        if(!context.performed)
+            return;
+        if (bulletCreationOrder.Count==0)
+        {
+            return;
+        }
+
+        GameObject oldestBullet = bulletCreationOrder[bulletCreationOrder.Count-1];
+
+        if(oldestBullet == null)
+        {
+            bulletCreationOrder.RemoveAt(bulletCreationOrder.Count - 1);
+            return;
+        }
+        int slotIndex = System.Array.IndexOf(activeBullets, oldestBullet);
+
+        if(slotIndex!=-1)
+        {
+            RemoveBullet(slotIndex, false);
+        }
+    }
     private void HandleActivateInput(InputAction.CallbackContext context)
     {
+        if (!context.performed)
+            return;
+
+        if(isAiming)
+        {
+            isAiming = false;
+            trayectory.ClearLine();
+            return;
+        }
+
         if(!isAbleToShoot || IsAnyBulletMoving())
             return;
 
